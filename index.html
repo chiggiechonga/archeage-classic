@@ -11,18 +11,18 @@
 :root{
   --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
   --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
-  --accent:#6fbfae; --accent-soft:#1f3633; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --hot:#b8b2ec; --hot-bg:#29283d;
+  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --hot:#b8b2ec; --hot-bg:#29283d;
   --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55}
-a{color:var(--accent)} a:hover{color:#a3dccf}
+a{color:var(--accent)} a:hover{color:#c6d3f2}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
 @media (min-width:700px){.wrap{padding-inline:24px}}
 
-header{background:var(--bar);border-bottom:1px solid var(--line)}
+header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
 .top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
 nav{display:flex;flex-wrap:wrap;gap:2px}
@@ -35,9 +35,9 @@ main{display:flex;flex-direction:column;gap:32px;padding-block:40px 64px}
 .lead{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:stretch}
 .hero{position:relative;min-height:280px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:rgba(15,18,20,.74)}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:rgba(34,58,112,.86)}
 .hero h1{margin:0;font-family:"Cinzel",Georgia,serif;font-size:clamp(30px,4vw,40px);line-height:1.1;font-weight:600;letter-spacing:.02em;color:#f3ecdc}
-.hero p{margin:6px 0 0;font-size:17px;color:#d4dad7}
+.hero p{margin:6px 0 0;font-size:17px;color:#dfe6f5}
 
 .lookup{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
 .lookup label{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
@@ -93,7 +93,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 <header>
   <div class="wrap top">
     <a class="brand" href="./">
-      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6fbfae" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
       Archeage Classic
     </a>
     <nav aria-label="Main">
@@ -133,7 +133,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <span class="go">Coming soon</span>
     </div>
     <a class="card door" href="taming-map.html">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6fbfae" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg></span>
+      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg></span>
       <h2>Taming Map</h2>
       <p>Where every tameable beast spawns across Nuia, Haranya and Auroria.</p>
       <span class="go">Open the map →</span>
@@ -251,8 +251,8 @@ function drawChart(name){
   const x = i => pts.length===1 ? (L+(W-R))/2 : L + i*(W-L-R)/(pts.length-1);
   const y = v => T + (hi-v)*(H-T-B)/(hi-lo);
   const grid = [0,0.5,1].map(f => { const v = lo + (hi-lo)*f; return `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#2b3135"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${gold(v)}</text>`; }).join('');
-  const line = pts.length>1 ? `<polyline fill="none" stroke="#6fbfae" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>` : '';
-  const dots = pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="${pts.length>40?2:4}" fill="#6fbfae"><title>${esc(p[0])}: ${gold(p[1])}</title></circle>`).join('');
+  const line = pts.length>1 ? `<polyline fill="none" stroke="#9db3e6" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>` : '';
+  const dots = pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="${pts.length>40?2:4}" fill="#9db3e6"><title>${esc(p[0])}: ${gold(p[1])}</title></circle>`).join('');
   const step = Math.max(1, Math.ceil(pts.length/6));
   const xl = pts.map((p,i) => (i%step===0||i===pts.length-1) ? `<text x="${x(i)}" y="${H-12}" text-anchor="middle">${esc(p[0].slice(5))}</text>` : '').join('');
   const one = pts.length===1 ? `<text x="${W/2}" y="${T+14}" text-anchor="middle">One day so far: the line grows each morning</text>` : '';

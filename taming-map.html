@@ -5,7 +5,7 @@
 <style>
 /* Layout: field-guide — map stage on top with a beast picker beside it, a ledger table below */
 :root{
-  --bg:#15181b; --surface:#1e2226; --ink:#e3e6e2; --muted:#a7afab; --line:#2b3135; --accent:#6fbfae; --accent-soft:#1f3633; color-scheme:dark;
+  --bg:#15181b; --surface:#1e2226; --ink:#e3e6e2; --muted:#a7afab; --line:#2b3135; --accent:#9db3e6; --accent-soft:#223a70; color-scheme:dark;
   --display:"Proxima Nova", "proxima-nova", "Figtree", "Segoe UI", system-ui, sans-serif; --body:"Proxima Nova", "proxima-nova", "Figtree", "Segoe UI", system-ui, sans-serif;
 }
 *{box-sizing:border-box}
@@ -18,7 +18,7 @@ header p{margin:.3rem 0 0;color:var(--muted);max-width:70ch}
 .mapcol{display:grid;gap:10px;min-width:0}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
 .tab{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 14px;font:700 .95rem var(--body);cursor:pointer}
-.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.tab[aria-selected="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
 .tab small{font-weight:500;opacity:.8;margin-left:4px}
 .mapbox{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
 .mapbox svg{display:block;width:100%;height:auto}
