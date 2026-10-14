@@ -17,7 +17,7 @@ function snapshotHistory() {
   const ss = SpreadsheetApp.getActive();
   const site = ss.getSheetByName('Website');
   const hist = ss.getSheetByName('History');
-  const tz = ss.getSpreadsheetTimeZone();
+  const tz = ss.getSpreadsheetTimeZone() || Session.getScriptTimeZone() || 'America/Los_Angeles';
   const today = Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd');
 
   // Skip if today is already recorded (safe to run twice).
