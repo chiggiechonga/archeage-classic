@@ -1,0 +1,3568 @@
+Item ID,Item Name,7d Volume,24h Avg,7d Avg,30d Avg,24h Volume,30d Volume
+99,Lucky Azalea Vase,,,,4.79,,1
+101,Square Bamboo Bonsai,,,,10,,1
+102,Pine Bonsai,,,,14.99,,2
+103,Octagonal Bamboo Bonsai,,,,6,,1
+104,Narcissus Flowerbed,,,,0.022,,1
+105,Poppy Flowerpot,,,,0.051,,1
+106,Azalea Vase,,,,3.9999,,1
+107,Fragrant Flowerpot,,,,10,,1
+110,Elephant Head Trophy,,,,29.9999,,1
+111,Merchant's Feast Table,,,,0.273,,1
+112,Monarch's Lavish Table,,,,24.99,,1
+113,Wooden Dining Table,,,,20.9999,,1
+116,Scholar's Council Table,,,,30,,1
+117,Hardwood Bookshelf,,,,4,,1
+118,Monarch's Bookshelf,,,,7.9999,,1
+119,Hardwood Shelf,,,,9.99,,1
+121,Merchant's Display Cabinet,,,,10,,1
+125,Basic Storage Chest,1,150,150,152.0526053,1,19
+126,Superior Storage Chest,16,319.999875,343.5618438,356.5215101,4,69
+327,Dawnstone,,,,50,,1
+685,Star Wings,,,,0.99,,15
+773,Apple,26889,0.0769875,0.1249628319,0.5105606218,2723,153774
+784,Rice,1182407,0.02621567164,0.02439900826,0.02345792492,127651,5600477
+1386,Archeum Ore,12841,0.128096875,0.1873206522,0.1948392282,3256,96695
+2154,Crayfish,,,,0.105,,31
+2178,Cornflower,21010,0.3242,0.318978125,0.3002165289,3301,127331
+2201,Starshard Chip,5235,1.265625,1.195967797,1.211902811,633,21002
+3332,Starshard Ingot,5448,4.297872222,4.325926087,4.25191019,735,30258
+3411,Copper Ore,116875,1.0585275,1.030335259,1.044186132,6039,447760
+3479,Jinn's Tongue,20,10,10,1.381641176,20,129
+3487,Raw Lumber,7,4.9992,4.9955,7.773,2,67
+3507,Chicken Meat,3291,,0.615,0.6829540541,,12355
+3515,Duck Meat,1236,0.5029,0.59758,0.6283632911,200,7042
+3545,Oats,41387,0.397436,0.341564,0.3021370861,8921,224004
+3546,Millet,11806,0.0245,0.02219945042,0.02491816692,1000,60332
+3553,Quinoa,10844,0.3802,0.5462815789,0.4770123711,2400,55030
+3564,Lily,36623,0.3300214286,0.3207774436,0.2843034826,3105,195770
+3581,Baobab Fruit,38,0.04985,0.07936666667,0.134375,17,196
+3583,Blueberry,2620,0.2111,0.1765235294,0.1714853239,1027,19225
+3587,Apricot,190,,0.6124,0.7958897119,,1896
+3588,Pomegranate,3053,0.9994,0.8164280702,0.7885316017,27,11141
+3592,Avocado,8440,0.05888333333,0.08340357143,0.189885,1787,21935
+3603,Egg,9982,0.0868,0.06309032258,0.08885971731,1220,64170
+3622,Sunflower,5722,0.1799,0.11118,0.1648273188,1355,14717
+3627,Lavender,69852,0.0535,0.06753663366,0.06948289046,2216,304360
+3628,Rosemary,10955,0.3465142857,0.345470425,0.3320406177,663,42581
+3630,Vanilla,6697,0.11225,0.09842083333,0.08302991071,110,46135
+3659,Cactus,10591,0.6915333333,0.3960289796,0.3120561929,2181,57562
+3667,Narcissus,415591,0.05966710526,0.07184181034,0.07089695279,72784,1592320
+3671,Lotus,35698,0.3769714286,0.31606,0.330965392,7706,192353
+3675,Bay Leaf,11988,0.1102,0.217640625,0.1910179187,1050,58697
+3680,Cultivated Ginseng,19684,0.2918555556,0.380940678,0.4173331138,3691,80926
+3684,Azalea,518578,0.05204137931,0.05335807018,0.05419335749,56005,2256984
+3685,Clover,205842,0.06101212121,0.06288921162,0.06721175869,30267,776614
+3694,Chestnut,3568,1.94985,1.306828571,1.585688148,130,8554
+3711,Rose,162586,0.06487142857,0.06860190476,0.07180062762,23412,779288
+3712,Hay Bale,285801,0.3031983051,0.3326634892,0.3135709506,31722,1351265
+3713,Iris,29723,0.08956666667,0.08650294118,0.08639356283,3000,124478
+4014,Brown Hardwood Bed,5,,58.99994,61.51669032,,31
+4052,Hereafter Stone,191729,0.3092730769,0.345212403,0.3141023667,24249,942697
+4856,Apple Sapling,,,,0.0155,,8
+4858,Ash Sapling,,,,0.1003333333,,3
+4859,Willow Sapling,,,,0.101,,1
+4861,Olive Sapling,,,,1.99,,1
+4862,Cork Sapling,,,,0.03273863636,,88
+4863,Aspen Sapling,,,,0.71,,14
+4864,Birch Sapling,1,,0.101,1.5505,,2
+4865,Grapevine Sapling,499,,0.08993333333,0.08993333333,,499
+4866,Cottonwood Sapling,1,,0.101,0.101,,1
+4867,Small Bamboo Trap,75,,1,2.252233333,,171
+4889,Blueberry Seed,,,,0.06,,6
+4904,Cotton Seed,1170,,0.007755882353,0.007755882353,,1170
+5318,Civilian Dagger,,,,4.5,,2
+5569,Civilian Longsword,,,,2,,1
+6077,Civilian Staff,,,,55,,1
+6127,Civilian Bow,,,,8.5,,2
+6152,Civilian Shield,,,,10,,1
+6177,Civilian Lute,1,,2,2,,1
+6202,Civilian Flute,,,,9,,1
+7711,Illustrious Gale Necklace,,,,11.8,,5
+7712,Illustrious Wave Necklace,,,,18.749975,,4
+7713,Illustrious Flame Necklace,,,,10,,1
+7722,Illustrious Earth Ring,3,,311.037,280.6899263,,19
+7723,Illustrious Flame Ring,1,,50,54.59993,,10
+7724,Illustrious Wave Ring,1,,50,29.77767778,,9
+7725,Illustrious Gale Ring,1,,10,62.85708571,,7
+7728,Delphinad Flame Ring,3,,1248,1749.875,,8
+7732,Delphinad Gale Necklace,,,,1500,,1
+7744,Any-Post Owl,,,,0.1,,36
+7747,Pork,80306,0.03495,0.031252,0.03192142333,2306,376324
+7764,Star Chart,4,,39.95,39.96,,8
+7992,Potato,31504,0.0436,0.03516734694,0.04472142857,1376,229849
+7994,Yam,7564,0.29595,0.291790625,0.31266572,1396,45253
+7998,Carrot,9009,0.0908,0.08386136364,0.08714854772,1542,63793
+8000,Peanut,54692,0.323973913,0.3081887805,0.2929260532,4725,269296
+8001,Garlic,15186,0.07655,0.07470769231,0.08338529135,2000,66934
+8004,Wheat,48521,0.3249,0.3997214689,0.3423413591,6933,252991
+8005,Barley,252912,0.03994897959,0.04120139373,0.04259931373,47987,1380995
+8006,Strawberry,3842,0.333,0.3324190476,0.2791201923,122,16739
+8007,Pelt,350179,0.1271878788,0.1316128329,0.1395908852,54036,1463894
+8008,Raw Stone,1097703,0.00281091954,0.002260336907,0.00314062837,153674,5348721
+8009,Poppy,3537,0.48235,0.4200322884,0.4184959829,300,29032
+8010,Onion,582,,0.0697,0.0890826087,,9257
+8012,Cucumber,339391,0.038446875,0.03688641304,0.03941610276,28848,1455836
+8013,Corn,888051,0.04606875,0.05635596234,0.04717113536,106098,3604858
+8015,Bean,10098,0.52975,0.4595410728,0.4139931883,1333,26619
+8016,Tomato,11749,0.03478,0.04359273619,0.06635907424,1319,53072
+8017,Log,1910427,0.009838745387,0.009749101625,0.01046828769,256886,8520535
+8018,Pumpkin,13281,,0.1680268043,0.1787254074,,59989
+8019,Pepper,7228,0.08943333333,0.09011290323,0.08361452514,3288,45655
+8022,Iron Ore,1316695,0.1649736264,0.1657059776,0.1689583486,132373,5777949
+8023,Silver Ore,119680,0.928778481,0.9548126389,0.9759484351,18449,446314
+8027,Gold Ore,75875,0.09091351351,0.09587594203,0.1399273704,6657,296726
+8028,Beechnut,2593,1.045266667,1.069651613,0.8800178222,600,9829
+8034,Jujube,6109,0.4934333333,0.46129375,0.3654522843,289,24240
+8035,Acorn,798,,0.1281589744,0.1762090535,,4645
+8036,Lemon,255446,0.2098611111,0.2143407925,0.1770492025,31768,1299126
+8038,Fig,6104,,0.1045346154,0.09877370629,,35412
+8040,Cottonwood Fruit,50,,0.20804,0.1851166667,,599
+8048,Beef,13832,0.1817,0.1578465116,0.1750134573,1043,49027
+8050,Coconut,1671,0.9204857143,0.9037806452,1.109489032,133,8108
+8052,Mutton,5747,0.24785,0.4245307692,0.51327,1058,8472
+8053,Wool,275503,0.1159647059,0.07284458599,0.07028692616,11905,1527056
+8054,Olive,19136,0.2924571429,0.280515,0.3287866667,2169,77131
+8055,Milk,587350,0.09627820513,0.1010522857,0.1001117653,60820,2826816
+8065,Grape,64591,0.09563809524,0.1011138889,0.1018319271,9308,338143
+8067,Pure Copper Ore,230,8.054044444,8.065935,8.582846781,50,1744
+8076,Diamond,1067,43.20435455,26.64750395,18.99433377,143,5531
+8077,Ruby,1491,0.2693625,0.417075,0.6984134791,181,7311
+8078,Sapphire,1083,0.6993,0.2484149425,0.2682146048,76,16505
+8079,Amethyst,3752,0.7424684211,0.5405091295,0.5924557024,612,16131
+8080,Anya Pebble,50760,4.260239394,4.187785331,4.198390768,6580,247354
+8081,Pure Iron Ore,3064,1.270366667,1.364017647,1.555183728,405,15610
+8082,Emerald,2948,5.995356667,6.128285239,6.709971246,384,12175
+8083,Pearl,18363,1.817664286,1.576275281,1.387764,1529,74765
+8084,Topaz,2268,9.636086364,6.890059783,5.761307773,146,10781
+8085,Pure Silver Ore,384,7.22427037,7.997621393,8.483148726,158,1901
+8086,Pure Gold Ore,160,1.0479,1.048611111,1.278271682,57,1049
+8172,Sovereign's Piano,,,,199,,1
+8179,Sovereign's Rose Chaise,,,,1.829,,1
+8180,Black-Etched Jar,,,,5,,1
+8182,Ocean Blue Jar,,,,19.14,,1
+8184,Bluewing Vase,,,,6,,1
+8185,Sun and Moon Vase,,,,4.9999,,1
+8186,Spring Meadow Vase,,,,12,,1
+8187,Tall Marbled Gourd Bottle,1,,5,5,,1
+8190,Sunbeam Hardwood Mannequin,,,,4.9999,,1
+8194,Scholar's Leather Chair,,,,5,,1
+8195,Scholar's Large Bookshelf,,,,45,,1
+8196,Scholar's Desk,,,,5,,1
+8198,Sovereign's Large Bookshelf,,,,100,,1
+8200,Noble's Partition,,,,14,,1
+8201,Noble's Round Table,,,,19,,1
+8204,Relaxing Painting,,,,4.9999,,1
+8205,Noble's Everyday Painting,,,,4.9999,,1
+8206,Star Weapon Rack,,,,30,,1
+8207,Simple Hardwood Table,,,,4.99,,1
+8210,Hardwood Chair,,,,10,,1
+8212,Tri-Level Wood Bureau,,,,19,,1
+8216,Hardwood Dining Table,,,,20,,1
+8217,Merchant's Extraordinary Bureau,,,,12.99,,1
+8218,Hardwood Glass Cabinet,,,,3.99,,1
+8219,Wooden Armchair,,,,3,,1
+8221,Sovereign's Council Table,,,,79,,1
+8224,Star Eagle Rack,,,,9.0909,,2
+8230,Star Suit of Armor,,,,7,,1
+8231,Wood Liquor Cabinet,,,,30,,1
+8234,Blue Landscape Vase,,,,6,,1
+8235,Sunhat Doll,,,,20,,1
+8236,Brown Bearskin Rug,,,,9.99,,1
+8237,White Bearskin Rug,,,,19.99,,1
+8256,Fabric,207672,0.2494873016,0.2558518182,0.3750435881,24963,1122679
+8318,Iron Ingot,636468,0.6673592943,0.627961863,0.659153118,76010,3050992
+8319,Sturdy Ingot,2675,20.7731119,21.14889693,22.64479364,313,12064
+8320,Copper Ingot,34122,3.24284,3.450763001,3.340982453,3746,141495
+8324,Ocean Blue Coral,1,10,10,10.66666667,1,50
+8325,Sunset Pearl,,,,100,,1
+8326,Blue Salt Knife,,,,0.04986666667,,981
+8329,Blue Salt Hammer,,,,0.1000065359,,459
+8330,Glossy Feather,10388,0.7671692308,0.7804508772,0.6488949318,2396,47985
+8337,Lumber,768528,0.1190359788,0.1220137859,0.1182023239,95227,3418701
+8343,Stone Brick,345034,0.07329210585,0.06879141301,0.08513429309,56235,1861188
+8357,Cotton,40094,0.07973333333,0.05069615385,0.05877082857,3000,152222
+8501,Fruit Punch,,,,1,,16
+8502,Honey Mead,100,,0.03,0.44,,110
+8503,Bubble Tea,,,,1,,100
+8504,Tangy Soda,1010,1.9998,1.754498387,2.780008173,5,4920
+8505,Savory Soup,10,,0.05,0.02705,,20
+8506,Whole Grain Soup,588,0.80195,0.7865111111,0.6478327869,148,2391
+8507,Vegetable Soup,1890,0.814975,0.7973043478,0.7895155844,400,5865
+8508,Sweet Soup,100,,1.2,1.124766071,,2994
+8515,Solar Glow,,,,0.7577,,30
+8516,Serene Lake,,,,0.5583933333,,65
+8521,Comet's Flare,4,,0.12,0.12,,4
+8522,Unbridled Tide,60,,0.12,0.12,,60
+8524,Burning Aura,5,,0.12,0.12,,5
+8525,Midsummer Bay,189,,0.4,0.4,,189
+8527,Rising Phoenix,,,,1.1,,765
+8528,Ocean Dream,97,,0.12,0.7066666667,,252
+11115,Experimental Glider Design,3,0.4999,0.4998666667,0.4998956522,1,23
+11116,Improved Glider Design,10,0.9999,0.99993,0.9999104167,1,48
+11117,Enhanced Glider Design,10,1.4999,1.49993,1.499910417,1,48
+11118,Ultimate Glider Design,12,2.2222,2.222191667,2.222203774,2,53
+13724,Lemon Sapling,1259,,0.08493333333,0.0712,,1356
+13726,Bay Sapling,21,,0.07504761905,1.03752381,,46
+13727,Palm Sapling,,,,1,,8
+13728,Rubber Tree Sapling,936,3.0975,2.594841667,2.768123611,100,4543
+13729,Jujube Sapling,,,,1,,6
+13731,Thuja Sapling,,,,0.101,,1
+14620,Banana,6943,0.22912,0.1954448276,0.2080804651,620,24247
+14621,Orange,1166,0.7996,0.7840039216,0.4452016484,17,8923
+14627,Cherry,1175,,0.4875962963,0.7500401444,,8016
+14629,Mint,10813,0.13282,0.1546966667,0.2447919491,3721,41441
+14630,Mushroom,194249,0.059096,0.05156666667,0.05585717172,18763,780323
+14631,Thistle,25175,0.05643333333,0.07131944444,0.07604666667,1070,105239
+14632,Wild Ginseng,62,82.9443,77.45834,68.04244974,13,305
+14782,Eznan Cutter Design,,,,1527.5,,2
+14894,Camphor Sapling,,,,0.101,,1
+14895,Bamboo Sapling,,,,1.99995,,11
+14896,Ebony Sapling,,,,2.99,,1
+14897,Chestnut Sapling,,,,2.812975,,24
+14898,Pine Sapling,,,,4.36497,,456
+14899,Spruce Sapling,,,,0.11,,1
+14901,Fir Sapling,,,,0.101,,1
+14902,Cedar Sapling,,,,0.01666875,,702
+14903,Yew Sapling,1,,0.101,0.101,,1
+14904,Pomegranate Sapling,4,,0.09,0.545,,9
+14905,Beech Sapling,,,,1,,5
+14906,Cherry Sapling,,,,0.55005,,28
+14907,Apricot Sapling,,,,0.1001111111,,9
+14908,Orange Seedling,,,,0.0755,,2
+14910,Moringa Sapling,,,,1.2,,1
+14911,Baobab Sapling,,,,0.0755,,2
+14949,Starfish,9,0.01,0.01,0.006857142857,9,16
+14971,Rye,7111,0.3,0.3726153846,0.3332031884,10,23108
+15563,Lutesong Junk Design,,,,1499.556567,,6
+15580,Veiled Flame,,,,0.05,,460
+15581,Hushed Star,2915,,0.5384941176,0.5548538462,,9294
+15582,Afternoon Sun,9,,0.12,0.7219125,,459
+15583,Midsummer Meteor,,,,1.1736,,10
+15584,Sun's Glory,49,,0.2686296296,0.2686296296,,49
+15621,Glowing Prism,6147,0.2179444444,0.0988124031,0.08774978963,598,29570
+15624,Regal Anvil,,,,150,,1
+15625,Regal Plate Armor Form,,,,90,,1
+15626,Regal Leather Armor Form,,,,250,,1
+15628,Regal Carpentry Workbench,,,,12,,1
+15629,Regal Handicraft Desk,,,,65,,1
+15632,Anya Ingot,10891,14.77922653,15.12698773,15.02320977,1730,47052
+15636,Clockwork Cat Chest,,,,35,,2
+15637,Fortuneteller's Crystal Ball,2,,147.4998,225.0987,,9
+15638,Whirligear Machine,,,,133.6666333,,3
+15640,Broken Phonograph,,,,10.9998,,1
+15646,Rice Seed,,,,0.02,,800
+15647,Oat Seed,200,,0.024,0.024,,200
+15648,Millet Seed,,,,0.0017,,10
+15650,Quinoa Seed,50,,0.2,0.2,,50
+15651,Wheat Seed,,,,0.2,,2
+15652,Barley Seed,1000,,0.014,0.03185,,2000
+15653,Corn Seed,960,,0.014,0.0152005,,3860
+15654,Bean Seed,,,,0.09,,99
+15655,Rye Seed,,,,0.016,,1
+15656,Peanut Seed,2000,,0.45,0.4333333333,,3000
+15657,Strawberry Seed,,,,0.15,,32
+15659,Potato Eyes,,,,0.01995,,2000
+15660,Yam Seed,,,,0.14995,,5
+15661,Carrot Seed,,,,0.0018,,1
+15662,Garlic Seed,,,,0.15,,255
+15663,Onion Seed,,,,0.01,,42
+15664,Cucumber Seed,1250,,0.01,0.0105806,,4250
+15665,Tomato Seed,1000,,0.0666,0.0666,,1000
+15666,Pumpkin Seed,,,,0.1575394737,,1038
+15667,Lavender Seed,3000,,0.056,0.05785,,7689
+15668,Rosemary Seed,,,,0.4,,1001
+15669,Cornflower Seed,,,,0.25,,1025
+15670,Lily Seed,,,,0.1686666667,,1217
+15671,Sunflower Seed,218,,0.02395,0.02098055556,,242
+15672,Cactus Seed,,,,0.89995,,2
+15673,Narcissus Seed,,,,0.0499,,900
+15674,Lotus Seed,,,,0.400015,,250
+15675,Azalea Seed,2000,,0.037,0.045075,,4000
+15676,Clover Seed,2000,,0.007751,0.007751,,2000
+15677,Rose Seed,1000,,0.014,0.007751428571,,1350
+15678,Iris Seed,,,,0.001525974026,,77
+15682,Mint Seed,14,0.24495,0.2433,0.2699727273,6,1402
+15697,Watering Can,,,,25,,1
+15698,Smackerel,,,,1.001,,1
+15709,Thunderstruck Tree,251,1101.43084,1075.133611,1090.60285,42,1081
+15715,Gunpowder,1148,,0.0135,0.01976229261,,3246
+15730,Natural Rubber,812,56.28990625,60.24431068,65.14443325,210,3164
+15765,Bamboo Shoot,83,94,79.84211579,58.00428305,5,233
+15767,Ginkgo Leaf,8094,,0.4119357143,0.3760383333,,41803
+15770,Moringa Fruit,5021,0.3299142857,0.5492704545,0.5584617486,1336,18303
+15877,Glider Smokescreen,,,,0.22,,100
+15888,Corrupted Fruit,,,,720,,1
+15901,Rubyshine Fish,,,,1,,1
+15902,Tropical Fish Food,,,,0.2,,1
+15905,Aquarium,,,,25.3,,1
+15907,Lemondrop Fish,1,,50,50,,1
+15908,Skysun Fish,,,,9.0909,,1
+15983,Regrade Brazier,49621,0.6436419753,0.6026121011,0.6642300583,5859,192896
+16000,Organic Fertilizer,766,1,0.9991727273,0.8971104167,100,3725
+16198,Tangerine Bobblehead Statue,,,,4.98995,,2
+16199,Orange Bobblehead Statue,,,,20,,1
+16200,Silver Bobblehead Statue,,,,1.2,,1
+16201,Black Bobblehead Statue,,,,5,,1
+16202,Green Bobblehead Statue,,,,1,,1
+16203,Red Bobblehead Statue,,,,5,,1
+16204,Violet Bobblehead Statue,,,,2,,1
+16205,Jade Bobblehead Statue,,,,2.5,,1
+16206,Pink Bobblehead Statue,,,,14.99,,2
+16207,Brown Bobblehead Statue,1,,0.1,0.1,,1
+16208,Golden Bobblehead Statue,,,,1.2,,1
+16209,Prisoner Bobblehead Statue,,,,10,,1
+16210,Maid Bobblehead Statue,,,,9.99,,1
+16211,Question Mark Bobblehead Statue,,,,3.00075,,2
+16212,Luxurious Bobblehead Statue,,,,5,,1
+16220,Livestock Supplement,3834,3.213557143,3.142786122,3.187737202,257,15029
+16221,Goat Meat,89,0.0985,0.1120333333,0.2156770075,58,1053
+16225,Dairy Calf,50,,3.9999,4.454481818,,254
+16226,Lamb,,,,0.55,,6
+16229,Piglet,,,,0.1800384615,,375
+16230,Chick,,,,0.0050078125,,128
+16268,Turmeric,4557,0.6748,0.6471884615,0.607660804,1296,29255
+16269,Turmeric Seed,,,,0.031,,1
+16270,Vanilla Seed,,,,0.0945,,3
+16271,Black Pepper Seed,,,,0.0385,,2
+16272,Saffron Seed,,,,0.031,,1
+16273,Saffron,5011,0.2660266667,0.3619218391,0.3858463768,273,26880
+16276,Chili Pepper,3614,0.59,0.5868769231,0.58418125,100,13972
+16277,Chili Pepper Seed,,,,0.03003225806,,93
+16279,Aloe Seed,,,,0.2,,1000
+16282,Thistle Seed,1504,,0.014,0.014,,1504
+16283,Clubhead Spore,75,0.2988,0.4194666667,0.3142024904,31,5686
+16284,Clubhead Fungus,9465,0.268875,0.2504882353,0.3401673432,2280,37509
+16290,Aloe,7916,0.2194555556,0.2883612903,0.3029814607,1988,50362
+16294,Cultivated Ginseng Seed,150,,0.4999,0.49995,,860
+16321,Sturdy Stone,30,9.4998,9.166533333,9.5832,10,202
+16323,Rising Star Stone,,,,271.6666667,,10
+16324,Fine Lumber,3282,9.684232353,11.38056593,11.30375554,474,19585
+16325,Sunridge Ingot,339,387.8041,385.6323065,374.9201568,16,1855
+16326,Nuri Forest Lumber,409,241.5990333,250.7331062,255.0135682,27,1745
+16327,Leather,212294,0.4689404762,0.4715923077,0.5250323545,29942,994556
+16328,Fine Leather,2230,17.4715,16.44242255,15.67011891,331,9871
+16330,Wind Spirit Leather,297,299.5549444,308.0379433,273.337406,21,1132
+16332,Ginkgo Sapling,26,,0.09,0.09,,26
+16333,Yucca Sapling,,,,0.011,,1
+16334,Maple Sapling,,,,1,,16
+16335,Larch Sapling,1,,0.101,1.5455,,2
+16336,Cypress Sapling,,,,0.101,,1
+16337,Sequoia Sapling,,,,3,,1
+16344,Beautifully Colored Fabric,866,15.21074286,17.60159459,16.87570987,92,4687
+16346,Cloudspun Fabric,237,258.8381769,281.3575081,274.2641157,14,1140
+16347,Sunlight Archeum Dust,47923,0.06575744681,0.0609968661,0.08205273529,8270,295790
+16348,Moonlight Archeum Dust,77947,0.4663338462,0.4607357524,0.4281596746,15628,364489
+16349,Starlight Archeum Dust,56202,1.538526087,1.582255614,1.509690728,5640,281064
+16350,Sunlight Archeum Shard,3107,0.4081153846,0.430821875,0.4757315436,358,18042
+16351,Moonlight Archeum Shard,2863,2.709955556,2.200055474,2.025603826,53,14221
+16352,Starlight Archeum Shard,2576,4.587116667,4.501125839,4.534381222,151,12638
+16353,Sunlight Archeum Crystal,9373,3.258714286,5.655611369,3.85233226,186,41082
+16354,Moonlight Archeum Crystal,11367,11.73252,11.37520171,11.44121725,949,50282
+16355,Starlight Archeum Crystal,2713,23.04164762,21.1641892,21.68767062,209,14959
+16356,Sunlight Archeum Essence,3653,13.9717561,16.63379297,17.92361041,355,16442
+16357,Moonlight Archeum Essence,3382,67.39030625,67.01669307,65.03931852,453,14668
+16358,Starlight Archeum Essence,1320,111.8295951,114.3514795,115.275244,242,6242
+16419,Tuna Club,,,,200,,1
+17261,Mushroom Spore,1000,,0.0491,0.05027171429,,31340
+17619,Hatching Egg,4,9.9896,9.989666667,9.987786364,2,29
+17630,Spacious Storage Chest,5,,1367.19794,1367.19794,,5
+17664,Hardtack,,,,0.001181818182,,11
+17665,Whole Grain Bread,1787,0.2594666667,0.26104,0.200504,417,12459
+17666,Vegetable Bread,1250,,0.2832166667,0.3422366667,,8235
+17667,Sweet Bread,225,0.59,0.5899833333,0.585674,25,2317
+17668,Fruit Liquor,,,,0.007,,1
+17669,Honey Liquor,,,,0.85,,10
+17670,Bubble Tea Liquor,,,,0.5,,4
+17671,Tangy Liquor,50,,1.94848,1.839963636,,194
+17693,Echo Owl,,,,12.52545,,2
+17695,Talking Chicken,1,,50,50,,1
+17705,Growling Yawl Design,,,,42000,,1
+17707,Harpoon Clipper Design,1,,200.9997,251.6428357,,14
+17711,Shining Vein Seed,11,,8.544436364,8.931805797,,69
+17715,Pure Archeum Ore,106,,2.743177273,2.054343714,,1073
+17774,Silver Ingot,35628,3.419652212,3.356777332,3.358717458,5737,138274
+17775,Gold Ingot,25766,0.7983333333,0.847247619,0.919055303,3665,104654
+17776,Archeum Ingot,6185,0.9311214286,1.224682158,1.19503169,692,34810
+17797,Delphinad Wave Ring,2,,1473.99985,2356.999214,,14
+17798,Delphinad Wave Necklace,1,2099,2099,4108.59999,1,10
+17847,Yaksa Statue,,,,4.9999,,1
+17850,Treant Statue,,,,3.9999,,1
+17856,Nuian Girl Standup Portrait,,,,1,,1
+17885,Delphinad Gale Ring,6,,3150.225567,3537.513273,,26
+17886,Delphinad Life Ring,1,,1666,1988.127339,,18
+17897,Prisoner Hood,,,,1,,1
+17898,Prisoner Shirt,,,,21.3333,,3
+17899,Prisoner Pants,,,,27,,2
+17963,Bucket,,,,25,,1
+18160,Candy Cane,1,,10.9997,42.99925,,2
+18162,Starpop,,,,66.00315,,2
+18163,Lollipop,,,,66,,1
+18442,Archeum Log,566,30.75285676,27.58853456,30.0346121,148,2835
+18459,Private Smelter Design,4,,250,265.6660722,,18
+18470,Private Loom Design,1,,349.9999,349.9999,,1
+18471,Private Masonry Table Design,3,250,258.3333333,242.2216222,1,18
+18472,Private Sawmill Design,1,,250,294.4552846,,13
+18481,Private Leatherwork Table Design,1,200,200,235,1,2
+18483,Wooden Chest,,,,5,,1
+18610,Morpheus's Breeches,,,,155,,1
+18612,Shabby Pirate's Cap,,,,25.9997,,1
+18613,Shabby Pirate's Jerkin,,,,15,,1
+18615,Shabby Pirate's Fists,,,,29.9999,,1
+18617,Shabby Pirate's Breeches,,,,5,,1
+18618,Shabby Pirate's Boots,,,,2,,1
+18649,Pet Dual-Recovery Potion,1,,9,5.217644444,,9
+18661,Searing Oath,1,,2400,2574.875,,8
+18662,Cold Anguish,4,,755.499875,368.4225467,,15
+18664,Aquafarm Design,43,89.56320909,89.86407209,97.14882828,11,145
+18749,Flaming Log,2288,15.2382931,14.30729003,16.0568726,238,9148
+18753,Deluxe Sandwich,8906,0.9343,1.048299248,0.934585,725,44189
+18760,Simple Sandwich,883,0.9549,1.133425926,0.9583893617,147,3033
+18795,Granbleu's Dive Helmet,,,,194.5118,,4
+18813,Illustrious Earth Earring,,,,50,,2
+18814,Illustrious Gale Earring,,,,30,,2
+18815,Illustrious Flame Earring,,,,10,,1
+18816,Illustrious Wave Earring,,,,33.66666667,,3
+18818,Delphinad Earth Earring,,,,22500,,1
+18819,Delphinad Gale Earring,1,,1700,1700,,1
+18820,Delphinad Flame Earring,6,1900,1410.99995,1721.048483,1,23
+18821,Delphinad Wave Earring,8,2800,3177.625,3224.194227,1,60
+18822,Delphinad Life Earring,,,,1800,,1
+18823,Red Coral Polyp,456,,0.2,0.100766129,,487
+18824,Green Coral Polyp,795,,0.0079,0.0079,,795
+18828,Yellow Plate Coral Polyp,886,,0.0079,0.0079,,886
+18829,Antler Coral Polyp,1695,0.849925,0.7442142857,0.4919479655,456,21064
+18830,Pearl Oyster,2,,0.3596,0.44985,,108
+18831,White Coral Polyp,1755,,0.3064333333,0.32986,,2791
+18832,Blue Coral Polyp,1204,,0.39995,0.3333,,1206
+18936,Red Coral,73513,0.2537952381,0.2973817259,0.2869723744,5862,329313
+18937,Green Coral,27684,0.3181166667,0.2689135135,0.2991237681,3455,105503
+18938,Antler Coral,56203,0.5448,0.4950717791,0.4944725049,6524,252439
+18940,White Coral,6836,1.588385714,0.8695925926,0.5565755245,1194,40286
+18941,Blue Coral,2851,0.8913666667,0.6740533333,1.146892222,883,15406
+18942,Orange Coral,7314,0.4167833333,0.6130432432,0.5994242647,401,25980
+18943,Yellow Coral,7549,0.4194,0.6232829268,0.6320741758,102,24853
+18954,Abalone,96,1.7497,1.525652174,1.832780208,12,476
+18955,Penshell,72,,1.619877273,2.204519106,,344
+19020,Seabreeze Essence,88,30.00836667,29.3821381,27.8735027,15,484
+19035,Recovery Pouch,2984,0.3575,0.4534647059,0.4435862983,200,14832
+19041,Kraken's Might,5048,4.107494444,4.711570107,4.581771331,289,24210
+19042,Desert Fire,13301,0.875705,0.9103333333,0.9464688312,1577,71256
+19043,Nui's Nova,5387,3.496614815,4.13808013,4.140123153,383,27169
+19045,Black Pearl,1110,4.69933,5.392064423,5.43510793,140,8414
+19326,Corrupted Kyrios Hood,,,,5549.999223,,13
+19327,Corrupted Kyrios Shirt,1,,2000,1978.774025,,16
+19328,Corrupted Kyrios Sleeves,2,749.9594,749.9796,2286.475423,1,13
+19329,Corrupted Kyrios Gloves,,,,3175.063125,,8
+19330,Corrupted Kyrios Sash,3,,1666.666667,6686.16675,,12
+19331,Corrupted Kyrios Pants,,,,3046.999992,,13
+19332,Corrupted Kyrios Shoes,4,3000,3000,3525,1,12
+19333,Reckless Captain's Helm,11,14.64125455,14.64125455,17.13736444,11,45
+19334,Reckless Captain's Cuirass,1,,54.9995,367.3471844,,45
+19335,Reckless Captain's Vambraces,8,12.3323,14.7489125,16.157542,3,50
+19336,Reckless Captain's Gauntlets,1,,29.9901,15.89305357,,28
+19337,Reckless Captain's Tassets,6,,19.5042,57.93725946,,37
+19338,Reckless Captain's Greaves,11,11.991975,12.79249091,14.03395345,4,58
+19339,Reckless Captain's Sabatons,10,12.66541667,13.29913,14.43288113,6,53
+19345,Blackbeard Watcher,,,,300,,1
+19348,Tough Gatekeeper's Helm,,,,500,,1
+19349,Tough Gatekeeper's Cuirass,,,,500,,1
+19350,Tough Gatekeeper's Vambraces,,,,500,,1
+19351,Tough Gatekeeper's Gauntlets,,,,400,,1
+19352,Tough Gatekeeper's Tassets,,,,500,,1
+19353,Tough Gatekeeper's Greaves,,,,500,,1
+19354,Tough Gatekeeper's Sabatons,,,,500,,1
+19401,Baktehan's Swimfins,1,,200,249.519516,,25
+19402,Small Leaf Pigment,25,54.999,52.81747273,42.42732628,10,270
+19403,Soft Stem Pigment,8,,104.003225,113.4482828,,42
+19404,Scented Petal Pigment,23,,205.1832938,190.3268154,,111
+19407,Viscous Glossy Oil,528,51.99648095,48.36654965,43.85905639,65,1991
+19408,Emulsified Oil,49,145.9983,166.9450761,129.4459175,3,223
+19409,Deeply Colored Oil,78,195.9988,211.93667,202.7490194,8,348
+19410,Rough Polish,563,49.48319615,49.41790854,52.09595385,70,2326
+19411,Non-Stick Polish,62,179.9999,165.45029,166.1738183,1,190
+19412,Rainbow Polish,103,189.99965,177.9439593,168.5791356,6,474
+19429,Bamboo Fishing Pole Frame,,,,0.5055,,2
+19430,Steel Fishing Pole Frame,,,,0.591,,1
+19448,Small Root Pigment,969,8.99705,8.268282456,9.166372695,10,3294
+19449,Small Seed Oil,2917,8.201684,8.456572464,7.889780547,764,18417
+19450,Opaque Polish,2044,8.988325926,8.938699015,8.531052705,284,11647
+19467,Tank Cannon,1,,1699,1599,,2
+19468,Strong Wheel,21,99.8275,94.13081667,90.22731477,4,170
+19469,Solid Shaft,,,,3400,,3
+19470,High Power Engine,12,199.96,216.634125,253.7664304,1,56
+19472,Farm Wagon Design,5,300,323.994,328.3417174,1,23
+19812,Evenstone,8,,0.01,0.01,,8
+19931,Shining Clubhead,,,,0.1685,,1
+19937,Giant Log Pile,,,,0.126,,1
+19939,Duckling,50,,0.24,0.1333866667,,125
+19941,Turkey Chick,19,,0.12,0.12,,19
+19943,Water Buffalo Calf,,,,4.19558,,97
+19944,Goose Meat,1115,,0.6733333333,0.6998727439,,4208
+19945,Turkey Meat,11523,0.19844,0.2098090909,0.2519462687,4056,22365
+19946,Duck Down,35331,0.1283933333,0.1122490385,0.1105142553,3036,139904
+19947,Goose Down,17544,0.2460571429,0.2210084416,0.2087729167,1735,55362
+19948,Goat Wool,31487,0.1705833333,0.1625422222,0.1764412921,3260,112939
+20139,Regal Alchemy Table,,,,86,,3
+20140,Regal Cooking Tools,,,,89.99995,,2
+20174,Congealed Oil,,,,0.75,,3
+20191,Illustrious Mountain Dagger,,,,60,,3
+20192,Illustrious Squall Dagger,,,,0.1264,,1
+20195,Magnificent Mountain Dagger,,,,1500,,1
+20222,Magnificent Summer Sword,,,,200,,1
+20244,Magnificent Desert Greatsword,,,,25000,,1
+20245,Magnificent Flame Greatsword,,,,10,,1
+20258,Illustrious Sky Katana,,,,280,,1
+20284,Magnificent Lightning Nodachi,,,,750,,1
+20286,Magnificent Gale Nodachi,,,,31.21,,1
+20291,Delphinad Flame Nodachi,,,,6000,,1
+20338,Illustrious Autumn Club,,,,99.99998,,5
+20340,Illustrious Meadow Club,,,,400,,1
+20342,Magnificent Autumn Club,,,,400,,1
+20358,Delphinad Meteor Club,,,,8000,,1
+20364,Magnificent Sunset Greatclub,,,,400,,1
+20382,Magnificent Winter Shortspear,,,,5500,,1
+20383,Magnificent Squall Shortspear,,,,3999,,1
+20404,Magnificent Squall Longspear,,,,32999,,1
+20416,Illustrious Meadow Scepter,1,,5,127.5,,2
+20417,Magnificent Meadow Scepter,,,,650,,2
+20419,Magnificent Life Scepter,,,,50.1416,,1
+20421,Epherium Wave Scepter,,,,5999,,1
+20424,Delphinad Wave Scepter,,,,1000,,1
+20435,Magnificent Ocean Staff,,,,5100,,1
+20448,Delphinad Earth Staff,,,,7999.9999,,1
+20452,Delphinad Life Staff,,,,8000.9914,,1
+20458,Illustrious Volcano Bow,,,,110,,1
+20459,Illustrious Lightning Bow,,,,108.99995,,2
+20460,Illustrious Tidal Bow,1,,5,3,,2
+20461,Illustrious Sunset Bow,2,,40,45.2002,,5
+20462,Magnificent Volcano Bow,,,,6600,,2
+20463,Magnificent Lightning Bow,,,,3500,,1
+20467,Epherium Lightning Bow,,,,800,,1
+20468,Epherium Flame Bow,,,,900,,1
+20472,Epherium Wave Bow,,,,1379.6,,5
+20474,Delphinad Lightning Bow,,,,2500,,1
+20475,Delphinad Flame Bow,,,,12000,,1
+20477,Delphinad Gale Bow,,,,3000,,1
+20479,Delphinad Wave Bow,4,,5750,5575.9,,20
+20483,Illustrious Meadow Lute,,,,49.99,,1
+20484,Magnificent Meadow Lute,,,,26000,,1
+20505,Delphinad Wave Flute,,,,13500,,1
+20524,Illustrious Quake Shield,,,,200.1931,,1
+20525,Illustrious Desert Shield,,,,0.1304,,1
+20528,Magnificent Quake Shield,,,,349,,3
+20543,Delphinad Earth Shield,,,,6000,,1
+20545,Delphinad Wave Shield,,,,7000,,1
+20555,Magnificent Ocean Hood,,,,4499.5,,2
+20559,Epherium Ocean Hood,,,,20000,,1
+20572,Delphinad Life Hood,,,,3999.9914,,1
+20582,Magnificent Ocean Shirt,,,,13499.66667,,3
+20609,Magnificent Ocean Pants,,,,7084.142857,,7
+20624,Delphinad Wave Pants,,,,8999,,1
+20636,Magnificent Ocean Gloves,,,,4666.333333,,3
+20663,Magnificent Ocean Shoes,,,,300,,4
+20690,Magnificent Ocean Sleeves,,,,22999.9914,,1
+20694,Epherium Ocean Sleeves,,,,4000,,1
+20695,Epherium Lake Sleeves,,,,26000,,1
+20697,Epherium Meadow Sleeves,,,,2500.991,,1
+20701,Delphinad Ocean Sleeves,,,,8999,,1
+20717,Magnificent Ocean Sash,,,,200,,2
+20724,Epherium Meadow Sash,,,,4550,,1
+20740,Illustrious Typhoon Cap,,,,70,,1
+20744,Magnificent Typhoon Cap,1,,29999.6967,19979.7393,,5
+20752,Epherium Gale Cap,,,,4000,,1
+20753,Epherium Desert Cap,,,,35999.9999,,1
+20759,Delphinad Gale Cap,,,,7000,,1
+20767,Illustrious Typhoon Jerkin,,,,70,,1
+20771,Magnificent Typhoon Jerkin,,,,16449.9957,,2
+20773,Magnificent Squall Jerkin,,,,25000,,1
+20776,Epherium Lightning Jerkin,,,,1800,,1
+20779,Epherium Gale Jerkin,,,,800,,1
+20783,Delphinad Lightning Jerkin,,,,2999,,1
+20784,Delphinad Flame Jerkin,,,,13500,,1
+20786,Delphinad Gale Jerkin,,,,15000,,1
+20796,Illustrious Squall Breeches,,,,0.1033,,1
+20798,Magnificent Typhoon Breeches,,,,29499.99995,,4
+20804,Epherium Flame Breeches,,,,2500,,1
+20806,Epherium Gale Breeches,,,,2000,,1
+20813,Delphinad Gale Breeches,,,,12490,,1
+20814,Delphinad Desert Breeches,,,,39999,,1
+20825,Magnificent Typhoon Fists,,,,4999,,2
+20841,Delphinad Desert Fists,,,,39000,,1
+20852,Magnificent Typhoon Boots,,,,4999,,1
+20858,Epherium Flame Boots,,,,2500,,1
+20865,Delphinad Flame Boots,,,,35999.9999,,1
+20867,Delphinad Gale Boots,,,,10000,,1
+20875,Illustrious Typhoon Guards,,,,32,,1
+20879,Magnificent Typhoon Guards,,,,4999,,3
+20885,Epherium Flame Guards,,,,3800,,1
+20891,Delphinad Lightning Guards,,,,7000,,1
+20894,Delphinad Gale Guards,,,,800,,1
+20895,Delphinad Desert Guards,,,,4299,,1
+20902,Illustrious Typhoon Belt,,,,7,,1
+20904,Illustrious Squall Belt,,,,6.015,,2
+20906,Magnificent Typhoon Belt,,,,4799,,1
+20907,Magnificent Lightning Belt,,,,500,,1
+20908,Magnificent Squall Belt,,,,11119.9999,,1
+20911,Epherium Lightning Belt,,,,4800,,1
+20912,Epherium Flame Belt,,,,2500,,1
+20917,Delphinad Typhoon Belt,,,,12500,,1
+20921,Delphinad Gale Belt,,,,899,,1
+20922,Delphinad Desert Belt,,,,5500.001,,1
+20923,Delphinad Earth Belt,,,,8000,,1
+20931,Illustrious Lake Helm,,,,1,,1
+20932,Illustrious Sunset Helm,,,,9,,1
+20933,Magnificent Quake Helm,1,,33000,18999.5,,2
+20937,Epherium Quake Helm,,,,5500,,1
+20940,Epherium Lake Helm,,,,29000,,1
+20947,Delphinad Lake Helm,,,,24500,,2
+20949,Delphinad Sunset Helm,,,,6600,,1
+20950,Delphinad Wave Helm,,,,9100,,1
+20951,Apprentice's Quake Cuirass,,,,0.45,,1
+20957,Illustrious Desert Cuirass,,,,10,,1
+20959,Illustrious Sunset Cuirass,,,,16.99946667,,3
+20960,Magnificent Quake Cuirass,,,,35000,,1
+20963,Magnificent Sunset Cuirass,,,,100,,1
+20964,Epherium Quake Cuirass,,,,300,,1
+20972,Delphinad Desert Cuirass,,,,36000,,1
+20973,Delphinad Flame Cuirass,,,,40000,,1
+20975,Delphinad Earth Cuirass,,,,8300,,1
+20977,Delphinad Wave Cuirass,,,,14000,,1
+20984,Illustrious Desert Greaves,,,,10,,1
+20986,Illustrious Sunset Greaves,,,,10,,1
+20987,Magnificent Quake Greaves,,,,5499,,2
+20994,Epherium Lake Greaves,,,,5000,,1
+20995,Epherium Earth Greaves,,,,30000,,1
+20996,Epherium Sunset Greaves,,,,4000,,1
+20999,Delphinad Desert Greaves,,,,8000,,1
+21000,Delphinad Flame Greaves,,,,5000,,1
+21004,Delphinad Wave Greaves,,,,7083,,2
+21010,Illustrious Quake Gauntlets,,,,100,,1
+21011,Illustrious Desert Gauntlets,,,,5,,1
+21012,Illustrious Lake Gauntlets,,,,5,,1
+21013,Illustrious Sunset Gauntlets,,,,5,,1
+21014,Magnificent Quake Gauntlets,,,,4999,,1
+21023,Epherium Sunset Gauntlets,,,,39000,,1
+21026,Delphinad Desert Gauntlets,,,,5000,,1
+21028,Delphinad Lake Gauntlets,,,,22749.5,,2
+21029,Delphinad Earth Gauntlets,,,,6600,,1
+21038,Illustrious Desert Sabatons,,,,1,,1
+21039,Illustrious Lake Sabatons,,,,10,,2
+21040,Illustrious Sunset Sabatons,,,,10,,1
+21041,Magnificent Quake Sabatons,1,32000,32000,11664.75,1,4
+21042,Magnificent Desert Sabatons,,,,30,,1
+21048,Epherium Lake Sabatons,,,,4888,,1
+21049,Epherium Earth Sabatons,,,,4000,,1
+21050,Epherium Sunset Sabatons,,,,4500,,1
+21053,Delphinad Desert Sabatons,,,,5000,,1
+21055,Delphinad Lake Sabatons,,,,38999,,1
+21057,Delphinad Sunset Sabatons,,,,33000,,1
+21068,Magnificent Quake Vambraces,3,3999,3999,4158.428571,1,7
+21071,Magnificent Sunset Vambraces,,,,95,,1
+21073,Epherium Desert Vambraces,,,,28000,,1
+21075,Epherium Lake Vambraces,,,,35000,,1
+21080,Delphinad Desert Vambraces,,,,12000,,1
+21081,Delphinad Flame Vambraces,,,,35000,,1
+21082,Delphinad Lake Vambraces,,,,34999,,1
+21083,Delphinad Earth Vambraces,,,,8999,,1
+21085,Delphinad Wave Vambraces,,,,8499,,1
+21091,Illustrious Quake Tassets,,,,5,,1
+21092,Illustrious Desert Tassets,,,,10,,1
+21093,Illustrious Lake Tassets,1,,22,14,,3
+21094,Illustrious Sunset Tassets,,,,10,,1
+21095,Magnificent Quake Tassets,,,,4249.5,,2
+21102,Epherium Lake Tassets,,,,33000,,1
+21103,Epherium Earth Tassets,,,,4444,,1
+21106,Delphinad Quake Tassets,,,,10000,,1
+21109,Delphinad Lake Tassets,,,,36999,,1
+21110,Delphinad Earth Tassets,,,,8999,,1
+21165,Thatched Farmhouse Design,17,,193.8821059,238.6228743,,70
+21166,Tudor Slate Cottage Design,1,,99,117.25,,4
+21167,Stone Slate Cottage Design,17,131.6633333,117.6464588,117.6205528,3,53
+21168,Rustic Slate Cottage Design,1,,160,126.373725,,8
+21169,Stone Spring Cottage Design,3,100,122.3336667,120.20009,1,10
+21170,Tudor Spring Cottage Design,1,,100,100,,1
+21171,Rustic Spring Cottage Design,1,,99,99,,1
+21172,Rustic Rose Cottage Design,1,,179,179,,1
+21173,Tudor Rose Cottage Design,2,,168.495,142.624,,10
+21174,Stone Rose Cottage Design,5,,146.19998,155.5712714,,7
+21191,Swept-Roof Cottage Design,3,149.99,159.3233333,133.5431818,1,11
+21850,Vita Root,3199,0.9339285714,0.697109434,1.219444511,209,27771
+21851,Memory Cutter,,,,1,,1
+21855,Sea of Blood,,,,32.6226,,2
+21856,Backstabber,,,,0.1941,,1
+21857,March of Destruction,,,,6,,1
+21859,Lightning Stroke,,,,18,,1
+21860,Pride's Downfall,,,,3,,1
+21861,Crystal Icicle,,,,10,,1
+21862,Glass Icicle,1,,0.203,0.203,,1
+21863,Devil Claw,,,,8.35,,1
+21864,Demon Talon,,,,15.5,,2
+21865,Meteoric Ray,,,,0.334,,1
+21866,Thunder Ray,,,,5,,1
+21867,Gusting Ray,,,,6,,1
+21868,Pure White Flame,,,,5.201,,2
+21869,Coronation Dagger,,,,0.199,,1
+21870,Ice Maiden,,,,0.201,,1
+21871,Daybreak's Hymn,,,,11,,1
+21872,Virtue's Surrender,,,,1,,1
+21873,Devil's Pact,,,,0.2666666667,,3
+21874,He Who Abhors Light,,,,90.199,,1
+21875,He Who Corrupts Light,,,,1,,1
+21876,He Who Envies Light,,,,1,,1
+21877,Red Dream,,,,3.5,,1
+21878,Bloody Tears,1,,5,5,,1
+21879,Honest Shout,,,,25,,1
+21883,Death Whisper,,,,2,,1
+21885,Chaos Bane,,,,15,,1
+21886,Pure Will,,,,15,,1
+21888,Merciless Judge,,,,19,,1
+21889,Underworld's Guide,,,,3.9999,,1
+21890,Overlord's March,,,,15,,1
+21892,Punishment's Eye,,,,0.472,,1
+21893,Fear's Farewell,,,,22,,1
+21894,Victory's Captive,,,,4.9999,,1
+21895,Freedom's Enforcer,,,,2.99,,1
+21896,Shroud's Peace,,,,12.5995,,2
+21897,Eternity's Chill,,,,40,,1
+21898,Purple Mirror Shard,,,,22.22,,2
+21899,Beast King's Fang,,,,9.995,,2
+21900,Heroic Passion,1,4,4,2.089333333,1,3
+21901,Heroic Illusion,,,,12.495,,2
+21902,Heroic Brilliance,,,,8,,1
+21903,Heroic Miracle,,,,2.8999,,1
+21904,Heroic Hope,,,,30,,1
+21905,Heroic Grief,,,,0.267,,1
+21906,Heroic Shadow,,,,0.199,,1
+21909,Beast Killer,,,,15,,1
+21910,Eternal Ambition,,,,4.9999,,1
+21911,Bane Knight,,,,0.4513,,1
+21912,Battle Rush,,,,10,,1
+21913,Silver Envoy,,,,5,,1
+21914,War's Anticipation,,,,2,,1
+21915,Lightning God's Arm,1,,22,16.125,,2
+21916,Flaming Windmill,,,,20,,1
+21917,Angels' Cleaver,,,,0.463,,1
+21918,Castaways' Vortex,,,,1,,1
+21919,Strong Unity,,,,5.2315,,2
+21920,The Final Chapter,,,,1,,1
+21922,Faraway Lands,,,,5,,1
+21924,Blood Drinker,,,,15,,1
+21925,Slicer,,,,27.7269,,1
+21926,Fox Star,,,,0.1941,,1
+21927,Demon's Crook,,,,0.265,,1
+21928,Glacial Cutter,,,,20,,2
+21929,Advancing Vanguard,,,,10,,1
+21930,Havoc's Blade,,,,4.2079,,1
+21931,Spiritflesh Sword,,,,179,,1
+21932,Offensive Blitz,,,,11,,1
+21933,Battle Grief,,,,10.25,,1
+21934,Moonlight Shadows,,,,50,,1
+21935,Survivor Butcher,,,,39,,1
+21936,Survivor Slayer,,,,20,,1
+21937,Foolish Aspirations,,,,0.204,,1
+21938,Crimson Envoy,,,,10,,1
+21939,Crimson Messenger,,,,10,,1
+21940,Battle Plans,,,,8.495,,2
+21941,Rushing Storm,,,,55,,1
+21942,Lightning Flash,,,,10,,1
+21943,Drastic Measures,,,,1.199,,1
+21944,Ancient Dragon Talon,,,,4.99,,1
+21945,Ancient Dragon Fang,,,,10,,1
+21946,Unrivaled,,,,2.0955,,2
+21947,Sturm und Drang,,,,24.7315,,2
+21948,Rewarded Valor,,,,3.889,,3
+21950,Rancor's Melody,,,,100,,1
+21952,Hymn of Domination,,,,3,,1
+21953,Unstoppable Force,,,,4,,1
+21954,Moonbreath Demonsword,,,,10,,1
+21955,Moonrage Demonsword,,,,3,,2
+21956,Moonsliver Demonsword,,,,6,,1
+21957,Red Battlemist,,,,9.99,,1
+21958,Tephra's King,2,,55,59.3797,,6
+21959,Bloodred Battle Wave,,,,0.472,,1
+21960,Blood-Stained Earth,,,,6.99,,1
+21961,Terror's Erasure,1,,10,8.249725,,4
+21962,Scarlet Bloodthirst,,,,46.407275,,8
+21964,Sunken Sadness,,,,1,,1
+21966,Bloodbore,,,,0.1743,,1
+21967,Dawn's Chains,,,,1,,1
+21969,Beserker's Combat,,,,1,,1
+21970,Orc Hunter,,,,10,,1
+21971,Sunset Hill,,,,9,,1
+21972,Death Watch,,,,10,,1
+21973,Forsakens' Ache,,,,5,,1
+21974,Forsakens' Agony,,,,10.25,,1
+21975,Soldiers' Requiem,,,,1,,1
+21977,Demon's Terror,,,,0.199,,2
+21978,Demon's Chaos,,,,20,,1
+21979,Demon's Massacre,,,,0.463,,1
+21981,Demon's Destruction,,,,5,,1
+21982,Halcyona Wolf,,,,0.397,,1
+21983,The Unforgiven,1,,0.205,0.205,,1
+21984,Airain Rock Dissention,,,,10,,1
+21985,Airain Rock Oath,,,,0.199,,1
+21986,Ynystere Guardian,,,,0.265,,1
+21987,Crescent Throne Ritual Axe,1,,0.267,0.832,,2
+21988,Abyssal Devil Wings,1,,5.333,5.333,,1
+21989,Terror Devil Wings,,,,1,,1
+21990,Lunar Eclipse,,,,5,,1
+21994,Mountain Cutter,,,,3,,1
+21995,Shock and Awe,,,,30,,1
+21996,Lengthy Journey,,,,4,,1
+21997,Joyous Liberator,,,,5,,1
+21998,Extolled One's Destiny,,,,20,,1
+21999,Thrall's Despair,,,,20,,1
+22001,Thrall's Obedience,,,,11,,1
+22002,Splitting Sky,,,,1,,1
+22003,Splitting Sea,,,,10,,1
+22004,Splitting Earth,,,,0.2782,,1
+22005,Gossamer Moonlight,,,,2,,1
+22006,Death Wave,,,,10,,1
+22008,Determination's Dawn,,,,1,,1
+22009,Pain Mist,,,,2,,1
+22010,Large Nutcracker,,,,1,,1
+22011,Writhing Darkness,,,,10,,1
+22012,Oblivion's Shadow,,,,10,,1
+22013,Eternal Haste,,,,10,,1
+22014,Desolate Ruin Wanderer,,,,8.5,,2
+22015,Death Contractor,1,,0.274,0.274,,1
+22016,Blue Wind Sound,1,,0.204,2.102,,2
+22017,Surging Temptation,,,,20,,1
+22018,Searing Outcry,,,,1.403,,1
+22019,Torment's Chaos,,,,0.99,,1
+22020,Torment's Sacrifice,,,,3.99,,1
+22021,Torment's Temptation,,,,10,,1
+22022,Torment's Abyss,,,,0.204,,1
+22023,Torment's Depths,,,,9.9999,,1
+22024,Torment's Ruins,,,,0.271,,1
+22025,Torment's Pain,,,,6,,1
+22026,Dusk's Punishment,,,,0.199,,1
+22027,Dusk's Patience,,,,0.463,,1
+22028,Dusk's Penance,1,,10,10,,1
+22029,Dusk's Restraint,,,,10,,1
+22030,Dusk's Resurrection,,,,0.991,,1
+22031,Dusk's Pardon,,,,1,,1
+22032,Dusk's Purity,,,,7,,1
+22036,Earth Trampler,,,,5,,2
+22038,Goddess's Chosen,,,,20,,1
+22039,Transitive Agony,,,,6,,1
+22040,Resolute Determination,,,,50,,1
+22041,Golden Sun,,,,4.99,,1
+22042,Shining Friendship,,,,10,,1
+22043,Legendary Struggle,,,,0.6548,,1
+22044,Death Sentence,,,,4.399933333,,3
+22045,Frozen Hatred,,,,46,,1
+22046,Crusader's Star,,,,6,,1
+22047,Hunter's Star,,,,10,,1
+22050,Northern Wolf Fang,,,,50,,1
+22052,Karmatic Compass Needle,,,,1,,1
+22053,Pain Oblation,,,,10,,1
+22054,Dancing Ice Swan,,,,4.99,,1
+22055,Death for Lovers,,,,20,,1
+22056,Baleful Timekeeper,,,,18,,1
+22057,Beautiful Prayer,,,,15,,1
+22058,Demon-Touched Goddess,,,,10.25,,1
+22059,Ironblood Throne's Destiny,,,,10.25,,1
+22061,Vanished Star Tear,1,,0.201,0.201,,1
+22062,Glorified Masque,1,10.25,10.25,10.25,1,1
+22063,Evil Beast's Incisor,,,,2,,1
+22064,Comet's Omen,,,,10,,1
+22065,Twilight's Border,,,,4,,1
+22066,Golden Firestrike,,,,10,,1
+22067,Reunited in Death,,,,4.99,,1
+22068,Hereafter Gatekeeper,1,,0.207,0.207,,1
+22069,God's Foe,,,,3,,1
+22070,Chaos-Born Man,,,,0.199,,1
+22071,Key to Paradise,,,,5,,1
+22072,Unshaken Promise,,,,50,,1
+22073,Moon-Eater Lion,,,,5,,1
+22074,All-Piercing Spear,,,,10,,1
+22077,Winter Mistral,,,,100.5056,,1
+22078,Ruination Misery,,,,8.33,,1
+22079,Far Eastern Spirit,,,,8.66,,1
+22080,Salvation Oracle,,,,45.001,,1
+22081,Flowering Mortality,,,,8,,1
+22082,Red Rose Petals,,,,55.1391,,2
+22083,Sea God's Wrath,,,,3.9899,,1
+22084,Thunder God's Wrath,,,,1,,1
+22085,Warlord's Demonic Spear,,,,85.1406,,2
+22086,Brilliant Knight Orlando,,,,12.3305,,2
+22087,Brilliant Knight Olivier,,,,10.077475,,4
+22088,Brilliant Knight Bradamante,1,,5,11.66666667,,3
+22091,Snowfall's Coming,,,,4,,1
+22092,Demon of Destruction,,,,4,,1
+22093,Aranzeb's Poker,,,,1,,1
+22096,Nymph's Gift: Curse,,,,0.265,,1
+22097,Void Traveler,,,,5.228,,2
+22098,Elderberry Cane,1,,10.25,10.25,,1
+22099,Demon War Barrier,,,,0.265,,1
+22100,Twilight Sage: Verity,,,,8,,1
+22101,Twilight Sage: Volition,,,,6.99,,1
+22102,Destruction God's Descent,,,,0.199,,1
+22103,Red Western Sky,,,,35,,1
+22107,Milky Way,,,,20,,1
+22108,Shining Moonlight Magic,,,,5,,1
+22109,Starlit Skyfire,,,,3,,1
+22110,The Creator's Law,,,,0.3706,,1
+22111,World Atlas Designer,,,,20,,1
+22112,World Atlas Engineer,,,,0.3706,,1
+22113,Daybreak's Prince,,,,0.5574,,1
+22115,Marianople's Holy Star,,,,10.15,,1
+22116,Got Your Back,,,,5,,1
+22118,Stairway to Heaven,,,,16,,1
+22119,Blustering Wizard,,,,5,,1
+22120,Burnt Witch,,,,20,,1
+22121,Wizard's Essence,,,,10,,1
+22122,Fortitude's Luster,,,,39.79,,1
+22123,Shadow Eraser,,,,0.5554,,1
+22124,Endless Cycle Guide,1,,0.5584,3.519466667,,3
+22125,Mad Devil's Cane,,,,4,,1
+22126,Destruction's Eternal Mirage,,,,1,,1
+22127,Keraunos's Lightning,,,,0.409,,3
+22128,Nature's Fury: Blizzard,,,,55,,1
+22129,Nature's Fury: Tsunami,1,10,10,7.33,1,3
+22130,Nature's Fury: Thunderbolts,,,,0.468,,1
+22135,Sun's Target,,,,5,,1
+22137,Hill Wings,,,,5,,1
+22138,Wind Wings,,,,5,,1
+22139,Sea Wings,,,,5,,1
+22140,Starrain Wings,1,,20,20,,1
+22141,Watcher's Poison Fang,,,,25,,1
+22142,Predator's Poison Fang,,,,10,,1
+22143,Winter is Coming,2,,7.125,7.125,,2
+22144,Early Winter's Shadow,1,,0.27,0.27,,1
+22145,Resisting Shot,,,,40,,1
+22146,Fated Shot,1,,10.25,5.3585,,2
+22147,Little Demon's Toy,,,,6.495,,2
+22148,Willful Shot,1,,3,3,,1
+22149,Endless War's Legacy,,,,7.625,,2
+22150,Late Autumn Leaves,,,,40,,1
+22152,Quiet Hell's Horizon,,,,33,,1
+22153,Frozen Abyssal Crevice,,,,1,,1
+22154,Lover-shooting Bow,,,,22.151,,3
+22155,Gold Thorn Bird,,,,85,,2
+22156,Red Demon of Stone Stairs,,,,42.99796,,5
+22157,Free Shot,,,,3,,1
+22158,BloodCrimson Lightning,9,,2970.444044,1171.759144,,50
+22159,Red Moon's Tune,,,,8,,1
+22162,Stradivarius,,,,6,,1
+22163,Calm Discord,,,,10500,,1
+22164,Scudding Distant Clouds,,,,20,,1
+22166,Ynystere's Angel,,,,15,,1
+22167,Mystical Nymph,,,,10,,1
+22168,Faceless Moon's Song,,,,12,,1
+22169,Silver Abyssal Dance,,,,6,,1
+22170,Distant Lands Wanderer,,,,6,,1
+22171,White Typhoon Overture,,,,9,,1
+22172,Beyond Oblivion,,,,0.267,,1
+22174,Forgetful Minstrel,,,,7,,1
+22175,Fresh Grass Fragrance,,,,30,,1
+22177,Old Longing,,,,3,,1
+22178,Time Stopped World,,,,5,,1
+22179,Death Governing Justice,,,,5,,1
+22180,Nights in White Satin,,,,0.5,,1
+22181,Death March,,,,25,,1
+22182,Liberty Lovers,,,,10,,1
+22183,Heart-wrenching News,,,,18.495,,2
+22184,Golden Wind Sonata,1,,0.265,0.265,,1
+22185,Twisted Shadows,,,,0.29,,1
+22186,Final Condemnation,,,,0.465,,1
+22203,Forest Keeper's Shield,,,,15,,1
+22204,Palace Guard's Shield,,,,15,,1
+22205,Wilderness Protector,,,,6,,1
+22206,Dodger's Dance,,,,6,,1
+22207,Earth Walker,,,,0.265,,1
+22208,Rock Elemental Divine Protection,,,,0.208,,1
+22209,Banded Iron Wall,,,,0.265,,1
+22210,Weighty Resolution,,,,3,,1
+22211,Blinding Sky Light,2,,4.635,4.635,,2
+22212,Silver Mane's Conquest,2,,4.6695,22.33475,,4
+22213,Violet Winged Guardian,,,,30,,1
+22214,Sea Goddess' Jealousy,,,,4.1,,2
+22215,Gold Lion,,,,8,,1
+22216,Beast King's Roar,,,,0.59,,1
+22217,Lion's Iron Heart,,,,3,,1
+22218,Lionheart,,,,50,,1
+22219,Conqueror's Imperial Gift,,,,0.199,,1
+22220,Brilliant Flash: Atlantess,,,,22,,1
+22221,Red Star Guardian,1,,9,9.625,,2
+22222,Beautiful Goddess' Face,,,,0.201,,1
+22223,Ancient War Epic,,,,4,,1
+22224,The Absolute's Shield,,,,2.601,,2
+22225,Cursed King's Shield,2,,4,7.666666667,,3
+22226,Chivalry's Grace,1,,20,10.125,,2
+22227,Dusk's Mirror,,,,10,,1
+22228,Impenetrable Shield,,,,5,,1
+22230,Soul Summoner's Red Hood,,,,4,,1
+22232,Twinkling Nymph Dust Hood,,,,50,,1
+22233,Rakish Hood,,,,6,,1
+22234,Singing Phoenix Hood,,,,5.9999,,1
+22235,Ancient Spell Hood,,,,10,,1
+22237,Bitter Grief Coronet,,,,0.1396,,1
+22238,Wise Queen's Judgment,,,,0.2,,1
+22239,Honorable Silk Hood,,,,3,,1
+22240,Cypress Forest Hood,,,,0.3264,,1
+22242,Grave Digger's Hood,,,,3,,1
+22244,Rokhala Mountains' Summit,,,,0.1396,,1
+22245,Nameless Ascetic's Hood,,,,4,,1
+22246,Fairy Queen's Wisdom,,,,0.2096,,1
+22247,Wild Dream Hood,,,,0.16,,1
+22248,Dark Watcher's Hood,,,,4,,1
+22249,Cumulus Cloud Hood,,,,19,,1
+22250,Dawn Witch Hood,,,,12.495,,2
+22251,Dark Assembly's Cunning Hood,,,,0.3294,,1
+22252,Knotted Hell Hood,,,,0.1406,,1
+22253,Sea Witch Hood,1,,0.1446,7.5723,,2
+22254,Crescent Throne Hood,,,,0.3254,,1
+22255,Sun's End Hood,,,,0.1396,,1
+22256,Divine Touch Hood,,,,15,,1
+22261,Rakish Shirt,,,,5,,1
+22262,Singing Phoenix Shirt,,,,0.1891,,1
+22263,Ancient Spell Shirt,,,,10,,1
+22264,Faded Shirt,,,,0.265,,1
+22265,Ritual Requiem Shirt,,,,30,,1
+22267,Honorable Silk Shirt,,,,29.9999,,1
+22268,Cypress Forest Shirt,,,,15,,1
+22269,Shining Silk Shirt,,,,3,,1
+22271,Forgotten Season Shirt,,,,6,,1
+22272,Rokhala Mountains' Soul,,,,10,,1
+22273,Nameless Ascetic's Shirt,,,,3,,1
+22276,Dark Watcher's Shirt,,,,7.0707,,1
+22277,Cumulus Cloud Shirt,,,,6,,2
+22278,Dawn Witch Shirt,,,,2,,1
+22279,Dark Assembly's Shirt,,,,10,,1
+22280,Knotted Hell Shirt,,,,0.2375,,2
+22281,Sea Witch Shirt,,,,20,,1
+22282,Faded Crescent Shirt,,,,10,,1
+22283,Sun's End Shirt,,,,6.99,,1
+22284,Divine Touch Shirt,,,,15,,1
+22289,Rakish Pants,,,,5,,1
+22290,Singing Phoenix Pants,,,,3,,1
+22291,Ancient Spell Pants,,,,10,,1
+22292,Faded Pants,,,,0.1594,,1
+22293,Ritual Requiem Pants,,,,1.5,,1
+22294,Wise Queen's Will,,,,14,,1
+22296,Cypress Forest Pants,,,,0.1594,,1
+22298,Grave Digger's Pants,,,,4.4874,,3
+22299,Forgotten Season Pants,,,,0.2122,,1
+22301,Nameless Ascetic's Pants,,,,5,,1
+22302,Fairy Queen's Blessing,,,,5,,1
+22304,Dark Watcher's Pants,,,,0.1594,,1
+22305,Cumulus Cloud Pants,1,,10.25,10.25,,1
+22306,Dawn Witch Pants,,,,10,,1
+22307,Dark Assembly's Cunning Pants,,,,25,,1
+22308,Knotted Hell Pants,,,,16,,1
+22309,Sea Witch Pants,,,,10000,,1
+22310,Faded Crescent Pants,,,,7.96235,,4
+22311,Sun's End Pants,,,,0.1654,,1
+22313,Tree Shade Gloves,,,,5,,1
+22314,Soul Summoner's Red Gloves,,,,6,,1
+22315,Arcadian Sea Gloves,,,,9,,1
+22318,Singing Phoenix Gloves,,,,1,,1
+22319,Ancient Spell Gloves,,,,10,,1
+22320,Faded Gloves,,,,20,,1
+22321,Ritual Requiem Gloves,,,,10,,1
+22322,Wise Queen's Sorrow,,,,20,,1
+22323,Honorable Silk Gloves,1,,9,9,,1
+22324,Cypress Forest Gloves,,,,5,,1
+22325,Gleaming Silk Gloves,1,,0.176,2.58795,,2
+22326,Grave Digger's Gloves,,,,4,,1
+22327,Forgotten Season Gloves,,,,0.199,,1
+22329,Anchorite's Gloves,,,,5,,1
+22330,Fairy Queen's Hope,,,,15,,1
+22331,Everdreaming Gloves,,,,25,,1
+22332,Dark Watcher's Gloves,,,,2,,1
+22333,Cumulus Cloud Gloves,,,,2,,1
+22334,Dawn Witch Gloves,,,,4,,1
+22335,Dark Assembly's Gloves,,,,44,,1
+22336,Knotted Hell Gloves,,,,1,,1
+22337,Sea Witch Gloves,,,,2.999966667,,3
+22338,Faded Crescent Gloves,,,,0.1,,1
+22339,Sun's End Gloves,,,,10,,1
+22340,Divine Touch Gloves,,,,2.119,,2
+22345,Rakish Shoes,,,,1.1792,,1
+22346,Singing Phoenix Shoes,,,,10500,,1
+22347,Ancient Spell Shoes,,,,10,,1
+22348,Faded Shoes,,,,10,,1
+22349,Ritual Requiem Shoes,,,,10,,1
+22351,Honorable Silk Shoes,1,,9,9,,1
+22352,Cypress Forest Shoes,,,,13,,1
+22353,Gleaming Silk Shoes,1,,0.139,4.0695,,2
+22354,Grave Digger's Shoes,,,,10,,1
+22355,Forgotten Season Shoes,,,,4,,1
+22356,Rokhala Mountains' Land,,,,0.1,,1
+22357,Anchorite's Shoes,,,,6.0606,,1
+22358,Fairy Queen's Illusion,,,,1,,1
+22359,Wild Dream Shoes,,,,0.201,,1
+22360,Dark Watcher's Shoes,,,,5,,1
+22362,Dawn Witch's Shoes,,,,0.1,,1
+22363,Dark Assembly's Shoes,,,,0.133,,1
+22364,Knotted Hell Shoes,,,,0.133,,1
+22365,Sea Witch Shoes,,,,0.35,,1
+22366,Faded Crescent Shoes,,,,0.2,,1
+22367,Sun's End Shoes,,,,9,,1
+22368,Divine Touch Shoes,,,,10,,1
+22369,Tree Shade Sleeves,,,,0.55,,2
+22371,Arcadian Sea Sleeves,,,,6,,1
+22373,Rakish Sleeves,,,,1,,1
+22374,Singing Phoenix Sleeves,,,,1,,1
+22376,Faded Sleeves,,,,0.0614,,1
+22377,Bitter Grief Sleeves,,,,2.75495,,2
+22378,Wise Queen's Divine Protection,,,,8,,1
+22380,Cypress Forest Sleeves,,,,0.0822,,1
+22381,Honorable Silk Sleeves,,,,10,,2
+22382,Grave Digger's Sleeves,,,,4,,1
+22383,Forgotten Season Sleeves,,,,8,,1
+22384,Rokhala Mountains' Rock,,,,10,,1
+22385,Nameless Ascetic's Sleeves,,,,10,,1
+22386,Fairy Queen's Gift,,,,10,,1
+22389,Cumulus Cloud Sleeves,,,,0.25,,1
+22390,Dawn Witch Sleeves,,,,50,,1
+22391,Dark Assembly's Cunning Sleeves,1,,9.9999,9.9999,,1
+22392,Knotted Hell Sleeves,,,,9.992,,1
+22393,Sea Witch Sleeves,,,,0.0872,,1
+22394,Crescent Throne Sleeves,,,,10,,1
+22396,Divine Touch Sleeves,,,,40,,1
+22401,Rakish Sash,,,,5,,1
+22402,Singing Phoenix Sash,,,,3,,1
+22403,Ancient Spell Sash,,,,10,,1
+22405,Bitter Grief Sash,,,,9,,1
+22407,Shining Silk Sash,,,,1,,1
+22410,Grave Digger's Sash,,,,6,,1
+22411,Forgotten Season Sash,,,,10,,2
+22412,Rokhala Mountains' Cloud,,,,0.0616,,1
+22413,Nameless Ascetic's Sash,,,,10,,1
+22414,Fairy Queen's Temptation,,,,10,,1
+22418,Dawn Witch Sash,,,,10,,1
+22419,Dark Assembly's Cunning Sash,,,,9.9099,,1
+22420,Knotted Hell Sash,,,,5,,1
+22421,Sea Witch Sash,,,,0.0416,,1
+22422,Crescent Throne Sash,1,,9,9,,1
+22423,Sun's End Sash,,,,0.0406,,1
+22424,Divine Touch Sash,,,,12,,1
+22426,Shadow Thief's Cap,,,,4,,1
+22429,Pure Soul's Cap,,,,3,,1
+22431,Ruthless Death's Cap,,,,0.1396,,1
+22432,Sharp Wind Cap,,,,10,,1
+22433,Eternity Cap,,,,10,,1
+22434,Restored Enigmatic Cap,,,,3,,1
+22437,Last Lord's Cap,,,,10,,1
+22439,Bloodmist Falcon Cap,,,,5,,1
+22440,Secret Transformation Cap,,,,25,,1
+22441,Recombined Elemental's Cap,,,,30,,1
+22442,Dirge Cap,,,,0.2782,,1
+22443,Wailing Sadness Cap,,,,2.6341,,2
+22445,Peaceful Cloud Cap,,,,0.1396,,1
+22446,Prospector's Wanderlust Cap,1,,0.1476,0.1476,,1
+22447,Violet Glory Cap,,,,7,,1
+22448,Misty Dusk Cap,,,,0.3582,,1
+22451,Order of Pavitra the Conqueror,,,,0.2842,,1
+22452,Cold White Eye,,,,10,,1
+22453,Dusty Jerkin,,,,2,,1
+22454,Shadow Thief's Jerkin,,,,12,,1
+22457,Pure Soul's Jerkin,,,,3,,1
+22458,Dancing Heroine's Jerkin,,,,0.2,,1
+22459,Ruthless Death's Jerkin,,,,3,,1
+22460,Sharp Wind Jerkin,,,,26,,1
+22465,Last Lord's Jerkin,,,,15,,1
+22466,Burning Flames Jerkin,,,,10,,1
+22467,Bloodmist Falcon Jerkin,,,,10,,1
+22468,Secret Transformation Jerkin,,,,11,,1
+22470,Dirge Jerkin,,,,8,,1
+22473,Peaceful Cloud Jerkin,,,,0.5,,1
+22474,Prospector's Wanderlust Jerkin,1,,10,4.489,,3
+22475,Violet Glory Jerkin,2,,7.5,6.663333333,,3
+22476,Misty Dusk Jerkin,,,,0.4,,1
+22477,Brave Aeon's Jerkin,,,,10,,1
+22478,Silent Forest Jerkin,,,,7,,1
+22479,Destiny of Pavitra the Conqueror,,,,10,,1
+22480,Cold White Smile,,,,0.466,,1
+22483,Castaway Strait Breeches,,,,5,,1
+22484,Cinderstone Wraith's Breeches,,,,30,,1
+22485,Pure Soul's Breeches,,,,5,,1
+22486,Dancing Heroine's Breeches,,,,0.1515,,1
+22487,Ruthless Death's Breeches,,,,10,,1
+22488,Sharp Wind Breeches,,,,10,,1
+22489,Eternity Breeches,,,,10,,1
+22490,Restored Enigmatic Breeches,,,,11,,1
+22492,Airain Rock Breeches,,,,10,,1
+22495,Bloodmist Falcon Breeches,,,,14.88,,1
+22496,Secret Transformation Breeches,,,,5,,1
+22497,Recombined Elemental's Breeches,,,,0.3746,,1
+22498,Dirge Breeches,,,,6,,1
+22499,Wailing Sadness Breeches,,,,6,,1
+22500,Wicked Scoundrel's Breeches,,,,4,,1
+22502,Prospector's Wanderlust Breeches,,,,15,,1
+22503,Violet Glory Breeches,,,,0.265,,1
+22504,Misty Dusk Breeches,,,,2,,1
+22505,Brave Aeon's Breeches,,,,1,,1
+22506,Silent Forest Breeches,,,,3.49,,2
+22507,Pavitra's Victory,1,,0.3288,0.3288,,1
+22509,Dusty Fists,,,,3,,1
+22513,Pure Soul's Fists,,,,4,,1
+22514,Dancing Heroine's Fists,,,,3,,1
+22515,Ruthless Death's Fists,,,,3,,1
+22516,Sharp Wind Fists,,,,1,,1
+22517,Eternity Fists,,,,10,,1
+22519,Night Shadow Fists,,,,10,,1
+22521,Final Lord's Fists,,,,5,,1
+22522,Burning Flames Fists,,,,6,,1
+22523,Bloodmist Falcon Fists,,,,0.102,,1
+22524,Secret Transformation Fists,,,,45,,1
+22525,Recombined Elemental's Fists,,,,2,,1
+22526,Dirge Fists,,,,0.133,,1
+22530,Prospector's Wanderlust Fists,,,,0.104,,1
+22531,Violet Glory Fists,,,,1,,1
+22532,Misty Dusk Fists,,,,8,,1
+22533,Brave Aeon's Fists,,,,3,,1
+22534,Silent Forest Fists,,,,10,,1
+22535,Will of Pavitra the Conqueror,,,,7.99,,1
+22536,Cold White Feather,,,,5,,1
+22537,Dusty Boots,,,,3.666666667,,3
+22542,Dancing Heroine's Boots,,,,4,,1
+22545,Eternity Boots,,,,10,,1
+22546,Restored Enigmatic Boots,,,,10,,1
+22547,Night Shadow Boots,,,,0.99,,1
+22550,Burning Flames Boots,,,,0.133,,1
+22551,Bloodmist Falcon Boots,,,,5,,1
+22552,Secret Transformation Boots,,,,0.59,,1
+22553,Recombined Elemental's Boots,,,,3,,1
+22554,Dirge Boots,,,,9.99995,,2
+22555,Wailing Sadness Boots,,,,5,,1
+22556,Wicked Scoundrel's Boots,,,,0.232,,1
+22558,Prospector's Wanderlust Boots,,,,1,,1
+22559,Violet Glory Boots,,,,2.98,,1
+22560,Misty Dusk Boots,,,,0.2,,1
+22561,Brave Aeon's Boots,,,,0.167,,1
+22562,Silent Forest Boots,,,,0.1,,1
+22563,Glory of Pavitra the Conqueror,,,,0.166,,1
+22564,Cold White Dream,,,,0.106,,1
+22568,Cinderstone Wraith Guards,,,,0.99,,1
+22570,Dancing Heroine's Guards,,,,3,,1
+22571,Ruthless Death's Guards,,,,3,,1
+22573,Restored Enigmatic Guards,,,,10,,1
+22578,Airain Rock Guards,,,,20,,1
+22579,Bloodmist Falcon Guards,,,,0.0802,,1
+22580,Secret Transformation Guards,,,,0.102,,1
+22582,Dirge Guards,,,,6.0606,,1
+22583,Wailing Sadness Guards,,,,1,,1
+22584,Wicked Scoundrel's Guards,,,,2,,1
+22585,Peaceful Cloud Guards,,,,1,,1
+22586,Prospector's Wanderlust Guards,,,,1,,1
+22587,Violet Glory Guards,,,,0.0614,,1
+22588,Misty Dusk Guards,,,,0.0604,,1
+22589,Brave Aeon's Guards,,,,5,,1
+22591,Honor of Pavitra the Conqueror,1,,5,5,,1
+22592,Cold White Tears,,,,6,,1
+22595,Castaway Strait Belt,,,,2,,1
+22596,Cinderstone Wraith Belt,,,,8.25,,1
+22600,Eternity Belt,,,,10,,1
+22601,Restored Enigmatic Belt,,,,10,,1
+22604,Burning Flames Belt,1,,10.25,5.1453,,2
+22605,Last Lord's Belt,,,,10.25,,1
+22608,Secret Transformation Belt,,,,10,,1
+22610,Dirge Belt,1,,8.25,8.25,,1
+22611,Wailing Sadness Belt,,,,0.0812,,1
+22612,Wicked Scoundrel's Belt,1,,1,1,,1
+22613,Peaceful Cloud Belt,,,,0.0436,,1
+22614,Prospector's Wanderlust Belt,,,,0.0538,,1
+22615,Violet Glory Belt,,,,10,,1
+22616,Misty Dusk Belt,,,,4,,1
+22617,Brave Aeon's Belt,,,,3.333333333,,3
+22618,Silent Forest Belt,,,,8,,2
+22619,Justice of Pavitra the Conqueror,,,,8,,1
+22620,Cold White Yearning,,,,0.0726,,1
+22622,Duststorm Helm,,,,25,,1
+22623,Halcyona Gulf Helm,,,,55,,1
+22625,Usurper's Helm,,,,5,,1
+22626,Nightmare Helm,,,,9.9999,,1
+22627,Victorious General's Helm,,,,50,,1
+22628,Lonely Berserker's Helm,,,,40,,1
+22630,Timeless Memory Helm,,,,7,,1
+22631,Firm Will Helm,,,,5,,1
+22632,Harsh Trials Helm,,,,0.232,,1
+22633,Blood Stench Helm,,,,10,,1
+22634,Rising Army Helm,,,,1.5,,1
+22637,Great Conqueror's Helm,,,,14,,1
+22639,Nuimari Helm,,,,1.001,,1
+22640,Raging Storm Helm,,,,10,,1
+22641,Winter Rain Helm,,,,25,,1
+22643,Wraith Agent's Helm,,,,10,,1
+22644,Blood Prince Helm,,,,4,,2
+22645,Silver Shadow Helm,,,,3,,1
+22646,Mysterious Astra Helm,1,,0.1898,0.1898,,1
+22647,Dark Desert Helm,,,,4.1406,,2
+22648,Dark Ruler's Helm,,,,0.233,,1
+22651,Halcyona Gulf Cuirass,,,,15,,1
+22652,Galaxy Traveler's Cuirass,,,,40,,1
+22653,Usurper's Cuirass,,,,5,,1
+22654,Nightmare Cuirass,,,,0.1891,,1
+22655,Victorious General's Cuirass,,,,0.199,,1
+22656,Lonely Berserker's Cuirass,,,,0.204,,1
+22657,True Testament Cuirass,,,,10,,1
+22658,Timeless Memory Cuirass,1,,20,20,,1
+22662,Rising Army Cuirass,,,,3,,1
+22664,Quiet Night Cuirass,,,,10,,1
+22667,Nuimari Cuirass,,,,1.6325,,2
+22669,Winter Rain Cuirass,,,,3,,1
+22670,Peace Keeping Cuirass,1,,3,3,,1
+22671,Wraith Agent's Cuirass,,,,0.331,,1
+22672,Blood Prince Cuirass,,,,2,,1
+22673,Silver Shadow Cuirass,,,,10,,1
+22674,Mysterious Astra Cuirass,,,,25,,1
+22675,Dark Desert Cuirass,,,,1,,1
+22677,Safety First Greaves,,,,1,,1
+22680,Galaxy Traveler Greaves,,,,20,,1
+22681,Usurper's Greaves,,,,10,,1
+22682,Nightmare Greaves,,,,0.1515,,2
+22683,Victorious General's Greaves,,,,10,,1
+22685,True Testament Greaves,,,,10,,1
+22687,Firm Will Greaves,,,,0.2132,,1
+22688,Harsh Trials Greaves,,,,10,,1
+22690,Rising Army Greaves,,,,10,,1
+22693,Great Conqueror's Greaves,,,,6,,1
+22696,Raging Storm Greaves,,,,1,,1
+22697,Winter Rain Greaves,,,,3,,1
+22698,Peace Keeping Greaves,,,,0.66,,1
+22699,Wraith Agent's Greaves,,,,0.3716,,1
+22700,Blood Prince Greaves,,,,40,,1
+22701,Silver Shadow Greaves,,,,0.3178,,1
+22702,Mysterious Astra Greaves,,,,2,,1
+22703,Dark Desert Greaves,,,,5.1,,1
+22704,Dark Ruler's Greaves,,,,7,,1
+22705,Safety First Gauntlets,,,,5,,2
+22709,Usurper's Gauntlets,,,,5,,1
+22711,Victorious General's Gauntlets,,,,10,,1
+22712,Lonely Berserker's Gauntlets,,,,10,,1
+22714,Timeless Memory Gauntlets,1,,9,9,,1
+22716,Harsh Trials Gauntlets,,,,0.1,,1
+22717,Blood Stench Gauntlets,,,,4,,1
+22719,Tearful Lord's Gauntlets,,,,0.1,,1
+22722,Heedmar Gauntlets,,,,10,,1
+22724,Raging Storm Gauntlets,,,,1,,1
+22725,Winter Rain Gauntlets,,,,0.166,,1
+22727,Wraith Agent's Gauntlets,,,,10,,1
+22728,Blood Prince Gauntlets,,,,1.583,,2
+22729,Silver Shadow Gauntlets,,,,10,,1
+22730,Mysterious Astra Gauntlets,,,,1,,1
+22731,Dark Desert Gauntlets,,,,1,,1
+22732,Dark Ruler's Gauntlets,,,,0.1,,1
+22733,Safety First Sabatons,,,,5,,1
+22736,Galaxy Traveler's Sabatons,,,,4,,1
+22738,Nightmare Sabatons,,,,4,,1
+22739,Victorious General's Sabatons,,,,0.105,,1
+22740,Lonely Berserker's Sabatons,,,,10,,1
+22742,Timeless Memory Sabatons,,,,10,,1
+22747,Tearful Lord's Sabatons,1,,0.102,1.551,,2
+22748,Quiet Night Sabatons,,,,10,,1
+22749,Great Conqueror's Sabatons,,,,6,,1
+22751,Nuimari Sabatons,,,,5,,1
+22752,Raging Storm Sabatons,,,,0.1,,1
+22754,Peace Keeping Sabatons,,,,9.9999,,1
+22755,Wraith Agent's Sabatons,,,,0.17,,1
+22756,Blood Prince Sabatons,,,,0.15,,1
+22757,Silver Shadow Sabatons,,,,10,,1
+22758,Mysterious Astra Sabatons,1,,0.103,0.103,,1
+22759,Dark Desert Sabatons,,,,0.5,,1
+22760,Dark Ruler's Sabatons,,,,0.199,,1
+22761,Safety First Vambraces,,,,1,,1
+22763,Halcyona Gulf Vambraces,,,,0.89,,1
+22764,Galaxy Traveler's Vambraces,,,,0.0514,,1
+22766,Nightmare Vambraces,,,,4,,1
+22767,Victorious General's Vambraces,,,,0.0604,,1
+22771,Firm Will Vambraces,,,,1.5302,,2
+22774,Rising Army's Vambraces,,,,4.2079,,1
+22776,Great Conqueror's Vambraces,,,,8.0808,,1
+22778,Heedmar Vambraces,,,,10,,1
+22780,Raging Storm Vambraces,,,,0.59,,1
+22781,Winter Rain Vambraces,,,,0.0604,,1
+22782,Peace Keeping Vambraces,,,,3,,1
+22783,Wraith Agent's Vambraces,,,,2.99,,1
+22784,Blood Prince Vambraces,,,,0.0604,,1
+22785,Mysterious Astra's Vambraces,,,,2,,1
+22786,Silver Shadow Vambraces,,,,0.7544,,1
+22787,Dark Desert Vambraces,,,,15,,1
+22788,Dark Ruler's Vambraces,,,,10,,1
+22792,Galaxy Traveler's Tassets,,,,0.0458,,1
+22793,Usurper's Tassets,,,,3,,1
+22794,Nightmare Tassets,,,,0.0385,,1
+22796,Lonely Berserker's Tassets,,,,10,,1
+22797,True Testament Tassets,,,,0.5,,1
+22799,Firm Will Tassets,,,,5,,1
+22802,Rising Army Tassets,,,,3,,1
+22803,Tearful Lord's Tassets,,,,1,,1
+22804,Great Conqueror's Tassets,,,,6,,1
+22805,Quiet Night Tassets,,,,10,,1
+22807,Nuimari Tassets,,,,0.07,,1
+22810,Peace Keeping Tassets,,,,69,,1
+22811,Wraith Agent's Tassets,,,,5,,1
+22812,Blood Prince Tassets,,,,0.24,,1
+22813,Mysterious Astra Tassets,,,,0.0416,,1
+22814,Silver Shadow Tassets,,,,0.0882,,1
+22815,Dark Desert Tassets,,,,0.0466,,1
+22816,Dark Ruler's Tassets,,,,5,,1
+23090,Shabby Pet Helm,,,,610,,1
+23091,Shabby Mount Saddle,,,,0.164,,5
+23092,Shabby Pet Legguards,,,,0.0325,,1
+23094,Light Mount Saddle,,,,824,,1
+23095,Light Pet Legguards,,,,0.2525,,1
+23096,Hard Pet Helm,,,,0.0472,,1
+23102,Solid Pet Helm,,,,2,,1
+23105,Shining Pet Helm,,,,3,,1
+23106,Shining Mount Saddle,,,,3,,1
+23107,Shining Pet Legguards,,,,3,,1
+23386,Soccer Cleats,1,,9,14.247625,,8
+23387,Civilian Shirt,,,,9,,1
+23388,Civilian Pants,,,,35.67,,3
+23390,Civilian Shoes,,,,19,,1
+23513,Tudor Slate Manor Design,,,,670,,1
+23528,Rustic Rose Townhouse Design,,,,400,,1
+23635,Vita Seed,672,0.15,0.1889769231,1.347242857,28,6944
+23636,Adventurer's Clipper Design,2,200,275,251.25,1,4
+23637,Noble's Luxe Bed,,,,14.1499,,1
+23638,Merchant's Lavish Bed,,,,1,,1
+23653,Mysterious Garden Powder,38669,14.34594192,13.925653,13.96271144,4600,168257
+23663,Ultralight Wing Ribs,2,,4.99995,3.336633333,,9
+23664,Glider Steering Mechanism,2,,234.9999,164.67164,,10
+23665,Glider Thruster,,,,180,,1
+23670,Siege Ammo,6089,1.22272,0.7438704918,0.6835695793,450,30596
+23671,Steel Ammo,46925,0.0938,0.1117705128,0.1029169753,1130,211160
+23698,Merchant Schooner Design,6,2399,2416,2460.96,1,25
+23722,Cart Bucket,2,59.97,59.97,59.97,2,18
+23725,Ironclad Design,4,110.7448,208.058575,228.34781,3,10
+23734,Fire-Striking Hammer,,,,1,,1
+23735,Fire-Spitting Bow,,,,2,,1
+23737,Fire-Starting Staff,,,,7,,1
+23741,Purified Monk's Shirt,,,,0.25,,1
+23742,Purified Monk's Pants,,,,3.9999,,1
+23744,Purified Monk's Shoes,2,,2,2,,2
+23747,Punished Believer's Jerkin,,,,2.5,,2
+23748,Punished Believer's Breeches,,,,1,,1
+23750,Punished Believer's Boots,,,,0.22,,1
+23752,Anguished Monk's Cuirass,,,,2.9999,,1
+23753,Anguished Monk's Greaves,,,,1,,1
+23755,Anguished Monk's Sabatons,,,,2,,1
+23763,Bloodmist Blade,1,4,4,2.5,1,2
+23765,Bloody Fang,1,,4,9.666666667,,3
+23767,Blood Drinking Staff,,,,0.29,,1
+23770,Blood Collector's Hood,,,,2.033666667,,3
+23771,Blood Collector's Shirt,1,3,3,3,1,1
+23772,Blood Collector's Pants,,,,5,,1
+23774,Blood Collector's Shoes,,,,2.4449,,2
+23775,Dark Crawler's Cap,,,,2.664966667,,3
+23776,Dark Crawler's Jerkin,,,,4.495,,4
+23777,Dark Crawler's Breeches,,,,15,,1
+23779,Dark Crawler's Boots,,,,5,,1
+23780,Body Thief's Helm,,,,1.1,,1
+23781,Body Thief's Cuirass,1,,2,1.99995,,2
+23782,Body Thief's Greaves,,,,2.49995,,2
+23784,Body Thief's Sabatons,,,,1.82995,,2
+23797,Chest Cleaver Axe,1,,2,2,,1
+23798,Bonesplitter Bow,,,,2.99,,1
+23799,Leatherbrand Scepter,1,4,4,4,1,1
+23803,Sly Plunderer's Hood,1,,2,3.995,,2
+23804,Sly Plunderer's Shirt,1,,0.751,0.751,,1
+23805,Sly Plunderer's Pants,,,,3.9999,,1
+23807,Sly Plunderer's Shoes,2,,1.38035,1.5539,,5
+23808,Cold-Blooded Cap,1,4,4,3.5,1,2
+23809,Cold-Blooded Jerkin,,,,6.444975,,4
+23810,Cold-Blooded Breeches,1,,0.992,5.660666667,,3
+23812,Cold-Blooded Boots,2,,2.3755,3.9585,,6
+23813,Ferocious Butcher's Helm,,,,7,,1
+23814,Ferocious Butcher's Cuirass,,,,4.9999,,1
+23815,Ferocious Butcher's Greaves,,,,2,,1
+23817,Ferocious Butcher's Sabatons,,,,1,,1
+23838,Jellyfish Poison,,,,1,,1
+23917,Sealed Epherium Lute,,,,23000,,1
+24000,Sealed Epherium Vambraces,,,,26500,,1
+24100,Flame-Patterned Ring,,,,4.9999,,1
+24101,Power of Blind Faith,1,,2,2,,2
+24102,Perinoor Essence,,,,1.065,,2
+24104,Blood Patterned Necklace,,,,4,,1
+24105,Blueblood Drop,,,,2.9999,,1
+24106,Red Crystal Ring,,,,1,,1
+24107,Moonswept Bay Necklace,,,,2,,1
+24108,Nui's Glory Coast,,,,1,,1
+24109,Golden Fable Ring,1,,1,2.5,,2
+24121,Design Fragment: Growling Yawl,6,650.9999,640.19908,651.1347027,1,59
+24122,Design Fragment: Singed Vehicle,,,,511.4544545,,20
+24439,Cunning Thief's Shirt,1,,2,2,,3
+24440,Cunning Thief's Pants,,,,2,,1
+24441,Cunning Thief's Shoes,,,,2.9999,,1
+24443,Quick Robber's Jerkin,,,,4.709866667,,3
+24444,Quick Robber's Breeches,,,,1.9999,,1
+24445,Quick Robber's Boots,,,,1,,1
+24446,Vicious Thug's Cuirass,,,,1,,1
+24447,Vicious Thug's Greaves,,,,1,,1
+24448,Vicious Thug's Sabatons,,,,10,,1
+24449,Sandstorm Seed,,,,2,,1
+24450,Violent Wind,,,,3.5,,2
+24451,Strong Vortex,1,,2.9999,3.6633,,3
+24458,Bloodwind's Call,,,,5,,1
+24459,Harsh Whirlwind,,,,1.5,,2
+24460,West Wind's Breath,,,,2.49995,,2
+24467,Viper Fang,,,,13.5,,2
+24468,Thornscale Shield,,,,0.298,,1
+24476,Inquisitor's Jerkin,,,,0.1802,,1
+24477,Inquisitor's Breeches,,,,11.11,,1
+24495,Exiled Wizard's Pants,,,,35,,1
+24505,Crazed Hermit's Breeches,,,,25,,1
+24509,Crazed Hermit's Guards,,,,7,,1
+24511,Vicious Slayer's Cuirass,,,,95,,1
+24581,Treasure Map with Coordinates,507,17.48183,14.60515897,22.54303235,40,5165
+24611,Lucid Flaming Gale Lunadrop,,,,9,,1
+24612,Lucid Flaming Earth Lunadrop,,,,15,,1
+24613,Lucid Flaming Wave Lunadrop,,,,9,,1
+24614,Lucid Flaming Life Lunadrop,,,,9,,1
+24615,Radiant Flaming Gale Lunadrop,,,,10,,1
+24620,Lucid Windy Earth Lunadrop,,,,8,,1
+24624,Radiant Windy Earth Lunadrop,,,,30,,1
+24626,Radiant Windy Life Lunadrop,,,,6,,1
+24627,Lucid Earthen Fire Lunadrop,,,,15,,1
+24628,Lucid Earthen Gale Lunadrop,,,,11,,1
+24635,Lucid Tidal Fire Lunadrop,,,,5,,1
+24638,Lucid Tidal Life Lunadrop,,,,12,,1
+24651,Blazing Flaming Gale Lunadrop,,,,8,,1
+24652,Blazing Flaming Earth Lunadrop,,,,33,,1
+24653,Blazing Flaming Wave Lunadrop,,,,8,,1
+24654,Blazing Flaming Life Lunadrop,,,,9,,2
+24655,Beguiling Flaming Gale Lunadrop,,,,73.75,,4
+24656,Beguiling Flaming Earth Lunadrop,,,,46.995,,2
+24657,Beguiling Flaming Wave Lunadrop,,,,18,,1
+24658,Beguiling Flaming Life Lunadrop,,,,50,,2
+24659,Blazing Windy Fire Lunadrop,,,,25,,1
+24660,Blazing Windy Earth Lunadrop,,,,29,,1
+24661,Blazing Windy Wave Lunadrop,,,,37.25,,4
+24662,Blazing Windy Life Lunadrop,,,,34.5,,2
+24663,Beguiling Windy Fire Lunadrop,,,,32.5,,2
+24664,Beguiling Windy Earth Lunadrop,,,,43.5,,2
+24665,Beguiling Windy Wave Lunadrop,,,,57.99995,,3
+24666,Beguiling Windy Life Lunadrop,,,,30,,3
+24667,Blazing Earthen Fire Lunadrop,,,,15,,2
+24668,Blazing Earthen Gale Lunadrop,,,,25,,2
+24669,Blazing Earthen Wave Lunadrop,,,,25,,2
+24670,Blazing Earthen Life Lunadrop,,,,20,,2
+24671,Beguiling Earthen Fire Lunadrop,,,,55,,1
+24672,Beguiling Earthen Gale Lunadrop,,,,40,,1
+24673,Beguiling Earthen Wave Lunadrop,,,,35,,2
+24674,Beguiling Earthen Life Lunadrop,1,,39.9999,39.9999,,1
+24675,Blazing Tidal Fire Lunadrop,,,,15,,1
+24676,Blazing Tidal Gale Lunadrop,,,,15,,3
+24677,Blazing Tidal Earth Lunadrop,,,,40,,1
+24678,Blazing Tidal Life Lunadrop,,,,25,,1
+24679,Beguiling Tidal Fire Lunadrop,,,,35,,1
+24680,Beguiling Tidal Gale Lunadrop,,,,41,,1
+24681,Beguiling Tidal Earth Lunadrop,,,,49.99995,,2
+24682,Beguiling Tidal Life Lunadrop,,,,34.99995,,2
+24684,Blazing Lively Gale Lunadrop,,,,19,,2
+24685,Blazing Lively Earth Lunadrop,,,,35.66666667,,3
+24686,Blazing Lively Wave Lunadrop,,,,41.5,,4
+24687,Beguiling Lively Fire Lunadrop,,,,29.5,,2
+24688,Beguiling Lively Gale Lunadrop,,,,24,,2
+24689,Beguiling Lively Earth Lunadrop,,,,69,,2
+24690,Beguiling Lively Wave Lunadrop,,,,27,,1
+24691,Cracked Insightful Lunafrost,,,,0.003418518519,,54
+24693,Flawless Insightful Lunafrost,2,,475.50885,440.1405333,,12
+24694,Cracked Waterdrop Lunafrost,,,,0.16996,,100
+24696,Flawless Waterdrop Lunafrost,,,,88,,1
+24703,Cracked Blade Lunafrost,,,,8.0044,,1
+24713,Whole Assassin's Lunafrost,,,,45,,2
+24714,Flawless Assassin's Lunafrost,9,,348.4827556,378.4848417,,48
+24715,Cracked Wave Lunafrost,,,,24.98,,1
+24717,Flawless Wave Lunafrost,15,463.2554,454.35174,424.3315463,3,41
+24730,Flawless Roar Lunafrost,,,,111,,1
+24739,Cracked Lightspeed Lunafrost,,,,0.0044,,1
+24745,Flawless Willful Lunafrost,9,69.6967,55.59916667,56.08720909,1,44
+24748,Cracked Barrier Lunafrost,,,,25.5,,1
+24749,Whole Barrier Lunafrost,1,,375,376.7,,3
+24846,Alchemist's Hood,,,,5,,1
+24847,Alchemist's Shirt,,,,5,,1
+24848,Alchemist's Pants,,,,5,,1
+24849,Alchemist's Gloves,,,,2,,1
+24850,Alchemist's Shoes,,,,2,,1
+24851,Chef's Hood,,,,1.0095,,1
+24852,Chef's Shirt,,,,3,,1
+24853,Chef's Pants,,,,5,,1
+24854,Chef's Gloves,,,,1,,1
+24855,Chef's Shoes,,,,5,,1
+24861,Rancher's Hood,,,,4.333333333,,3
+24862,Rancher's Shirt,,,,4.666666667,,3
+24863,Rancher's Pants,,,,10,,1
+24864,Rancher's Gloves,,,,10,,1
+24865,Rancher's Shoes,,,,1,,1
+24866,Farmer's Hood,,,,2,,1
+24867,Farmer's Shirt,,,,5,,1
+24868,Farmer's Pants,,,,3,,2
+24869,Farmer's Gloves,,,,5,,1
+24870,Farmer's Shoes,,,,5,,1
+24871,Woodcutter's Cap,,,,2,,1
+24872,Woodcutter's Shirt,,,,2,,1
+24873,Woodcutter's Pants,,,,1,,1
+24874,Woodcutter's Gloves,,,,10,,2
+24875,Woodcutter's Shoes,,,,5,,2
+24876,Gatherer's Hood,,,,4,,1
+24877,Gatherer's Shirt,,,,2,,1
+24878,Gatherer's Pants,,,,9,,1
+24879,Gatherer's Gloves,,,,2,,1
+24880,Gatherer's Shoes,,,,2,,1
+24885,Blacksmith's Shoes,,,,9.99,,1
+24886,Miner's Hood,,,,5,,1
+24887,Miner's Shirt,,,,2.517,,2
+24888,Miner's Pants,,,,8,,1
+24889,Miner's Gloves,,,,5,,1
+24890,Miner's Shoes,,,,5,,1
+24892,Tailor's Shirt,,,,25,,1
+24900,Tanner's Shoes,,,,33,,1
+24910,Carpenter's Shoes,,,,33,,1
+24911,Lunarite,27581,0.04309333333,0.05038049948,0.08011149681,4771,126329
+24912,Fine Lunarite,77,1.2085,1.4495,2.246641406,8,1056
+24913,Superior Lunarite,534,5.570692308,6.428528846,7.1699555,96,2412
+24914,Prime Lunarite,463,10.25910714,10.39015746,14.40356579,35,2408
+24915,Heat of Eternal Summer,1716,0.15845,0.3141570652,0.2468995833,206,8705
+24916,Eternal Winter Chill,1983,22.91454265,24.49762617,26.44822645,284,8612
+25116,Bugira's Coin,,,,1.001,,1
+25227,Monarch's Hardwood Chair,,,,12.99,,1
+25229,Merchant's Aristocratic Chair,,,,2,,1
+25230,Merchant's Lavish Stool,,,,10,,1
+25231,Noble's Luxe Chair,,,,12.99,,1
+25235,Monarch's Bedchamber Sofa,,,,5,,1
+25237,Monarch's Folding Partition,,,,0.935,,1
+25240,Merchant's Partition,,,,11,,10
+25241,Scholar's Partition,,,,11,,1
+25293,Yeoman's Wood Chair,,,,0.5,,1
+25305,Hard Battle Pet Armor,,,,4007,,1
+25306,Sturdy Battle Pet Armor,,,,1019,,1
+25307,Solid Battle Pet Armor,,,,2,,1
+25308,Shining Battle Pet Armor,,,,0.18,,1
+25433,Sovereign's Lavish Gilt Bed,,,,150,,1
+25436,Merchant's Table,,,,7.99,,1
+25438,Petite Cushion,,,,2.79,,1
+25439,Grand Cushion,,,,3.79,,2
+25442,"""Rudal's Travel Journal, Entry #01""",,,,0.02,,1
+25446,"""Rudal's Travel Journal, Entry #05""",,,,4.995,,2
+25447,"""Rudal's Travel Journal, Entry #06""",,,,5,,1
+25448,"""Rudal's Travel Journal, Entry #07""",,,,5,,1
+25449,"""Rudal's Travel Journal, Entry #08""",,,,5,,1
+25450,"""Rudal's Travel Journal, Entry #09""",,,,1,,1
+25452,"""Rudal's Travel Journal, Entry #11""",,,,5,,1
+25453,"""Rudal's Travel Journal, Entry #12""",,,,45,,1
+25454,"""Rudal's Travel Journal, Entry #13""",,,,5,,1
+25456,"""Rudal's Travel Journal, Entry #15""",,,,5,,1
+25457,"""Rudal's Travel Journal, Entry #16""",,,,5,,1
+25458,"""Rudal's Travel Journal, Entry #17""",,,,0.02,,1
+25459,"""Rudal's Travel Journal, Entry #18""",,,,5,,1
+25460,"""Rudal's Travel Journal, Entry #19""",,,,5.5,,2
+25462,"""Rudal's Travel Journal, Entry #21""",,,,5,,1
+25464,"""Rudal's Travel Journal, Entry #23""",,,,1,,1
+25466,"""Rudal's Travel Journal, Entry #25""",,,,5,,1
+25467,"""Rudal's Travel Journal, Entry #26""",,,,5,,1
+25475,"""Rudal's Travel Journal, Entry #33""",,,,1.002,,1
+25476,"""Rudal's Travel Journal, Entry #34""",,,,44,,1
+25478,"""Rudal's Travel Journal, Entry #36""",,,,5,,1
+25480,"""Rudal's Travel Journal, Entry #38""",,,,0.02,,2
+25482,"""Rudal's Travel Journal, Entry #40""",,,,0.02,,1
+25484,"""Rudal's Travel Journal, Entry #42""",,,,0.1,,1
+25485,"""Rudal's Travel Journal, Entry #43""",,,,5,,1
+25486,"""Rudal's Travel Journal, Entry #44""",,,,4.04,,1
+25487,"""Rudal's Travel Journal, Entry #45""",,,,5,,1
+25491,"""Rudal's Travel Journal, Entry #49""",,,,5,,1
+25493,"""Rudal's Travel Journal, Entry #51""",,,,5,,1
+25495,"""Rudal's Travel Journal, Entry #53""",,,,5,,1
+25496,"""Rudal's Travel Journal, Entry #54""",,,,4.99,,1
+25497,"""Rudal's Travel Journal, Entry #55""",,,,5,,1
+25498,"""Rudal's Travel Journal, Entry #56""",,,,0.02,,1
+25501,"""Rudal's Travel Journal, Entry #59""",,,,4.99,,1
+25502,"""Rudal's Travel Journal, Entry #60""",,,,44,,1
+25506,"""Rudal's Travel Journal, Entry #64""",,,,44.991,,1
+25507,"""Rudal's Travel Journal, Entry #65""",,,,0.02,,1
+25508,"""Rudal's Travel Journal, Entry #66""",,,,5,,1
+25509,"""Rudal's Travel Journal, Entry #67""",,,,5,,1
+25510,"""Rudal's Travel Journal, Entry #68""",,,,5,,1
+25513,"""Rudal's Travel Journal, Entry #71""",,,,5,,1
+25514,"""Rudal's Travel Journal, Entry #72""",,,,0.15,,1
+25515,"""Rudal's Travel Journal, Entry #73""",,,,5,,1
+25517,"""Rudal's Travel Journal, Entry #75""",,,,5,,1
+25519,"""Rudal's Travel Journal, Entry #77""",,,,7,,1
+25520,"""Rudal's Travel Journal, Entry #78""",,,,4.99,,1
+25523,"""Rudal's Travel Journal, Entry #81""",,,,5,,1
+25524,"""Rudal's Travel Journal, Entry #82""",,,,5,,1
+25526,"""Rudal's Travel Journal, Entry #84""",,,,45,,1
+25527,"""Rudal's Travel Journal, Entry #85""",,,,0.02,,1
+25528,"""Rudal's Travel Journal, Entry #86""",,,,0.02,,1
+25536,Nuian Streetlight,,,,5.99,,2
+25568,"""Iyor's Travel Journal, Entry #02""",,,,5,,1
+25570,"""Iyor's Travel Journal, Entry #04""",,,,4.9999,,1
+25571,"""Iyor's Travel Journal, Entry #05""",,,,3.2525,,1
+25572,"""Iyor's Travel Journal, Entry #06""",1,,6,6,,1
+25573,"""Iyor's Travel Journal, Entry #07""",,,,5,,1
+25574,"""Iyor's Travel Journal, Entry #08""",,,,5,,1
+25575,"""Iyor's Travel Journal, Entry #09""",,,,5,,1
+25576,"""Iyor's Travel Journal, Entry #10""",,,,2,,1
+25577,"""Iyor's Travel Journal, Entry #11""",,,,1,,1
+25578,"""Iyor's Travel Journal, Entry #12""",,,,5,,1
+25579,"""Iyor's Travel Journal, Entry #13""",,,,5.002,,1
+25580,"""Iyor's Travel Journal, Entry #14""",,,,5,,1
+25582,"""Iyor's Travel Journal, Entry #16""",,,,5,,1
+25583,"""Iyor's Travel Journal, Entry #17""",,,,5,,1
+25584,"""Iyor's Travel Journal, Entry #18""",,,,5,,1
+25585,"""Iyor's Travel Journal, Entry #19""",,,,5,,1
+25587,"""Iyor's Travel Journal, Entry #21""",,,,5,,1
+25588,"""Iyor's Travel Journal, Entry #22""",,,,14.9999,,1
+25591,"""Iyor's Travel Journal, Entry #25""",,,,5,,1
+25593,"""Iyor's Travel Journal, Entry #27""",1,,6,6,,1
+25594,"""Iyor's Travel Journal, Entry #28""",,,,5,,1
+25595,"""Iyor's Travel Journal, Entry #29""",,,,5,,1
+25596,"""Iyor's Travel Journal, Entry #30""",,,,5,,1
+25598,"""Iyor's Travel Journal, Entry #32""",,,,1,,1
+25599,Monarch's Spacious Bed,,,,100,,1
+25601,Sovereign's Gilt Hardwood Bed,,,,30,,1
+25603,Spacious Hardwood Chair,,,,7.99,,1
+25605,"""Iyor's Travel Journal, Entry #33""",,,,5,,1
+25606,Sovereign's Gilt Rose Sofa,,,,10,,1
+25609,"""Iyor's Travel Journal, Entry #34""",,,,5,,1
+25612,"""Iyor's Travel Journal, Entry #37""",,,,1,,1
+25613,"""Iyor's Travel Journal, Entry #38""",,,,5,,1
+25614,"""Iyor's Travel Journal, Entry #39""",,,,5,,1
+25615,"""Iyor's Travel Journal, Entry #40""",,,,5,,1
+25616,"""Iyor's Travel Journal, Entry #41""",,,,5,,1
+25617,"""Iyor's Travel Journal, Entry #42""",1,6,6,6,1,1
+25621,"""Iyor's Travel Journal, Entry #46""",,,,5,,1
+25623,"""Iyor's Travel Journal, Entry #48""",,,,5,,1
+25624,"""Iyor's Travel Journal, Entry #49""",,,,5,,1
+25627,"""Iyor's Travel Journal, Entry #52""",,,,5,,1
+25628,"""Iyor's Travel Journal, Entry #53""",,,,5,,1
+25629,"""Iyor's Travel Journal, Entry #54""",,,,5,,1
+25630,"""Iyor's Travel Journal, Entry #55""",,,,5,,1
+25631,"""Iyor's Travel Journal, Entry #56""",,,,5,,1
+25633,"""Iyor's Travel Journal, Entry #58""",,,,5,,1
+25635,"""Iyor's Travel Journal, Entry #60""",,,,4.9999,,1
+25636,"""Iyor's Travel Journal, Entry #61""",,,,5,,1
+25637,"""Iyor's Travel Journal, Entry #62""",,,,5,,1
+25638,"""Iyor's Travel Journal, Entry #63""",,,,5,,1
+25639,"""Iyor's Travel Journal, Entry #64""",,,,5,,1
+25640,"""Iyor's Travel Journal, Entry #65""",,,,5,,1
+25641,"""Iyor's Travel Journal, Entry #66""",,,,5,,1
+25643,"""Iyor's Travel Journal, Entry #68""",,,,44,,1
+25644,"""Iyor's Travel Journal, Entry #69""",,,,1,,1
+25645,"""Iyor's Travel Journal, Entry #70""",,,,5,,1
+25647,"""Iyor's Travel Journal, Entry #72""",,,,5,,1
+25649,"""Iyor's Travel Journal, Entry #74""",,,,5,,1
+25650,"""Iyor's Travel Journal, Entry #75""",,,,5,,1
+25651,"""Iyor's Travel Journal, Entry #76""",1,,6,6,,1
+25653,"""Iyor's Travel Journal, Entry #78""",,,,5,,1
+25654,"""Iyor's Travel Journal, Entry #79""",,,,5,,1
+25689,Square Paper Lighting Frame,,,,30,,1
+25694,Farm Fence,,,,0.01013333333,,30
+25695,Spiked Iron Fence,,,,0.5,,29
+25696,Stone Post,,,,2,,4
+25798,Sunlight Archeum Motes,,,,0.07926857143,,31
+25799,Moonlight Archeum Motes,,,,0.1740128205,,64
+25800,Starlight Archeum Motes,,,,0.15,,2
+26005,Elegant Haranya Tutoring Cushion,,,,160.1666667,,3
+26295,War Drum,3,,352.9603,318.98669,,20
+26377,Potato Eye Bundle,,,,0.5248,,46
+26378,Cucumber Seed Bundle,,,,0.675,,317
+26380,Sweet Candy,648,41.21572609,44.20886358,34.54148211,154,5773
+26431,Poplar Tree Sapling,,,,0.02140103627,,965
+26441,Hound of Kyrios Statue,,,,0.6896,,1
+26442,Gilt Hound of Kyrios Statue,7,1.98,1.564214286,1.237892857,1,14
+26443,Anthalon Statue,2,,17,18.6,,5
+26444,Gilt Anthalon Statue,1,,15.001,21.5001,,6
+26449,Carrot Seed Bundle,,,,0.01205555556,,18
+26450,Onion Seed Bundle,,,,0.01206451613,,31
+26451,Garlic Seed Bundle,400,0.52925,0.546875,0.7618333333,200,559
+26452,Barley Seed Bundle,,,,0.6459142857,,513
+26453,Rice Seed Bundle,,,,0.7801333333,,181
+26454,Millet Seed Bundle,,,,0.5162666667,,97
+26455,Corn Seed Bundle,,,,0.4074538462,,607
+26457,Oat Seed Bundle,,,,0.99,,18
+26458,Clover Seed Bundle,,,,0.9484142857,,504
+26459,Azalea Seed Bundle,,,,0.1,,68
+26460,Narcissus Seed Bundle,,,,0.4299,,426
+26461,Rose Seed Bundle,,,,0.8333333333,,138
+26462,Cotton Seed Bundle,26,,0.01211538462,0.01211538462,,26
+26463,Lily Seed Bundle,,,,0.06296,,50
+26464,Lotus Seed Bundle,,,,3,,16
+26465,Cornflower Seed Bundle,,,,0.89,,38
+26466,Iris Seed Bundle,,,,0.5,,36
+26467,Lavender Seed Bundle,200,0.5,0.535,0.62225,100,330
+26470,Mushroom Spore Bundle,,,,0.58,,464
+26471,Thistle Seed Bundle,42,,0.3,0.4333333333,,236
+26547,Iyor's Travel Quire #1 Tool,,,,200,,1
+26548,Eco-Friendly Fuel,43638,1.656510345,1.668757504,1.63528606,6480,186589
+26552,Iyor's Travel Quire #2 Tool,,,,1.002,,1
+26555,Iyor's Travel Quire #3 Tool,,,,200,,1
+26558,Iyor's Travel Quire #4 Tool,,,,150,,1
+26560,Iyor's Travel Quire #5 Tool,,,,200,,1
+26562,Iyor's Travel Quire #6 Tool,,,,150,,1
+26565,Iyor's Travel Quire #7 Tool,,,,200,,1
+26567,Iyor's Travel Quire #8 Tool,,,,150,,1
+26568,Rudal's Travel Quire #1 Tool,,,,1000,,1
+26571,Rudal's Travel Quire #2 Tool,,,,700,,1
+26572,Rudal's Travel Quire #3 Tool,,,,665.991,,1
+26578,Rudal's Travel Quire #6 Tool,1,,700,700,,1
+26580,Rudal's Travel Quire #7 Tool,,,,700,,1
+26582,Rudal's Travel Quire #8 Tool,,,,10,,1
+26632,Black Yata Calf,,,,1000,,1
+26633,Palomino Yata Calf,,,,1399.9955,,2
+26634,Striped Yata Calf,1,,150.042,81.68063333,,3
+26638,Cashmere Yata Calf,,,,1,,12
+26673,Yata Meat,14,0.1001666667,0.1672222222,0.2762589744,6,1261
+26674,Yata Fur,22294,0.194875,0.1740402299,0.1696491228,1124,68419
+26675,Axis Mundi Aegis,7,,3817,4047.109176,,42
+26744,Combined Feed,29941,0.3151780488,0.3146955414,0.3112213481,3869,123846
+26768,Cashmere Thread,42,28.98968,29.29849,26.62412,9,177
+26769,Red Pigment,,,,100,,1
+26770,Yellow Pigment,1,,99.9999,105.7142143,,7
+26771,Blue Pigment,,,,50,,1
+26789,Handsome Haranya Tutoring Cushion,,,,100.6969,,1
+26790,Elegant Nuia Tutoring Cushion,1,,150,112,,4
+26791,Handsome Nuia Tutoring Cushion,,,,200,,1
+26821,Small Bamboo Coop,43,5,5.19992,5.1221,3,196
+26836,Mythic Taming Net,,,,200,,1
+26837,Legendary Taming Net,,,,60,,6
+26853,Book of Auroria,422,79.99967692,66.61108485,56.35885081,31,2114
+26855,Perfect Fire Lunafrost,1,,449.9999,451.6666,,3
+26856,Perfect Gale Lunafrost,2,,350.54525,467.2036286,,14
+26857,Perfect Earth Lunafrost,5,488.5538,416.51024,427.6852429,1,21
+26858,Perfect Wave Lunafrost,5,,350.59538,422.2983636,,11
+26859,Perfect Life Lunafrost,,,,475.7499,,4
+26863,Harmonic Arpeggio Flute,,,,50,,1
+26880,Lord's Coin,2367,210.3662963,214.2340137,232.3647076,316,12031
+26956,Rumbling Archeum Tree Sapling,3,179,166,171.7258943,1,42
+26968,Noble Blessings Feast Table,,,,20,,5
+26969,Arcane Grace Feast Table,,,,3,,14
+26970,Abundant Health Beverage Table,,,,20,,10
+26971,Ample Mana Appetizer Table,,,,24.9999,,5
+26978,Auroria Mystic Hood,1,,19,9.091666667,,6
+26979,Auroria Heartbound Hood,4,,26.28585,30.195625,,16
+26980,Auroria Soulbane Hood,,,,29.99984,,5
+26981,Auroria Mystic Shirt,,,,17.5,,2
+26982,Auroria Heartbound Shirt,1,,14,33.85438,,5
+26983,Auroria Soulbane Shirt,3,,33.33,226.5993067,,15
+26984,Auroria Mystic Sash,1,95,95,60.99998,1,5
+26985,Auroria Heartbound Sash,,,,39.18176364,,11
+26986,Auroria Soulbane Sash,1,,69.9998,43.16663333,,6
+26987,Auroria Mystic Sleeves,1,,20,26.66666667,,3
+26988,Auroria Heartbound Sleeves,,,,38.99965,,8
+26989,Auroria Soulbane Sleeves,,,,30.7932,,7
+26990,Auroria Mystic Gloves,1,,33,48.99666667,,3
+26991,Auroria Heartbound Gloves,1,,10,8.333333333,,3
+26992,Auroria Soulbane Gloves,,,,22.44416667,,3
+26993,Auroria Mystic Pants,1,,5.9996,21.7216625,,8
+26994,Auroria Heartbound Pants,1,,5.992,10.33066667,,3
+26995,Auroria Soulbane Pants,4,,30.04655,30.6482625,,8
+26996,Auroria Mystic Shoes,1,,15,24,,2
+26997,Auroria Heartbound Shoes,,,,10.68215,,4
+26998,Auroria Soulbane Shoes,1,,10,12.63663333,,3
+26999,Auroria Promise Cap,1,,10,18.33333333,,3
+27000,Auroria Wildborn Cap,1,,10.9089,16.96963333,,3
+27001,Auroria Beldame Cap,1,,10,11,,2
+27002,Auroria Promise Jerkin,1,,25,25,,1
+27003,Auroria Wildborn Jerkin,,,,32.33263333,,3
+27004,Auroria Beldame Jerkin,,,,5.1104,,2
+27005,Auroria Promise Belt,2,,34.495,50.27568571,,14
+27006,Auroria Wildborn Belt,,,,26.86568571,,7
+27007,Auroria Beldame Belt,,,,54,,2
+27008,Auroria Promise Guards,,,,38.3333,,3
+27009,Auroria Wildborn Guards,7,66.66663333,52.14284286,726.4312882,3,34
+27010,Auroria Beldame Guards,,,,16.4986625,,8
+27011,Auroria Promise Fists,,,,52.358225,,8
+27012,Auroria Wildborn Fists,1,1.0045,1.0045,14.49895,1,4
+27013,Auroria Beldame Fists,,,,33,,1
+27014,Auroria Promise Breeches,,,,27.49965,,2
+27015,Auroria Wildborn Breeches,2,,3.0881,3.0881,,2
+27016,Auroria Beldame Breeches,,,,10,,1
+27017,Auroria Promise Boots,1,,11,18,,2
+27018,Auroria Wildborn Boots,,,,41.39794,,5
+27019,Auroria Beldame Boots,,,,14.9999,,1
+27020,Auroria Swordbane Helm,,,,8.2182,,1
+27021,Auroria Hellbent Helm,1,,9,8.333333333,,3
+27022,Auroria Savage Helm,,,,7.333333333,,3
+27023,Auroria Swordbane Cuirass,,,,19.43985,,2
+27024,Auroria Hellbent Cuirass,1,,30,27.3999,,5
+27025,Auroria Savage Cuirass,,,,15.0729,,3
+27026,Auroria Swordbane Tassets,,,,6.512375,,4
+27027,Auroria Hellbent Tassets,3,,23.33333333,20,,5
+27028,Auroria Savage Tassets,1,,15,20.4089,,5
+27029,Auroria Swordbane Vambraces,2,,19.5,13.998,,4
+27030,Auroria Hellbent Vambraces,4,,22.0024,25.8585,,7
+27031,Auroria Savage Vambraces,,,,14.57996,,5
+27032,Auroria Swordbane Gauntlets,1,,15.9999,33.49998333,,6
+27033,Auroria Hellbent Gauntlets,,,,7.07,,1
+27034,Auroria Savage Gauntlets,1,,24.9999,22.94886364,,11
+27035,Auroria Swordbane Greaves,2,,29,20.99795,,4
+27036,Auroria Hellbent Greaves,,,,16.5,,4
+27037,Auroria Savage Greaves,,,,2.76425,,2
+27038,Auroria Swordbane Sabatons,2,,7.625,8.034488889,,9
+27039,Auroria Hellbent Sabatons,,,,28.25,,4
+27040,Auroria Savage Sabatons,2,,9.99995,9.99998,,5
+27142,Bait Worm,1653579,0.05163621622,0.04907883166,0.05012657085,174146,7169550
+27203,Captive Windlord,,,,1900,,1
+27204,Captive Flamelord,,,,2900,,1
+27205,Captive Farkrag the Wanderer,,,,1900,,2
+27207,Captive Daruda the Watcher,,,,2000,,1
+27209,Captive Tarian the Grim,1,,2850,2875,,4
+27210,Captive Harrod the Gatekeeper,,,,3000,,2
+27213,Flirtatious Flower,,,,0.07326666667,,151
+27217,Shrimp,11931,,0.09112476794,0.05651236572,,72738
+27218,Anchovy,174,0.1291,0.1291,0.02008682306,174,16394
+27219,Squid,8403,,0.02122445259,0.02620513242,,19343
+27220,Sandfish,330,,0.04636785714,0.1382471429,,464
+27221,Roosterfish,158,,0.2515172414,0.08840277191,,302
+27222,Flatfish,51,,0.003277173913,0.009013586957,,325
+27223,Sardine,27,,0.39995,0.2877130637,,163
+27224,Ricefish,12,,0.0122,0.02278795113,,5829
+27225,Minnow,10,,0.0181,0.01248686112,,6107
+27226,Loach,85,0.004,0.004,0.003444189216,21,4457
+27227,Carp,20,,0.00305,0.0205663955,,3289
+27228,Snipefish,51,,0.003082792208,0.003051491338,,232
+27229,Char,,,,0.01,,42
+27230,Smelt,909,,0.0215,0.01225769231,,974
+27231,Pike,2207,0.1870423107,0.223403847,0.2318568035,787,12283
+27232,Halibut,,,,0.05,,6
+27233,Pufferfish,1653,,0.11375,0.1141627428,,8117
+27234,Mackerel,3,,0.007833333333,0.008044444444,,14
+27235,Tilefish,20,,0.00790530303,0.007808064621,,53
+27236,Octopus,3,,0.007833333333,0.02527962963,,45
+27237,Catfish,178,0.0079,0.09405,0.05032524791,5,2838
+27238,Dragonet,,,,0.007875384615,,41
+27239,Trout,,,,0.3699333333,,42
+27241,Eel,295,,2.380963636,3.061851449,,1034
+27242,Moonfish,33,,0.05379545455,0.1009238961,,64
+27245,Piranha,,,,0.03127272727,,23
+27246,Herring,24,0.2,0.07195959596,0.1126464646,4,50
+27247,Snapper,3,,1.96845,0.6984827273,,1081
+27248,Stingray,100,1.1482,1.2672,1.113951786,10,862
+27249,Mullet,87,0.037,0.5595538462,0.4132,3,1235
+27250,Pollack,,,,0.3284285714,,18
+27251,Sea Bass,28,,1.29558,0.7201166667,,787
+27252,Solzrean Mackerel,783,0.4778333333,0.5871526316,0.4509927649,93,2149
+27253,Cod,1,,0.036,0.036,,1
+27254,Salmon,3,0.039,0.1913333333,0.1976,1,12
+27255,Barracuda,2,,0.035,1.570655556,,13
+27256,Red Snapper,5,,0.0344,5.274225,,14
+27257,Rainbow Trout,35,0.039,1.0186,3.074241176,1,61
+27258,Skipjack Tuna,1,,0.037,0.1805,,43
+27259,Pigfish,,,,0.003031914894,,94
+27271,The Art of Language,121,20.69635,22.44616894,21.29767691,7,956
+27278,Paper,125466,0.07857,0.07782443182,0.07490166028,4823,523325
+27293,Grimghast Helm,17,,500.2914471,579.4889492,,59
+27294,Grimghast Cuirass,8,,714.999775,668.6492311,,45
+27295,Grimghast Vambraces,8,,629.95445,558.9502725,,51
+27296,Grimghast Gauntlets,12,289.99975,302.6589833,275.09225,2,54
+27297,Grimghast Tassets,15,,176.19822,209.8875236,,55
+27298,Grimghast Greaves,13,300.9997,301.0759615,310.4744339,1,62
+27299,Grimghast Sabatons,7,,379.0441143,253.6195296,,54
+27313,Chum,2,,2,2,,2
+27314,Chopped Squid,757,2,1.57436,1.447582386,13,1444
+27315,Chopped Roosterfish,710,,5.865113462,3.539204688,,5152
+27316,Chopped Sardines,183,2.5,1.961666667,3.123938298,30,666
+27317,Chopped Pike,467,4.67741875,4.411146032,5.193333333,88,3227
+27318,Chopped Fish Bucket,,,,3.290303448,,169
+27319,Yellow Lure,,,,0.05303846154,,52
+27321,Sharp Fishing Hook,,,,2.0861875,,334
+27322,Crafted Fishing Hook,,,,11.70333333,,8
+27323,Basic Fishing Line,,,,4.828651282,,18
+27324,Reinforced Fishing Line,,,,5,,1
+27325,Wooden Reel,,,,4.46,,349
+27326,Sturdy Steel Reel,,,,0.14991,,100
+27327,Gilt Reel,,,,17.5,,2
+27328,Wrapped Bamboo Fishing Rod,72,9.9996,7.288423611,6.741946154,6,247
+27353,Self-Winding Phonograph,,,,200,,1
+27365,Exquisite Diaphragm,,,,110,,4
+27366,Mechanical Spring,15,146,145.99995,146.8536122,2,53
+27438,Green Elk Plushie,,,,40,,2
+27439,Purple Elk Plushie,,,,40,,3
+27440,Pink Elk Plushie,,,,40,,3
+27443,Sandmane Snowlion Plushie,,,,150,,1
+27444,Snowmane Snowlion Plushie,,,,75,,1
+27445,Coalmane Snowlion Plushie,,,,80,,2
+27448,Yata Plushie,,,,160,,1
+27449,Striped Yata Plushie,,,,64,,2
+27450,Black Yata Plushie,,,,40,,2
+27496,Apprentice's Plushie Pack,15,169,169,169,4,44
+27498,Artificer's Plushie Pack,,,,199,,1
+27545,Handicraft Yarn,35176,0.480075,0.6586154167,0.5685390746,3226,128187
+27547,Green Lure,,,,0.8,,1
+27548,Blue Lure,,,,0.7998,,1
+27549,Red Lure,,,,0.9999,,1
+27622,Beekeeper's Veil,,,,50,,1
+27625,Wrapped Culinary Queen's Secrets,,,,300,,1
+27627,Wrapped Sugarplum Fairy Music Box,,,,250.991,,1
+27628,Wrapped Gemcutter's Bench,,,,300,,1
+27633,Wrapped Leopardskin Rug,,,,250,,1
+27638,Wrapped Double-Bladed Saw,,,,250,,1
+27671,Wrapped Steel Fishing Rod,,,,50,,1
+27672,Wrapped Springy Steel Fishing Rod,,,,50,,1
+27674,Wrapped Archeum Fishing Rod,,,,80,,1
+27687,Breezy Bungalow Design,1,,750,825,,2
+27706,Roasted Yam,,,,5,,4
+27735,Traveler's Campfire Creator,,,,5,,5
+27746,Fragrant Soup,1676,1.188407692,1.239614815,1.223417917,326,6002
+27812,"""Alecto's Journal, Entry #1""",,,,5,,1
+27824,"""Alecto's Journal, Entry #13""",,,,3,,1
+27831,"""Alecto's Journal, Entry #20""",,,,55,,1
+27832,"""Alecto's Journal, Entry #21""",,,,4,,1
+27836,"""Alecto's Journal, Entry #25""",,,,3,,1
+27838,"""Alecto's Journal, Entry #27""",,,,55,,1
+27842,"""Alecto's Journal, Entry #31""",,,,55,,1
+27846,"""Alecto's Journal, Entry #35""",,,,3,,1
+27847,"""Alecto's Journal, Entry #36""",,,,3,,1
+27851,"""Alecto's Journal, Entry #40""",,,,55,,1
+27856,"""Alecto's Journal, Entry #45""",1,,6,6,,1
+27857,"""Alecto's Journal, Entry #46""",,,,55,,1
+27864,"""Alecto's Journal, Entry #53""",,,,55,,1
+27893,Alecto's Quire #6 Tool,,,,50,,1
+27895,Alecto's Quire #7 Tool,,,,199.991,,1
+27902,Music Paper,4,,0.3,1.845130769,,127
+27921,Gargantuan Sailfish Trophy,,,,80,,1
+27994,Forsaken Sailor Fists,,,,44,,1
+27995,Forsaken Sailor Jerkin,3,9.99995,9.9999,9.9999,2,3
+27996,Forsaken Sailor Cap,1,,43.9999,43.9999,,1
+27997,Forsaken Sailor Boots,,,,0.0433,,1
+27998,Forsaken Sailor Breeches,,,,100,,1
+28001,Fishing Boat Steering Wheel,4,339.8837,384.88415,396.844535,1,20
+28002,Fish Crane,5,249.9999,280.57654,307.5217833,1,24
+28003,Fishing License,1,,95,86.66666667,,3
+28004,Gargantuan Blue Marlin Trophy,,,,21.9999,,1
+28013,Fish-Find Longliner Design,5,1489.9999,1417.6508,1506.171179,1,19
+28028,Sailfish Trophy,,,,40,,1
+28029,Sailfish Fry Trophy,,,,10.011,,1
+28030,Blue Marlin Trophy,,,,5,,1
+28031,Blue Marlin Fry Trophy,,,,21,,1
+28033,Bluefin Fry Trophy,1,,4,4,,1
+28034,Sturgeon Trophy,,,,21.9999,,1
+28035,Sturgeon Fry Trophy,,,,98,,1
+28043,Arowana Fry Print,,,,40,,1
+28044,Gargantuan Carp Print,,,,59.97,,1
+28045,Carp Print,,,,0.053,,1
+28049,Electric Eel Fry Print,,,,12,,1
+28051,Sheet Music,10,9.9745,8.88169,9.703,2,21
+28079,Treaded Wellingtons,,,,1,,1
+28085,Building Management Title,371,161.0443667,155.5556087,154.1212967,28,1871
+28125,Blizzard Cub,,,,38.83316667,,18
+28175,Dawn Lake Light Essence,25127,2.463578,2.830365005,2.472931285,2313,162592
+28178,Bright Headlight,,,,10,,4
+28179,Rubber Tire,,,,1300,,4
+28180,Hydraulic Shaft,1,,170,90,,11
+28181,Spiral Accelerator,,,,10,,2
+28208,Comet Speedster Design,,,,1000,,1
+28209,Apex Squall Design,,,,3499.9999,,1
+28210,Timber Coupe Design,,,,6890,,1
+28218,Alloy Combiner,90,,3.9866,4.938475,,321
+28293,Marian's Diary Quire #2 Tool,,,,1.002,,1
+28296,Resplendent Weapon Regrade Scroll,156,864.0258108,852.3185929,918.7997782,37,1002
+28297,Resplendent Armor Regrade Scroll,203,515.3529474,523.2261899,536.4006186,27,808
+28298,Weapon Regrade Scroll,7653,38.17404,41.45988414,46.76439869,886,40478
+28299,Armor Regrade Scroll,14143,27.62056025,26.97143121,29.61514165,1979,58152
+28300,Lucky Sunpoint,446,720.9994306,762.8216467,833.6636662,36,2112
+28301,Sunpoint,8097,31.48125211,33.9145597,36.18695449,937,37258
+28302,Moonpoint,12936,20.01304231,20.23922958,21.37837127,1765,50200
+28303,Sunpoint Fragment,81,2,2.43495,3.222076364,25,1777
+28304,Moonpoint Fragment,15,,1.62495,2.0582625,,3548
+28305,Blank Regrade Scroll,16318,3.5204775,3.767871416,3.246803498,2676,103287
+28307,Marian's Diary Quire #4 Tool,,,,1.002,,1
+28308,Lucky Moonpoint,768,459.2905175,473.7861706,479.5827079,137,2900
+28315,Pygmy Kraken Tentacle,,,,199.9999,,1
+28318,Forsaken Pirate Necklace,,,,4.99995,,2
+28319,Forsaken Pirate Earring,,,,0.0483,,1
+28320,Forsaken Pirate Ring,2,,19.99995,19.99995,,2
+28324,Labyrinth's Leather Armor Chest,8,55.63945,60.5757,56.87569259,2,54
+28325,Labyrinth's Plate Armor Chest,8,,35.62435,33.67135313,,64
+28326,Labyrinth's Cloth Armor Chest,10,99.60338,90.30352,100.0926636,5,55
+28338,Frostbreath Coolant,,,,17,,3
+28375,Reedwhisper Piccolo,,,,180,,1
+28376,Catspaw Recorder,,,,200,,1
+28386,Elite Merchant's Cushion,12,223.9999,233.2493667,232.6293449,1,49
+28421,Black Pigment,1,,59.9996,92.79988,,5
+28480,Acorn Beehive,99,12.999525,13.939788,15.5024125,18,586
+28481,Honey,72367,0.9087904762,0.8616507692,0.8608458882,4344,345987
+28482,Royal Jelly,271,50.05182609,52.54353084,49.64482268,49,612
+28483,Nymphal Queen Bee,83,49.99952,29.70999474,32.09175687,6,453
+28484,Queen Bee Taming Net,,,,0.0011,,10
+28485,Smoke Bead,928,0.524925,0.5554071429,0.2754435484,237,3302
+28490,Regal Printing Press,,,,99.9999,,1
+28556,Crossblades Eyepatch,1,,55,55,,1
+28716,Demon Hunter's Eyepatch,,,,99.49995,,2
+28723,Golden Teardrop Storage Chest,1,,2999,2999,,1
+28822,Oxygen Tank,,,,150,,1
+28854,Captain's Cannon,,,,20,,1
+28894,Berserk Red Dragon Fireguard,,,,10000,,1
+28905,Berserk Red Dragon Roar,,,,15000,,1
+28914,Timespace Scroll Scrap,737,63.09021667,63.58618879,66.24881124,166,3874
+28969,Blazing Sunridge Ingot,,,,6600,,1
+28970,Blazing Wind Spirit Leather,3,,8996.666667,8903.846543,,21
+28971,Blazing Cloudspun Fabric,,,,8747.142929,,14
+28975,Eternal Embers,,,,0.0205,,4
+28976,Hardened Red Dragon Scale,28,,71.44315556,103.3974659,,327
+28978,Red Dragon Spinal Ridge,5,,3497.202,3257.542848,,27
+28979,Arcadian Seafoam,437,1.0028,3.40981,12.99046552,44,1974
+28981,Swirling Whirlpool,1092,0.07896666667,0.227904,0.2682892857,250,5031
+28982,Deranged Spirit,148,11.49415,18.12883542,25.68318079,22,1031
+28983,Gemfast Circlet Prototype,,,,5.5092,,1
+28984,Seastorm Tricorne Prototype,,,,4.9996,,1
+28985,Sleuth's Steamgoggles Prototype,,,,20,,1
+28986,Timespace Scroll,2,6800,6900,6900,1,2
+29012,Kraken Tentacle,,,,199.9999,,1
+29013,Gargantuan Kraken Tentacle,2,,350,350,,2
+29017,Air Cannon,,,,300,,1
+29030,Abyssal Armory Chest,9,150,222.4196444,198.5511627,1,59
+29196,Square Brick Flowerbed,1,,12.9999,13.41920645,,31
+29216,Chilled Seafoam,73,38.99878333,38.54135106,46.80995556,6,177
+29238,Blazing Nuri Forest Lumber,,,,6000,,2
+29245,Red Blossom Branch,,,,3,,1
+29252,Cabbage White Butterfly,24,,1,2.566633333,,26
+29253,Blue Morpho Butterfly,40,,1.25485,2.0732,,41
+29254,Sulfur Butterfly,19,,0.74995,0.74995,,19
+29255,Scarlet Peacock Butterfly,15,,1,2.404925,,22
+29256,Framed Butterflies,,,,400,,1
+29275,Lapis Steamfish Submarine Design,,,,1500,,1
+29277,Buoyancy Controller,,,,0.5,,1
+29280,Wax Nugget,2,189.97,189.97,188.6040529,1,18
+29300,Dahuta's Bubble,1299,13.518448,11.58120595,11.53619939,120,5197
+29311,Hearty Soup,11747,1.343346667,1.450563298,1.403851986,1000,61713
+29413,Red Blossom Brick Flowerbed,,,,5,,5
+29414,Yellow Blossom Brick Flowerbed,,,,5,,2
+29415,Blue Blossom Brick Flowerbed,,,,50,,1
+29416,White Blossom Brick Flowerbed,,,,50,,2
+29613,Bear Fur,8539,0.091,0.2586857143,0.2430270833,2,30591
+29624,Polaris Cub,2,,195.4999,242.7115143,,7
+29656,Specialization Snowflake,4,,279,254.5,,7
+29682,Goddess Nui Figurehead,1,,15000,7634.5,,2
+29683,Lionheart Figurehead,,,,2000.991,,1
+29687,Bonekraal Figurehead,2,,489,418.2856857,,14
+29689,Beast Figurehead,4,678.9998,1958.49995,1304.07771,1,20
+29692,Caernord Zephyr Triangular Rig,270,442.1260667,230.7213163,270.8689684,21,1759
+29728,Zephyr Telescope,,,,0.0822,,1
+29734,Reinforced Tailfin Frame,,,,3500,,3
+29882,Radiant Gale Lunagem: Mastery,276,19.9999,7.692752174,7.555457333,20,1547
+29883,Radiant Earth Lunagem: Flexibility,1643,8.2661375,7.543806061,6.551781721,126,11480
+29884,Radiant Earth Lunagem: Mastery,1177,5.476383333,6.211710606,5.874757006,197,7012
+29885,Radiant Gale Lunagem: Fidelity,855,5.857109091,6.240464,6.554857407,83,3000
+29954,Rough Stone Column,,,,1.05,,4
+29955,Carved Stone Pillar,2,,90.49495,85.59596,,5
+29956,Narcissus Stone Pedestal,2,,75.99955,102.49815,,6
+29957,Lotus Stone Vase,1,12,12,24,1,3
+29958,Mandala Stone Pedestal,,,,87.4285,,7
+29959,Winged Megalith,1,,20,20,,1
+29960,Mother and Child Statue,1,,220.9999,215.3333,,3
+30035,Lacy Bunny Ears,,,,389.8899,,1
+30044,Meina's Feathered Cap,1,,420.6967,406.5655333,,3
+30045,Meina's Jerkin,1,,301.5599,281.0933,,6
+30046,Meina's Breeches,2,399.99,424.995,213.165,1,6
+30047,Meina's Fists,3,,293.5656333,371.709475,,8
+30048,Meina's Boots,1,,100,183.3332333,,3
+30049,Meina's Guards,1,,300,341.3333333,,6
+30050,Meina's Belt,2,,219.5,213.8888444,,9
+30051,Glenn's Admiral Hat,,,,249.4269,,1
+30052,Glenn's Admiral Jacket,1,,510.9999,455.49995,,2
+30053,Glenn's Pants,2,,227.99985,227.99985,,2
+30054,Glenn's Gloves,1,,443.9999,321.99995,,2
+30055,Glenn's Boots,,,,249.9999,,1
+30056,Glenn's Sleeves,1,,400,157.499975,,4
+30057,Glenn's Sash,,,,300,,1
+30060,Jola's Eternal Grudge,7,25.9988,24.1421,48.83295769,4,26
+30061,Green Elk Beanie,,,,125,,1
+30065,Lounging Green Elk Beanie,,,,149,,1
+30111,Plushie Hat Prize Egg,,,,1149.9999,,1
+30182,Cloudy Ruby Dye,,,,30,,1
+30261,Wrapped Thunderstruck Fishing Rod,,,,1899,,1
+30269,Charred Bonekraal Figurehead,,,,269.5,,2
+30271,Raging Lionheart Figurehead,15,785.59978,1060.399887,785.2606087,5,46
+30272,Lutesong Zephyr Square Foresail,,,,1500,,1
+30273,Lutesong Zephyr Square Mainsail,,,,250,,1
+30274,Eznan Zephyr Square Foresail,,,,5250,,1
+30275,Eznan Zephyr Square Mainsail,,,,0.2012,,1
+30288,Tomato Seed Bundle,202,,0.5589666667,0.4971,,386
+30289,Strawberry Seed Bundle,,,,2,,50
+30290,Pumpkin Seed Bundle,,,,3,,20
+30291,Yam Seed Bundle,,,,0.25025,,8
+30295,Bean Seed Bundle,,,,1,,5
+30296,Quinoa Seed Bundle,,,,4,,24
+30299,Sunflower Seed Bundle,,,,2.9999,,25
+30306,Harpoon Launcher,,,,25,,1
+30307,Ivory Nui Figurehead,,,,3300,,1
+30430,Pink Marlin Fry Trophy,,,,1.6665,,3
+30431,Pink Marlin Trophy,,,,10,,1
+30432,Gargantuan Pink Marlin Trophy,,,,25.102,,1
+30812,Wagon Upgrade Ticket,9,,611.1110778,636.6378298,,47
+30898,Chopped Produce,531140,0.06638529412,0.05799793103,0.06638076026,61856,2754116
+30899,Orchard Puree,62047,0.1050333333,0.08555271318,0.09794254237,4675,285829
+30900,Dried Flowers,923400,0.06153178295,0.06533591863,0.07061565662,125825,4542948
+30901,Ground Spices,239360,0.033704,0.04330108303,0.04606970443,20080,1012246
+30902,Ground Grain,715118,0.0512852459,0.05116471777,0.04883042637,117093,3684475
+30903,Medicinal Powder,361668,0.07029180328,0.07077199074,0.07427211538,56584,1494875
+30904,Glacier Crayfish,325,3.4997,4.470305882,2.384316915,30,1251
+30905,Trimmed Meat,1055586,0.01869818182,0.02131402116,0.02583626026,97736,5417047
+30907,Clear Fire Lunagem: Strong Blow,3,,30,30,,4
+30908,Clear Fire Lunagem: Sharpshot,2,,22,26.8,,25
+30909,Clear Fire Lunagem: Apex,,,,0.0138,,1
+30910,Clear Fire Lunagem: Salvation,2,,21.9997,21.4997,,15
+30912,Clear Fire Lunagem: Marksman,,,,0.5338,,3
+30913,Clear Fire Lunagem: Extreme,,,,0.05,,1
+30915,Clear Wave Lunagem: Defense,22,,21.9998,20.3748875,,42
+30916,Clear Wave Lunagem: Magic Defense,,,,28.99965,,19
+30917,Clear Gale Lunagem: Mastery,5,,0.2999,0.3598428571,,10
+30918,Vivid Fire Lunagem: Strong Blow,,,,55,,1
+30919,Vivid Fire Lunagem: Sharpshot,,,,149.999,,1
+30920,Vivid Fire Lunagem: Apex,,,,148,,4
+30922,Vivid Fire Lunagem: Buffet,,,,50,,1
+30924,Vivid Fire Lunagem: Extreme,,,,150,,1
+30926,Vivid Wave Lunagem: Defense,,,,198,,8
+30927,Vivid Wave Lunagem: Magic Defense,,,,197,,13
+30928,Vivid Gale Lunagem: Mastery,3,,1.316633333,1.304445455,,12
+30929,Lucid Fire Lunagem: Strong Blow,55,850.8625,961.1691611,984.725347,2,195
+30930,Lucid Fire Lunagem: Sharpshot,59,875.97,910.5378811,956.5803468,1,239
+30931,Lucid Fire Lunagem: Apex,,,,950,,1
+30932,Lucid Fire Lunagem: Salvation,,,,1079.666667,,6
+30933,Lucid Fire Lunagem: Buffet,,,,1200,,1
+30936,Lucid Fire Lunagem: Aid,,,,0.4034,,1
+30937,Lucid Wave Lunagem: Defense,103,989.7311294,1039.128978,1095.522071,20,450
+30938,Lucid Wave Lunagem: Magic Defense,39,,1123.111324,1006.980735,,166
+30939,Lucid Gale Lunagem: Mastery,4,,9.9666,4.38482,,28
+30940,Clear Gale Lunagem: Fury,2,,9.9999,9.9999,,2
+30941,Clear Gale Lunagem: Serenity,,,,8,,9
+30942,Clear Gale Lunagem: Destruction,2,12.99995,12.99995,16.2666,2,11
+30943,Clear Gale Lunagem: Mercy,2,,9.9999,9.39993,,21
+30944,Clear Gale Lunagem: Fidelity,,,,0.9999,,4
+30947,Clear Gale Lunagem: Wrath,2,,9.99995,13.5832,,14
+30948,Clear Gale Lunagem: Constance,,,,3.428385714,,15
+30949,Clear Gale Lunagem: Harbinger,5,,12.8,16.22570714,,16
+30950,Clear Gale Lunagem: Benevolence,,,,8.73578,,5
+30951,Vivid Gale Lunagem: Fidelity,1,,1.2499,1.37495,,8
+30954,Clear Gale Lunagem: Tempest,,,,11,,1
+30955,Clear Gale Lunagem: Torrent,,,,25.5,,9
+30956,Clear Gale Lunagem: Pierce,,,,13,,2
+30959,Clear Earth Lunagem: Finesse,,,,40,,2
+30961,Clear Earth Lunagem: Celerity,,,,15,,1
+30962,Clear Earth Lunagem: Impenetrable,,,,15.8088,,2
+30963,Vivid Gale Lunagem: Fury,1,49,49,41.28562857,1,8
+30964,Vivid Gale Lunagem: Serenity,2,,45,45.33331667,,15
+30965,Vivid Gale Lunagem: Destruction,1,,50,45.38886667,,12
+30966,Vivid Gale Lunagem: Mercy,1,299.9999,299.9999,108.9999833,1,11
+30967,Lucid Gale Lunagem: Fidelity,11,,4.49975,8.260821739,,41
+30970,Vivid Gale Lunagem: Wrath,1,,50,61.12495,,13
+30971,Vivid Gale Lunagem: Constance,,,,19.9998,,1
+30972,Vivid Gale Lunagem: Harbinger,6,,49.33325,56.41661667,,18
+30973,Vivid Gale Lunagem: Benevolence,1,,80,52.7491875,,16
+30974,Clear Earth Lunagem: Flexibility,,,,0.3074125,,10
+30978,Vivid Gale Lunagem: Torrent,,,,150,,1
+30980,Vivid Earth Lunagem: Vitality,,,,50,,2
+30982,Vivid Earth Lunagem: Finesse,,,,180,,2
+30984,Vivid Earth Lunagem: Celerity,,,,499,,1
+30985,Vivid Earth Lunagem: Impenetrable,,,,160,,1
+30986,Lucid Gale Lunagem: Fury,11,1199.975,1118.326936,1113.456792,2,68
+30987,Lucid Gale Lunagem: Serenity,10,1322.749675,1324.19972,1310.666474,4,42
+30988,Lucid Gale Lunagem: Destruction,6,,1100,1328.742868,,86
+30989,Lucid Gale Lunagem: Mercy,7,,1329.16665,1303.517296,,30
+30990,Vivid Wave Lunagem: Flexibility,10,,0.6262333333,0.3418846154,,37
+30993,Lucid Gale Lunagem: Wrath,13,,1342.247375,1387.110666,,69
+30994,Lucid Gale Lunagem: Constance,3,,800.3332333,261.28944,,13
+30995,Lucid Gale Lunagem: Harbinger,13,1499.99955,1459.382985,1429.581156,2,56
+30996,Lucid Gale Lunagem: Benevolence,6,,775.91096,735.6492074,,30
+30997,Lucid Gale Lunagem: Flexibility,148,0.54475,0.5293,0.8836423729,14,465
+31000,Lucid Gale Lunagem: Tempest,3,,1279.111067,1097.569675,,20
+31001,Lucid Gale Lunagem: Torrent,31,1200.9927,1300.115723,1343.294316,2,139
+31002,Lucid Gale Lunagem: Pierce,29,1024.999867,986.9027,1048.348316,3,191
+31005,Lucid Earth Lunagem: Finesse,55,,1187.973983,1181.345382,,226
+31006,Lucid Earth Lunagem: Esoteric,,,,1250,,1
+31007,Lucid Earth Lunagem: Celerity,30,,1004.043738,1048.430306,,141
+31008,Lucid Earth Lunagem: Impenetrable,40,1200.1028,1075.741753,1116.580348,2,164
+31009,Fire Lunarite,19955,1.819801724,1.929772129,1.935921915,3590,74998
+31010,Fine Fire Lunarite,2512,48.78112105,52.20137993,51.08729879,117,8551
+31011,Superior Fire Lunarite,3650,13.29382,11.63377566,11.55428774,296,13061
+31012,Wave Lunarite,20868,1.914837838,2.077498268,2.116304542,3171,77118
+31013,Fine Wave Lunarite,1885,57.8966375,60.11194211,60.6913,237,8453
+31014,Superior Wave Lunarite,2426,12.4878,14.10308018,14.06536656,200,13657
+31015,Gale Lunarite: Pierce,24,2,2.567527273,2.494491228,3,153
+31019,Gale Lunarite: Torrent,26,,4.57705,6.157507353,,194
+31022,Gale Lunarite: Consolation,,,,0.0305,,6
+31023,Gale Lunarite: Solace,,,,0.9999,,2
+31024,Gale Lunarite: Overpower,,,,0.9991,,8
+31025,Gale Lunarite: Aggro,,,,1.67875,,7
+31028,Gale Lunarite: Tempest,8,1.3044,1.403125,2.407603333,5,68
+31032,Superior Gale Lunarite: Pierce,13,98.99995,96.29203333,80.15804576,2,93
+31036,Superior Gale Lunarite: Torrent,19,,272.1526615,271.0675637,,187
+31039,Superior Gale Lunarite: Consolation,,,,0.031,,1
+31040,Superior Gale Lunarite: Solace,,,,0.0305,,2
+31041,Superior Gale Lunarite: Overpower,,,,1,,1
+31042,Superior Gale Lunarite: Aggro,,,,5.016,,5
+31045,Superior Gale Lunarite: Tempest,6,14.98935,17.80223333,28.13266667,5,45
+31049,Fine Gale Lunarite: Pierce,15,16.6666,13.23804286,14.30858214,3,114
+31053,Fine Gale Lunarite: Torrent,18,,18.9996625,22.38614068,,166
+31056,Fine Gale Lunarite: Consolation,,,,0.0305,,2
+31057,Fine Gale Lunarite: Solace,,,,0.9899,,13
+31058,Fine Gale Lunarite: Overpower,,,,0.8998,,1
+31059,Fine Gale Lunarite: Aggro,,,,1.01525,,6
+31062,Fine Gale Lunarite: Tempest,8,3.8088,3.8717,3.990772727,4,67
+31066,Earth Lunarite: Esoteric,92,0.3905666667,0.4370958333,0.456600565,33,236
+31067,Earth Lunarite: Finesse,394,,1.566532353,1.319637903,,986
+31069,Earth Lunarite: Celerity,86,,1.818947059,1.287760417,,371
+31070,Earth Lunarite: Impenetrable,136,0.54058,0.4791911765,0.5828402439,25,490
+31071,Earth Lunarite: Vitality,4,0.0367,0.03765,0.04786,2,62
+31072,Superior Earth Lunarite: Esoteric,92,2.60955,2.502414706,3.470635714,17,179
+31073,Superior Earth Lunarite: Finesse,64,,60.55367647,69.41863967,,401
+31075,Superior Earth Lunarite: Celerity,38,,20.84342857,12.42852472,,304
+31076,Superior Earth Lunarite: Impenetrable,59,11.9993,19.159088,11.30629101,2,315
+31077,Superior Earth Lunarite: Vitality,2,0.5536,0.5536,0.9015666667,2,8
+31078,Fine Earth Lunarite: Esoteric,81,0.28385,0.2969222222,0.6547532258,22,243
+31079,Fine Earth Lunarite: Finesse,201,,3.183030769,3.766456064,,604
+31081,Fine Earth Lunarite: Celerity,93,,1.54628,1.251349412,,322
+31082,Fine Earth Lunarite: Impenetrable,106,0.3453333333,3.132908333,1.523304831,25,300
+31083,Fine Earth Lunarite: Vitality,,,,0.3982,,3
+31085,Starpoint Fragment,8,2.4999,2.49995,2.687936743,1,1634
+31217,Illustrious Flame Greatsword,,,,1,,1
+31218,Illustrious Earth Greatsword,,,,15,,2
+31219,Illustrious Summer Greatsword,,,,20,,1
+31220,Illustrious Flame Nodachi,,,,15.1,,1
+31221,Illustrious Gale Nodachi,,,,15,,1
+31232,Illustrious Wave Scepter,,,,70,,1
+31233,Illustrious Life Scepter,,,,50.991,,1
+31234,Illustrious Ocean Scepter,,,,1,,1
+31235,Illustrious Wave Lute,,,,29.99,,1
+31246,Magnificent Ocean Scepter,,,,500,,1
+31271,Epherium Stone Scepter,,,,898,,1
+31297,Delphinad Winter Longspear,,,,40500,,1
+31318,Ayanad Earth Dagger,,,,59000,,1
+31321,Ayanad Desert Sword,,,,40999.775,,2
+31323,Ayanad Meteor Sword,,,,54999.9999,,1
+31324,Ayanad Flame Sword,,,,30000,,1
+31341,Ayanad Lightning Nodachi,,,,82999.9999,,1
+31342,Ayanad Flame Nodachi,,,,95000,,1
+31343,Ayanad Gale Nodachi,,,,82000,,1
+31345,Ayanad Mist Nodachi,,,,27000,,1
+31347,Ayanad Life Nodachi,,,,25000,,1
+31362,Ayanad Autumn Club,,,,85000,,1
+31364,Ayanad Meadow Club,,,,18000,,1
+31368,Ayanad Life Club,,,,27000.9914,,1
+31373,Ayanad Meadow Greatclub,,,,24000,,1
+31377,Ayanad Squall Shortspear,,,,80000,,1
+31380,Ayanad Gale Shortspear,,,,79999,,1
+31383,Ayanad Squall Longspear,,,,21000,,1
+31384,Ayanad Gale Longspear,,,,70000,,4
+31385,Ayanad Earth Longspear,,,,11705.5,,2
+31386,Ayanad Winter Longspear,,,,65000.001,,1
+31387,Ayanad Lake Longspear,,,,20000,,1
+31388,Ayanad Tidal Longspear,1,,21000.9914,43833.829,,2
+31390,Ayanad Meadow Scepter,,,,65000,,1
+31391,Ayanad Wave Scepter,1,,82000,82000,,1
+31393,Ayanad Ocean Scepter,,,,22000,,1
+31394,Ayanad Lake Scepter,,,,70000.9882,,1
+31396,Ayanad Earth Scepter,,,,76000,,1
+31397,Ayanad Ocean Staff,,,,59999,,1
+31398,Ayanad Lake Staff,,,,31999,,1
+31399,Ayanad Meadow Staff,,,,15200,,1
+31401,Ayanad Earth Staff,,,,57999,,1
+31402,Ayanad Wave Staff,,,,30000,,1
+31404,Ayanad Volcano Bow,,,,49999,,1
+31405,Ayanad Lightning Bow,,,,26000,,1
+31406,Ayanad Tidal Bow,2,55000,56950,56950,1,2
+31407,Ayanad Sunset Bow,,,,17000,,1
+31408,Ayanad Flame Bow,2,,22500.6656,23889.33227,,3
+31409,Ayanad Gale Bow,2,55000,43500,38357.28403,1,7
+31410,Ayanad Wave Bow,1,,14999.9999,21833.16665,,6
+31412,Ayanad Desert Shield,,,,29999,,1
+31413,Ayanad Lake Shield,1,25000,25000,25000,1,1
+31415,Ayanad Flame Shield,1,,26500,26500,,1
+31416,Ayanad Earth Shield,,,,23499.5,,2
+31417,Ayanad Wave Shield,,,,25100,,1
+31434,Ayanad Quake Greaves,,,,26000,,1
+31435,Ayanad Quake Gauntlets,,,,28000,,1
+31444,Ayanad Desert Vambraces,,,,23500,,1
+31446,Ayanad Lake Helm,1,,23000,26499.5,,2
+31447,Ayanad Lake Cuirass,1,,23000,23000,,1
+31448,Ayanad Lake Greaves,1,,23000,23000,,1
+31449,Ayanad Lake Gauntlets,1,,23000,23000,,1
+31450,Ayanad Lake Sabatons,,,,27000,,1
+31451,Ayanad Lake Vambraces,1,,23000,22500.4957,,2
+31452,Ayanad Lake Tassets,1,,24000,24000,,1
+31460,Ayanad Flame Helm,,,,28550.4941,,2
+31461,Ayanad Flame Cuirass,,,,64967.001,,1
+31462,Ayanad Flame Greaves,,,,67500,,1
+31463,Ayanad Flame Gauntlets,,,,69999,,1
+31464,Ayanad Flame Sabatons,1,,57999,57999,,1
+31465,Ayanad Flame Vambraces,,,,40000,,2
+31466,Ayanad Flame Tassets,,,,22000,,1
+31467,Ayanad Earth Helm,,,,26000,,1
+31468,Ayanad Earth Cuirass,,,,83000,,1
+31469,Ayanad Earth Greaves,,,,28000,,1
+31470,Ayanad Earth Gauntlets,,,,25000,,1
+31471,Ayanad Earth Sabatons,,,,25000,,1
+31472,Ayanad Earth Vambraces,1,,70000,70000,,1
+31473,Ayanad Earth Tassets,,,,24000,,1
+31474,Ayanad Wave Helm,,,,26500.05555,,2
+31475,Ayanad Wave Cuirass,,,,31333.33333,,3
+31476,Ayanad Wave Greaves,,,,43000,,3
+31477,Ayanad Wave Gauntlets,,,,36660,,3
+31478,Ayanad Wave Sabatons,,,,23500,,1
+31479,Ayanad Wave Vambraces,,,,26999,,1
+31480,Ayanad Wave Tassets,,,,45000,,2
+31481,Ayanad Typhoon Cap,,,,23999,,1
+31482,Ayanad Typhoon Jerkin,,,,25999,,1
+31483,Ayanad Typhoon Breeches,,,,55000,,1
+31484,Ayanad Typhoon Fists,,,,64999,,1
+31487,Ayanad Typhoon Belt,,,,16500,,1
+31491,Ayanad Lightning Fists,,,,21000,,1
+31493,Ayanad Lightning Guards,,,,15001,,1
+31494,Ayanad Lightning Belt,,,,46000,,1
+31496,Ayanad Squall Jerkin,,,,38000,,1
+31497,Ayanad Squall Breeches,,,,77000,,1
+31502,Ayanad Desert Cap,,,,31999,,1
+31509,Ayanad Flame Cap,,,,42221.5,,2
+31510,Ayanad Flame Jerkin,,,,38499.33333,,3
+31511,Ayanad Flame Breeches,,,,49000,,2
+31512,Ayanad Flame Fists,,,,59999,,1
+31513,Ayanad Flame Boots,2,,46125,43562.24955,,4
+31514,Ayanad Flame Guards,2,,47674.99995,43470.0003,,5
+31515,Ayanad Flame Belt,2,,41999.49995,43008.66665,,6
+31516,Ayanad Gale Cap,1,,23000.9914,23000.9914,,1
+31517,Ayanad Gale Jerkin,,,,17500,,1
+31518,Ayanad Gale Breeches,,,,48952.9941,,2
+31519,Ayanad Gale Fists,,,,71000,,1
+31520,Ayanad Gale Boots,1,,65555,65555,,1
+31521,Ayanad Gale Guards,,,,51750,,2
+31522,Ayanad Gale Belt,,,,39500,,2
+31523,Ayanad Earth Cap,,,,18999.9999,,1
+31524,Ayanad Earth Jerkin,,,,22000.001,,1
+31527,Ayanad Earth Boots,,,,50000.001,,1
+31532,Ayanad Ocean Pants,,,,68888.8888,,1
+31534,Ayanad Ocean Shoes,,,,65000,,1
+31537,Ayanad Lake Hood,,,,62000,,1
+31538,Ayanad Lake Shirt,,,,70000,,1
+31539,Ayanad Lake Pants,,,,75000,,1
+31540,Ayanad Lake Gloves,,,,65000,,1
+31541,Ayanad Lake Shoes,,,,65000,,1
+31542,Ayanad Lake Sleeves,,,,57000,,1
+31543,Ayanad Lake Sash,,,,20000,,1
+31548,Ayanad Meadow Shoes,,,,65000,,1
+31551,Ayanad Stone Hood,1,,65000,37666.33333,,3
+31552,Ayanad Stone Shirt,1,,65000,65000,,1
+31553,Ayanad Stone Pants,,,,25000,,1
+31554,Ayanad Stone Gloves,,,,23500,,2
+31555,Ayanad Stone Shoes,,,,26499.5,,2
+31556,Ayanad Stone Sleeves,,,,18500,,1
+31557,Ayanad Stone Sash,,,,24000,,1
+31558,Ayanad Earth Hood,,,,41499.5,,2
+31559,Ayanad Earth Shirt,,,,39185,,3
+31560,Ayanad Earth Pants,,,,68700,,1
+31561,Ayanad Earth Gloves,,,,48000.0008,,2
+31562,Ayanad Earth Shoes,,,,40500,,2
+31563,Ayanad Earth Sleeves,,,,19999,,1
+31564,Ayanad Earth Sash,,,,19000,,1
+31565,Ayanad Wave Hood,,,,25000,,1
+31566,Ayanad Wave Shirt,,,,20500,,1
+31567,Ayanad Wave Pants,,,,25000,,1
+31568,Ayanad Wave Gloves,,,,26000,,1
+31569,Ayanad Wave Shoes,,,,65000,,1
+31570,Ayanad Wave Sleeves,,,,21900,,2
+31571,Ayanad Wave Sash,,,,60000,,1
+31572,Ayanad Life Hood,,,,80000,,1
+31573,Ayanad Life Shirt,,,,90000,,1
+31574,Ayanad Life Pants,,,,73000.001,,1
+31575,Ayanad Life Gloves,,,,75000,,1
+31576,Ayanad Life Shoes,,,,53000,,1
+31577,Ayanad Life Sleeves,,,,70000,,1
+31578,Ayanad Life Sash,,,,23000.001,,1
+31579,Sparkling Shell Dust,20788,0.07754285714,0.1011975,0.09595107527,3495,96375
+31619,Magnificent Earth Necklace,,,,4427.444444,,9
+31623,Magnificent Wave Necklace,,,,49.0445,,1
+31624,Magnificent Earth Earring,7,,3346.428571,3002.272727,,11
+31625,Magnificent Flame Earring,1,,750,750,,1
+31626,Magnificent Gale Earring,,,,100,,1
+31627,Magnificent Wave Earring,,,,500,,1
+31629,Magnificent Earth Ring,2,3900,3900,3050,2,4
+31630,Magnificent Flame Ring,,,,1003.666667,,3
+31631,Magnificent Wave Ring,,,,394.3333333,,3
+31632,Magnificent Gale Ring,,,,349.99995,,2
+31638,Epherium Wave Necklace,,,,1100,,1
+31639,Epherium Earth Earring,,,,20000,,1
+31640,Epherium Flame Earring,,,,437.99995,,2
+31642,Epherium Wave Earring,1,,850,850,,1
+31643,Epherium Life Earring,,,,3000,,1
+31644,Epherium Earth Ring,,,,600,,1
+31645,Epherium Flame Ring,,,,1350,,1
+31646,Epherium Wave Ring,,,,1000,,1
+31647,Epherium Gale Ring,,,,12499,,1
+31648,Epherium Life Ring,1,,700,666.3333,,3
+31649,Ayanad Earth Necklace,,,,35000,,1
+31650,Ayanad Flame Necklace,,,,25000,,1
+31652,Ayanad Gale Necklace,1,,15333,15166.16667,,6
+31653,Ayanad Wave Necklace,,,,19405.0002,,8
+31654,Ayanad Earth Earring,,,,16071.5,,2
+31655,Ayanad Flame Earring,3,5199.9999,6614.666633,10266.26261,1,11
+31656,Ayanad Gale Earring,2,,7600,9495.09914,,10
+31657,Ayanad Wave Earring,11,,13909.27272,13364.19954,,49
+31658,Ayanad Life Earring,,,,8900,,1
+31659,Ayanad Earth Ring,,,,7989,,2
+31660,Ayanad Flame Ring,2,,10249.99995,10162.66663,,3
+31661,Ayanad Wave Ring,3,,9999.666667,16624.38459,,13
+31662,Ayanad Gale Ring,5,9999,9995.2,13206.2773,1,18
+31663,Ayanad Life Ring,3,10000,8399.999933,15492.71426,1,7
+31688,Conqueror's Plushie Pack,,,,1999,,1
+31692,Lucky Pink Marlin Trophy,,,,1.4999,,2
+31714,Sylvas Nocturne Top,,,,330,,1
+31717,Ayanad Scroll: 1st Floor Lobby,1,,19,19,,1
+31718,Ayanad Scroll: 2nd Floor Lobby,38,23.00795,24.00272917,29.02259133,3,152
+31719,Ayanad Scroll: 3rd Floor Lobby,489,33.99483617,30.41448607,34.52448624,73,2549
+31770,Mage's Vapor,,,,0.02999239957,,2342
+31771,Misty Memory,50,,0.05605,0.5106,,310
+31772,Morning Dew,10,,0.9447,0.9373111111,,90
+31773,Meadow Stream,30,,0.2,0.15,,230
+31774,Time's River,50,0.5,0.5,17.25,50,149
+31775,Mossy Pool,20231,0.9533885714,1.002742143,1.134805985,2686,92049
+31778,Golden Library Index,20,,1.3299,1.832125,,80
+31780,Fortuna Die,3444,0.4996,0.4950083333,0.5304784404,460,15680
+31781,Valau Rune,5351,0.5489777778,0.514525974,0.4967974441,562,20369
+31782,Zena Rune,4960,0.4766571429,0.4590567164,0.4152223729,486,19429
+31783,Basta Rune,59,,0.6496333333,1.007625,,689
+31809,Prismatic Pearl,125,,40.901585,40.28778877,,461
+31810,Prismatic Diamond,483,60.46865,55.94862741,46.94500868,46,2721
+31891,Tax Certificate,581499,0.8421792308,0.8769641837,0.8482816944,76500,2598594
+31927,Resplendent Accessory Regrade Scroll,29,619.9998333,656.6882759,685.4376957,3,118
+31928,Accessory Regrade Scroll,2706,36.00199894,37.66653931,41.32165455,564,14716
+31929,Starpoint,2434,28.61980952,32.1543301,32.1997775,316,14100
+31930,Lucky Starpoint,155,572.5493517,582.6385071,624.1851294,29,724
+31932,Skydark Dagger,,,,50,,1
+31933,Great Fortress Shield,,,,189,,1
+31934,Infinite Memory Bow,,,,523.5,,2
+31935,Duskglory Sword,,,,250,,1
+31936,Razor Knowledge Longspear,,,,50,,1
+31937,Fallen Wizard Staff,,,,50,,1
+31938,Dawnstar Scepter,,,,50,,1
+31948,Ephemeral Memory Cap,,,,25,,1
+31950,Ephemeral Memory Breeches,,,,25,,1
+31952,Ephemeral Memory Boots,,,,25,,1
+31954,Ephemeral Memory Belt,,,,15,,1
+31956,Recollections Shirt,,,,25,,1
+31962,Shadowsong Lute,,,,5,,1
+31974,Unique Regrade Charm,215,231.4320667,224.7147798,248.426283,18,992
+32025,Druid's Ring,,,,0.024,,2
+32029,Druid's Necklace,,,,0.002,,1
+32031,Bastion's Earring,,,,0.003,,1
+32032,Harbinger's Earring,,,,1,,1
+32033,Druid's Earring,,,,1,,1
+32038,Earthmana Leaf,37558,2.93913125,2.738596045,2.744024668,4294,195571
+32039,Fresh Fertilizer,183233,0.094346875,0.108603413,0.1195776508,19190,815931
+32095,Multi-Purpose Aging Larder,5385,9.895146154,10.16132012,10.02301901,309,24503
+32103,Charcoal Stabilizer,554109,1.629533185,1.597875593,1.666395387,53487,2808577
+32106,Dragon Essence Stabilizer,5664,29.64981228,23.01514417,23.79742289,396,23467
+32212,Draught of Forgiveness,161,10.99975,9.008184615,8.674562281,31,793
+32567,Ice Shovel,,,,2,,1
+32574,Lucid Gale Lunagem: Breakthrough,55,1219.55452,1193.806124,1196.373522,12,101
+32575,Gale Lunarite: Breakthrough,35,1.5,0.9516216667,1.075917593,2,71
+32576,Superior Gale Lunarite: Breakthrough,12,,8.6216875,19.78906364,,42
+32578,Fine Gale Lunarite: Breakthrough,26,3,2.141730303,2.548570175,2,56
+32582,Clear Earth Lunagem: Mastery,,,,2.6496,,8
+32583,Vivid Earth Lunagem: Mastery,,,,0.7998,,12
+32584,Lucid Earth Lunagem: Mastery,73,0.2499,0.79617,0.654935,10,325
+32914,Stormcaster Ring,,,,7,,1
+32915,Stormcaster Necklace,,,,0.89,,1
+32917,Reaper Ring,,,,0.02325,,2
+32918,Reaper Necklace,,,,5,,1
+32919,Reaper Earring,,,,0.0325,,1
+32930,Maple Woodlot,,,,5,,1
+32932,Pine Woodlot,,,,40,,4
+32933,Small Bamboo Duck Cage,13,,4.7489,4.633705882,,144
+32934,Small Bamboo Goose Cage,18,,4.49995,4.41845,,249
+32935,Sheep Pen,57,53.9597,35.25748636,32.90202581,4,351
+32936,Goat Pen,20,,26.83366923,33.2381566,,75
+32937,Dairy Pen,229,34.98715333,44.92016195,45.70691677,31,889
+32938,Cashmere Yata Pen,2,,79.99835,73.79255,,15
+32939,Blizzard Bear Pen,1,,0.6799,73.36413571,,14
+32946,Super Weapon Temper,5,,1149.99396,1194.688417,,29
+33011,Regal Alchemy Table Design,,,,5.101,,1
+33240,Home Lighting Design,,,,0.0105,,2
+33260,Super Armor Temper,1,600,600,600,1,1
+34242,Tyrenos's Index,1211,6.961256522,7.886769048,8.437348909,93,6229
+34296,Experia Pumpkin Patch,,,,49,,2
+34310,Experia Sunflower Patch,1,,15,15.01988333,,43
+34311,Experia Duck Patch,,,,1.0045,,1
+34312,Experia Pine Patch,11,,0.6,0.6,,11
+34323,Dazzling Heroic Regrade Charm,263,80.2015,84.56371705,85.8379638,33,1625
+34376,Chrome Steamfish Submarine Design,2,,6250,6250,,2
+34563,Dazzling Arcane Regrade Charm,396,56.30522742,57.76603814,58.78195511,64,1922
+34602,Obsidian Dagger,26,4100,2015.923004,1723.206274,4,92
+34603,Obsidian Sword,3,,2899.666667,990.69991,,10
+34604,Obsidian Greatsword,1,,1499.9999,1224.271782,,11
+34605,Obsidian Katana,2,,450,1229.857143,,7
+34606,Obsidian Nodachi,22,1056.6666,789.0452045,2144.148917,3,100
+34607,Obsidian Axe,,,,176.3333,,3
+34608,Obsidian Greataxe,,,,127.9998,,2
+34609,Obsidian Club,3,2988.88,4825.2933,2636.315219,1,62
+34610,Obsidian Greatclub,,,,189.99995,,4
+34611,Obsidian Shortspear,12,,2963.8104,1534.835592,,65
+34612,Obsidian Longspear,3,1999,3606,2166.399987,1,15
+34613,Obsidian Scepter,6,,2218.49995,1586.890198,,47
+34614,Obsidian Staff,15,1638.39998,1146.66656,2359.498002,5,62
+34615,Obsidian Bow,34,1570.7499,5421.704591,1796.543375,4,272
+34616,Obsidian Lute,2,,1066.5,2434.5,,4
+34617,Obsidian Flute,2,,8949.5,8132.999933,,12
+34618,Obsidian Shield,85,1513.252406,1477.135639,1183.334077,17,376
+34619,Ominous Obsidian Dagger,,,,10.2209,,1
+34621,Ominous Obsidian Greatsword,,,,189,,1
+34622,Ominous Obsidian Katana,,,,129.9999,,1
+34623,Ominous Obsidian Nodachi,,,,2893,,1
+34624,Ominous Obsidian Axe,,,,50,,1
+34626,Ominous Obsidian Club,,,,2799,,1
+34628,Ominous Obsidian Shortspear,,,,350,,1
+34629,Ominous Obsidian Longspear,,,,250,,2
+34630,Ominous Obsidian Scepter,,,,6999,,1
+34631,Ominous Obsidian Staff,,,,180,,1
+34632,Ominous Obsidian Bow,1,,150,2969.66665,,6
+34633,Ominous Obsidian Lute,,,,8500,,1
+34634,Ominous Obsidian Flute,,,,8000,,1
+34635,Ominous Obsidian Shield,,,,2450,,1
+34636,Cursed Obsidian Dagger,,,,200,,1
+34637,Cursed Obsidian Sword,,,,100,,1
+34638,Cursed Obsidian Greatsword,,,,29999.6967,,1
+34639,Cursed Obsidian Katana,,,,180.9999,,1
+34640,Cursed Obsidian Nodachi,1,,249.99,14859.66967,,7
+34641,Cursed Obsidian Axe,,,,500,,1
+34642,Cursed Obsidian Greataxe,,,,30000,,1
+34643,Cursed Obsidian Club,3,4350,2966.666667,18190,2,10
+34644,Cursed Obsidian Greatclub,,,,450,,1
+34645,Cursed Obsidian Shortspear,,,,13713.33333,,3
+34646,Cursed Obsidian Longspear,,,,14635,,2
+34647,Cursed Obsidian Scepter,1,,26999.6967,13936.24239,,7
+34648,Cursed Obsidian Staff,2,35000,17725,7350.19998,1,5
+34649,Cursed Obsidian Bow,,,,11192.33606,,11
+34650,Cursed Obsidian Lute,,,,30000,,1
+34651,Cursed Obsidian Flute,,,,6999,,1
+34652,Cursed Obsidian Shield,1,,27999.696,22485.04064,,9
+34653,Desire's Claw,,,,11999.9999,,1
+34655,Tearforger,,,,5500,,1
+34657,Sunscreamer,,,,6000,,2
+34662,Blackleaf,,,,23000,,1
+34663,Stormborn,,,,27000,,1
+34664,Iron Sorrow,,,,7500,,1
+34667,Singing Scroll,1,,30000,30000,,1
+34668,Wayfarer's Danger,,,,36000,,1
+34669,Anticipation,,,,31400,,1
+34670,Vexed Desire,,,,10833,,3
+34672,Maiden's Tear,,,,32000,,1
+34675,Beauty's Lament,,,,30000,,1
+34677,Death's Sunset,,,,31999.9999,,1
+34679,Twilight Leaf,,,,35555,,1
+34681,Red Sorrow,,,,32000,,1
+34683,Twilight Wanderer,,,,8100,,1
+34684,Living Scroll,,,,50000,,1
+34685,Forgotten Wayfarer,,,,36000,,1
+34686,Long Anticipation,,,,19000,,1
+34687,Sacrificial Desire,,,,48000,,1
+34693,Victor's Passion,,,,40000,,1
+34694,Merciful Sunset,,,,46999,,1
+34702,Violet Waltz,,,,25000,,1
+34703,Seer's Anticipation,,,,48500,,1
+34724,Malevolent Obsidian,66867,0.406471875,0.3413485876,0.404235869,9189,292277
+34725,Haunted Obsidian,1972,1.915475,2.534403846,1.948246038,294,10205
+34726,Tainted Jewel,371,13.40253158,18.29367452,17.80541121,95,2323
+34727,Ritual Aquamarine,214,2.007,3.3236,3.149131143,4,1358
+34728,Sulfur Crystal,2457,1.770092857,0.5711651685,1.202976144,439,14101
+34729,Mercury Solution,3019,1.15572381,1.885849123,3.110460526,881,15874
+34730,Brine Flakes,2732,0.80636875,0.9739329545,1.128880342,503,13495
+34731,Dense Lead,2062,3.071653333,2.076341284,4.452965263,486,16029
+34732,Renaia's Research Journal,293,8.003433333,9.075990909,21.11149407,51,1960
+34733,Herzan's Research,150,0.997975,0.8606769231,2.962622436,21,891
+34734,Inakos's Grimoire,236,3.9986,4.464305556,2.887395302,2,732
+34735,Ruthart's Doodles,368,6.640041667,7.90261039,14.01481014,69,1885
+34736,Weathered Beryl,138,5.304509091,4.805609615,8.115875399,27,793
+34737,Philosopher's Stone Fragment,249,4.9998,4.75951194,8.032786405,3,1014
+34738,Pygmy Skull,178,0.4569,1.007046154,1.298324762,15,627
+34739,Ouroboros Statue,247,3.816927273,2.113536066,3.282704906,27,855
+34740,Kaylin's Quill,17,69.9949,128.4079765,122.3895753,2,77
+34741,Stena's Crystal Orb,11,25.9944,24.31875455,54.91927647,2,52
+34742,Ecktom's Prayer Beads,3,,17.6338,34.62849714,,35
+34743,Runert's Carving Knife,10,99.9998,87.29521,143.487972,2,75
+34744,Jergant's Music Box,14,148.3403,219.3015214,243.9851058,3,70
+34745,Tinnereph's Monocle,14,100.8550333,104.7167214,108.1011424,3,66
+34746,Wynn's Bronze Cross,22,88.9832,114.0405273,79.87448727,1,114
+34747,Halnaak's Golden Scale,6,20.999,25.49933333,34.08340541,2,48
+34748,Alexander's Platinum Case,14,100.899,73.41614444,76.12422778,3,52
+34751,Hanure's Horn,3,,816.6595,813.0474048,,21
+34752,Vyrava's Inferno,12,8500,9217.141733,9352.647297,2,33
+34753,Jola's Scale,12,90.45995,95.226875,194.2622241,2,54
+34754,Iron Armor Fragment,47,14.9995,16.05417391,13.41000784,2,313
+34755,Nightmare Essence,86,305.1747056,342.4430284,284.2273201,20,425
+34756,Garden Records,16,967.98994,978.6424438,1047.531325,5,57
+34757,Experienced Adventurer's Compass,6,2348.99995,2407.833217,2196.862031,2,29
+34758,Nazar's Crown,6,1999.9999,2073.1481,1124.953767,1,43
+34759,Kraken Ink Sac,,,,50000,,1
+34760,Anthalon's Crimson Hallow,24,1350.406375,1397.816417,1276.907882,4,123
+34761,Bitter Teardrop,6,4498,4742.166667,5140.741935,1,31
+34762,Fierce Vow's Blood,3,,29923.3322,29294.83272,,6
+34779,Mining Drill,,,,810,,1
+34856,Private Artistry Workbench,,,,189.9999,,1
+34919,Improved Skyreach Woodlot,228,,16.3331,17.10335424,,1056
+34920,Improved Savory Fruiting Woodlot,,,,14.99,,10
+34921,Improved Fragrant Fruiting Woodlot,,,,14.99,,10
+34936,Dawnsdrop Cap,4,221.99495,191.247975,194.59815,2,10
+34937,Dawnsdrop Jerkin,3,162.495,152.9966667,154.0814083,2,12
+34938,Dawnsdrop Breeches,2,,164.5,206.99998,,10
+34939,Dawnsdrop Fists,3,199.9932,199.9932,169.8594483,3,29
+34940,Dawnsdrop Boots,1,,200,178.6335045,,22
+34941,Dawnsdrop Guards,2,198.9998,100.5034,193.4153833,1,12
+34942,Dawnsdrop Belt,3,,179.6666667,182.999975,,8
+34947,Dewy Dawnsdrop Boots,,,,300,,1
+34954,Dazzling Dawnsdrop Boots,,,,900,,1
+34955,Dazzling Dawnsdrop Guards,,,,450,,1
+34982,Pet Leash,,,,700,,1
+34983,Enchanted Blueprint,195,58.33307778,57.13173333,52.58815888,40,843
+35011,Elixir of Insatiable Greed,5,,140.9993,136.6660667,,9
+35028,Tidal Bungalow Design,1,,1500,1500,,3
+35036,Ship Component Regrade Scroll,10469,6.651624615,6.959144419,7.84851096,1435,54293
+35060,Majestic Logs,713,8.669633333,8.783326087,9.5105808,59,2205
+35065,Majestic Tree,,,,1758.561122,,9
+35113,Spired Chateau Design,,,,24999.9999,,1
+35135,Wrapped Frozen Wave Fishing Rod,,,,200,,1
+35137,Naval Cannon,,,,1706.666667,,6
+35138,Large-Caliber Cannon,34,,139.4546118,241.8272567,,210
+35139,High-Angle Siege Cannon,,,,100,,5
+35140,High-Speed Siege Cannon,,,,15,,1
+35142,Multipurpose Cannon,,,,5,,1
+35221,Mushroom Greenhouse,,,,0.88,,1
+35259,Sea Drake Figurehead,,,,10,,1
+35260,Tsunami Figurehead,,,,269,,3
+35263,Growling Zephyr Square Foresail,66,144.7277913,399.9880758,457.2818972,23,251
+35264,Growling Zephyr Square Mainsail,55,96.97212143,95.83049818,204.8079439,28,123
+35267,Zephyr Trade Pack Storage,,,,50,,1
+35301,Radiant Archeum Tree Sapling,9656,0.50142,0.506754491,0.5151004762,858,46340
+35303,Sharpwind Mining Drill,239,24.2547,23.4740806,22.79060867,19,1056
+35315,Illustrious Vocational Hood,,,,105.24965,,4
+35316,Illustrious Vocational Shirt,,,,60,,3
+35317,Illustrious Vocational Pants,1,,120,129.6666333,,3
+35318,Illustrious Vocational Gloves,1,,89.9998,140.3507,,6
+35319,Illustrious Vocational Shoes,,,,123.25,,4
+35320,Illustrious Vocational Sleeves,,,,14.6738,,3
+35321,Illustrious Vocational Sash,1,,94,97,,2
+35322,Magnificent Vocational Hood,,,,99.9999,,1
+35325,Magnificent Vocational Gloves,,,,100,,1
+35326,Magnificent Vocational Shoes,,,,300,,1
+35327,Magnificent Vocational Sleeves,,,,100,,1
+35332,Epherium Vocational Gloves,,,,450.1805,,1
+35333,Epherium Vocational Shoes,,,,550,,1
+35340,Delphinad Vocational Shoes,,,,2800,,1
+35350,Illustrious Vocational Helm,,,,120,,1
+35351,Illustrious Vocational Cuirass,,,,50,,1
+35352,Illustrious Vocational Greaves,,,,155,,1
+35353,Illustrious Vocational Gauntlets,,,,90,,1
+35354,Illustrious Vocational Sabatons,,,,125,,1
+35355,Illustrious Vocational Vambraces,,,,45,,1
+35356,Illustrious Vocational Tassets,,,,50,,1
+35361,Magnificent Vocational Sabatons,,,,400,,1
+35382,Delphinad Vocational Sabatons,,,,400,,1
+35395,Green-Quilted Pumpkin Coach Bed,,,,299,,1
+35396,Wicker Bed,11,220,206.8181364,184.4347674,2,46
+35397,Epherium Lightning Ring,1,,990,945.34845,,2
+35398,Epherium Meadow Ring,,,,422.02255,,2
+35399,Delphinad Lightning Ring,3,,2488.666667,1808.119273,,15
+35401,Ayanad Lightning Ring,,,,14233.33332,,6
+35403,Epherium Lightning Earring,,,,1499,,1
+35405,Delphinad Lightning Earring,4,,1497.249975,1472.095119,,21
+35407,Ayanad Lightning Earring,4,,13624.74998,15159.69983,,10
+35408,Ayanad Meadow Earring,,,,5400,,1
+35409,Epherium Lightning Necklace,,,,999,,1
+35411,Delphinad Lightning Necklace,,,,4462.9375,,16
+35413,Ayanad Lightning Necklace,4,,11449.75,16503.88177,,11
+35417,Hanging Iron Torch,,,,15,,1
+35419,Blue Torch Sconce,,,,9.99,,2
+35420,Gweonid Leafy Streetlight,,,,299,,1
+35424,Iron Torch Sconce,,,,0.7999,,2
+35430,Blue and White Porcelain,,,,2.991,,1
+35439,Gold Urn,,,,29.97,,1
+35441,Resting Russet Jar,,,,29.87,,1
+35442,Earthen Jar,,,,4.9999,,1
+35448,Decorative Hunting Rifle,,,,1.09,,1
+35453,Starshard Carving,,,,39.83,,1
+35456,Decorative Marionette,,,,100,,1
+35491,Caernord Zephyr Rudder,,,,5,,1
+35526,Clipper Materials,,,,10,,4
+35527,Merchant Schooner Materials,,,,20,,1
+35534,Sleeper's Point,,,,9995,,1
+35537,Hungering Nodachi,,,,32000,,1
+35538,Starlit Herald,,,,6500,,1
+35540,Falcon's Shortspear,,,,3500,,1
+35543,Minstrel's Friend,,,,29999.9997,,1
+35544,Fugitive,,,,2500,,1
+35545,Mystic Ward,,,,35999,,1
+35547,Bloodseeker's Blade,,,,31000,,1
+35549,Bloodseeker's Nodachi,,,,50000,,1
+35552,Eagle's Shortspear,,,,32999,,1
+35553,Eagle's Longspear,,,,32000,,1
+35556,Outlaw,,,,35000,,1
+35557,Wyrding Wall,,,,32000,,1
+35564,Heartseeker,,,,38999.9999,,1
+35569,Voidspell,,,,43000,,1
+35581,Obsidian Hood,16,2320,1396.686844,2063.406107,2,96
+35582,Obsidian Shirt,17,1995,3255.235288,2717.846455,1,55
+35583,Obsidian Pants,15,5448.4999,2622.399927,1334.712292,6,62
+35584,Obsidian Gloves,21,9554.6638,3198.592762,2748.7864,3,65
+35585,Obsidian Shoes,16,1599,2662.781519,2340.135088,1,58
+35586,Obsidian Cap,22,199.9998,2494.772645,2804.955025,1,52
+35587,Obsidian Jerkin,16,,2487.875,2632.121456,,57
+35588,Obsidian Breeches,13,299.8899,860.9145538,1011.310627,1,51
+35589,Obsidian Fists,44,,1288.181593,913.6437168,,155
+35590,Obsidian Boots,7,199.9998,1305.428771,1170.033762,1,29
+35591,Obsidian Helm,,,,3449.5,,2
+35592,Obsidian Cuirass,,,,4201,,1
+35593,Obsidian Greaves,1,,888,888,,1
+35594,Obsidian Gauntlets,2,,222,12468.4,,5
+35595,Obsidian Sabatons,1,,1600.001,3299.5005,,2
+35596,Ominous Obsidian Hood,,,,266,,1
+35597,Ominous Obsidian Shirt,,,,5200,,1
+35599,Ominous Obsidian Gloves,,,,1700,,1
+35600,Ominous Obsidian Shoes,,,,4500,,1
+35601,Ominous Obsidian Cap,,,,4450,,1
+35602,Ominous Obsidian Jerkin,,,,4450,,1
+35603,Ominous Obsidian Breeches,,,,9000,,1
+35604,Ominous Obsidian Fists,,,,3800,,1
+35605,Ominous Obsidian Boots,,,,1999,,1
+35610,Ominous Obsidian Sabatons,,,,4500,,1
+35611,Cursed Obsidian Hood,2,,25000,26000,,3
+35612,Cursed Obsidian Shirt,2,29500,29500,29500,1,2
+35613,Cursed Obsidian Pants,2,,29749.99995,29749.99995,,2
+35614,Cursed Obsidian Gloves,1,,27000,26166.66667,,3
+35615,Cursed Obsidian Shoes,,,,24969.6714,,1
+35616,Cursed Obsidian Cap,,,,4700,,1
+35617,Cursed Obsidian Jerkin,,,,31999.6967,,1
+35618,Cursed Obsidian Breeches,,,,16125.17395,,4
+35619,Cursed Obsidian Fists,,,,22829.54202,,6
+35620,Cursed Obsidian Boots,,,,23000,,1
+35621,Cursed Obsidian Helm,,,,25000,,1
+35622,Cursed Obsidian Cuirass,,,,34000,,1
+35624,Cursed Obsidian Gauntlets,,,,1500,,1
+35626,Flaming Passion Hood,,,,4500,,1
+35627,Flaming Passion Shirt,1,5500,5500,5500,1,1
+35629,Flaming Passion Gloves,,,,5500,,1
+35630,Flaming Passion Shoes,,,,5600,,1
+35631,Shadow Cap,,,,3000,,1
+35632,Shadow Jerkin,,,,5000,,1
+35634,Shadow Fists,,,,25000,,1
+35637,Annihilator's Cuirass,,,,30000,,1
+35646,Evanescent Cap,,,,3000,,1
+35648,Evanescent Breeches,,,,34000,,1
+35650,Evanescent Boots,,,,29000,,1
+35656,Kindled Passion Hood,1,,5999,5999,,1
+35659,Kindled Passion Gloves,,,,31000,,1
+35660,Kindled Passion Shoes,,,,6000,,1
+35661,Silent Shadow Cap,,,,24000,,1
+35662,Silent Shadow Jerkin,,,,28900,,1
+35664,Silent Shadow Fists,,,,25000,,1
+35665,Silent Shadow Boots,,,,7000,,1
+35666,Vengeful Annihilator Helm,1,,6000,6000,,1
+35667,Vengeful Annihilator Cuirass,1,,6400,6400,,1
+35668,Vengeful Annihilator Greaves,1,,5500,5500,,1
+35669,Vengeful Annihilator Gauntlets,1,,5500,5500,,1
+35671,Purehearted Hood,,,,5300,,1
+35673,Purehearted Pants,,,,6500.9914,,1
+35674,Purehearted Gloves,,,,4500.991,,1
+35675,Purehearted Shoes,,,,35000,,1
+35676,Silent Evanescence Cap,,,,31111,,1
+35677,Silent Evanescence Jerkin,1,,8998,8998,,1
+35679,Silent Evanescence Fists,,,,6999,,1
+35680,Silent Evanescence Boots,,,,35999.9999,,1
+35690,Cold Flames Shoes,,,,42000,,1
+35692,Screaming Shadow Jerkin,,,,65000,,1
+35701,Purehearted Goddess Hood,,,,35000,,1
+35704,Purehearted Goddess Gloves,,,,39999,,1
+35721,Rainbow Sprinkler,,,,0.03,,3
+35756,Caernord Sea Serpent Propellant,21,1293.7772,451.6863714,465.5014706,2,85
+35885,Possessed Topaz,32749,1.464359524,1.406233908,1.28993002,4289,136481
+35887,Bone Chip,3014,0.14775,0.2574761194,0.2193993266,292,15911
+35888,Forbidden Spellgem,1118,1.2264,1.663562222,1.452862439,75,4892
+35889,Shadow Orb,848,1.150775,1.465789655,2.555389433,394,4165
+35891,Sunflower Furniture,,,,299.9999,,1
+35892,Pumpkin Furniture,,,,250,,1
+35893,Pine Furniture,,,,250,,1
+35894,Duck Furniture,,,,299.9999,,1
+35898,Shatigon's Sand,13027,0.80018,0.844489697,0.8941546724,2543,68010
+35902,Abyssal Crystal Lamp,,,,75,,1
+35919,Zephyr Sea Monster Sonar,,,,999,,1
+35926,Seabreeze Underwater Breathing Device Design,2,,170.4999,195.3793273,,11
+35927,Mistral Underwater Breathing Device Design,5,,4.24995,7.3185,,31
+35928,Seastorm Underwater Breathing Device Design,4,,4.007,6.660175,,12
+35929,Typhoon Underwater Breathing Device Design,1,,8,7.378066667,,6
+35930,Seabreeze Mast Design,,,,999.9999,,1
+35931,Mistral Mast Design,,,,40.9988,,2
+35932,Seastorm Mast Design,,,,15.99995,,4
+35933,Typhoon Mast Design,,,,3.4764,,5
+35934,Captain's Cannon Design,38,3.9888,3.713008,4.898872603,5,276
+35936,Mounted Shield Design,39,3.9994,3.736247619,5.001156835,4,266
+35938,Shrapnel Cannon Design,32,2.997775,3.720677778,4.645616154,4,273
+35939,Naval Cannon Design,34,,4.0228,6.219930857,,368
+35940,Large-Caliber Cannon Design,181,7.074771429,8.864003175,16.11975625,11,864
+35941,High-Angle Siege Cannon Design,25,3.65895,3.74398125,4.559633333,20,261
+35942,High-Speed Siege Cannon Design,16,,3.687415385,4.864366379,,233
+35943,Chain-Shot Cannon Design,24,3.982633333,3.869358824,4.892087619,12,242
+35948,Beast Figurehead Design,19,4.9991,5.05972,5.595241379,1,160
+35949,Charred Bonekraal Figurehead Design,54,3.439155,4.183187097,4.858785227,38,425
+35950,Raging Lionheart Figurehead Design,82,7.295583333,7.106491525,6.641421552,30,389
+35951,Ivory Nui Figurehead Design,31,,3.7079625,4.753517308,,219
+35952,Sea Drake Figurehead Design,16,2.99995,3.689653846,4.940390588,2,117
+35953,Tsunami Figurehead Design,10,,4.11975,4.983937405,,174
+35954,Seabreeze Plank Design,1,,600,379.5383154,,13
+35955,Zephyr Explosives Workbench Design,,,,0.1905,,1
+35956,Caernord Sea Serpent Propellant Design,45,2.8299,5.142825641,8.240746296,6,367
+35958,Seabreeze Trade Pack Storage Design,18,259,258.3331267,250.5321581,2,104
+35959,Mistral Trade Pack Storage Design,17,123.9964,85.58671176,146.2795581,3,138
+35960,Seastorm Trade Pack Storage Design,13,,148.3289667,153.6725133,,64
+35961,Typhoon Trade Pack Storage Design,10,,267.3333222,267.0384077,,31
+35962,Eznan Seabreeze Rudder Design,,,,168.6665667,,3
+35963,Eznan Mistral Rudder Design,7,,3.3097,4.30873871,,32
+35964,Eznan Seastorm Rudder Design,2,,8.10175,5.8862,,7
+35965,Eznan Typhoon Rudder Design,,,,2.59725,,2
+35966,Lutesong Seabreeze Rudder Design,,,,8,,1
+35967,Lutesong Mistral Rudder Design,1,,78.9898,10.83049333,,17
+35968,Lutesong Seastorm Rudder Design,1,,7.9999,18.66655,,6
+35969,Lutesong Typhoon Rudder Design,,,,100,,1
+35970,Austeran Seabreeze Rudder Design,2,,161.5,190.5542222,,9
+35971,Austeran Mistral Rudder Design,2,,8.98465,5.191177778,,29
+35972,Austeran Seastorm Rudder Design,1,,9.9899,18.13320909,,11
+35973,Austeran Typhoon Rudder Design,2,,27.9999,25.79666,,5
+35974,Caernord Seabreeze Rudder Design,,,,299,,2
+35975,Caernord Mistral Rudder Design,4,,19.214875,13.0206,,34
+35976,Caernord Seastorm Rudder Design,7,,26.28408571,26.46051875,,16
+35977,Caernord Typhoon Rudder Design,4,,133.99945,135.80499,,10
+35978,Seabreeze Telescope Design,1,,800,657.29998,,10
+35979,Mistral Telescope Design,5,,11.4205,6.354077143,,44
+35980,Seastorm Telescope Design,2,,8.72735,17.64112,,15
+35981,Typhoon Telescope Design,2,,60,91.42852857,,7
+35982,Seabreeze Compass Design,2,,600.4954,605.4987625,,8
+35983,Mistral Compass Design,3,,5.249866667,5.46478125,,40
+35984,Seastorm Compass Design,2,12,12.2472,35.64619,1,10
+35985,Typhoon Compass Design,3,,220.3331333,268.6249125,,8
+35986,Seabreeze Fish Finder Design,1,,650,475,,4
+35987,Mistral Fish Finder Design,4,7.989,7.67205,7.354753846,1,27
+35988,Seastorm Fish Finder Design,2,10,8.5,10.14618,1,10
+35989,Typhoon Fish Finder Design,,,,109.99995,,2
+35990,Zephyr Sea Monster Sonar Design,,,,0.1885,,1
+35991,Seabreeze Sea Monster Sonar Design,,,,200,,1
+35992,Mistral Sea Monster Sonar Design,,,,3.84475,,4
+35993,Seastorm Sea Monster Sonar Design,,,,0.1905,,1
+35994,Typhoon Sea Monster Sonar Design,,,,55,,1
+35999,Seabreeze Shroudlight Design,3,,890,904.61392,,25
+36000,Mistral Shroudlight Design,6,0.1975,124.1979167,138.2204071,1,28
+36001,Seastorm Shroudlight Design,1,,300,129.71883,,10
+36002,Typhoon Shroudlight Design,,,,116.0831833,,6
+36022,Mounted Shield,,,,10,,1
+36140,Wrapped Strawberry Barrel,,,,1,,3
+36141,Glossy Feather Brush,,,,0.4666666667,,202
+36142,Palette,,,,1.994533333,,43
+36164,Medium Wooden Fence,,,,0.4999,,1
+36165,Large Wooden Fence,,,,0.49,,19
+36175,Large Brick Wall,,,,2,,12
+36282,Large Mossy Rock Wall,,,,0.5,,10
+36318,Language Proficiency Spellbook,3,,795.6665,819.5684571,,7
+36447,Red Brick Wall,,,,1,,9
+36448,Red Brick Wall Gate,,,,10,,1
+36451,Medium Tiled Roof Column,,,,1,,18
+36455,Large Gray Brick Wall,,,,2,,4
+36458,Traditional Gilt Door,,,,120,,1
+36459,Traditional Gilt Fence,,,,1.5,,70
+36460,Short Traditional Gilt Fence,,,,1.5,,35
+36461,Red Lined Door,,,,5,,3
+36462,Red Lined Fence,,,,1.5,,87
+36463,Short Red Lined Fence,,,,1.5,,19
+36464,Farmhouse Door,,,,1.667,,3
+36465,Farmhouse Fence,,,,1.909,,8
+36468,Large Farm Fence,,,,1,,3
+36471,Young Gray Tabby Housepet,,,,155,,1
+36472,Young Calico Housepet,1,45.9997,45.9997,65.4999,1,4
+36473,Young Orange Tabby Housepet,,,,32.75,,4
+36474,Young Seal-Point Housepet,3,,55.32623333,51.79672,,10
+36691,Young Black Cat Housepet,4,,19.98,19.98,,4
+36707,Marianople Violin,,,,1500,,1
+36740,Rainbow Pumpkin Taffy,1,,25,25,,1
+37142,Harvester's Farmhouse Design,,,,1100,,1
+37143,Rancher's Farmhouse Design,,,,1000,,1
+37144,Miner's Farmhouse Design,,,,1699,,1
+37150,Apothecary's Manor Design,,,,2200,,1
+37151,Tradesman's Manor Design,,,,1000,,2
+37152,Armorer's Townhouse Design,,,,2000,,1
+37682,Craftsman's Mountain Chestplate,,,,1,,2
+37893,Wooden Beam Bundle,11,43.9993,45.64616667,39.72213333,2,90
+37894,Construction Tool Bundle,,,,16.67,,48
+37895,Finishing Touches Bundle,,,,23.3333,,3
+37896,Construction Brick Bundle,24,,42.554175,33.19456875,,100
+38087,Pet Accessory Regrade Scroll,428,39.1427,41.46531897,41.5644543,52,2490
+38123,Clear Ancient Battlerage Lunagem,,,,15.5,,3
+38129,Clear Ancient Sorcery Lunagem,,,,0.8,,2
+38130,Clear Ancient Shadowplay Lunagem,,,,51,,1
+38134,Clear Eternal Witchcraft Lunagem,,,,3.0138,,1
+38138,Clear Eternal Archery Lunagem,,,,50,,1
+38139,Clear Eternal Sorcery Lunagem,,,,50,,4
+38141,Clear Eternal Songcraft Lunagem,,,,100,,2
+38148,Vivid Ancient Archery Lunagem,,,,90,,1
+38149,Vivid Ancient Sorcery Lunagem,,,,10,,2
+38155,Vivid Eternal Defense Lunagem,,,,650,,1
+38159,Vivid Eternal Sorcery Lunagem,,,,301,,1
+38163,Lucid Ancient Battlerage Lunagem,,,,700,,1
+38164,Lucid Ancient Witchcraft Lunagem,4,,1149.74995,1179.59996,,10
+38166,Lucid Ancient Auramancy Lunagem,,,,750,,3
+38169,Lucid Ancient Sorcery Lunagem,3,,1199.995,1150.769555,,34
+38171,Lucid Ancient Songcraft Lunagem,,,,500,,1
+38172,Lucid Ancient Vitalism Lunagem,,,,800,,3
+38173,Lucid Eternal Battlerage Lunagem,1,,1199.9999,1365.516644,,9
+38175,Lucid Eternal Defense Lunagem,,,,1200,,11
+38176,Lucid Eternal Auramancy Lunagem,,,,1200,,1
+38178,Lucid Eternal Archery Lunagem,,,,1350,,2
+38179,Lucid Eternal Sorcery Lunagem,,,,1340,,5
+38181,Lucid Eternal Songcraft Lunagem,2,,1125.98315,1358.449802,,44
+38228,Sopere's Frog,,,,25,,1
+38345,Gray Wolfhound Puppy Housepet,,,,22.5,,2
+38350,Brown Yata Calf Housepet,1,,35.9999,73.66663333,,3
+38355,Green Elk Calf Housepet,1,,99.9999,74.99995,,2
+38429,Morpheus's Treasure Chest,,,,175,,1
+38440,Enoan Galleon Blueprint Fragment,425,86.199388,87.1744375,90.70839613,45,2128
+38481,Master's Music,,,,3,,1
+38501,Li'l Kitten Cutout,,,,120,,1
+38502,Li'l Yata Cutout,,,,145,,1
+38503,Li'l Elk Cutout,,,,60,,1
+38504,Li'l Wolfhound Cutout,,,,15,,1
+38505,Collectible Cutout Box,,,,20,,2
+38506,Tufted Pet Tower,,,,100,,1
+38507,Cozy Pet Bed,,,,499,,1
+38508,Playful Pet Cushion,,,,499,,1
+38555,Mahogany Stucco Partition,,,,2,,2
+38557,Lattice Door Partition,,,,75,,1
+38558,Ash Stucco Partition,,,,20,,1
+38562,Cottage Stone Partition,,,,75,,5
+38565,Hatched Door Partition,,,,15,,1
+38566,Arched Door Partition,,,,1,,1
+38612,Sirensong Fishing Boat Propellant,14,733.3328333,560.5593143,444.5382625,3,80
+38613,Sirensong Zephyr Rudder,,,,40,,1
+38707,Grinding Guardian Scroll,,,,2.158761905,,41
+38708,Superior Grinding Guardian Scroll,1708,10.02826,10.22640501,10.09968285,141,6677
+38755,Celestial Regrade Charm,1177,633.3275832,625.3265682,643.045224,196,5566
+38762,Dreadnaught's Ring,9,6.5,20.72267778,19.37056111,2,36
+38763,Dreadnaught's Necklace,5,,13.7998,12.70516875,,16
+38764,Dreadnaught's Earring,2,,19.5,17.46268611,,36
+38765,Shroudmaster Ring,9,,18.78297778,12.59889118,,34
+38766,Shroudmaster Necklace,4,39.9995,24.999125,13.4684,1,11
+38767,Shroudmaster Earring,10,,13.80858,12.91787647,,34
+38803,Andelph Fishing Boat Propellant,53,1199.2948,457.6351453,480.576908,3,199
+38832,Sacred Echo,,,,66,,1
+38835,One-Hander Metal Mana Wisp,1541,86.07024286,94.03690837,96.93263989,67,6071
+38836,Two-Hander Metal Mana Wisp,548,99.72674545,90.07287167,94.17788656,80,4428
+38837,Wooden Mana Wisp,2284,65.212868,68.04865053,71.50171682,183,15763
+38839,Musical Mana Wisp,320,52.85582857,64.48900303,74.28056948,80,1334
+38840,Large Jewelry Mana Wisp,1012,40.92057083,53.08574953,60.3970913,106,6431
+38841,Small Jewelry Mana Wisp,4090,28.4983087,27.06720074,29.86715663,244,17292
+38843,Cloth Mana Wisp,5474,25.87992273,26.64568921,28.06023551,688,26619
+38844,Leather Mana Wisp,12876,28.96159537,29.47631618,28.99317758,1787,49235
+38845,Plate Mana Wisp,6002,35.25737143,34.76104988,35.447641,488,22002
+38990,Hereafter Cake Table,1,,222,261,,2
+38996,50-Slot Pirate Plushie Trove,24,624.997425,719.0408917,685.6213037,4,136
+38997,100-Slot Pirate Plushie Trove,,,,3988,,1
+39041,Design: Sirensong Seabreeze Rudder,1,,450.9996,644.99955,,4
+39042,Design: Sirensong Mistral Rudder,5,,3.99598,7.981774194,,35
+39043,Design: Sirensong Seastorm Rudder,1,,0.1915,13.0954,,2
+39044,Design: Sirensong Typhoon Rudder,,,,8,,1
+39045,Design: Andelph Seabreeze Rudder,,,,5,,1
+39046,Design: Andelph Mistral Rudder,1,,4,5.547441667,,12
+39047,Design: Andelph Seastorm Rudder,,,,10.70642,,5
+39048,Design: Andelph Typhoon Rudder,,,,4,,1
+39059,Vivid Earth Lunascale: Vitality,6,,389.79796,438.3815154,,14
+39060,Vivid Earth Lunascale: Finesse,30,467.6633,372.3455731,440.6930303,3,80
+39061,Vivid Earth Lunascale: Esoteric,5,390.8815,390.8818,474.1222,2,10
+39062,Vivid Earth Lunascale: Celerity,35,389.9779,391.3799235,452.6515943,1,144
+39063,Vivid Earth Lunascale: Impenetrable,27,437,412.3316333,487.289593,2,77
+39064,Vivid Gale Lunascale: Aggro,,,,450,,1
+39066,Vivid Gale Lunascale: Overpower,,,,99,,1
+39068,Vivid Gale Lunascale: Tempest,20,398.59128,397.022705,427.6950867,5,45
+39069,Vivid Gale Lunascale: Torrent,9,291.3333333,296.2842286,402.5943446,4,61
+39070,Vivid Gale Lunascale: Pierce,17,,411.1234471,461.7114252,,125
+39071,Vivid Gale Lunascale: Breakthrough,13,235.9969,319.867025,371.56565,5,19
+39128,Lost Garden Faded Sword,3,5,5.659966667,10.40772222,1,9
+39129,Lost Garden Faded Nodachi,3,,6.836566667,615.3643077,,13
+39130,Lost Garden Faded Greatsword,2,9.9999,9.99995,11.35862143,1,14
+39131,Lost Garden Faded Axe,,,,11.1999,,5
+39132,Lost Garden Faded Dagger,6,,10.83333333,11.9582,,20
+39133,Lost Garden Faded Katana,3,9,15,10.23419091,1,22
+39134,Lost Garden Faded Greataxe,1,,8.25,7.251592857,,14
+39135,Lost Garden Faded Club,1,,10,19.35962308,,13
+39136,Lost Garden Faded Greatclub,3,,10.33326667,19.64996923,,13
+39137,Lost Garden Faded Scepter,2,,9.97985,7.0807,,8
+39138,Lost Garden Faded Staff,,,,9.514418182,,11
+39139,Lost Garden Faded Shortspear,4,7.9999,7.74995,7.744857143,2,14
+39140,Lost Garden Faded Longspear,4,9.9998,11.874875,12.43327333,1,15
+39141,Lost Garden Faded Bow,3,,8.1,14.61138095,,21
+39142,Lost Garden Faded Shield,3,9,8.6666,20.43252727,1,22
+39143,Lost Garden Faded Flute,,,,9.13355,,10
+39181,Auroria Lorn Battlerage Cap,1,,1,15,,2
+39182,Auroria Lorn Battlerage Jerkin,,,,4.99495,,2
+39183,Auroria Lorn Battlerage Belt,3,,95,49.307664,,25
+39184,Auroria Lorn Battlerage Guards,2,,47.9548,61.98530769,,13
+39185,Auroria Lorn Battlerage Gloves,2,,29.99995,26.83328333,,6
+39186,Auroria Lorn Battlerage Breeches,2,,15.5,10,,4
+39187,Auroria Lorn Battlerage Boots,,,,10.75745,,4
+39195,Auroria Cruel Witchcraft Hood,1,,0.59,0.59,,1
+39196,Auroria Cruel Witchcraft Shirt,2,,26,17.47886667,,3
+39197,Auroria Cruel Witchcraft Sash,,,,10,,2
+39198,Auroria Cruel Witchcraft Sleeves,,,,18.3571,,3
+39199,Auroria Cruel Witchcraft Gloves,,,,5,,1
+39200,Auroria Cruel Witchcraft Pants,1,33,33,33,1,1
+39201,Auroria Cruel Witchcraft Shoes,1,,1,20.499975,,4
+39209,Auroria Eternal Defense Cap,1,,15,10,,2
+39210,Auroria Eternal Defense Jerkin,,,,20,,1
+39211,Auroria Eternal Defense Belt,2,,21.5,30,,5
+39212,Auroria Eternal Defense Guards,1,20,20,33.05986,1,5
+39213,Auroria Eternal Defense Fists,2,,14.9999,10.18326667,,3
+39214,Auroria Eternal Defense Breeches,,,,12,,2
+39215,Auroria Eternal Defense Boots,,,,10.3333,,3
+39223,Auroria Precise Auramancy Hood,1,,20,17.749975,,4
+39224,Auroria Precise Auramancy Shirt,,,,9.0125,,4
+39225,Auroria Precise Auramancy Sash,2,,34.99995,25.9983,,6
+39226,Auroria Precise Auramancy Sleeves,3,,11.66663333,13.51115,,8
+39227,Auroria Precise Auramancy Gloves,,,,3.135,,2
+39228,Auroria Precise Auramancy Pants,,,,10,,1
+39229,Auroria Precise Auramancy Shoes,1,,10,5.552175,,4
+39237,Auroria Haunted Occultism Helm,3,,20,40.134175,,16
+39238,Auroria Haunted Occultism Cuirass,4,,112.249975,79.91020571,,35
+39239,Auroria Haunted Occultism Tassets,3,,21.66666667,25.39997,,10
+39240,Auroria Haunted Occultism Vambraces,,,,53.52034444,,9
+39241,Auroria Haunted Occultism Gauntlets,3,,24.37396667,70.77982308,,13
+39242,Auroria Haunted Occultism Greaves,1,40,40,49.699975,1,12
+39243,Auroria Haunted Occultism Sabatons,1,,15,45.14451429,,7
+39251,Auroria Wildborn Archery Cap,1,,0.2,0.1792,,2
+39252,Auroria Wildborn Archery Jerkin,1,,10,16.05495,,4
+39253,Auroria Wildborn Archery Belt,,,,10,,1
+39254,Auroria Wildborn Archery Guards,13,29.99975,38.49993077,42.32071613,2,31
+39255,Auroria Wildborn Archery Fists,1,,24.9999,37.4999,,2
+39256,Auroria Wildborn Archery Breeches,,,,66,,1
+39257,Auroria Wildborn Archery Boots,2,,15,11.66666667,,3
+39265,Auroria Noble Sorcery Helm,5,,18.03362,33.78216154,,13
+39266,Auroria Noble Sorcery Cuirass,2,,12.49995,44.84518,,10
+39267,Auroria Noble Sorcery Tassets,3,,27.3333,31.873725,,8
+39268,Auroria Noble Sorcery Vambraces,1,,45,43.83326667,,6
+39269,Auroria Noble Sorcery Gauntlets,2,,26,49.69991,,10
+39270,Auroria Noble Sorcery Greaves,3,40,30.66663333,45.99998571,1,7
+39271,Auroria Noble Sorcery Sabatons,1,,29.9999,39.49996667,,6
+39279,Auroria Devious Shadowplay Cap,,,,15,,1
+39280,Auroria Devious Shadowplay Jerkin,1,,33,20.49988333,,6
+39281,Auroria Devious Shadowplay Belt,3,,14.16666667,25.64267143,,7
+39282,Auroria Devious Shadowplay Guards,1,,10,43.83305,,6
+39283,Auroria Devious Shadowplay Fists,2,,4.05945,20.62378,,5
+39284,Auroria Devious Shadowplay Breeches,,,,15,,1
+39285,Auroria Devious Shadowplay Boots,,,,30,,1
+39286,Auroria Songcraft Hood,1,,10,10,,1
+39287,Auroria Songcraft Shirt,,,,8,,1
+39288,Auroria Songcraft Sash,2,10,5.02725,80.19041667,1,6
+39289,Auroria Songcraft Sleeves,1,,6.001,18.85704286,,7
+39290,Auroria Songcraft Gloves,1,,9.9999,7.07555,,2
+39291,Auroria Songcraft Pants,,,,0.2993,,1
+39292,Auroria Songcraft Shoes,1,,8,11,,3
+39293,Auroria Wistful Songcraft Hood,1,8.9999,8.9999,14.49995,1,2
+39294,Auroria Wistful Songcraft Shirt,,,,10,,1
+39295,Auroria Wistful Songcraft Sash,2,,19.99495,37.4983,,6
+39296,Auroria Wistful Songcraft Sleeves,2,,9.99995,9.99995,,2
+39297,Auroria Wistful Songcraft Gloves,,,,13.5,,2
+39298,Auroria Wistful Songcraft Pants,2,,3.5,7.598,,5
+39299,Auroria Wistful Songcraft Shoes,,,,6.9998,,1
+39307,Auroria Dulcet Vitalism Cap,2,,67.99995,39.66643077,,26
+39308,Auroria Dulcet Vitalism Shirt,1,,29.9999,74.44433333,,9
+39309,Auroria Dulcet Vitalism Sash,1,,49.9999,50.60255333,,15
+39310,Auroria Dulcet Vitalism Sleeves,1,,25,44.15978,,5
+39311,Auroria Dulcet Vitalism Gloves,,,,19,,1
+39312,Auroria Dulcet Vitalism Pants,,,,55,,1
+39313,Auroria Dulcet Vitalism Shoes,1,,0.2681,5.5945,,4
+39319,Weapon Temper,5,,46.59984,64.166475,,12
+39320,Greater Weapon Temper,24,149.9959857,142.5430955,148.7662132,7,71
+39321,Greater Armor Temper,43,49.9795,42.20211212,48.48215047,2,146
+8000026,Gilda Dust,23088,2.214051389,2.215888679,2.052730246,5094,104795
+8000056,Cart Wheel,20,14.49245,14.89192,16.11979737,8,147
+8000053,Cart Shaft,5,449.97,449.962,472.3870792,2,24
+8000055,Thunderstruck Log,103,329.2099571,313.1923361,330.7676389,8,383
+8000054,Cart Engine,5,188.875,191.134,189.0631742,2,31
+8000057,Farm Cart Design,7,83.536,85.37428571,87.12001538,5,26
+8000076,Illustrious Storage Chest,3,,2328.962933,2328.962933,,3
+8000231,Glider Customization: Inky Feathered Dragon,,,,4500,,1
+8000232,Battle Fae,,,,5000.001,,1
+8000317,Enhancement Tools,,,,1100,,1
+8000318,Glider Manacharge Scrolls,1,,149.9995,155.6361182,,22
+8000567,Armor Temper,,,,12.9997,,1
+8000568,Prime Armor Temper,14,649.6898,706.37585,719.3007738,1,65
+8000569,Prime Weapon Temper,17,1319.99995,1445.471012,1409.454568,2,123
+39591,Artisan's Epherium Porcelain,1,,2,2,,2
+39592,Noble's Epherium Porcelain,,,,15,,1
+39593,Lavish Epherium Porcelain,,,,9.9999,,1
+39594,Epherium Gourd Bottle,,,,111,,1
+39595,Comital Epherium Porcelain,,,,100,,1
+39596,Terena Noble's Censer,,,,20.5,,2
+39597,Terena Noble's Urn,1,10,10,19.66666667,1,3
+39598,Epherium Merchant's Tombstone,1,,50,75,,2
+39599,Epherium Scholar's Tombstone,,,,25,,1
+39600,Terena Noble's Fence Pillar,,,,109.9999,,1
+39606,Epherium Lotus Fence Pillar,,,,75,,2
+39607,Dwarven Bridge Rail,1,30,30,30,1,1
+39608,Lakespring Shaman's Mask,,,,29,,1
+39609,Lakespring High Priest's Mask,1,,5,5,,1
+39611,Delphinad Jester Mask,,,,14.70838,,5
+39614,Delphinad Royal Mask,,,,24,,1
+39615,Delphinad Merchant Mask,1,,10,10,,1
+39617,Delphinad Courtesan Mask,,,,5.5,,2
+39620,Epherium Floral Bottle,2,19.9999,19.9999,29.99993333,2,3
+39621,Epherium Liquor Bottle,,,,66,,1
+39622,Merchant's Epherium Porcelain,,,,100,,1
+39657,Berserker Necklace,26,796.3299167,294.1145577,308.0030233,6,133
+39658,Berserker Ring,31,712.59994,457.0642903,299.5017363,10,193
+39659,Berserker Earrings,18,67.499925,70.88408333,334.9772814,4,113
+39660,Assassin Necklace,4,,34.249,471.2408462,,13
+39661,Assassin Ring,8,,28.7821125,44.15294259,,54
+39662,Assassin Earrings,16,,496.6840875,318.9865648,,122
+39663,Sorcerer Necklace,9,150,639.9494556,546.7005182,1,55
+39664,Sorcerer Ring,11,,728.2104545,364.8645932,,88
+39665,Sorcerer Earrings,5,,1732.8,352.4386369,,111
+39666,Soothsayer Necklace,4,,46.999825,91.55975682,,44
+39667,Soothsayer Ring,8,,43.294,47.99482586,,58
+39668,Soothsayer Earrings,6,34.9887,39.6608,55.87923,3,80
+39677,Epherium Floral Jar,,,,52.5,,2
+39678,Epherium Crux Bowl,,,,150,,1
+39679,Epherium Crux Plate,,,,30,,1
+39680,Epherium Pyramid Plate,,,,25,,1
+39681,Epherium Floral Bowl,,,,10.376,,1
+39682,Epherium Merchant's Teacup,3,2,3,3,1,3
+39683,Epherium Scholar's Teacup,1,10,10,10,1,2
+39691,Oak Treehouse Design,3,,1983,2105.444444,,9
+39692,Cherry Treehouse Design,4,,2146.75,2238.75,,20
+39693,Aspen Treehouse Design,1,,3000,3149.79998,,5
+39764,Haranyan Private Smelter Design,1,,100,280.249225,,4
+39765,Haranyan Private Loom Design,1,,359.99,359.99,,1
+39766,Haranyan Private Masonry Table Design,1,,315,246.7127375,,8
+39767,Haranyan Private Sawmill Design,1,,350,350,,1
+39768,Haranyan Private Leatherwork Table Design,,,,100,,1
+39801,Jujube Juice,4741,4.086239286,4.18062988,4.129397356,340,15387
+39802,Jujube Sparkling Wine,2525,4.17565,4.185204651,4.161539573,66,10411
+39803,Mistsong Grinding Guardian Scroll,67,64.994,64.16898966,67.36152636,13,379
+39814,Lucky Sunpoint Shard,16,299.9999667,289.7744308,286.4866925,3,61
+39815,Lucky Moonpoint Shard,32,140.49995,150.7434429,168.1909583,2,99
+39816,Lucky Starpoint Shard,24,199.99102,209.92706,201.9204784,6,111
+39826,Gale Lunarite: Clash,6,,0.9350666667,0.7635,,25
+39827,Fine Gale Lunarite: Clash,5,,0.6011,0.6011,,5
+39828,Superior Gale Lunarite: Clash,2,,8.0054,8.0054,,2
+39829,Earth Lunarite: Intercept,,,,0.03447,,162
+39830,Fine Earth Lunarite: Intercept,2,0.10615,0.10615,0.4810857143,2,38
+39831,Superior Earth Lunarite: Intercept,,,,0.9683066667,,92
+39879,Midnight Swept-Roof Mansion Design,,,,7499.5,,2
+39905,Gargantuan Sunfish Trophy,,,,100,,1
+39906,Sunfish Trophy,,,,100,,1
+39999,Cryptic Lucky Scroll,28,898.9998625,870.8927071,820.089,8,135
+8000678,Vehicle Upgrade Device,,,,475,,3
+40091,Ayanad Weaponsmithing Scroll,67,298.4280429,309.8962108,325.4724654,7,356
+40092,Ayanad Armorsmithing Scroll,81,2733.66665,2700.609788,2826.629113,6,344
+40093,Ayanad Accessory Scroll,79,267.7179714,294.0892139,426.1037701,7,472
+8000760,Vivid Refined Lunagem: Defense,,,,44.99995,,2
+8000761,Vivid Refined Lunagem: Magic Defense,,,,50,,1
+8000762,Vivid Refined Lunagem: Strong Blow,,,,11,,2
+8000765,Vivid Refined Lunagem: Salvation,,,,10,,1
+8000770,Lucid Refined Lunagem: Defense,,,,5000,,1
+8000771,Lucid Refined Lunagem: Magic Defense,,,,5000,,1
+8000773,Lucid Refined Lunagem: Sharpshot,,,,5000,,1
+8000800,Hard Difficulty Aria Chest,2,,49.99975,28.73314,,24
+8000803,Hard Difficulty Dochul Chest,,,,56.0764,,20
+8000806,Hard Difficulty Sojung Chest,11,,12.99995,18.08615556,,24
+40139,Sealed Vivid Lunagem,,,,59.99993333,,3
+8000929,Clear Synthium Stone,344,1.545472,1.749184884,2.318676712,25,1460
+8000930,Vivid Synthium Stone,71,64.9989,63.02736479,63.55545995,14,382
+8000931,Lucid Synthium Stone,39,159.9997,158.2172949,153.3500354,12,237
+8000932,Radiant Synthium Stone,1,200,200,253.7999,1,5
+8000938,Brilliant Mornstone,,,,0.006,,1
+8000952,Lucid Synthium Shard,1040,6.9999,7.642771429,8.942045714,500,6940
+8000951,Vivid Synthium Shard,654,4.4998,3.6958,3.310954545,60,3947
+8000950,Clear Synthium Shard,33184,0.3355131579,0.240315534,0.2706895567,4858,139179
+8000953,Radiant Synthium Shard,,,,24.9999,,150
+40332,Regal Ore,,,,250,,3
+40521,Auroria Mineral Water Pump,,,,200.9999,,1
+40522,Auroria Twilight Sapling,16,230,225.3570786,227.2777056,2,24
+40525,Brimstone Orb,,,,1500,,1
+40538,Storage Silo Design,1,,1200,1233.444411,,9
+40736,Wrathsmite Armor Shard,61,1012.828117,1012.124795,958.0117535,13,296
+40798,Cloaked Brimstone Shoes,,,,200000,,1
+40841,Kadum's Bark,65,1975,1792.046668,1739.563128,2,300
+40864,Partition Design List,,,,5,,1
+40868,Stair Ladder,,,,49.9999,,1
+40869,Tall Stair Ladder,,,,150,,1
+40870,Mysterious Herb Wine,,,,0.005333333333,,3
+40900,Taris Figurine,,,,800.9999,,1
+40923,Chibi Rabbit,,,,15.9999,,1
+40924,Chibi Pumpkin,,,,22,,1
+40925,Daru Newt,,,,20.5,,2
+40926,Chibi Elephant,,,,11.5,,2
+40938,Vivid Gale Lunascale: Clash,,,,90,,2
+40939,Vivid Earth Lunascale: Intercept,,,,55,,1
+41023,Nightmare Point,,,,48000,,1
+41025,Bandit King,,,,58000,,1
+41027,Screaming Shadow Fists,,,,50000,,1
+41037,Empty Easel,,,,7,,1
+41038,Empty Canvas,,,,6.64355,,12
+41076,Kismet Star Shard,,,,500,,1
+41095,40-Slot Rangora's Trove,,,,500,,1
+41101,3rd Anniversary Orange Balloon,,,,500,,1
+8000966,Misagon's Crystal,4836,31.54114898,30.97391453,33.96890585,1404,20714
+8001000,Bound Serendipity Stone,327,858.5974154,828.4144659,837.0865666,55,1876
+8001008,Farm Freighter Upgrade Ticket,9,926.6598333,970.7753889,988.6797066,3,61
+8001081,Ayanad Scroll Scrap,382,33.8138875,35.3936209,33.07858794,18,1410
+8001094,Building Management Permit,4,,99,83.21177778,,21
+41419,Family Certificate,,,,200,,1
+41451,Pineapple,,,,0.79998,,261
+41455,Hibiscus,2047,,0.4497052632,0.4545208696,,22260
+41457,Watermelon,300,,0.84995,0.5894526316,,3768
+41459,Pansy,700,,0.9998142857,0.9998527778,,3552
+41461,Pineapple Seed,,,,1.541433333,,111
+41474,Pansy Seed,,,,1,,100
+41475,Pansy Seed Bundle,,,,0.3,,20
+41478,Hibiscus Sapling,,,,1,,100
+41479,High Quality Hibiscus Sapling,,,,1.8999,,200
+41480,Watermelon Seed,,,,0.6,,1
+41481,Watermelon Seed Bundle,,,,0.3,,30
+41520,Rainbow Chum,,,,0.5003333333,,3
+41565,Maestro Music Paper,5,,80.39996,91.09088182,,11
+41976,Impatiens,289,,0.7599,1.130307547,,6554
+41978,Impatiens Seed,,,,0.03025,,4
+41979,Impatiens Seed Bundle,,,,0.3,,30
+42027,Aurora Storage Chest,6,,7114.146033,7226.865486,,21
+42030,Combat Scroll: Penetration,,,,32,,10
+42031,Combat Scroll: Breakthrough,,,,39.9999,,10
+42043,Sweet Starlight,2998,1.992,2.018766667,1.883999265,160,14090
+42044,Faint Memory,870,3.8589,3.778308333,4.030347059,50,4163
+42045,Alluvion Love,1220,6.74979,7.631255932,8.443980743,160,5559
+42046,Stormraw Wave,495,4.9999,5.319065385,7.310117219,60,2986
+42049,Divine Die,1120,5.999483333,6.219013265,6.195681671,80,5002
+42053,Savory Bread,,,,1,,40
+42054,Aromatic Soup,,,,0.89,,250
+42078,Metallic Auroran Crate,3851,34.82658049,35.43333462,34.85525083,401,16899
+42162,Spellbook: Unstoppable Will,6106,3.328291429,3.588267273,3.706727206,905,26613
+42164,Fortress of Honor,,,,1,,30
+42165,Snow's Promise,,,,0.2,,5
+42166,Kingdom's Shadow,4027,7.0269875,6.83070753,6.278064366,225,16171
+42168,Dawn of Glory,3141,3.577036364,3.221666337,3.401897642,309,11929
+42170,Assorted Tenderloin,,,,2.25,,56
+42171,Assorted Sirloin,10,,2.9997,2.24985,,49
+42177,Assorted Ribs,1664,4.29968,5.0659375,5.691607509,130,6352
+42236,Assorted Meatballs,,,,0.1,,91
+42247,Red Wine Vinegar,,,,0.005076923077,,13
+42260,Worm Compost,1376,0.7376,1.351747059,0.9177185417,400,8901
+42314,Axle Grease,3701,3.907389474,3.613581657,3.598745,423,17073
+42333,Lost Metallic Crate,3842,3.954448485,2.992961494,2.853140459,157,17661
+42335,Copper Key,32,37,33.5,27.13438444,31,620
+42336,Silver Key,250,40.99976667,41.58597188,45.37861849,12,1186
+42342,Scented Leaf,8368,1.177702778,1.264196881,1.334709091,1402,37874
+42343,Royal Seed,12991,4.534401695,4.232598891,3.916741736,1878,58375
+42344,Heavy Hardwood,8046,2.760427027,2.139836971,2.762158556,1953,32321
+42394,Brinebound Rock,10655,1.157314815,1.186454545,1.434286585,870,61080
+42428,Wrapped Timber Coupe,,,,36999.9999,,1
+42432,Empty Brick Flowerbed,,,,10.5,,2
+42433,Amaranth Flowerbed,,,,35,,2
+42435,Pineapple Flowerbed,,,,180,,1
+42436,Hibiscus Flowerbed,,,,15,,1
+42438,Watermelon Flowerbed,,,,180,,1
+42449,Pink Pufferfish Trophy,,,,176,,1
+42570,Titan's Talon,,,,15000,,1
+42571,Titan's Pinion,,,,5000,,1
+42572,Titan's Pain,,,,15000,,1
+42573,Titan's Fury,,,,5000,,1
+42576,Titan's Chain,,,,5000,,1
+42582,Ground Fish Chum,29840,0.089375,0.09253157895,0.0886,3070,111346
+42585,Clear Unidentified Ore,124,,0.4052333333,0.3447428571,,391
+42586,Vivid Unidentified Ore,272,,5.3141375,4.772654545,,1060
+42587,Lucid Unidentified Ore,50,5,5.5033,3.289038889,41,112
+42588,Ore Sorter,,,,5.5714,,145
+42609,Airain Rock-Solid Barrel,,,,10,,2
+42612,Crest Bed,1,,450,449.999975,,4
+42613,Crest Carpet,,,,341.6666667,,6
+42614,Crest Table,,,,300,,5
+42645,Big Belly Fish,4567,0.9985,0.9990043478,0.9893429054,500,29137
+8001369,Cloaked Luminous Strength Migration Talisman,,,,90,,1
+8001372,Cloaked Luminous Intelligence Migration Talisman,,,,50,,1
+8001399,Celestial Weapon Anchoring Shard,974,,28.35818333,28.3021359,,3384
+8001400,Celestial Armor Anchoring Shard,110,,32.14985,32.20927222,,1331
+8001401,Celestial Accessory Anchoring Shard,50,4.8999,4.819933333,4.819933333,20,50
+8001402,Divine Weapon Anchoring Shard,600,69.7998,69.53318333,68.80475789,100,1820
+8001403,Divine Armor Anchoring Shard,600,92.4895,89.95402857,90.04788571,200,1110
+8001540,Seawhip Speedboat Design,5,4250,4443.4,4764.173993,1,27
+8001543,Speedboat Upgrade Ticket,1,3450.505,3450.505,2781.063113,1,8
+8001674,Large Labor Potion,221,500.6148615,561.780428,550.8803265,14,853
+8001711,Wrapped Iron Eviscerator,,,,27500,,1
+8001716,Welsh Corgi Pup,1,,99.9999,83.85704286,,7
+8001752,Peach Macaron,,,,500,,1
+8001754,Lemon Macaron,,,,600,,1
+8001755,Mint Macaron,,,,400.003,,1
+8001756,Grape Macaron,,,,500,,1
+8001759,Star Cookie Decor,,,,749.9999,,1
+8001761,Jelly Cookie Decor,,,,999.9999,,1
+8001762,Strawberry Yata Cookie,,,,200,,1
+8001768,Large Mint Macaron,,,,420.6979,,1
+8001769,Large Grape Macaron,,,,469.6969,,1
+8001770,Large Chocolate Fondue Cookie Decor,,,,999.9999,,1
+8001775,Large Strawberry Yata Cookie,1,,250,250,,1
+8001776,Strawberry Pudding Chair,,,,600,,2
+8001777,Orange Pudding Chair,,,,600,,1
+8001778,Neapolitan Ice Cream Table,,,,700,,1
+8001779,Desserted Cottage Design,,,,5000,,1
+8001843,Melee Black Pearl Undergarments,4,369.9999,386.499975,338.4444167,1,18
+8001844,Ranged Black Pearl Undergarments,5,399.9999,397.39992,2024.286021,1,14
+8001845,Magic Black Pearl Undergarments,7,,1282.999986,852.3069923,,13
+8001846,Healing Black Pearl Undergarments,1,,399,424,,2
+8001855,Melee Black Cat Undergarments,7,400.9999,266.5237429,286.3872543,1,35
+8001856,Ranged Black Cat Undergarments,4,370,286.25,338.8461385,1,13
+8001857,Magic Black Cat Undergarments,3,,301.6666667,957.679964,,25
+8001858,Healing Black Cat Undergarments,1,,386,387.59996,,5
+8001875,Wrapped Serendipity Stone,,,,870,,1
+9000027,Glittering Charcoal Milk,8,41.99995,42.39996,38.79478462,2,43
+9000028,Mysterious Glittering Charcoal Milk,1216,71.84321268,74.1288485,77.86781997,153,5596
+9000029,Universal Glider Design,2,,1099.5,1022.999627,,15
+9000072,90-Day Any-Post Parrot,2,699.9999,682.99995,693.19796,1,5
+9000074,Epherium One-Hander Metal Mana Seal,,,,400,,1
+9000075,Epherium Two-Hander Metal Mana Seal,,,,400,,2
+9000076,Epherium Wooden Mana Seal,,,,450,,2
+9000079,Epherium Cloth Pants Mana Seal,,,,222,,1
+9000080,Epherium Cloth Medium Mana Seal,,,,170,,1
+9000084,Epherium Leather Medium Mana Seal,,,,240,,1
+9000085,Epherium Leather Small Mana Seal,,,,250,,1
+9000086,Epherium Plate Chest Mana Seal,,,,620,,4
+9000087,Epherium Plate Pants Mana Seal,,,,300,,1
+9000088,Epherium Plate Medium Mana Seal,,,,300,,1
+9000089,Epherium Plate Small Mana Seal,,,,199.9898667,,3
+9000091,Delphinad Two-Hander Metal Mana Seal,,,,1600,,1
+9000092,Delphinad Wooden Mana Seal,3,,1100,1081.818182,,11
+9000094,Delphinad Cloth Chest Mana Seal,,,,1111,,1
+9000095,Delphinad Cloth Pants Mana Seal,,,,868.99995,,2
+9000096,Delphinad Cloth Medium Mana Seal,,,,700,,1
+9000097,Delphinad Cloth Small Mana Seal,,,,300,,1
+9000098,Delphinad Leather Chest Mana Seal,,,,1200,,1
+9000099,Delphinad Leather Pants Mana Seal,,,,999,,1
+9000100,Delphinad Leather Medium Mana Seal,,,,612.25,,8
+9000101,Delphinad Leather Small Mana Seal,,,,299,,1
+9000104,Delphinad Plate Medium Mana Seal,,,,1435,,1
+9000105,Delphinad Plate Small Mana Seal,,,,499.9999,,1
+9000108,Ayanad Wooden Mana Seal,3,,2500,2290.428571,,21
+9000111,Ayanad Cloth Pants Mana Seal,,,,1200,,1
+9000112,Ayanad Cloth Medium Mana Seal,,,,666,,1
+9000116,Ayanad Leather Medium Mana Seal,,,,250,,1
+9000117,Ayanad Leather Small Mana Seal,,,,200,,1
+9000121,Ayanad Plate Medium Small Seal,,,,1000,,1
+9000148,Puffership Design,1,,1500,1449.99998,,5
+9000147,Giant Cannon,3,,616.6666333,863.5729778,,9
+9000163,Schematic Scrap,3586,4.628644444,4.574137755,5.494694425,565,12495
+9000320,Monarch of the Sea,,,,33,,3
+9000321,Pigglewiggle's Grand Feast,,,,1,,10
+9000331,Music Box,,,,5,,1
+9000333,Sea-faring Owl,,,,1.99,,1
+9000360,Ultimate Fishing Rod Design,1,,19900,19449.88889,,9
+9000366,Epherium Small Jewelry Mana Seal,,,,70,,1
+9000367,Delphinad Small Jewelry Mana Seal,,,,399.9999,,1
+9000368,Ayanad Small Jewelry Mana Seal,,,,794,,2
+9000371,Ayanad Large Jewelry Mana Seal,,,,1555,,1
+38815,Sunstrength Stone,2730,17.66731818,15.30039767,17.08890957,337,12404
+39780,Sunset Portalstone,792,39.637425,26.44792222,31.72689883,49,4591
+28188,Abyssal Crystal,4902,2.2959125,2.405185366,2.13695759,638,32511
+45609,Basic Fishing Rod,10,,11.39989,11.49385524,,105
+45610,Novice's Flexible Fishing Rod,5,,89.79998,86.64277857,,14
+45612,Novice's Sturdy Fishing Rod,15,89.9997,91.1932,81.26953929,1,56
+45613,Veteran's Sturdy Fishing Rod,13,238.72265,230.5858923,213.6640141,2,78
+45614,Expert's Sturdy Fishing Rod,17,304.9997,298.9946529,328.0442905,2,116
+46501,Master's Sturdy Fishing Rod,32,399.8964667,404.824,407.4302596,3,156
+45611,Veteran's Flexible Fishing Rod,3,183.9999,188.9999,190.1874125,1,16
+45501,Expert's Flexible Fishing Rod,2,347.999,347.99915,366.8394524,1,21
+46464,Master's Flexible Fishing Rod,14,449.9991,454.99855,403.9362653,1,95
+43128,Cursed Armor Scrap,13338,31.1279943,27.7025805,23.48735392,1643,59091
+43131,Complete Cursed Armor,1,,6500,5991.930228,,44
+43129,Acid Gobbet,10662,4.85305,3.140188381,3.268593034,1372,51436
+43130,Acid Vessel,15,800,791.9957071,721.3990617,2,123
+9000323,Spellbook: Bulwark,278,36.99927143,40.09546506,38.84925691,26,1224
+9000324,Spellbook: Authority,521,34.73110667,39.00466341,38.34139257,48,2402
+9000459,Assorted Pigglewiggle,2434,18.99589444,17.91522571,15.77645906,175,10044
+9000477,Ipnysh Lunastone Blessing,,,,1200,,1
+9001011,Comet Shard,3317,10.99950909,12.75541507,13.12412282,197,15155
+9001476,Sirothe Ingot,182,139.99955,187.4917848,189.7021276,7,960
+42927,Combat Manual,1338,21.60169474,22.48784658,24.63684805,164,5846
+8000344,Greedy Grimoire,564,16.4948,17.2100,19.2405,79,2341
+8000336,Healing Grimoire,205,21.9997,20.0373,20.8258,5,783
+9002025,Kapi's Koin,24,,45.9936,45.8467,,217
+9002086,Wrapped Kapiros,,,,30000.0000,,1
+9002087,Wrapped Golden Statue of Kapiros,,,,3000.0000,,2
+9001838,Imperfect Sigil,20,,525.0374,550.8246,,107
+9001934,Mysterious Grand Boar,2,,24.8776,56.7669,,70
+9001944,Mysterious Arcane Boar,9,29.9992,29.4451,66.7671,1,39
+9001945,Mysterious Celestial Boar,9,580,533.0986,903.9658,1,16
+9001955,Arcane Enchantment Scroll,,,,8000.0000,,1
+9001965,Whistle of the Wild,32048,4.3675,4.4238,5.9076,3528,110649
+9002074,Comet's Beacon,,,,1.5000,,100
+9002089,Berserker Enchantment Scroll,2,,6999.5,6249.7500,,4
+9002090,Dormant Runestone,32,3786.75,2622.9375,2852.9480,4,215
+9002111,Mysterious Grand Grub,1,,39.9996,70.8412,,39
+9002112,Mysterious Arcane Grub,4,33.3333,35.3346,157.5596,1,22
+9002113,Mysterious Celestial Grub,1,,999.9999,1139.8000,,5
+9002126,Mysterious Grand Spider,3,,19.9952,39.3143,,75
+9002127,Mysterious Arcane Spider,8,,34.8726,110.0244,,48
+9002128,Mysterious Celestial Spider,,,,1500.0000,,5
+9002141,Mysterious Grand Mantis,6,,17.3097,59.9228,,51
+9002142,Mysterious Arcane Mantis,6,49.9991,65.8299,155.0190,1,48
+9002143,Mysterious Celestial Mantis,1,,1300.0000,1634.8333,,12
+9002156,Mysterious Grand Earth Elemental,,,,55.5384,,63
+9002157,Mysterious Arcane Earth Elemental,,,,128.0499,,31
+9002158,Mysterious Celestial Earth Elemental,,,,1183.3333,,6
+9002171,Mysterious Grand Crayfish,18,44.9899,19.9391,33.7492,2,280
+9002172,Mysterious Arcane Crayfish,45,37.5473,68.1722,135.5339,14,232
+9002173,Mysterious Celestial Crayfish,13,,991.5285,1277.9774,,51
+9002186,Mysterious Grand Razorbeak,5,,39.3994,55.3327,,113
+9002187,Mysterious Arcane Razorbeak,5,,49.1999,138.3798,,105
+9002188,Mysterious Celestial Razorbeak,3,,483.6659,1142.0998,,20
+9002201,Mysterious Grand Bladewing,1,,49.9997,88.0416,,18
+9002202,Mysterious Arcane Bladewing,,,,245.1999,,5
+9002203,Mysterious Celestial Bladewing,1,,4000.0000,4000.0000,,1
+9002216,Mysterious Grand Owl,1,,20.5552,59.7077,,78
+9002217,Mysterious Arcane Owl,40,102.6856182,116.5321,340.5905,11,109
+9002218,Mysterious Celestial Owl,1,,1600.0000,1906.7128,,7
+9002231,Mysterious Grand Honeybee,2,,72.9993,49.2595,,254
+9002232,Mysterious Arcane Honeybee,23,209.19584,205.1706,262.6225,5,131
+9002233,Mysterious Celestial Honeybee,3,,963.3329,1380.8168,,11
+9002246,Mysterious Grand Bat,3,,42.0166,67.3382,,56
+9002247,Mysterious Arcane Bat,4,,207.2495,174.8420,,26
+9002248,Mysterious Celestial Bat,,,,2000.0000,,5
+9002261,Mysterious Grand Scorpion,1,,25.0181,34.4619,,48
+9002262,Mysterious Arcane Scorpion,15,48.22153333,59.2436,83.8110,3,79
+9002263,Mysterious Celestial Scorpion,2,635.9987,643.49875,1257.2507,1,12
+9002276,Mysterious Grand Jabberwock,1,,24.9984,77.1551,,34
+9002277,Mysterious Arcane Jabberwock,,,,862.0706,,14
+9002278,Mysterious Celestial Jabberwock,1,,2222,4861.0000,,2
+9002291,Mysterious Grand Mandragora,1,,39.9997,59.4998,,20
+9002292,Mysterious Arcane Mandragora,4,,200.0000,298.4373,,16
+9002293,Mysterious Celestial Mandragora,1,,1500,1500.0000,,2
+9002306,Mysterious Grand Ant,8,,52.0346,49.4978,,108
+9002307,Mysterious Arcane Ant,10,,45.0991,150.9007,,63
+9002308,Mysterious Celestial Ant,5,,996.1473,1383.0678,,11
+9002321,Mysterious Grand Starfish,7,,15.5699,39.5414,,201
+9002322,Mysterious Arcane Starfish,162,75.4989,88.1358,188.6342,22,492
+9002323,Mysterious Celestial Starfish,28,1569.99998,1557.8925,2234.7421,5,69
+9002336,Mysterious Grand Crab,8,,26.8669,40.8378,,132
+9002337,Mysterious Arcane Crab,50,39.9997,40.9301,106.9858,1,253
+9002338,Mysterious Celestial Crab,24,583.3316333,601.3345,1163.0381,3,70
+9002351,Mysterious Grand Turtle,2,,20.9987,31.8426,,329
+9002352,Mysterious Arcane Turtle,21,,61.8499,280.4960,,154
+9002353,Mysterious Celestial Turtle,13,750.0015,692.9227,1750.9997,2,28
+9002366,Mysterious Grand Skyfin,,,,118.4353,,31
+9002367,Mysterious Arcane Skyfin,3,,100.9989,269.0759,,12
+9002435,Lucid Gale Lunagem: Harmony,2,,950.0000,860.2523,,8
+9002436,Clear Gale Lunagem: Harmony,4,,11.4166,11.4166,,4
+9002437,Vivid Gale Lunagem: Harmony,2,,40.0000,42.2222,,5
+9001570,Magnificent Autumn Scythe,,,,4336.6250,,8
+9001571,Illustrious Autumn Scythe,,,,320.0000,,1
+9001993,Survey Cannonguards,1,,300.0000,300.0000,,1
+9002002,Stout Cannonguards,,,,200.0000,,1
+18827,Orange Plate Coral Polyp,899,,0.0079,0.0079,,899
+20283,Illustrious Lightning Nodachi,1,,300,300,,1
+20991,Epherium Quake Greaves,1,,35000,35000,,1
+22606,Airain Rock Belt,1,,0.0588,0.0588,,1
+22661,Blood Stench Cuirass,1,,0.205,0.205,,1
+22743,Firm Will Sabatons,1,,0.14,0.14,,1
+25632,"""Iyor's Travel Journal, Entry #57""",1,,6,6,,1
+25646,"""Iyor's Travel Journal, Entry #71""",1,,1,1,,1
+9000322,Pigglewiggle's Stew,5,,11,11,,5
+9002368,Mysterious Celestial Skyfin,1,,4000.0000,4000.0000,,1
+22117,Eternal Life Urn,1,10.25,10.25,10.25,1,1
+25516,"""Rudal's Travel Journal, Entry #74""",1,6,6,6,1,1
+25525,"""Rudal's Travel Journal, Entry #83""",1,6,6,6,1,1
+29727,Zephyr Underwater Breathing Device,1,0.0274,0.0274,0.0274,1,1
+35414,Ayanad Meadow Necklace,1,34000,34000,34000,1,1
