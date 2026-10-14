@@ -1,34 +1,46 @@
 /**
  * Daily History snapshot for the "craft profit" sheet.
  *
- * Copies today's numbers from the Website tab into the History tab as fixed
- * values, so the website can draw price and silver-per-labor trends over time.
+ * Every hour, checks the date Michael's AH price sheet was last updated
+ * (AH Source!K1). When that date is newer than the last day saved in History,
+ * it copies the day's numbers from the Website tab into History as fixed values.
+ * So each day is saved once, and only after fresh prices arrive.
  *
  * Setup (one time):
  *   1. In the sheet: Extensions > Apps Script.
- *   2. Paste this whole file in, replacing what's there, and click Save.
+ *   2. Select everything in the editor, delete it, paste this whole file in, and click Save.
  *   3. Pick "installDailyTrigger" in the function menu at the top and click Run.
- *      Approve the permission prompt. It will now run every morning on its own.
  */
 
-const SNAPSHOT_HOUR = 6; // 24h clock, in the sheet's time zone. Set it after your daily price update.
+function priceDate_(ss, tz) {
+  const cell = ss.getSheetByName('AH Source').getRange('K1');
+  const v = cell.getValue();
+  if (v instanceof Date) return Utilities.formatDate(v, tz, 'yyyy-MM-dd');
+  const s = String(cell.getDisplayValue()).trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const d = new Date(s);
+  return isNaN(d) ? null : Utilities.formatDate(d, tz, 'yyyy-MM-dd');
+}
 
 function snapshotHistory() {
   const ss = SpreadsheetApp.getActive();
+  const tz = ss.getSpreadsheetTimeZone() || Session.getScriptTimeZone() || 'America/Los_Angeles';
   const site = ss.getSheetByName('Website');
   const hist = ss.getSheetByName('History');
-  const tz = ss.getSpreadsheetTimeZone() || Session.getScriptTimeZone() || 'America/Los_Angeles';
-  const today = Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd');
 
-  // Skip if today is already recorded (safe to run twice).
+  const day = priceDate_(ss, tz);
+  if (!day) return; // can't tell when prices were updated
+
+  // Skip if this price date (or a later one) is already saved.
   const last = hist.getLastRow();
   if (last > 1) {
     const lastDate = hist.getRange(last, 1).getDisplayValue();
-    if (lastDate === today) return;
+    if (lastDate >= day) return;
   }
 
+  SpreadsheetApp.flush();
   const rows = [];
-  const date = new Date(today + 'T12:00:00');
+  const date = new Date(day + 'T12:00:00');
 
   // Crafts: Website!I:L = Product, Silver per labor, Sold 7d, Price (g)
   const crafts = site.getRange('I2:L' + site.getLastRow()).getValues();
@@ -54,5 +66,5 @@ function installDailyTrigger() {
   ScriptApp.getProjectTriggers()
     .filter(t => t.getHandlerFunction() === 'snapshotHistory')
     .forEach(t => ScriptApp.deleteTrigger(t));
-  ScriptApp.newTrigger('snapshotHistory').timeBased().everyDays(1).atHour(SNAPSHOT_HOUR).create();
+  ScriptApp.newTrigger('snapshotHistory').timeBased().everyHours(1).create();
 }
