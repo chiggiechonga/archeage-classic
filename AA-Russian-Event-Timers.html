@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Schedules</title>
+<style>
+    /* *** DARK MODE STYLES: START ***
+    */
+    body {
+        box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        color: #e0e0e0; 
+        
+        /* --- UPDATED BACKGROUND IMAGE STYLES --- */
+        /* 1. Set the new background image URL */
+        background-image: url('https://aa.cdn.gmru.net/ms/39fd61d35c175537444830cd8e3d31e5.jpg'); 
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        /* 2. Make the image fill the background */
+        background-size: cover; 
+        background-position: center center;
+        
+        /* 3. Set the Opaque Layer: Black color with 25% opacity (alpha 0.25) */
+        background-color: rgba(0, 0, 0, 0.25); 
+        /* Blends the image and the dark color, making the image visible but slightly muted */
+        background-blend-mode: multiply; 
+        /* --- END UPDATED BACKGROUND IMAGE STYLES --- */
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* --- INFO BOX STYLES (85% opaque) --- */
+    .info-box {
+        /* Darker background with 85% opacity for better contrast */
+        background: rgba(0, 0, 0, 0.85); 
+        padding: 20px;
+        margin-bottom: 25px; 
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        border: 1px solid #333;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    .header h1 {
+        margin: 0 0 10px 0;
+        /* --- START MODIFIED --- */
+        font-size: 2.5rem; /* Increased size */
+        font-weight: 700; /* Made bold */
+        color: white; /* Changed color to white */
+        /* --- END MODIFIED --- */
+    }
+    .header-link {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        color: #64B5F6;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border: 1px solid #64B5F640;
+        border-radius: 6px;
+        background: rgba(100, 181, 246, 0.1);
+        transition: all 0.2s ease;
+    }
+    .header-link:hover {
+        background: rgba(100, 181, 246, 0.2);
+        border-color: #64B5F680;
+    }
+    .time-display {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Increased gap to accommodate two times */
+        gap: 30px; 
+        margin-bottom: 0; /* Removed margin-bottom since it's now on the info-box */
+        /* Ensure font size is consistent */
+        font-size: 16px; 
+        color: #b0b0b0;
+        font-weight: 300;
+    }
+    .server-time, .game-time { 
+        color: #b0b0b0; 
+    }
+    .divider {
+        color: #444; 
+        font-size: 16px;
+    }
+    .tables-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 25px;
+    }
+    .event-table {
+        /* Table Background */
+        background: #252525; 
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4); /* Stronger shadow for contrast */
+    }
+    .table-header {
+        padding: 15px 20px;
+        font-weight: 500;
+        font-size: 16px;
+        color: white;
+        /* Updated: Subtle Teal Header Color */
+        background: #546E7A; 
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 12px 20px;
+        text-align: left;
+        /* Subtle divider in dark mode */
+        border-bottom: 1px solid #333; 
+        font-size: 14px;
+        vertical-align: bottom; /* Ensure content aligns to bottom if height varies */
+    }
+    th {
+        font-weight: 500;
+        /* Light gray column titles */
+        color: #888; 
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0; 
+        height: 0; 
+        border-bottom: none;
+    }
+    tbody {
+        /* Slightly lighter background for the body rows */
+        background: #252525; 
+    }
+    
+    /* NEW: Styles for Clickable Row and Dropdown */
+    .event-row.clickable {
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    /* Visual feedback on hover for clickable rows */
+    .event-row.clickable:hover {
+        background-color: #333; 
+    }
+    /* Visual feedback when dropdown is active */
+    .event-row.active-dropdown {
+        background-color: #333; 
+        border-bottom: 1px solid #444; /* Keep a divider visible */
+    }
+
+    /* Dropdown row visibility */
+    .dropdown-row {
+        display: none;
+    }
+    .dropdown-row.open {
+        display: table-row;
+    }
+    
+    /* Dropdown content container */
+    .dropdown-content td {
+        padding: 0;
+        /* Remove the standard table border for the dropdown content cell */
+        border-bottom: none !important; 
+    }
+    
+    /* Dropdown list styling */
+    .dropdown-list {
+        background: #1a1a1a; /* Very dark background for the list */
+        color: #ccc;
+        padding: 10px 0;
+        width: 100%;
+        border-top: 1px solid #444; 
+    }
+    
+    /* MODIFIED: Clean up space around text (reduced left padding from 40px to 20px) */
+    .dropdown-list div {
+        padding: 5px 20px 5px 20px; 
+        font-size: 13px;
+        border-bottom: 1px solid #222;
+
+        /* --- MODIFIED: Use flex to align content for date/countdown --- */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* --- END MODIFIED --- */
+    }
+    /* Ensure the first list item has no top padding if the header is removed, and the last item has no border */
+    .dropdown-list div:first-child {
+        padding-top: 5px; 
+    }
+    .dropdown-list div:last-child {
+        border-bottom: none;
+    }
+    
+    /* --- NEW: Countdown text styling for the dropdown menu --- */
+    .dropdown-countdown {
+        color: #fff; /* White color as requested */
+        font-weight: 500;
+        font-size: 14px; /* Slightly larger for emphasis */
+    }
+    /* END: Styles for Clickable Row and Dropdown */
+
+
+    /* MODIFIED: .event-name is now the flex container for icon and text details */
+    .event-name {
+        font-weight: 500;
+        color: #e0e0e0; 
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between icon and text details */
+    }
+    
+    /* NEW: Icon styling */
+    .event-icon {
+        width: 30px;  /* Set a fixed size for the icon */
+        height: 30px;
+        flex-shrink: 0; /* Prevents the icon from shrinking */
+        object-fit: contain; /* Ensure the image scales nicely */
+    }
+    
+    /* UPDATED: Removed positioning styles from .event-details as the arrow is moved */
+    .event-details {
+        display: flex;
+        flex-direction: column;
+        /* REMOVED: position: relative; */ 
+        cursor: pointer;
+        flex-grow: 1; 
+    }
+    
+    /* NEW: Wrapper for Countdown and Arrow in the second <td> */
+    .countdown-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Align contents to the right */
+        justify-content: flex-end; /* Push contents to the bottom */
+        height: 100%; 
+        width: 100%; 
+    }
+
+    /* MODIFIED: Arrow indicator now in the countdown cell */
+    .dropdown-arrow {
+        /* REMOVED: position: absolute; bottom: 0px; right: 0px; */
+        font-size: 10px; 
+        color: #888; /* Darker gray color */
+        margin-top: 2px; /* Small space below the countdown */
+        transition: transform 0.2s ease; /* Smooth rotation */
+    }
+    
+    /* Rotate the arrow when the dropdown is open */
+    .event-row.active-dropdown .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .event-title {
+        font-weight: 500;
+        color: #e0e0e0;
+        /* --- MODIFIED: Increased font size for event name --- */
+        font-size: 16px; 
+    }
+    /* Smaller next time text to reduce dead space */
+    .next-time {
+        /* --- MODIFIED: Increased font size for next schedule text --- */
+        font-size: 12px; 
+        /* Muted next time text */
+        color: #b0b0b0; 
+        margin-top: 4px;
+        line-height: 1.3;
+    }
+    
+    /* MODIFIED: .countdown-container is now for horizontal alignment only (badge/countdown) */
+    .countdown-container {
+        display: flex;
+        /* Removed height: 100% and vertical alignment - now handled by .countdown-wrapper */
+        align-items: center; 
+        justify-content: flex-end; /* Push content to the right */
+        gap: 10px;
+        text-align: right;
+        flex-direction: row; 
+    }
+    .countdown {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        /* Default inactive color: #e0e0e0 (inherited from body/table text color) */
+    }
+    
+    /* --- MODIFIED: COUNTDOWN COLORS IN MAIN TABLE TO MATCH BADGES --- */
+    /* Active status countdown should be Green, matching the In Progress badge */
+    .countdown.active {
+        color: #66bb6a; /* Green */
+    }
+    /* Upcoming status countdown should be Soft Blue, matching the Upcoming badge */
+    .countdown.upcoming {
+        color: #64B5F6; /* Soft Blue */
+    }
+    
+    /* --- BADGE STYLES --- */
+    .status-badge {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        /* NEW: Standardize width for consistent horizontal alignment */
+        min-width: 80px; 
+        text-align: center;
+    }
+    
+    /* NEW: Placeholder to force alignment in inactive rows (SOLUTION) */
+    /* *** MODIFIED FOR ALIGNMENT FIX *** */
+    .badge-align-pad {
+        /* Inherit all layout and text properties from .status-badge for exact sizing */
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        min-width: 80px; 
+        text-align: center;
+
+        /* Make it visually invisible but still occupy space */
+        opacity: 0; /* Use opacity 0 to keep the element in the flow */
+        
+        /* Ensure no visible artifacts */
+        border: 1px solid transparent !important;
+        background: transparent !important;
+        color: transparent !important; /* Hide the text content */
+    }
+    /* *** END MODIFIED FOR ALIGNMENT FIX *** */
+    
+    /* Upcoming Badge Style (Soft Blue Tones) */
+    .upcoming-badge {
+        color: #64B5F6; /* Soft blue text */
+        border: 1px solid #64B5F640; /* Very light blue border */
+        background: rgba(100, 181, 246, 0.1); /* Subtle blue background */
+    }
+
+    /* In Progress Badge Style (Green) */
+    .inprogress-badge {
+        color: #66bb6a; /* Bright green text */
+        border: 1px solid #66bb6a40; /* Very light green border */
+        background: rgba(76, 175, 80, 0.1); /* Subtle green background */
+    }
+    
+    /* --- REMOVED ALERT TOGGLE STYLES --- */
+
+    @media (max-width: 768px) {
+        .tables-grid {
+            grid-template-columns: 1fr;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+        }
+        .header-link {
+            position: static;
+            transform: none;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 15px;
+            font-size: 13px;
+        }
+        .event-icon {
+            width: 25px;
+            height: 25px;
+        }
+        /* Adjust arrow position for smaller screens if needed, but relative positioning should handle it */
+    }
+    /* *** DARK MODE STYLES: END ***
+    */
+</style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="info-box"> 
+            <div class="header">
+                <h1>Event Schedules</h1>
+                <a href="TradePackCalculator.html" class="header-link">Trade Packs</a>
+            </div>
+            <div class="time-display">
+                <div class="server-time" id="serverTime"></div>
+                <div class="divider">|</div>
+                <div class="game-time" id="gameTime"></div>
+            </div>
+        </div> 
+        <div class="tables-grid">
+            <div class="event-table">
+                <div class="table-header">Rifts</div>
+                <table>
+                    <tbody id="rifts-table">
+                    </tbody>
+                </table>
+            </div>
+            <div class="event-table">
+                <div class="table-header">World Bosses</div>
+                <table>
+                    <tbody id="world-bosses-table">
+                    </tbody>
+                </table>
+            </div>
+            <div class="event-table">
+                <div class="table-header">Instances</div>
+                <table>
+                    <tbody id="instances-table">
+                    </tbody>
+                </table>
+            </div>
+            <div class="event-table">
+                <div class="table-header">Arenas</div>
+                <table>
+                    <tbody id="arenas-table">
+                    </tbody>
+                </table>
+            </div>
+            <div class="event-table">
+                <div class="table-header">PvP Events</div>
+                <table>
+                    <tbody id="pvp-events-table">
+                    </tbody>
+                </table>
+            </div>
+            <div class="event-table">
+                <div class="table-header">Other Events</div>
+                <table>
+                    <tbody id="other-events-table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // --- GLOBAL STATE FOR DROPDOWN PERSISTENCE ---
+        let openDropdownState = { name: null, category: null }; 
+
+        // --- NEW: Event Icon Mapping ---
+        const ICON_BASE_URL = 'https://wiki.archerage.to/static/images/schedules/event/';
+        
+        const EVENT_ICONS = {
+            // Rifts
+            'Crimson Rift (Ynystere)': ICON_BASE_URL + 'crimson_rift.png',
+            'Crimson Rift (Sungold)': ICON_BASE_URL + 'crimson_rift.png',
+            'Grimghast Rift': ICON_BASE_URL + 'grimghast_rift.png',
+            'Luscas Awakening': ICON_BASE_URL + 'lusca_awakening.png', 
+            'Akasch Invasion': ICON_BASE_URL + 'boss_monster.png', 
+            // World Bosses
+            'Kraken': ICON_BASE_URL + 'kraken.png',
+            'Jola, Meina & Glenn': ICON_BASE_URL + 'boss_monster.png', 
+            // Instances
+            'Golden Plains Battle': ICON_BASE_URL + 'goldplain.png', 
+            'Mistmerrow': ICON_BASE_URL + 'event.png', 
+            'Skyfin Base Capture': ICON_BASE_URL + 'event.png', 
+            'Red Dragon\'s Keep': ICON_BASE_URL + 'dragon_red.png', 
+            'Kadum': ICON_BASE_URL + 'kadum.png',
+            // Arenas
+            'Drill Camp Arena': ICON_BASE_URL + 'event.png', 
+            'Free-For-All': ICON_BASE_URL + 'event.png', 
+            'Sparring Arena': ICON_BASE_URL + 'event.png',
+            'Gladiator Arena': ICON_BASE_URL + 'event.png',
+            'Flag War': ICON_BASE_URL + 'event.png',
+            'Noryette Arena': ICON_BASE_URL + 'event.png',
+            // PvP Events
+            'Abyssal Attack': ICON_BASE_URL + 'abyssal_attack.png',
+            'Siege': ICON_BASE_URL + 'event.png', 
+            // Other Events
+            'Festival': ICON_BASE_URL + 'pioneer.png', 
+            'Daily Reset': ICON_BASE_URL + 'daily_reset.png',
+            'Weekly Reset': ICON_BASE_URL + 'archepass_reset.png', 
+        };
+        // --- END: Event Icon Mapping ---
+
+        // Event categories and their mappings 
+        const eventCategories = {
+            rifts: {
+                // Crimson Rift (Ynystere): 4-hour RT cycle starting MSK 12:20 (2:20 PM PDT)
+                'Crimson Rift (Ynystere)': { realTimeSchedule: { startTime: '12:20', intervalHours: 4 } },
+                // Crimson Rift (Sungold): 4-hour RT cycle starting MSK 05:20 (7:20 PM PDT)
+                'Crimson Rift (Sungold)': { realTimeSchedule: { startTime: '05:20', intervalHours: 4 } },
+                // Grimghast Rift: 4-hour RT cycle starting MSK 02:20 (4:20 PM PDT, which is 0:00 GT)
+                'Grimghast Rift': { realTimeSchedule: { startTime: '02:20', intervalHours: 4 } },
+                // Luscas Awakening: Fixed Server Time (UTC+3) Schedule
+                'Luscas Awakening': {
+                    schedule: {
+                        // All times are Server Time (UTC+3)
+                        'sunday': ['22:00-23:00'], // 10 PM
+                        'monday': ['22:00-23:00'], // 10 PM
+                        'tuesday': ['22:00-23:00'], // 10 PM
+                        'wednesday': ['22:00-23:00'], // 10 PM
+                        'thursday': ['22:00-23:00'], // 10 PM
+                        'friday': ['23:00-24:00'], // 11 PM
+                        'saturday': ['23:00-24:00'] // 11 PM
+                    }
+                },
+                // NEW EVENT: Akasch Invasion (Fixed to Friday 12 PM PDT and Saturday 6 AM PDT)
+                'Akasch Invasion': {
+                    schedule: {
+                        'friday': ['22:00-22:40'], // 22:00 ST = 12:00 PM PDT
+                        'saturday': ['16:00-16:40'] // 16:00 ST = 06:00 AM PDT
+                    }
+                }
+            },
+            'world-bosses': {
+                'Kraken': {
+                    // Times are Server Time (UTC+3) - VERIFIED
+                    schedule: {
+                        'monday': ['19:30-20:30'],
+                        'thursday': ['19:30-20:30'],
+                        'saturday': ['19:30-20:30']
+                    }
+                },
+                // Jola, Meina & Glenn: Spawns 06:00 GT, Despawns 09:00 GT (Game Time Schedule)
+                // MODIFIED: durationMinutes changed from 6*60 (360) to 3*60 (180) for 3 game hours
+                'Jola, Meina & Glenn': { 
+                    gameTimeSchedule: { 
+                        startTime: '06:00', 
+                        endTime: '09:00',
+                        durationMinutes: 3 * 60, // MODIFIED: 3 game hours (180 minutes)
+                        intervalMinutes: 24 * 60 
+                    } 
+                }
+            },
+            instances: {
+                // All Instance times are Server Time (UTC+3)
+                'Golden Plains Battle': {
+                    schedule: {
+                        'tuesday': ['16:00-17:00', '22:30-23:59'],
+                        'thursday': ['16:00-17:00', '22:30-23:59'],
+                        'saturday': ['16:00-17:00', '22:30-23:59'],
+                        'sunday': ['19:00-20:00'],
+                        'monday': ['19:00-20:00'],
+                        'wednesday': ['19:00-20:00'],
+                        'friday': ['19:00-20:00']
+                    }
+                },
+                'Mistmerrow': {
+                    schedule: {
+                        'monday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'tuesday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'wednesday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'thursday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'friday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'saturday': ['15:15-16:00', '18:00-19:00', '21:45-22:30'],
+                        'sunday': ['15:15-16:00', '18:00-19:00', '21:45-22:30']
+                    }
+                },
+                'Skyfin Base Capture': {
+                    schedule: {
+                        'monday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'tuesday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'wednesday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'thursday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'friday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'saturday': ['14:30-15:15', '17:00-18:00', '21:00-21:45'],
+                        'sunday': ['14:30-15:15', '17:00-18:00', '21:00-21:45']
+                    }
+                },
+                'Red Dragon\'s Keep': {
+                    schedule: {
+                        'monday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'tuesday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'wednesday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'thursday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'friday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'saturday': ['13:20-14:00', '18:20-19:00', '21:20-22:00'],
+                        'sunday': ['13:20-14:00', '18:20-19:00', '21:20-22:00']
+                    }
+                },
+                'Kadum': {
+                    schedule: {
+                        'monday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'tuesday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'wednesday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'thursday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'friday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'saturday': ['12:40-13:20', '17:40-18:20', '20:40-21:20'],
+                        'sunday': ['12:40-13:20', '17:40-18:20', '20:40-21:20']
+                    }
+                }
+            },
+            arenas: {
+                // All Arena times are Server Time (UTC+3)
+                'Drill Camp Arena': {
+                    schedule: {
+                        'monday': ['00:00-04:00', '11:00-00:00'],
+                        'tuesday': ['00:00-04:00', '11:00-00:00'],
+                        'wednesday': ['00:00-04:00', '11:00-00:00'],
+                        'thursday': ['00:00-04:00', '11:00-00:00'],
+                        'friday': ['00:00-04:00', '11:00-00:00'],
+                        'saturday': ['00:00-04:00', '11:00-00:00'],
+                        'sunday': ['00:00-04:00', '11:00-00:00']
+                    }
+                },
+                // MODIFIED: Added '00:00-01:00' to all days
+                'Free-For-All': {
+                    schedule: {
+                        'monday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'tuesday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'wednesday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'thursday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'friday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'saturday': ['00:00-01:00', '14:00-15:00', '20:00-21:00'],
+                        'sunday': ['00:00-01:00', '14:00-15:00', '20:00-21:00']
+                    }
+                },
+                'Sparring Arena': {
+                    schedule: {
+                        'monday': ['00:00-01:00', '09:00-00:00'],
+                        'tuesday': ['00:00-01:00', '09:00-00:00'],
+                        'wednesday': ['00:00-01:00', '09:00-00:00'],
+                        'thursday': ['00:00-01:00', '09:00-00:00'],
+                        'friday': ['00:00-01:00', '09:00-00:00'],
+                        'saturday': ['00:00-01:00', '09:00-00:00'],
+                        'sunday': ['00:00-01:00', '09:00-00:00']
+                    }
+                },
+                // GLADIATOR ARENA FIXED: Second period now runs until 23:59 server time
+                'Gladiator Arena': {
+                    schedule: {
+                        'monday': ['00:00-03:30', '07:00-23:59'], 
+                        'tuesday': ['00:00-03:30', '07:00-23:59'],
+                        'wednesday': ['00:00-03:30', '07:00-23:59'],
+                        'thursday': ['00:00-03:30', '07:00-23:59'],
+                        'friday': ['00:00-03:30', '07:00-23:59'],
+                        'saturday': ['00:00-03:30', '07:00-23:59'],
+                        'sunday': ['00:00-03:30', '07:00-23:59']
+                    }
+                },
+               'Flag War': {
+                    schedule: {
+                        'monday': ['17:00-18:00', '23:00-24:00'],
+                        'tuesday': ['17:00-18:00', '23:00-24:00'],
+                        'wednesday': ['17:00-18:00', '23:00-24:00'],
+                        'thursday': ['17:00-18:00', '23:00-24:00'],
+                        'friday': ['17:00-18:00', '23:00-24:00'],
+                        'saturday': ['17:00-18:00', '23:00-24:00'],
+                        'sunday': ['17:00-18:00', '23:00-24:00']
+                    }
+                },
+                'Noryette Arena': {
+                    schedule: {
+                        'monday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'tuesday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'wednesday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'thursday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'friday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'saturday': ['16:30-17:30', '18:30-19:30', '23:30-24:30'],
+                        'sunday': ['16:30-17:30', '18:30-19:30', '23:30-24:30']
+                    }
+                }
+            },
+            'pvp-events': {
+                // All PvP event times are Server Time (UTC+3)
+                'Abyssal Attack': {
+                    schedule: {
+                        'tuesday': ['15:00-16:00', '21:00-22:00'],
+                        'thursday': ['15:00-16:00', '21:00-22:00'],
+                        'saturday': ['15:00-16:00', '21:00-22:00']
+                    }
+                },
+                'Siege': {
+                    schedule: {
+                        'wednesday': ['20:00-22:00']
+                    }
+                }
+            },
+            'other-events': {
+                // All Other event times are Server Time (UTC+3)
+                // MODIFIED: 20:00-21:00 ST slot changed to 23:00-00:00 ST (10:00 AM PDT to 1:00 PM PDT)
+                'Festival': {
+                    schedule: {
+                        'monday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'tuesday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'wednesday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'thursday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'friday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'saturday': ['08:00-09:00', '14:00-15:00', '23:00-00:00'],
+                        'sunday': ['08:00-09:00', '14:00-15:00', '23:00-00:00']
+                    }
+                },
+                'Daily Reset': {
+                    schedule: {
+                        'monday': ['00:00-00:01'],
+                        'tuesday': ['00:00-00:01'],
+                        'wednesday': ['00:00-00:01'],
+                        'thursday': ['00:00-00:01'],
+                        'friday': ['00:00-00:01'],
+                        'saturday': ['00:00-00:01'],
+                        'sunday': ['00:00-00:01']
+                    }
+                },
+                // Weekly Reset: Sunday 00:00 Server Time = Saturday 2:00 PM PDT local time
+                'Weekly Reset': {
+                    schedule: {
+                        'sunday': ['00:00-00:01']
+                    }
+                }
+            }
+        };
+
+        // --- Time Configuration and Logic (unchanged) ---
+
+        const SERVER_TIME_OFFSET_HOURS = 3; 
+
+        // Real-Time Sync Point (2:00 PM PDT)
+        const syncHoursPDT = 14; 
+        const syncMinutesPDT = 0;
+
+        // Game Time Start at Sync Point
+        const gameTimeStartHours = 10;
+        const gameTimeStartMinutes = 0;
+
+        // Game Speed: 1 real minute = 6 game minutes (6x)
+        const gameSpeedMultiplier = 6;
+
+
+        function updateAllTimes() {
+            const now = new Date();
+
+            // 1. Calculate Server Time (ST) based on UTC + Offset
+            const offsetMs = SERVER_TIME_OFFSET_HOURS * 3600000;
+            // Get UTC time, then apply the ST offset
+            const serverDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + offsetMs);
+            
+            const serverHours = serverDate.getHours();
+            const serverMinutes = serverDate.getMinutes();
+            const serverTimeEl = document.getElementById('serverTime');
+            // Display "Server Time: HH:MM" in 24H format
+            serverTimeEl.innerHTML = `Server Time: ${serverHours.toString().padStart(2, '0')}:${serverMinutes.toString().padStart(2, '0')}`;
+
+            // 2. Calculate In-Game Time
+            const nowMs = now.getTime();
+            let referenceDate = new Date(now);
+            referenceDate.setHours(syncHoursPDT, syncMinutesPDT, 0, 0);
+
+            let elapsedSinceReferenceMs = nowMs - referenceDate.getTime();
+            
+            if (elapsedSinceReferenceMs < 0) {
+                // If it's before the sync point today, calculate from yesterday's sync point
+                elapsedSinceReferenceMs += 24 * 60 * 60 * 1000;
+            }
+
+            const elapsedRealMinutes = elapsedSinceReferenceMs / (1000 * 60);
+            const elapsedGameMinutes = elapsedRealMinutes * gameSpeedMultiplier;
+
+            const baseGameMinutes = gameTimeStartHours * 60 + gameTimeStartMinutes;
+            const totalGameMinutes = baseGameMinutes + elapsedGameMinutes;
+
+            const gameHours = Math.floor(totalGameMinutes / 60) % 24;
+            const gameMinutes = Math.floor(totalGameMinutes % 60);
+
+            // Re-display In-Game Time
+            const gameTimeEl = document.getElementById('gameTime');
+            gameTimeEl.innerHTML = `In-Game: ${gameHours.toString().padStart(2, '0')}:${gameMinutes.toString().padStart(2, '0')}`;
+        }
+
+        // --- Utility Functions (Time Formatting/Conversion) ---
+
+        /**
+         * Converts Server Time (ST) input to a Date object in the local timezone.
+         * @param {string} stTime - The time string in 24-hour Server Time (e.g., '16:00').
+         * @param {Date} baseDate - The Date object representing the correct day for the schedule (e.g., Saturday, ideally set to 00:00 local time).
+         * @returns {object} { time: string, date: Date }
+         */
+        function convertServerTimeToLocal(stTime, baseDate) {
+            const [hours, minutes] = stTime.split(':').map(Number);
+            
+            // Calculate the UTC time that corresponds to the input ST time
+            let utcHours = hours - SERVER_TIME_OFFSET_HOURS;
+            let utcMinutes = minutes;
+
+            // Start with the baseDate (which already has the correct day: today, tomorrow, etc.)
+            let date = new Date(baseDate); 
+
+            // Set the time based on the calculated UTC time.
+            // This correctly converts the time and handles any day shift that happens *due to the time conversion*
+            // relative to the baseDate's midnight.
+            date.setUTCHours(utcHours, utcMinutes, 0, 0);
+
+            // Format time in 24-hour for the local date object (used in nextTime detail)
+            return { 
+                time: `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`, 
+                date: date 
+            };
+        }
+
+        // This helper specifically for RT-cyclical events (Rifts) that use the MSK offset (UTC+3)
+        function convertMSKOffsetToLocal(mskTime) {
+            const [hours, minutes] = mskTime.split(':').map(Number);
+            
+            const mskDate = new Date();
+            // MSK is UTC+3. Adjust for UTC time.
+            mskDate.setUTCHours(hours - 3, minutes, 0, 0);
+            
+            return { 
+                time: `${mskDate.getHours().toString().padStart(2, '0')}:${mskDate.getMinutes().toString().padStart(2, '0')}`, 
+                date: mskDate 
+            };
+        }
+
+        function formatTime12Hour(date) {
+            let hours = date.getHours();
+            const minutes = date.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            return `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        }
+
+        function formatDateWithDay(date) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            
+            const dayName = days[date.getDay()];
+            const month = months[date.getMonth()];
+            const day = date.getDate();
+
+            // Format: (Day), (Month) (Day #), (Time) - Using 12-hour format here for local time context
+            return `${dayName}, ${month} ${day}, ${formatTime12Hour(date)}`;
+        }
+
+        /**
+         * Formats a millisecond difference into a dynamic countdown format: [dd:][hh:]mm:ss.
+         * @param {number} ms - Milliseconds remaining.
+         * @param {boolean} forceHours - If true, ensures HH: is displayed even if hours=0 (for hh:mm:ss format).
+         * @returns {string} Formatted countdown string ([DD:][HH:]MM:SS or [HH:]MM:SS).
+         */
+        function formatCountdown(ms, forceHours = false) {
+            if (ms < 0) ms = 0;
+
+            const totalSeconds = Math.floor(ms / 1000);
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(totalSeconds / (3600 * 24));
+            const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            // Helper to ensure all parts are two digits
+            const pad = (num) => num.toString().padStart(2, '0');
+
+            // 1. Start with MM:SS (always displayed)
+            let countdownString = `${pad(minutes)}:${pad(seconds)}`;
+
+            // 2. Add hours if necessary (if days > 0, hours > 0, or forceHours is true)
+            // If days > 0, the hours part is always included because it is part of DD:HH:MM:SS
+            if (days > 0 || hours > 0 || forceHours) {
+                // Prepend HH: to the existing MM:SS string
+                countdownString = `${pad(hours)}:${countdownString}`;
+            }
+
+            // 3. Add days if necessary (if days > 0)
+            if (days > 0) {
+                // Prepend DD: to the existing HH:MM:SS string
+                countdownString = `${pad(days)}:${countdownString}`;
+            }
+
+            return countdownString;
+        }
+
+        // --- NEW HELPER FUNCTIONS FOR DROPDOWN FORMATTING ---
+
+        /**
+         * Formats a millisecond difference into DD:HH:MM format.
+         * @param {number} ms - Milliseconds remaining.
+         * @returns {string} Formatted countdown string (DD:HH:MM).
+         */
+        function formatDropdownCountdown(ms) {
+            if (ms < 0) ms = 0;
+
+            // Calculate total minutes remaining
+            const totalMinutes = Math.floor(ms / (1000 * 60));
+
+            const days = Math.floor(totalMinutes / (24 * 60));
+            const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
+            const minutes = totalMinutes % 60;
+
+            const pad = (num) => num.toString().padStart(2, '0');
+
+            // Returns DD:HH:MM
+            return `${pad(days)}:${pad(hours)}:${pad(minutes)}`;
+        }
+
+        /**
+         * Formats a Date object into 'Day, Mon DD hh:mm AM/PM' format.
+         * @param {Date} date - The date object.
+         * @returns {string} Formatted date string (Day, Mon DD hh:mm AM/PM).
+         */
+        function formatDateDropdown(date) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            
+            const dayName = days[date.getDay()];
+            const month = months[date.getMonth()];
+            const day = date.getDate();
+            const time12Hour = formatTime12Hour(date);
+
+            // Returns Day, Month Day#, Time (e.g., Fri, Oct 3 8:30 PM)
+            return `${dayName}, ${month} ${day} ${time12Hour}`;
+        }
+        
+        /**
+         * Formats a Date object into 'hh:mm' (24-hour) format.
+         * @param {Date} date - The date object.
+         * @returns {string} Formatted time string (hh:mm).
+         */
+        function formatTime24Hour(date) {
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        // --- End of NEW HELPER FUNCTIONS ---
+
+
+        /**
+         * Calculates the next N occurrences for a scheduled event.
+         * @param {object} eventData - The event schedule data (containing schedule, realTimeSchedule, or gameTimeSchedule).
+         * @param {number} count - The number of future occurrences to find.
+         * @returns {Array<Date>} An array of Date objects for the next N start times.
+         */
+        function calculateNextOccurrences(eventData, count = 7) { // Default count set to 7 for better dropdown content
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const occurrences = [];
+            const now = new Date();
+
+            // --- Logic for Game Time Events (Jola, Meina & Glenn) ---
+            if (eventData.gameTimeSchedule) {
+                // Game Time sync point: 10:00 GT is syncHoursPDT (14:00 PDT)
+                const syncPointGameMinutes = gameTimeStartHours * 60; // 600 GT minutes (10:00 GT)
+                const eventGTStartMinutes = parseInt(eventData.gameTimeSchedule.startTime.split(':')[0]) * 60;
+                
+                let gtOffsetToStart = eventGTStartMinutes - syncPointGameMinutes;
+                if (gtOffsetToStart < 0) {
+                    gtOffsetToStart += 24 * 60; // Wrap around
+                }
+                
+                const realOffsetToStartMs = (gtOffsetToStart / gameSpeedMultiplier) * 60 * 1000;
+                const realIntervalMs = 4 * 60 * 60 * 1000; // 4 real hours = 1 GT day
+
+                let referenceDate = new Date(now);
+                referenceDate.setHours(syncHoursPDT, syncMinutesPDT, 0, 0);
+
+                // Find the next start time
+                let nextEventStartRealTime = new Date(referenceDate.getTime() + realOffsetToStartMs);
+
+                // Find the first future start time
+                while (nextEventStartRealTime.getTime() < now.getTime()) {
+                    nextEventStartRealTime = new Date(nextEventStartRealTime.getTime() + realIntervalMs);
+                }
+
+                // Collect the next 'count' occurrences
+                for (let i = 0; i < count; i++) {
+                    const occurrenceTime = new Date(nextEventStartRealTime.getTime() + i * realIntervalMs);
+                    occurrences.push(occurrenceTime);
+                }
+                return occurrences;
+            }
+
+            // --- Logic for Real Time Cyclical Events (Rifts) ---
+            if (eventData.realTimeSchedule) {
+                const { startTime, intervalHours } = eventData.realTimeSchedule;
+                const intervalMs = intervalHours * 3600 * 1000;
+                
+                // Get the local time equivalent of the MSK reference point
+                // Reference time is anchored to today's UTC date with MSK->UTC adjustment
+                const referenceLocal = convertMSKOffsetToLocal(startTime);
+                let referenceTimeMs = referenceLocal.date.getTime();
+
+                // --- FIX: Compute next occurrence robustly using math (works when referenceTime is in past or future) ---
+const nowMs = Date.now();
+const diff = nowMs - referenceTimeMs;
+
+// Compute number of full intervals since reference
+const intervalsPassed = diff / intervalMs;
+const lastStartMs = referenceTimeMs + Math.floor(intervalsPassed) * intervalMs;
+const nextStartMs = lastStartMs + (nowMs >= lastStartMs && nowMs < lastStartMs + 30 * 60 * 1000 ? 0 : intervalMs); // 30m active window
+
+// Collect the next 'count' occurrences starting from nextStartMs
+for (let i = 0; i < count; i++) {
+    const occurrenceTime = new Date(nextStartMs + i * intervalMs);
+    occurrences.push(occurrenceTime);
+}
+return occurrences;
+            }
+
+            // --- Logic for Fixed Server Time Events (Most common) ---
+            if (eventData.schedule) {
+                // FIX: Loop up to 30 days out (4 weeks) to ensure we find 'count' (7) weekly events
+                const allEventOccurrences = [];
+                for (let i = 0; i < 30; i++) { 
+                    const searchDate = new Date(now);
+                    
+                    // *** CRITICAL FIX: Anchor searchDate to local midnight to prevent time bleed issues ***
+                    searchDate.setHours(0, 0, 0, 0); 
+                    
+                    searchDate.setDate(searchDate.getDate() + i);
+
+                    const dayIndex = searchDate.getDay();
+                    const dayName = dayNames[dayIndex];
+                    const schedulesForDay = eventData.schedule[dayName];
+                    
+                    if (!schedulesForDay) continue;
+
+                    for (const schedule of schedulesForDay) {
+                        const [startTimeStr, endTimeStr] = schedule.split('-');
+
+                        // Convert start and end times to local Date objects for comparison
+                        // We pass the local-midnight-anchored searchDate to ensure the time conversion is correct.
+                        const startLocal = convertServerTimeToLocal(startTimeStr, searchDate); 
+                        const endLocal = convertServerTimeToLocal(endTimeStr, searchDate); 
+
+                        // Adjust the end date for midnight wrapping:
+                        // If end time is before start time (e.g. 22:00-02:00) or it's 24:00, it's next day.
+                        if (endTimeStr === '00:00' || endTimeStr === '24:00' || endLocal.date <= startLocal.date) {
+                            endLocal.date.setDate(endLocal.date.getDate() + 1);
+                        }
+                        
+                        // FIX: include all future events (including later same-day ones)
+                        if (endLocal.date.getTime() > now.getTime()) {
+                            // If it's upcoming or currently active, it's a valid occurrence
+                            allEventOccurrences.push({ 
+                                startTime: startLocal.date, 
+                                endTime: endLocal.date 
+                            });
+                        }
+                    }
+                }
+
+                // Sort and return only the next 'count' start times
+                allEventOccurrences.sort((a, b) => a.startTime.getTime() - b.startTime.getTime());
+                
+                // Filter out any instances that have already ended
+                const futureOccurrences = allEventOccurrences.filter(o => o.endTime.getTime() > now.getTime());
+
+                // Return only the start times of the next 'count' future events
+                return futureOccurrences.map(o => o.startTime).slice(0, count);
+            }
+
+            // If we only have occurrences objects (from the complex logic above), return just the start times
+            return occurrences.map(o => o.startTime);
+        }
+
+        /**
+         * Gets the status of an event based on its next occurrence, considering duration.
+         * @param {Date} nextStartTime - The next scheduled start Date object.
+         * @param {string} eventName - The name of the event.
+         * @param {string} categoryId - The category ID (e.g., 'rifts').
+         * @returns {object} { status: 'upcoming'|'active'|'inactive', countdownMs: number, endTime: Date|null }
+         */
+        function getEventStatus(nextStartTime, eventName, categoryId) {
+            const now = new Date();
+            const timeUntilStart = nextStartTime.getTime() - now.getTime();
+            
+            let durationMinutes = 0;
+            let durationFound = false;
+            let eventData = eventCategories[categoryId][eventName];
+
+            if (eventData.schedule) {
+                // For ST scheduled events, we need to find the specific schedule slot to get the duration.
+                const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                
+                // Search for the slot up to 7 days out, based on nextStartTime
+                for (let i = 0; i < 7; i++) {
+                    const searchDate = new Date(nextStartTime);
+                    searchDate.setDate(nextStartTime.getDate() + i); // Search date will be the day of the nextStartTime, then the next day, etc.
+
+                    const dayIndex = searchDate.getDay();
+                    const dayName = dayNames[dayIndex];
+
+                    const schedulesForDay = eventData.schedule[dayName];
+
+                    if (schedulesForDay) {
+                        for (const schedule of schedulesForDay) {
+                            const [startTimeStr, endTimeStr] = schedule.split('-');
+                            
+                            // Create a temporary date anchored to the event's start date but reset to midnight
+                            const baseDateForConversion = new Date(nextStartTime);
+                            baseDateForConversion.setHours(0, 0, 0, 0); 
+                            
+                            // Convert the ST time string using the event's day as the anchor
+                            const startLocalCheck = convertServerTimeToLocal(startTimeStr, baseDateForConversion);
+
+                            // The 'nextStartTime' Date object already contains the correct local time and date
+                            const nextEventTime = `${nextStartTime.getHours().toString().padStart(2, '0')}:${nextStartTime.getMinutes().toString().padStart(2, '0')}`;
+                            
+                            // Check if the nextStartTime matches this schedule slot's time
+                            if (startLocalCheck.time === nextEventTime) {
+                                // Now we calculate the duration using server time strings
+                                let stStartMinutes = parseInt(startTimeStr.split(':')[0]) * 60 + parseInt(startTimeStr.split(':')[1]);
+                                let stEndMinutes = parseInt(endTimeStr.split(':')[0]) * 60 + parseInt(endTimeStr.split(':')[1]);
+                                
+                                // If end time is earlier than start time (or 24:00), it means it wraps the day
+                                if (stEndMinutes <= stStartMinutes) {
+                                    stEndMinutes += 24 * 60;
+                                }
+                                durationMinutes = stEndMinutes - stStartMinutes;
+                                durationFound = true;
+                                
+                                // The true end time (local) is simply start time + duration
+                                const actualEndTime = new Date(nextStartTime.getTime() + durationMinutes * 60000);
+                                const timeUntilEnd = actualEndTime.getTime() - now.getTime();
+
+                                if (timeUntilStart <= 0 && timeUntilEnd > 0) {
+                                    // Event is active
+                                    return { 
+                                        status: 'active', 
+                                        countdownMs: timeUntilEnd, 
+                                        endTime: actualEndTime 
+                                    };
+                                } else if (timeUntilStart > 0) {
+                                    // Event is upcoming
+                                    return { 
+                                        status: 'upcoming', 
+                                        countdownMs: timeUntilStart, 
+                                        endTime: actualEndTime 
+                                    };
+                                }
+                                
+                                // Since we found a match for nextStartTime, break out of the schedule and day loops
+                                i = 7; // Break outer loop
+                                break; 
+                            }
+                        }
+                    }
+                }
+            } else if (eventData.realTimeSchedule) {
+                // Rifts have a fixed 30-minute duration (1800000 ms)
+                durationMinutes = 30; 
+            } else if (eventData.gameTimeSchedule) {
+                durationMinutes = eventData.gameTimeSchedule.durationMinutes;
+            }
+
+            // Only proceed if duration was not calculated using the ST logic above or if it's a cyclical event
+            if (!durationFound || eventData.realTimeSchedule || eventData.gameTimeSchedule) {
+                const durationMs = durationMinutes * 60000;
+                const actualEndTime = new Date(nextStartTime.getTime() + durationMs);
+                const timeUntilEnd = actualEndTime.getTime() - now.getTime();
+
+                if (timeUntilStart <= 0 && timeUntilEnd > 0) {
+                    // Event is active
+                    return { 
+                        status: 'active', 
+                        countdownMs: timeUntilEnd, 
+                        endTime: actualEndTime 
+                    };
+                } else if (timeUntilStart > 0) {
+                    // Event is upcoming
+                    return { 
+                        status: 'upcoming', 
+                        countdownMs: timeUntilStart, 
+                        endTime: actualEndTime 
+                    };
+                }
+            }
+
+            // If we've reached here, it means the next calculated event has already ended
+            return { 
+                status: 'inactive', 
+                countdownMs: timeUntilStart, // This will be negative, but we need it to calculate the *next* next event if the initial logic failed
+                endTime: null 
+            };
+        }
+        
+        // --- Main Rendering and Click Logic ---
+
+        function updateEventTables() {
+            // *** NEW CONSTANT: 60-minute (1 hour) threshold for 'Upcoming' badge display ***
+            const ONE_HOUR_MS = 60 * 60 * 1000; 
+            
+            // Temporary map to hold categorized event data for sorting
+            const categorizedEvents = {};
+
+            // 1. GATHER ALL EVENTS AND THEIR STATUS/TIMES
+            for (const categoryId in eventCategories) {
+                categorizedEvents[categoryId] = []; // Initialize array for this category
+                const category = eventCategories[categoryId];
+
+                for (const eventName in category) {
+                    const eventData = category[eventName];
+                    
+                    // a. Get all upcoming occurrences (for dropdown)
+                    const allNextOccurrences = calculateNextOccurrences(eventData, 7); 
+
+                    if (allNextOccurrences.length === 0) continue;
+
+                    // b. Determine the effective next event (handling recently ended events)
+                    let nextStartTime = allNextOccurrences[0];
+                    let status = getEventStatus(nextStartTime, eventName, categoryId);
+                    
+                    // If the event is already inactive, it means it has ended, so we look at the next occurrence in the list.
+                    // This is primarily for events that might have a very short duration or when the initial calculation
+                    // happened right after the event ended.
+                    if (status.status === 'inactive' && allNextOccurrences.length > 1) {
+                         // Fallback logic to check if the next-next one is active or upcoming
+                        nextStartTime = allNextOccurrences[1];
+                        status = getEventStatus(nextStartTime, eventName, categoryId);
+                    }
+                    // Final safety check: if still inactive, use the first event as the basis for the far-off schedule display
+                    // This handles cases where only 1 occurrence was found, and it's already passed.
+                    if(status.status === 'inactive') {
+                        nextStartTime = allNextOccurrences[0];
+                        status = getEventStatus(nextStartTime, eventName, categoryId);
+                    }
+
+
+                    // c. Store the full event data for rendering and sorting
+                    categorizedEvents[categoryId].push({
+                        eventName,
+                        categoryId,
+                        allNextOccurrences,
+                        finalNextStartTime: nextStartTime,
+                        finalStatus: status
+                    });
+                }
+            }
+            
+            // 2. SORT EVENTS WITHIN EACH CATEGORY
+            for (const categoryId in categorizedEvents) {
+                categorizedEvents[categoryId].sort((a, b) => {
+                    const statusA = a.finalStatus.status;
+                    const statusB = b.finalStatus.status;
+
+                    // Active events always go first (returns a negative number if A is active and B is not)
+                    if (statusA === 'active' && statusB !== 'active') return -1;
+                    if (statusA !== 'active' && statusB === 'active') return 1;
+
+                    // If both are active: sort by end time (soonest to end is first)
+                    if (statusA === 'active' && statusB === 'active') {
+                        return a.finalStatus.endTime.getTime() - b.finalStatus.endTime.getTime();
+                    }
+                    
+                    // If neither is active: sort by next start time (soonest to start is first)
+                    return a.finalNextStartTime.getTime() - b.finalNextStartTime.getTime();
+                });
+            }
+
+
+            // 3. CLEAR AND RENDER SORTED EVENTS
+
+            // Clear all tables before rendering the sorted data
+            for (const categoryId in eventCategories) {
+                const tableBody = document.getElementById(`${categoryId}-table`);
+                if (tableBody) {
+                    tableBody.innerHTML = '';
+                }
+            }
+
+            for (const categoryId in categorizedEvents) {
+                const tableBody = document.getElementById(`${categoryId}-table`);
+                const events = categorizedEvents[categoryId];
+
+                for (const event of events) {
+                    const { eventName, allNextOccurrences, finalNextStartTime, finalStatus } = event;
+                    
+                    let nextTimeFormatted = '';
+                    let countdownHTML = '';
+                    // Event is clickable only if it has at least 2 instances found (the main one + 1 for dropdown)
+                    let isClickable = allNextOccurrences.length > 1;
+
+                    let isUpcomingSoon = finalStatus.status === 'upcoming' && finalStatus.countdownMs <= ONE_HOUR_MS;
+
+                    if (finalStatus.status === 'active') {
+                        nextTimeFormatted = `Ends ${formatDateWithDay(finalStatus.endTime)}`;
+                        
+                        // Active: Badge + Countdown + Arrow. Force HH:MM:SS format (true)
+                        countdownHTML = `
+                            <div class="countdown-wrapper">
+                                <div class="countdown-container">
+                                    <span class="status-badge inprogress-badge">In Progress</span>
+                                    <span class="countdown active">${formatCountdown(finalStatus.countdownMs, true)}</span>
+                                </div>
+                                ${isClickable ? '<span class="dropdown-arrow">▼</span>' : ''}
+                            </div>
+                        `;
+
+                    } else if (isUpcomingSoon) {
+                        nextTimeFormatted = `Starts ${formatDateWithDay(finalNextStartTime)}`;
+                        
+                        // Upcoming (within 1 hour): Badge + Countdown + Arrow. Force HH:MM:SS format (true)
+                        countdownHTML = `
+                            <div class="countdown-wrapper">
+                                <div class="countdown-container">
+                                    <span class="status-badge upcoming-badge">Upcoming</span>
+                                    <span class="countdown upcoming">${formatCountdown(finalStatus.countdownMs, true)}</span>
+                                </div>
+                                ${isClickable ? '<span class="dropdown-arrow">▼</span>' : ''}
+                            </div>
+                        `;
+
+                    } else { 
+                        // Status is 'inactive' OR 'upcoming' but > 1 hour away.
+                        nextTimeFormatted = `Starts ${formatDateWithDay(finalNextStartTime)}`;
+                        
+                        // Inactive/Far-off Upcoming: Only show the alignment pad and the arrow if clickable.
+                         countdownHTML = `
+                            <div class="countdown-wrapper">
+                                <div class="countdown-container">
+                                    <span class="badge-align-pad"></span>
+                                    <span class="countdown inactive"></span>
+                                </div>
+                                ${isClickable ? '<span class="dropdown-arrow">▼</span>' : ''}
+                            </div>
+                        `;
+                    }
+
+                    // --- Build Main Row (Row 1) ---
+
+                    const row = document.createElement('tr');
+                    row.className = `event-row ${isClickable ? 'clickable' : ''}`;
+                    row.id = `${categoryId}-${eventName.replace(/[^a-zA-Z0-9]/g, '')}-main`;
+                    row.setAttribute('data-event-name', eventName);
+                    row.setAttribute('data-category-id', categoryId);
+
+                    // Dropdown Content Row (Row 2)
+                    const dropdownRow = document.createElement('tr');
+                    dropdownRow.className = 'dropdown-row';
+                    dropdownRow.id = `${categoryId}-${eventName.replace(/[^a-zA-Z0-9]/g, '')}-dropdown`;
+                    const dropdownCell = document.createElement('td');
+                    dropdownCell.colSpan = 2; // Span both columns
+                    dropdownCell.className = 'dropdown-content';
+                    
+                    // --- Build Dropdown List ---
+                    const dropdownList = document.createElement('div');
+                    dropdownList.className = 'dropdown-list';
+                    
+                    // Find the index of the event currently shown in the main row
+                    const firstOccurrenceIndex = allNextOccurrences.findIndex(o => o.getTime() === finalNextStartTime.getTime());
+                    
+                    // Start iteration from the occurrence *after* the one shown in the main row
+                    const startIndex = firstOccurrenceIndex >= 0 ? firstOccurrenceIndex + 1 : 1; 
+
+                    for (let i = startIndex; i < allNextOccurrences.length; i++) {
+                        const nextEvent = allNextOccurrences[i];
+                        
+                        // Only show future instances
+                        if(nextEvent.getTime() > new Date().getTime()) {
+                            
+                            // --- MODIFIED CODE FOR NEW DROPDOWN FORMAT ---
+                            const nowMs = new Date().getTime();
+                            const countdownMs = nextEvent.getTime() - nowMs;
+                            
+                            // Date (Fri, Oct 3 08:30 PM)
+                            const dateTime = formatDateDropdown(nextEvent);
+                            // Countdown in dd:hh:mm
+                            const countdown = formatDropdownCountdown(countdownMs);
+
+                            dropdownList.innerHTML += `
+                                <div>
+                                    <span>${dateTime}</span> 
+                                    <span class="dropdown-countdown">${countdown}</span>
+                                </div>
+                            `;
+                            // --- END MODIFIED CODE ---
+                        }
+                    }
+
+                    dropdownCell.appendChild(dropdownList);
+                    dropdownRow.appendChild(dropdownCell);
+
+                    // --- Handle Dropdown State ---
+                    if (openDropdownState.name === eventName && openDropdownState.category === categoryId) {
+                        row.classList.add('active-dropdown');
+                        dropdownRow.classList.add('open');
+                    }
+
+                    if (isClickable) {
+                        row.onclick = function() {
+                            const activeRow = document.getElementById(this.id);
+                            const targetDropdown = document.getElementById(dropdownRow.id);
+
+                            // Toggle logic
+                            if (targetDropdown.classList.contains('open')) {
+                                // Close the current one
+                                activeRow.classList.remove('active-dropdown');
+                                targetDropdown.classList.remove('open');
+                                openDropdownState = { name: null, category: null };
+                            } else {
+                                // Close any open dropdown first
+                                const currentOpenRow = document.querySelector('.event-row.active-dropdown');
+                                const currentOpenDropdown = document.querySelector('.dropdown-row.open');
+                                if (currentOpenRow) {
+                                    currentOpenRow.classList.remove('active-dropdown');
+                                    currentOpenDropdown.classList.remove('open');
+                                }
+                                // Open the new one
+                                activeRow.classList.add('active-dropdown');
+                                targetDropdown.classList.add('open');
+                                openDropdownState = { name: eventName, category: categoryId };
+                            }
+                        };
+                    }
+
+                    // --- ADD ICON HTML ---
+                    const iconURL = EVENT_ICONS[eventName];
+                    const iconHTML = iconURL ? `<img src="${iconURL}" alt="${eventName} Icon" class="event-icon">` : '';
+
+                    row.innerHTML = `
+                        <td class="event-name"> 
+                            ${iconHTML}
+                            <div class="event-details"> 
+                                <div class="event-title">${eventName}</div> 
+                                <div class="next-time">${nextTimeFormatted}</div>
+                            </div> 
+                        </td> 
+                        <td> 
+                            ${countdownHTML} 
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                    tableBody.appendChild(dropdownRow); // Append the dropdown row right after the main row for table structure
+                }
+            }
+        }
+
+
+        // --- Initialization and Ticks ---
+
+        // The main tick function handles all updates
+        function mainTick() {
+            updateAllTimes(); 
+            updateEventTables(); // Update all tables (handles countdowns and dropdown state)
+        }
+        
+        // Run once immediately
+        mainTick(); 
+        
+        // Set update frequency (every 1 second)
+        setInterval(mainTick, 1000); 
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
