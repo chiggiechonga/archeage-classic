@@ -79,7 +79,7 @@ footer a{color:var(--accent)}
   <a class="back" href="./">← Archeage Classic</a>
   <h1>Taming Map</h1>
   <p>Where each of the 19 ArcheAge Classic tameable beasts spawns. Pick beasts to filter the map, or click a zone to see what lives there and exactly where.</p>
-  <p class="live" id="live" role="status"><i></i><span>Loading today&rsquo;s prices from the guild sheet…</span></p>
+  <p class="live" id="live" role="status"><i></i><span>Loading today&rsquo;s auction house prices…</span></p>
 </header>
 
 <section class="stage">
@@ -114,7 +114,7 @@ footer a{color:var(--accent)}
 </table>
 </div>
 
-<footer>Spawn spots from the <a href="https://wiki.aa-classic.com/Taming" target="_blank" rel="noopener">AA Classic wiki Taming page</a>. Prices load live from the guild craft profit sheet, which updates daily. Maps are your regional screenshots; each red pin sits on the zone&rsquo;s printed name.</footer>
+<footer>Spawn spots from the <a href="https://wiki.aa-classic.com/Taming" target="_blank" rel="noopener">AA Classic wiki Taming page</a>. Auction house prices load live and update daily. Maps are regional in-game screenshots; each red pin sits on the zone&rsquo;s printed name.</footer>
 </div>
 
 <script>
@@ -237,9 +237,9 @@ async function loadLivePrices(){
     if(!n) throw new Error('no rows');
     order.sort((a,b)=>D.prices[b][0]-D.prices[a][0]);
     renderTable(); if(activeZone) showZone(activeZone);
-    box.classList.add('ok'); box.querySelector('span').textContent='Live prices from the guild sheet';
+    box.classList.add('ok'); box.querySelector('span').textContent='Live auction house prices, updated daily';
   }catch(e){
-    box.querySelector('span').textContent='Showing saved prices from 2026-10-12 (the sheet could not be reached)';
+    box.querySelector('span').textContent='Showing saved prices from 2026-10-12 (live prices could not be loaded)';
   }
 }
 renderTable(); showZone('Dewstone Plains'); loadLivePrices();
