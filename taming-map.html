@@ -195,7 +195,12 @@ document.getElementById('clear').onclick=()=>{selected.clear();chips.querySelect
 
 let sortKey='cel';
 const val={name:b=>b,cel:b=>-D.prices[b][0],celp:b=>-(D.prices[b][1]??-1),arcp:b=>-(D.prices[b][3]??-1)};
-function fmt(v){return v==null?'<span class="none">no sales</span>':v.toLocaleString()+'g'}
+function fmt(v){
+  if(v==null) return '<span class="none">no sales</span>';
+  const total=Math.round(v*10000), g=Math.floor(total/10000), s=Math.floor(total%10000/100), c=total%100, parts=[];
+  if(g) parts.push(g.toLocaleString('en-US')+' g'); if(g||s) parts.push(s+' s'); parts.push(c+' c');
+  return parts.join(' ');
+}
 function renderTable(){
   const tb=document.getElementById('tb'); tb.innerHTML='';
   const rows=[...order].sort((a,b)=>{const x=val[sortKey](a),y=val[sortKey](b);return x<y?-1:x>y?1:0});

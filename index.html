@@ -66,6 +66,19 @@ a.door:hover{border-color:var(--accent)}
 .door.soon .ic{background:#262b2f}
 .door.soon h2{color:var(--ink2)} .door.soon .go{color:var(--faint)}
 
+.make{padding:24px;display:flex;flex-direction:column;gap:14px}
+.make h2{margin:0;font-size:22px;font-weight:700;color:#f0f2ef}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{width:100%;border-collapse:collapse;min-width:640px}
+.tbl th,.tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl th{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--sunk)}
+.tbl td{font-size:15px}
+.tbl .num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl .crop{font-weight:600}
+.tbl .sm{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.save{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px}
+.save.yes{background:var(--up-bg);color:var(--up)} .save.no{background:var(--down-bg);color:var(--down)}
 .trends{padding:24px;display:flex;flex-direction:column;gap:16px}
 .thead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
 .thead h2{margin:0;font-size:22px;font-weight:700;color:#f0f2ef}
@@ -146,6 +159,20 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
     </div>
   </section>
 
+  <section class="card make" aria-labelledby="makeTitle">
+    <div class="thead">
+      <h2 id="makeTitle">Cheapest way to make cooking ingredients</h2>
+      <span class="note">Cost per item from 100 crops + 40 copper (50 labor per batch)</span>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th scope="col">Ingredient</th><th scope="col">Cheapest crop</th><th scope="col" class="num">Cost each</th><th scope="col">Next best</th><th scope="col" class="num">Buy on AH</th><th scope="col">Make or buy</th></tr></thead>
+        <tbody id="makeBody"><tr><td colspan="6" class="note">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="note">Only crops that sell at least 1,000 a week are counted. Bigger batches also mean less labor per item.</p>
+  </section>
+
   <section class="card trends" aria-labelledby="trendsTitle">
     <div class="thead">
       <h2 id="trendsTitle">Price trends</h2>
@@ -192,7 +219,16 @@ function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;
 const num = v => { const n = parseFloat(String(v ?? '').replace(/,/g,'')); return isFinite(n) ? n : null; };
 async function getCSV(sheet, q){ const r = await fetch(url(sheet,q), {cache:'no-store'}); if(!r.ok) throw new Error(r.status); return parseCSV(await r.text()).slice(1); }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function gold(v){ if(v==null) return '—'; const d = v>=100?0:v>=10?1:v>=1?2:3; return v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})+'g'; }
+function gold(v){
+  if(v==null || !isFinite(v)) return '—';
+  const neg = v < 0; const total = Math.round(Math.abs(v) * 10000);
+  const g = Math.floor(total / 10000), sv = Math.floor((total % 10000) / 100), c = total % 100;
+  const parts = [];
+  if(g) parts.push(g.toLocaleString('en-US') + ' g');
+  if(g || sv) parts.push(sv + ' s');
+  parts.push(c + ' c');
+  return (neg ? '−' : '') + parts.join(' ');
+}
 function change(now, avg){ if(now==null||avg==null||avg<=0) return null; return (now-avg)/avg*100; }
 function chgHTML(p){ if(p==null) return '<span class="chg flat">No weekly average yet</span>';
   if(Math.abs(p)<1) return '<span class="chg flat">About the same as last week</span>';
@@ -256,7 +292,7 @@ function fillPick(){
 function drawChart(name){
   const pts = (HIST[kind][name]||[]).slice().sort((a,b) => a[0]<b[0]?-1:1);
   if(!pts.length){ chart.innerHTML = '<span class="note">No history for this item yet.</span>'; return; }
-  const W=1000,H=260,L=70,R=20,T=20,B=40;
+  const W=1000,H=260,L=120,R=20,T=20,B=40;
   const vals = pts.map(p => p[1]); let lo = Math.min(...vals), hi = Math.max(...vals);
   if(lo===hi){ lo = lo*0.9; hi = hi*1.1 || 1; }
   const x = i => pts.length===1 ? (L+(W-R))/2 : L + i*(W-L-R)/(pts.length-1);
@@ -294,7 +330,41 @@ function updateTags(){
   show(hot, h, h ? `${(h.r.vol7||0).toLocaleString()} sold this week` : '');
 }
 
-Promise.all([loadPrices(), loadHistory()]).then(updateTags);
+
+/* ---------- Cheapest crop table (Process Calc tab) ---------- */
+const MAKE_ORDER = ['Ground Grain','Chopped Produce','Ground Spices','Trimmed Meat','Orchard Puree','Dried Flowers','Medicinal Powder'];
+async function loadMake(){
+  const body = document.getElementById('makeBody');
+  try{
+    const rows = await getCSV('Process Calc', 'select A,B,C,F,G');
+    const by = {};
+    for(const [prod, crop, batch, cost, ok] of rows){
+      const c = num(cost); if(!prod || c==null || num(ok)!==1) continue;
+      (by[prod] ??= []).push({crop, batch:num(batch), cost:c});
+    }
+    const ah = new Map(PRICES.map(r => [r.key, r.now]));
+    body.innerHTML = MAKE_ORDER.map(p => {
+      const list = (by[p]||[]).sort((a,b) => a.cost-b.cost);
+      const best = list[0], next = list[1], buy = ah.get(p.toLowerCase());
+      if(!best) return `<tr><td>${esc(p)}</td><td colspan="5" class="note">No crop with enough sales right now</td></tr>`;
+      let verdict = '';
+      if(buy!=null && buy>0){
+        const pct = Math.round((buy-best.cost)/buy*100);
+        verdict = best.cost < buy ? `<span class="save yes">Make · save ${pct}%</span>` : `<span class="save no">Buy · ${Math.abs(pct)}% cheaper</span>`;
+      }
+      return `<tr><td>${esc(p)}</td>
+        <td class="crop">${esc(best.crop)}<span class="sm">${best.batch} per batch</span></td>
+        <td class="num">${gold(best.cost)}</td>
+        <td>${next ? esc(next.crop)+'<span class="sm">'+gold(next.cost)+' each</span>' : '—'}</td>
+        <td class="num">${gold(buy)}</td>
+        <td>${verdict}</td></tr>`;
+    }).join('');
+  }catch(e){
+    body.innerHTML = '<tr><td colspan="6" class="note">This table couldn’t be loaded right now.</td></tr>';
+  }
+}
+
+Promise.all([loadPrices(), loadHistory()]).then(() => { updateTags(); loadMake(); });
 </script>
 </body>
 </html>
