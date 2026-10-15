@@ -214,6 +214,15 @@ document.querySelectorAll('th button').forEach(btn=>btn.onclick=()=>{sortKey=btn
   document.querySelectorAll('th button').forEach(x=>x.textContent=x.textContent.replace(' ▾',''));btn.textContent+=' ▾';renderTable()});
 
 
+const DATE_URL = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=0&sheet=AH%20Source&range=K1';
+async function priceDate(){
+  try{
+    const r = await fetch(DATE_URL, {cache:'no-store'}); if(!r.ok) return null;
+    const t = (await r.text()).replace(/"/g,'').trim();
+    const d = new Date(t + 'T12:00:00');
+    return isNaN(d) ? null : d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  }catch(e){ return null; }
+}
 const SHEET_CSV='https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=1&sheet=Website&range=A1:F20';
 function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
   if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
@@ -234,7 +243,7 @@ async function loadLivePrices(){
     if(!n) throw new Error('no rows');
     order.sort((a,b)=>D.prices[b][0]-D.prices[a][0]);
     renderTable(); if(activeZone) showZone(activeZone);
-    box.classList.add('ok'); box.querySelector('span').textContent='Live auction house prices, updated daily';
+    box.classList.add('ok'); const when=await priceDate(); box.querySelector('span').textContent= when ? 'Live auction house prices from '+when : 'Live auction house prices, updated daily';
   }catch(e){
     box.querySelector('span').textContent='Showing saved prices from 2026-10-12 (live prices could not be loaded)';
   }

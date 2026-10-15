@@ -2,9 +2,9 @@
  * Daily History snapshot for the "craft profit" sheet.
  *
  * Every hour, checks the date Michael's AH price sheet was last updated
- * (AH Source!K1). When that date is newer than the last day saved in History,
- * it copies the day's numbers from the Website tab into History as fixed values.
- * So each day is saved once, and only after fresh prices arrive.
+ * (AH Source!K1) and copies that day's numbers from the Website tab into History
+ * as fixed values. Each run replaces that day's rows, so every day keeps one set
+ * of rows holding its latest numbers.
  *
  * Setup (one time):
  *   1. In the sheet: Extensions > Apps Script.
@@ -31,11 +31,18 @@ function snapshotHistory() {
   const day = priceDate_(ss, tz);
   if (!day) return; // can't tell when prices were updated
 
-  // Skip if this price date (or a later one) is already saved.
-  const last = hist.getLastRow();
+  // Skip if a later day is already saved. If this same day is already saved,
+  // remove those rows and save them again, so the day ends up with its final numbers
+  // (the craft calculations can take a while to catch up after new prices arrive).
+  let last = hist.getLastRow();
   if (last > 1) {
-    const lastDate = hist.getRange(last, 1).getDisplayValue();
-    if (lastDate >= day) return;
+    const dates = hist.getRange(2, 1, last - 1, 1).getDisplayValues().map(r => r[0]);
+    const lastDate = dates[dates.length - 1];
+    if (lastDate > day) return;
+    if (lastDate === day) {
+      const first = dates.indexOf(day) + 2;
+      hist.getRange(first, 1, last - first + 1, hist.getLastColumn()).clearContent();
+    }
   }
 
   SpreadsheetApp.flush();

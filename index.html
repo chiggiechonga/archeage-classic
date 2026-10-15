@@ -173,6 +173,16 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 
 <script>
 const SHEET = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=1';
+const DATE_URL = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=0&sheet=AH%20Source&range=K1';
+async function priceDate(){
+  try{
+    const r = await fetch(DATE_URL, {cache:'no-store'}); if(!r.ok) return null;
+    const t = (await r.text()).replace(/"/g,'').trim();
+    const d = new Date(t + 'T12:00:00');
+    return isNaN(d) ? null : d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  }catch(e){ return null; }
+}
+
 const url = (sheet, q) => SHEET + '&sheet=' + encodeURIComponent(sheet) + (q ? '&tq=' + encodeURIComponent(q) : '');
 
 function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
@@ -197,7 +207,8 @@ async function loadPrices(){
     PRICES = rows.map(([name,now,avg7,vol7,vol30]) => ({name, key:name.toLowerCase(), now:num(now), avg7:num(avg7), vol7:num(vol7), vol30:num(vol30)})).filter(r => r.name);
     if(!PRICES.length) throw new Error('empty');
     q.disabled = false;
-    lnote.textContent = PRICES.length.toLocaleString() + ' items · auction house prices, updated daily';
+    const when = await priceDate();
+    lnote.textContent = PRICES.length.toLocaleString() + ' items · ' + (when ? 'auction house prices from ' + when : 'auction house prices, updated daily');
     q.value = 'Celestial Starfish'; search();
   }catch(e){
     lnote.textContent = 'Prices couldn’t be loaded right now. Please try again later.';
