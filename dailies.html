@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dailies · Archeage Classic</title>
+<meta name="description" content="Daily and weekly checklist for your main and alts in Archeage Classic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
+  --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
+  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --warn:#e8c47a; --warn-bg:#36301f;
+  --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5}
+a{color:var(--accent)} a:hover{color:#c6d3f2}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media (min-width:700px){.wrap{padding-inline:24px}}
+
+header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
+nav{display:flex;flex-wrap:wrap;gap:2px}
+nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
+nav a:hover{background:var(--card2);color:var(--ink)}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
+
+main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.note{font-size:14px;color:var(--muted);margin:0}
+
+.intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.intro h1{margin:0;font-size:30px;font-weight:700}
+.intro p{margin:4px 0 0;color:var(--muted)}
+.clock{display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;min-width:150px}
+.pill .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pill .v{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+
+.list{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+thead th{position:sticky;top:0;background:var(--card);z-index:1;border-bottom:1px solid var(--line2)}
+th.ch,td.ck{text-align:center;width:118px}
+.name{width:100%;font:inherit;font-weight:700;font-size:15px;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:8px;padding:4px 6px;text-align:center}
+.name:hover{border-color:var(--line2)} .name:focus{border-color:var(--accent);outline:none;background:var(--bg)}
+.prog{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
+.prog.done{color:var(--up)}
+tr.group th{background:var(--sunk);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);padding-block:8px}
+tr.group th span{color:var(--muted);text-transform:none;letter-spacing:0;font-weight:500;margin-left:8px}
+.task b{font-weight:600;font-size:15px}
+.task .sub{display:block;font-size:13px;color:var(--muted)}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:1px}
+.badge.today{background:var(--warn-bg);color:var(--warn)}
+.badge.tok{background:var(--accent-soft);color:#dfe6f5}
+tr:last-child td{border-bottom:0}
+.badge{white-space:nowrap}
+.short{display:none}
+@media (max-width:640px){
+  table{min-width:0}
+  th,td{padding:9px 6px}
+  th:first-child,td:first-child{padding-left:12px}
+  th.ch,td.ck{width:58px}
+  .name{font-size:13px;padding:4px 2px}
+  .long{display:none} .short{display:inline}
+  .task b{font-size:14px}
+  .box{width:28px;height:28px}
+  .badge{margin-left:0;margin-right:4px}
+  .task b{display:block}
+}
+
+.box{appearance:none;-webkit-appearance:none;width:30px;height:30px;margin:0;border-radius:9px;border:2px solid var(--line2);background:var(--bg);cursor:pointer;display:inline-grid;place-content:center;transition:background .12s,border-color .12s}
+.box:hover{border-color:var(--accent)}
+.box:checked{background:var(--accent-soft);border-color:var(--accent)}
+.box:checked::after{content:"";width:12px;height:7px;border-left:3px solid #dfe6f5;border-bottom:3px solid #dfe6f5;transform:translate(0,-2px) rotate(-45deg)}
+tr.today-row td{background:rgba(232,196,122,.05)}
+
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+.foot label{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+select,button{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--ink)}
+button{cursor:pointer;font-weight:600;color:var(--ink2)} button:hover{border-color:var(--accent);color:var(--ink)}
+
+footer{border-top:1px solid var(--line);background:var(--bar)}
+footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="./">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+      Archeage Classic
+    </a>
+    <nav aria-label="Main">
+      <a href="./#crafting">Crafting</a>
+      <a href="taming-map.html">Taming Map</a>
+      <a href="dailies.html" aria-current="page">Dailies</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <h1>Dailies</h1>
+      <p>Tick things off for your main and alts. Boxes clear themselves at reset.</p>
+    </div>
+    <div class="clock">
+      <div class="pill"><div class="k">Server day</div><div class="v" id="gameDay">…</div></div>
+      <div class="pill"><div class="k">Daily reset in</div><div class="v" id="resetIn">…</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="list">
+      <table>
+        <thead><tr id="headRow"><th scope="col">Task</th></tr></thead>
+        <tbody id="body"></tbody>
+      </table>
+    </div>
+    <div class="foot">
+      <label for="resetHour">Daily reset happens at
+        <select id="resetHour"></select>
+        <span>your time</span>
+      </label>
+      <button type="button" id="clearBtn">Untick everything</button>
+    </div>
+  </section>
+
+  <p class="note">Click a name to rename a character. Your ticks are saved in this browser only, so they won&rsquo;t show up on another computer or phone. Activity quests can only be picked up on their day but can be finished any time that week, so they stay ticked until that day comes around again.</p>
+</main>
+
+<footer>
+  <div class="wrap">Activity token amounts from the <a href="https://wiki.aa-classic.com/Activity_Tokens" target="_blank" rel="noopener">AA Classic wiki</a>.</div>
+</footer>
+
+<script>
+const CHARS = 4;
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const GROUPS = [
+  {title:'Guild dailies', note:'every day', tasks:[
+    {id:'colonize', name:'Colonizing Auroria', sub:'Only when Diamond Shores is at peace'},
+    {id:'defend', name:'Defending Auroria'},
+    {id:'boss', name:'World Bosses', sub:'Any one: CR, GR or JMG'},
+  ]},
+  {title:'Castle', note:'every day', tasks:[
+    {id:'castle', name:'Castle daily', sub:'Rewards Lord’s Pence'},
+  ]},
+  {title:'Activity quests', note:'weekly · pick up from Shadow Daru in a capital', tasks:[
+    {id:'bloodbath', name:'Crystalline Bloodbath', day:5, tokens:30},
+    {id:'fishing', name:'Fishing quest', day:6, tokens:20},
+    {id:'ghost', name:'Delphinad Ghost Ship', day:6, tokens:33},
+    {id:'lib1', name:'Ayanad Library · quest 1', day:6, tokens:10},
+    {id:'lib2', name:'Ayanad Library · quest 2', day:6, tokens:10},
+    {id:'anthalon', name:'Anthalon', day:0, tokens:33, sub:'Needs story Chapter 99 done first'},
+  ]},
+];
+const ALL = GROUPS.flatMap(g => g.tasks);
+
+/* ---------- saved state (this browser only) ---------- */
+const KEY = 'aa-dailies-v1';
+let S = {names:['Main','Alt 1','Alt 2','Alt 3'], checks:{}, resetUTC:0};
+try{ const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if(s) S = Object.assign(S, s); }catch(e){}
+const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
+
+/* ---------- server days ---------- */
+const DAY = 864e5;
+const dayNum = () => Math.floor((Date.now() - S.resetUTC*36e5) / DAY);  // server day counter
+const weekday = n => (n + 4) % 7;                                        // day 0 (1 Jan 1970) was a Thursday
+function period(t){                                                      // which reset window a tick belongs to
+  const n = dayNum();
+  return t.day == null ? 'd' + n : 'w' + (n - ((weekday(n) - t.day + 7) % 7));
+}
+const isOn = (t, c) => S.checks[t.id + '|' + c] === period(t);
+
+/* ---------- table ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(){
+  const today = weekday(dayNum());
+  document.getElementById('headRow').innerHTML = '<th scope="col">Task</th>' + S.names.slice(0, CHARS).map((n, c) =>
+    `<th scope="col" class="ch"><input class="name" data-c="${c}" value="${esc(n)}" aria-label="Character ${c+1} name" maxlength="16"><span class="prog" id="prog${c}"></span></th>`).join('');
+  document.getElementById('body').innerHTML = GROUPS.map(g =>
+    `<tr class="group"><th colspan="${CHARS+1}" scope="colgroup">${esc(g.title)}<span>${esc(g.note)}</span></th></tr>` +
+    g.tasks.map(t => {
+      const todayPick = t.day != null && t.day === today;
+      const when = t.day != null ? (todayPick ? '<span class="badge today">Pick up today</span>' : `<span class="sub">Picked up ${DAYS[t.day]}</span>`) : (t.sub ? `<span class="sub">${esc(t.sub)}</span>` : '');
+      const extra = t.day != null && t.sub ? `<span class="sub">${esc(t.sub)}</span>` : '';
+      const tok = t.tokens ? `<span class="badge tok">${t.tokens} tokens</span>` : '';
+      const boxes = Array.from({length:CHARS}, (_, c) =>
+        `<td class="ck"><input type="checkbox" class="box" data-t="${t.id}" data-c="${c}" ${isOn(t,c)?'checked':''} aria-label="${esc(t.name)} done for ${esc(S.names[c])}"></td>`).join('');
+      return `<tr class="${todayPick?'today-row':''}"><td class="task"><b>${esc(t.name)}</b>${tok}${when}${extra}</td>${boxes}</tr>`;
+    }).join('')).join('');
+  progress();
+}
+function progress(){
+  const daily = ALL.filter(t => t.day == null);
+  const weekly = ALL.filter(t => t.day != null);
+  const totalTok = weekly.reduce((s, t) => s + t.tokens, 0);
+  for(let c = 0; c < CHARS; c++){
+    const d = daily.filter(t => isOn(t, c)).length;
+    const tok = weekly.filter(t => isOn(t, c)).reduce((s, t) => s + t.tokens, 0);
+    const el = document.getElementById('prog' + c);
+    el.innerHTML = `<span class="long">${d}/${daily.length} daily · ${tok}/${totalTok} tokens</span><span class="short">${d}/${daily.length}<br>${tok} tok</span>`;
+    el.classList.toggle('done', d === daily.length);
+  }
+}
+
+document.addEventListener('change', e => {
+  const b = e.target;
+  if(b.classList.contains('box')){
+    const t = ALL.find(x => x.id === b.dataset.t), k = t.id + '|' + b.dataset.c;
+    if(b.checked) S.checks[k] = period(t); else delete S.checks[k];
+    save(); progress();
+  }
+});
+document.addEventListener('input', e => {
+  if(e.target.classList.contains('name')){
+    const c = +e.target.dataset.c; S.names[c] = e.target.value.trim() || (c ? 'Alt ' + c : 'Main'); save();
+  }
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if(confirm('Untick every box for every character?')){ S.checks = {}; save(); render(); }
+});
+
+/* ---------- reset time picker (stored in UTC, shown in your time) ---------- */
+const sel = document.getElementById('resetHour');
+const fmtHour = h => { const d = new Date(Date.UTC(2026, 0, 1, h)); return d.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}); };
+sel.innerHTML = Array.from({length:24}, (_, h) => `<option value="${h}">${fmtHour(h)}</option>`).join('');
+sel.value = S.resetUTC;
+sel.addEventListener('change', () => { S.resetUTC = +sel.value; save(); render(); tick(); });
+
+/* ---------- clock ---------- */
+let shownDay = dayNum();
+function tick(){
+  const n = dayNum();
+  if(n !== shownDay){ shownDay = n; render(); }       // reset happened while the page was open
+  document.getElementById('gameDay').textContent = DAYS[weekday(n)];
+  const next = (n + 1) * DAY + S.resetUTC * 36e5, left = Math.max(0, next - Date.now());
+  const h = Math.floor(left / 36e5), m = Math.floor(left % 36e5 / 6e4);
+  document.getElementById('resetIn').textContent = `${h}h ${String(m).padStart(2,'0')}m`;
+}
+render(); tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>
