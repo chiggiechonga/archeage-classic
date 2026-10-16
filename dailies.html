@@ -328,14 +328,23 @@ function renderRifts(){
     .map(r => `${r.short} ${fmtTime(r.t)}`).join(' · ');
 }
 
-/* ---------- Diamond Shores: conflict 2h → war 2h → peace 2h, repeating ---------- */
+/* ---------- Diamond Shores: conflict 1h → war 2h → peace 2h, repeating ---------- */
 const DS0 = Date.UTC(2026, 9, 16, 18, 30);          // a conflict start (11:30 AM Pacific, Oct 16)
-const DS_STAGES = [['Conflict','conflict'], ['War','war'], ['Peace','peace']], DS_LEN = 2 * 36e5;
+const DS_STAGES = [                                 // [name, css class, hours]
+  ['Conflict', 'conflict', 1],
+  ['War', 'war', 2],
+  ['Peace', 'peace', 2],
+];
+const DS_CYCLE = DS_STAGES.reduce((s, x) => s + x[2], 0) * 36e5;
 function dsState(){
-  const now = Date.now(), into = (((now - DS0) % (3 * DS_LEN)) + 3 * DS_LEN) % (3 * DS_LEN);
-  const i = Math.floor(into / DS_LEN), endsIn = DS_LEN - into % DS_LEN;
-  const peaceIn = i === 2 ? 0 : (2 - i) * DS_LEN - into % DS_LEN;      // time until next peace starts
-  return {name: DS_STAGES[i][0], cls: DS_STAGES[i][1], endsIn, peaceAt: now + peaceIn, peaceEnds: now + (i === 2 ? endsIn : peaceIn + DS_LEN)};
+  const now = Date.now(), into = (((now - DS0) % DS_CYCLE) + DS_CYCLE) % DS_CYCLE;
+  let start = 0, i = 0;
+  while(into >= start + DS_STAGES[i][2] * 36e5){ start += DS_STAGES[i][2] * 36e5; i++; }
+  const endsIn = start + DS_STAGES[i][2] * 36e5 - into;
+  const p = DS_STAGES.findIndex(s => s[1] === 'peace');
+  const peaceStart = DS_STAGES.slice(0, p).reduce((s, x) => s + x[2], 0) * 36e5, peaceLen = DS_STAGES[p][2] * 36e5;
+  const peaceAt = i === p ? now : now + (peaceStart - into + DS_CYCLE) % DS_CYCLE;
+  return {name: DS_STAGES[i][0], cls: DS_STAGES[i][1], endsIn, peaceAt, peaceEnds: i === p ? now + endsIn : peaceAt + peaceLen};
 }
 function renderDS(){
   const s = dsState(), now = Date.now();
