@@ -72,6 +72,10 @@ tr:last-child td{border-bottom:0}
 .cd.soon{color:var(--warn)}
 .task .sub.next{color:var(--accent);font-weight:600}
 .pill{min-width:120px}
+.pill.peace{background:var(--up-bg);border-color:#2f5a42} .pill.peace .v{color:var(--up)}
+.pill.conflict{background:var(--warn-bg);border-color:#5a4a26} .pill.conflict .v{color:var(--warn)}
+.pill.war{background:#382522;border-color:#5e3630} .pill.war .v{color:#f0a48f}
+.task .sub.next.ok{color:var(--up)} .task .sub.next.wait{color:var(--warn)}
 .short{display:none}
 @media (max-width:640px){
   table{min-width:0}
@@ -126,6 +130,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <div class="pill"><div class="k">Server day</div><div class="v" id="gameDay">…</div></div>
       <div class="pill"><div class="k">Game time</div><div class="v" id="gameTime">…</div></div>
       <div class="pill"><div class="k">Daily reset in</div><div class="v" id="resetIn">…</div></div>
+      <div class="pill ds" id="dsPill"><div class="k">Diamond Shores</div><div class="v" id="dsNow">…</div></div>
     </div>
   </section>
 
@@ -170,7 +175,7 @@ const CHARS = 4;
 const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const GROUPS = [
   {title:'Guild dailies', note:'every day', tasks:[
-    {id:'colonize', name:'Colonizing Auroria', sub:'Only when Diamond Shores is at peace'},
+    {id:'colonize', name:'Colonizing Auroria', sub:'Only when Diamond Shores is at peace', ds:true},
     {id:'defend', name:'Defending Auroria'},
     {id:'boss', name:'World Bosses', sub:'Any one: Crimson Rift, Grimghast Rift or Jola/Meina/Glenn', next:true},
   ]},
@@ -228,10 +233,10 @@ function render(){
       const tok = t.tokens ? `<span class="badge tok">${t.tokens} tokens</span>` : '';
       const boxes = Array.from({length:CHARS}, (_, c) =>
         `<td class="ck"><input type="checkbox" class="box" data-t="${t.id}" data-c="${c}" ${isOn(t,c)?'checked':''} aria-label="${esc(t.name)} done for ${esc(S.names[c])}"></td>`).join('');
-      const nxt = t.next ? '<span class="sub next" id="bossNext"></span>' : '';
+      const nxt = t.next ? '<span class="sub next" id="bossNext"></span>' : t.ds ? '<span class="sub next" id="dsRow"></span>' : '';
       return `<tr class="${todayPick?'today-row':''}"><td class="task"><b>${esc(t.name)}</b>${tok}${when}${extra}${nxt}</td>${boxes}</tr>`;
     }).join('')).join('');
-  progress(); renderRifts();
+  progress(); renderRifts(); renderDS();
 }
 function progress(){
   const daily = ALL.filter(t => t.day == null);
@@ -323,6 +328,28 @@ function renderRifts(){
     .map(r => `${r.short} ${fmtTime(r.t)}`).join(' · ');
 }
 
+/* ---------- Diamond Shores: conflict 2h → war 2h → peace 2h, repeating ---------- */
+const DS0 = Date.UTC(2026, 9, 16, 18, 30);          // a conflict start (11:30 AM Pacific, Oct 16)
+const DS_STAGES = [['Conflict','conflict'], ['War','war'], ['Peace','peace']], DS_LEN = 2 * 36e5;
+function dsState(){
+  const now = Date.now(), into = (((now - DS0) % (3 * DS_LEN)) + 3 * DS_LEN) % (3 * DS_LEN);
+  const i = Math.floor(into / DS_LEN), endsIn = DS_LEN - into % DS_LEN;
+  const peaceIn = i === 2 ? 0 : (2 - i) * DS_LEN - into % DS_LEN;      // time until next peace starts
+  return {name: DS_STAGES[i][0], cls: DS_STAGES[i][1], endsIn, peaceAt: now + peaceIn, peaceEnds: now + (i === 2 ? endsIn : peaceIn + DS_LEN)};
+}
+function renderDS(){
+  const s = dsState(), now = Date.now();
+  document.getElementById('dsPill').className = 'pill ds ' + s.cls;
+  document.getElementById('dsNow').textContent = `${s.name} · ${left(s.endsIn).replace('in ', '')}`;
+  const row = document.getElementById('dsRow');
+  if(row){
+    row.className = 'sub next ' + (s.cls === 'peace' ? 'ok' : 'wait');
+    row.textContent = s.cls === 'peace'
+      ? `At peace now, until ${fmtTime(s.peaceEnds)} (${left(s.endsIn).replace('in ', '')} left)`
+      : `${s.name} now · next peace ${fmtTime(s.peaceAt)}–${fmtTime(s.peaceEnds)} (${left(s.peaceAt - now)})`;
+  }
+}
+
 /* ---------- clock ---------- */
 let shownDay = dayNum();
 function tick(){
@@ -331,7 +358,7 @@ function tick(){
   document.getElementById('gameDay').textContent = DAYS[weekday(n)];
   document.getElementById('resetIn').textContent = left(atServer(n + 1, 0) - Date.now()).replace('in ', '');
   document.getElementById('gameTime').textContent = gameClock();
-  renderBosses(); renderRifts();
+  renderBosses(); renderRifts(); renderDS();
 }
 document.getElementById('resetAt').textContent = fmtTime(atServer(dayNum() + 1, 0));
 render(); tick(); setInterval(tick, 10000);
