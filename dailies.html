@@ -60,6 +60,16 @@ tr.group th span{color:var(--muted);text-transform:none;letter-spacing:0;font-we
 .badge.tok{background:var(--accent-soft);color:#dfe6f5}
 tr:last-child td{border-bottom:0}
 .badge{white-space:nowrap}
+.bosscard{padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.bosshead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px}
+.bosshead h2{margin:0;font-size:20px;font-weight:700}
+.bosses{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.bosses li{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card2);border-radius:12px;padding:12px 14px}
+.bosses b{font-weight:600}
+.bosses .sub{display:block;font-size:13px;color:var(--muted)}
+.bosses .badge{margin-left:6px}
+.cd{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink2)}
+.cd.soon{color:var(--warn)}
 .short{display:none}
 @media (max-width:640px){
   table{min-width:0}
@@ -124,12 +134,17 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       </table>
     </div>
     <div class="foot">
-      <label for="resetHour">Daily reset happens at
-        <select id="resetHour"></select>
-        <span>your time</span>
-      </label>
+      <span class="note">Daily reset is at server midnight, <b id="resetAt">…</b> your time.</span>
       <button type="button" id="clearBtn">Untick everything</button>
     </div>
+  </section>
+
+  <section class="card bosscard" aria-labelledby="bossTitle">
+    <div class="bosshead">
+      <h2 id="bossTitle">Next world bosses</h2>
+      <span class="note">Times in your time zone, from the <a href="https://aa-classic.com/timers" target="_blank" rel="noopener">official timers</a></span>
+    </div>
+    <ul class="bosses" id="bosses"></ul>
   </section>
 
   <p class="note">Click a name to rename a character. Your ticks are saved in this browser only, so they won&rsquo;t show up on another computer or phone. Activity quests can only be picked up on their day but can be finished any time that week, so they stay ticked until that day comes around again.</p>
@@ -168,9 +183,17 @@ let S = {names:['Main','Alt 1','Alt 2','Alt 3'], checks:{}, resetUTC:0};
 try{ const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if(s) S = Object.assign(S, s); }catch(e){}
 const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
 
-/* ---------- server days ---------- */
+/* ---------- server clock (Eastern time; reset at server midnight) ---------- */
 const DAY = 864e5;
-const dayNum = () => Math.floor((Date.now() - S.resetUTC*36e5) / DAY);  // server day counter
+const ETF = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric', second:'numeric', hourCycle:'h23'});
+function serverNow(){                       // server date as a day counter, plus how far ET is from UTC
+  const now = Date.now(), p = {};
+  for(const {type, value} of ETF.formatToParts(now)) p[type] = +value;
+  const wall = Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute, p.second);
+  return {day: Math.floor(wall / DAY), offset: wall - Math.floor(now / 1000) * 1000};
+}
+const dayNum = () => serverNow().day;       // server day counter
+const atServer = (day, mins) => day * DAY + mins * 6e4 - serverNow().offset;   // server day + time → real moment
 const weekday = n => (n + 4) % 7;                                        // day 0 (1 Jan 1970) was a Thursday
 function period(t){                                                      // which reset window a tick belongs to
   const n = dayNum();
@@ -189,7 +212,8 @@ function render(){
     g.tasks.map(t => {
       const todayPick = t.day != null && t.day === today;
       const when = t.day != null ? (todayPick ? '<span class="badge today">Pick up today</span>' : `<span class="sub">Picked up ${DAYS[t.day]}</span>`) : (t.sub ? `<span class="sub">${esc(t.sub)}</span>` : '');
-      const extra = t.day != null && t.sub ? `<span class="sub">${esc(t.sub)}</span>` : '';
+      const sub = t.id === 'ghost' ? `Ship spawns daily at ${fmtTime(atServer(dayNum(), mins(GHOST)))}` : t.sub;
+      const extra = t.day != null && sub ? `<span class="sub">${esc(sub)}</span>` : '';
       const tok = t.tokens ? `<span class="badge tok">${t.tokens} tokens</span>` : '';
       const boxes = Array.from({length:CHARS}, (_, c) =>
         `<td class="ck"><input type="checkbox" class="box" data-t="${t.id}" data-c="${c}" ${isOn(t,c)?'checked':''} aria-label="${esc(t.name)} done for ${esc(S.names[c])}"></td>`).join('');
@@ -227,12 +251,38 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   if(confirm('Untick every box for every character?')){ S.checks = {}; save(); render(); }
 });
 
-/* ---------- reset time picker (stored in UTC, shown in your time) ---------- */
-const sel = document.getElementById('resetHour');
-const fmtHour = h => { const d = new Date(Date.UTC(2026, 0, 1, h)); return d.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}); };
-sel.innerHTML = Array.from({length:24}, (_, h) => `<option value="${h}">${fmtHour(h)}</option>`).join('');
-sel.value = S.resetUTC;
-sel.addEventListener('change', () => { S.resetUTC = +sel.value; save(); render(); tick(); });
+/* ---------- world boss schedule (server time, from aa-classic.com/timers) ---------- */
+const BOSSES = [
+  {name:'Red Dragon', at:[[5,'17:30'],[1,'21:30'],[3,'13:30']]},
+  {name:'Red Dragon, Kraken or Berserker', tag:'JMG · random', at:[[6,'05:00']]},
+  {name:'Leviathan', at:[[6,'14:00'],[1,'14:00'],[3,'14:00']]},
+  {name:'Kraken', at:[[6,'16:30'],[1,'13:30'],[3,'21:30']]},
+  {name:'Berserker', at:[[0,'15:30']]},
+];
+const GHOST = '14:15';                                // Delphinad Ghost Ship, every day
+const mins = s => { const [h, m] = s.split(':'); return h * 60 + +m; };
+const fmtWhen = t => new Date(t).toLocaleString([], {weekday:'short', hour:'numeric', minute:'2-digit'});
+const fmtTime = t => new Date(t).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+function left(ms){
+  if(ms <= 0) return 'Now';
+  const d = Math.floor(ms / DAY), h = Math.floor(ms % DAY / 36e5), m = Math.floor(ms % 36e5 / 6e4);
+  return d ? `in ${d}d ${h}h` : h ? `in ${h}h ${String(m).padStart(2,'0')}m` : `in ${m}m`;
+}
+function nextTimes(){
+  const n = dayNum(), now = Date.now(), out = [];
+  for(const b of BOSSES) for(const [wd, hm] of b.at){
+    const k = (wd - weekday(n) + 7) % 7;
+    let t = atServer(n + k, mins(hm));
+    if(t < now - 15 * 6e4) t += 7 * DAY;            // already over this week → next week
+    out.push({...b, t});
+  }
+  return out.sort((a, b) => a.t - b.t);
+}
+function renderBosses(){
+  const now = Date.now();
+  document.getElementById('bosses').innerHTML = nextTimes().slice(0, 6).map(b =>
+    `<li><div><b>${esc(b.name)}</b>${b.tag ? `<span class="badge tok">${esc(b.tag)}</span>` : ''}<span class="sub">${fmtWhen(b.t)}</span></div><span class="cd${b.t - now < 36e5 ? ' soon' : ''}">${left(b.t - now)}</span></li>`).join('');
+}
 
 /* ---------- clock ---------- */
 let shownDay = dayNum();
@@ -240,10 +290,10 @@ function tick(){
   const n = dayNum();
   if(n !== shownDay){ shownDay = n; render(); }       // reset happened while the page was open
   document.getElementById('gameDay').textContent = DAYS[weekday(n)];
-  const next = (n + 1) * DAY + S.resetUTC * 36e5, left = Math.max(0, next - Date.now());
-  const h = Math.floor(left / 36e5), m = Math.floor(left % 36e5 / 6e4);
-  document.getElementById('resetIn').textContent = `${h}h ${String(m).padStart(2,'0')}m`;
+  document.getElementById('resetIn').textContent = left(atServer(n + 1, 0) - Date.now()).replace('in ', '');
+  renderBosses();
 }
+document.getElementById('resetAt').textContent = fmtTime(atServer(dayNum() + 1, 0));
 render(); tick(); setInterval(tick, 30000);
 </script>
 </body>
