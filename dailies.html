@@ -328,11 +328,11 @@ function renderRifts(){
     .map(r => `${r.short} ${fmtTime(r.t)}`).join(' · ');
 }
 
-/* ---------- Diamond Shores: conflict 1h → war 2h → peace 2h, repeating ---------- */
+/* ---------- Diamond Shores: conflict 1h → war 3h → peace 2h, repeating ---------- */
 const DS0 = Date.UTC(2026, 9, 16, 18, 30);          // a conflict start (11:30 AM Pacific, Oct 16)
 const DS_STAGES = [                                 // [name, css class, hours]
   ['Conflict', 'conflict', 1],
-  ['War', 'war', 2],
+  ['War', 'war', 3],
   ['Peace', 'peace', 2],
 ];
 const DS_CYCLE = DS_STAGES.reduce((s, x) => s + x[2], 0) * 36e5;
