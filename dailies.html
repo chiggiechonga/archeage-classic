@@ -70,6 +70,8 @@ tr:last-child td{border-bottom:0}
 .bosses .badge{margin-left:6px}
 .cd{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink2)}
 .cd.soon{color:var(--warn)}
+.task .sub.next{color:var(--accent);font-weight:600}
+.pill{min-width:120px}
 .short{display:none}
 @media (max-width:640px){
   table{min-width:0}
@@ -122,6 +124,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
     </div>
     <div class="clock">
       <div class="pill"><div class="k">Server day</div><div class="v" id="gameDay">…</div></div>
+      <div class="pill"><div class="k">Game time</div><div class="v" id="gameTime">…</div></div>
       <div class="pill"><div class="k">Daily reset in</div><div class="v" id="resetIn">…</div></div>
     </div>
   </section>
@@ -137,6 +140,14 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <span class="note">Daily reset is at server midnight, <b id="resetAt">…</b> your time.</span>
       <button type="button" id="clearBtn">Untick everything</button>
     </div>
+  </section>
+
+  <section class="card bosscard" aria-labelledby="riftTitle">
+    <div class="bosshead">
+      <h2 id="riftTitle">Rifts and Jola/Meina/Glenn</h2>
+      <span class="note">Every 4 hours (once per in-game day) · your time zone</span>
+    </div>
+    <ul class="bosses" id="rifts"></ul>
   </section>
 
   <section class="card bosscard" aria-labelledby="bossTitle">
@@ -161,7 +172,7 @@ const GROUPS = [
   {title:'Guild dailies', note:'every day', tasks:[
     {id:'colonize', name:'Colonizing Auroria', sub:'Only when Diamond Shores is at peace'},
     {id:'defend', name:'Defending Auroria'},
-    {id:'boss', name:'World Bosses', sub:'Any one: CR, GR or JMG'},
+    {id:'boss', name:'World Bosses', sub:'Any one: Crimson Rift, Grimghast Rift or Jola/Meina/Glenn', next:true},
   ]},
   {title:'Castle', note:'every day', tasks:[
     {id:'castle', name:'Castle daily', sub:'Rewards Lord’s Pence'},
@@ -217,9 +228,10 @@ function render(){
       const tok = t.tokens ? `<span class="badge tok">${t.tokens} tokens</span>` : '';
       const boxes = Array.from({length:CHARS}, (_, c) =>
         `<td class="ck"><input type="checkbox" class="box" data-t="${t.id}" data-c="${c}" ${isOn(t,c)?'checked':''} aria-label="${esc(t.name)} done for ${esc(S.names[c])}"></td>`).join('');
-      return `<tr class="${todayPick?'today-row':''}"><td class="task"><b>${esc(t.name)}</b>${tok}${when}${extra}</td>${boxes}</tr>`;
+      const nxt = t.next ? '<span class="sub next" id="bossNext"></span>' : '';
+      return `<tr class="${todayPick?'today-row':''}"><td class="task"><b>${esc(t.name)}</b>${tok}${when}${extra}${nxt}</td>${boxes}</tr>`;
     }).join('')).join('');
-  progress();
+  progress(); renderRifts();
 }
 function progress(){
   const daily = ALL.filter(t => t.day == null);
@@ -254,7 +266,7 @@ document.getElementById('clearBtn').addEventListener('click', () => {
 /* ---------- world boss schedule (server time, from aa-classic.com/timers) ---------- */
 const BOSSES = [
   {name:'Red Dragon', at:[[5,'17:30'],[1,'21:30'],[3,'13:30']]},
-  {name:'Red Dragon, Kraken or Berserker', tag:'JMG · random', at:[[6,'05:00']]},
+  {name:'Red Dragon, Kraken or Berserker', tag:'random', at:[[6,'05:00']]},
   {name:'Leviathan', at:[[6,'14:00'],[1,'14:00'],[3,'14:00']]},
   {name:'Kraken', at:[[6,'16:30'],[1,'13:30'],[3,'21:30']]},
   {name:'Berserker', at:[[0,'15:30']]},
@@ -284,6 +296,33 @@ function renderBosses(){
     `<li><div><b>${esc(b.name)}</b>${b.tag ? `<span class="badge tok">${esc(b.tag)}</span>` : ''}<span class="sub">${fmtWhen(b.t)}</span></div><span class="cd${b.t - now < 36e5 ? ' soon' : ''}">${left(b.t - now)}</span></li>`).join('');
 }
 
+/* ---------- game-time events (1 game hour = 10 real minutes, so a game day is 4 real hours) ---------- */
+const GT0 = Date.UTC(2026, 9, 16, 13, 13, 52);       // a game-time midnight, read off the official timers
+const GDAY = 4 * 36e5, GHOUR = 6e5;
+const RIFTS = [
+  {name:'Grimghast Rift', short:'GR', gt:0},
+  {name:'Jola/Meina/Glenn', short:'JMG', gt:6},
+  {name:'Crimson Rift', short:'CR', gt:12},
+  {name:'Sungold Crimson Rift', gt:18},
+  {name:'Hasla Rift', gt:18},
+];
+const gameClock = () => { const m = Math.floor((((Date.now() - GT0) % GDAY) + GDAY) % GDAY / 1e4); return String(Math.floor(m / 60)).padStart(2,'0') + ':' + String(m % 60).padStart(2,'0'); };
+function nextGT(h){
+  const now = Date.now();
+  let t = GT0 + Math.floor((now - GT0) / GDAY) * GDAY + h * GHOUR;
+  while(t < now - 10 * 6e4) t += GDAY;               // counts as "Now" for 10 minutes after it starts
+  return t;
+}
+function renderRifts(){
+  const now = Date.now();
+  const list = RIFTS.map(r => ({...r, t: nextGT(r.gt)})).sort((a, b) => a.t - b.t);
+  document.getElementById('rifts').innerHTML = list.map(r =>
+    `<li><div><b>${esc(r.name)}</b>${r.short ? `<span class="badge tok">${r.short}</span>` : ''}<span class="sub">${fmtTime(r.t)} · ${String(r.gt).padStart(2,'0')}:00 game time</span></div><span class="cd${r.t - now < 15 * 6e4 ? ' soon' : ''}">${left(r.t - now)}</span></li>`).join('');
+  const nb = document.getElementById('bossNext');
+  if(nb) nb.textContent = 'Next: ' + RIFTS.filter(r => r.short).map(r => ({...r, t: nextGT(r.gt)})).sort((a, b) => a.t - b.t)
+    .map(r => `${r.short} ${fmtTime(r.t)}`).join(' · ');
+}
+
 /* ---------- clock ---------- */
 let shownDay = dayNum();
 function tick(){
@@ -291,10 +330,11 @@ function tick(){
   if(n !== shownDay){ shownDay = n; render(); }       // reset happened while the page was open
   document.getElementById('gameDay').textContent = DAYS[weekday(n)];
   document.getElementById('resetIn').textContent = left(atServer(n + 1, 0) - Date.now()).replace('in ', '');
-  renderBosses();
+  document.getElementById('gameTime').textContent = gameClock();
+  renderBosses(); renderRifts();
 }
 document.getElementById('resetAt').textContent = fmtTime(atServer(dayNum() + 1, 0));
-render(); tick(); setInterval(tick, 30000);
+render(); tick(); setInterval(tick, 10000);
 </script>
 </body>
 </html>
