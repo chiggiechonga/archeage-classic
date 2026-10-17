@@ -79,8 +79,9 @@ function snapshotHistory() {
   const lastDate = dates[dates.length - 1] || '';
   if (lastDate > day) return; // a later day is already saved
 
-  // Compare with the most recent earlier day in the log. If almost every item's
-  // 24h and 7d sold numbers are identical, Michael's update didn't bring new prices.
+  // Compare with the most recent earlier day in the log. On a real new day only ~5% of items
+  // keep identical 24h and 7d sold numbers; when Michael's update doesn't bring new prices it's
+  // ~90%+ (a few items still shift). Half or more identical means the day is stale.
   const prevDate = [...dates].reverse().find(d => d && d < day);
   if (prevDate) {
     const start = dates.indexOf(prevDate), end = dates.lastIndexOf(prevDate);
@@ -88,7 +89,7 @@ function snapshotHistory() {
     const was = new Map(prev.map(r => [r[0], num_(r[3]) + '|' + num_(r[5])]));
     let same = 0, both = 0;
     rows.forEach(r => { if (was.has(r[1])) { both++; if (was.get(r[1]) === r[4] + '|' + r[6]) same++; } });
-    if (both > 20 && same / both >= 0.95) {
+    if (both > 20 && same / both >= 0.5) {
       clearDay_(log, day, look);                               // stale: drop anything saved under this date
       clearDay_(ss.getSheetByName('History'), day, 400);
       return;
