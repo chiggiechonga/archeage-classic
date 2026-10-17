@@ -84,6 +84,7 @@ select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radiu
 .chart{border-radius:14px;background:var(--sunk);border:1px solid var(--line);padding:12px;min-height:240px;display:flex;align-items:center;justify-content:center}
 .chart svg{display:block;width:100%;height:auto}
 .chart svg text{font-family:var(--font);font-size:12px;fill:var(--muted)}
+.chart svg text.pv{font-size:13px;font-weight:600;fill:#c6d3f2;paint-order:stroke;stroke:#191d20;stroke-width:4px;stroke-linejoin:round}
 .tags{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .tag{border-radius:12px;padding:14px 16px}
 .tag .k{font-size:13px;font-weight:700}
@@ -283,20 +284,26 @@ function fillPick(){
 function drawChart(name){
   const pts = (HIST[kind][name]||[]).slice().sort((a,b) => a[0]<b[0]?-1:1);
   if(!pts.length){ chart.innerHTML = '<span class="note">No history for this item yet.</span>'; return; }
-  const W=1000,H=260,L=120,R=20,T=20,B=40;
+  const W = Math.round(Math.max(320, Math.min(1000, (chart.clientWidth || 1000) - 24)));   // 1 unit ≈ 1 screen pixel
+  const narrow = W < 600, H = narrow ? 240 : 270, L = narrow ? 58 : 80, R = narrow ? 14 : 20, T = 36, B = 40;
   const vals = pts.map(p => p[1]); let lo = Math.min(...vals), hi = Math.max(...vals);
   if(lo===hi){ lo = lo*0.9; hi = hi*1.1 || 1; }
   const x = i => pts.length===1 ? (L+(W-R))/2 : L + i*(W-L-R)/(pts.length-1);
   const y = v => T + (hi-v)*(H-T-B)/(hi-lo);
-  const grid = [0,0.5,1].map(f => { const v = lo + (hi-lo)*f; return `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#2b3135"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${gold(v)}</text>`; }).join('');
+  const short = v => v >= 1 ? Math.round(v).toLocaleString('en-US') + ' g' : v >= 0.01 ? Math.round(v*100) + ' s' : Math.round(v*10000) + ' c';
+  const grid = [0,0.5,1].map(f => { const v = lo + (hi-lo)*f; return `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#2b3135"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${short(v)}</text>`; }).join('');
   const line = pts.length>1 ? `<polyline fill="none" stroke="#9db3e6" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>` : '';
   const dots = pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="${pts.length>40?2:4}" fill="#9db3e6"><title>${esc(p[0])}: ${gold(p[1])}</title></circle>`).join('');
+  const lstep = Math.max(1, Math.ceil(pts.length / (narrow ? 4 : 10)));   // label every point, thinning out once there are lots
+  const labels = pts.map((p,i) => (i%lstep===0 || i===pts.length-1)
+    ? `<text class="pv" x="${x(i)}" y="${y(p[1]) - 12}" text-anchor="${pts.length>1 && i===pts.length-1 ? 'end' : pts.length>1 && i===0 ? 'start' : 'middle'}">${gold(p[1])}</text>` : '').join('');
   const step = Math.max(1, Math.ceil(pts.length/6));
   const xl = pts.map((p,i) => (i%step===0||i===pts.length-1) ? `<text x="${x(i)}" y="${H-12}" text-anchor="middle">${esc(p[0].slice(5))}</text>` : '').join('');
   const one = pts.length===1 ? `<text x="${W/2}" y="${T+14}" text-anchor="middle">One day so far: the line grows each morning</text>` : '';
-  chart.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily price of ${esc(name)}">${grid}${line}${dots}${xl}${one}</svg>`;
+  chart.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily price of ${esc(name)}">${grid}${line}${dots}${labels}${xl}${one}</svg>`;
 }
 pick.addEventListener('change', () => drawChart(pick.value));
+let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(() => { if(pick.value) drawChart(pick.value); }, 150); });
 document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
   kind = b.dataset.kind;
   document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c===b));
