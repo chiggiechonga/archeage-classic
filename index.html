@@ -72,6 +72,8 @@ a.door:hover{border-color:var(--accent)}
 .mob li span{color:var(--muted)}
 .mob li b{font-weight:600;color:var(--ink);text-align:right}
 .mob li b.buy{color:var(--accent)}
+.mob li b .sl{display:block;font-size:13px;font-weight:500;color:var(--muted)}
+.mob .note{margin-top:auto}
 .trends{padding:24px;display:flex;flex-direction:column;gap:16px}
 .thead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
 .thead h2{margin:0;font-size:22px;font-weight:700;color:#f0f2ef}
@@ -153,6 +155,12 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l-3-3"/><path d="M12 12l3-3"/></svg></span>
       <h2>Make or buy</h2>
       <ul id="makeList"><li><span>Loading…</span></li></ul>
+    </div>
+    <div class="card door mob">
+      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6 7 5.5z"/><path d="M5 21h14"/></svg></span>
+      <h2>Best to plant</h2>
+      <ul id="plantList"><li><span>Loading…</span></li></ul>
+      <p class="note">Most silver per labor among things that sell enough.</p>
     </div>
   </section>
 
@@ -336,6 +344,24 @@ async function loadMake(){
   }
 }
 
+/* ---------- Best to plant (Website!O:Q, picked by the Farming and Husbandry tabs) ---------- */
+async function loadPlant(){
+  const list = document.getElementById('plantList');
+  try{
+    const r = await fetch(SHEET + '&sheet=Website&range=O1:Q4', {cache:'no-store'});
+    if(!r.ok) throw new Error(r.status);
+    const rows = parseCSV(await r.text()).slice(1).filter(x => x[0]);
+    if(!rows.length) throw new Error('empty');
+    list.innerHTML = rows.map(([kind, pick, sl]) => {
+      const s = num(sl), ok = pick && pick !== 'none';
+      return `<li><span>${esc(kind)}</span><b>${ok ? esc(pick) : 'Nothing worth it'}${ok && s != null ? `<small class="sl">${Math.round(s)} silver/labor</small>` : ''}</b></li>`;
+    }).join('');
+  }catch(e){
+    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
+  }
+}
+
+loadPlant();
 Promise.all([loadPrices(), loadHistory()]).then(() => { updateTags(); loadMake(); });
 </script>
 </body>
