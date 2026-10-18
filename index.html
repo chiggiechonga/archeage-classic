@@ -72,8 +72,9 @@ a.door:hover{border-color:var(--accent)}
 .mob li span{color:var(--muted)}
 .mob li b{font-weight:600;color:var(--ink);text-align:right}
 .mob li b.buy{color:var(--accent)}
-.mob li b .sl{display:block;font-size:13px;font-weight:500;color:var(--muted)}
+.mob li .sl{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 .mob .note{margin-top:auto}
+.mob li b.good{color:var(--up)} .mob li b.bad{color:var(--down)} .mob li b.meh{color:#e8c47a}
 .trends{padding:24px;display:flex;flex-direction:column;gap:16px}
 .thead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
 .thead h2{margin:0;font-size:22px;font-weight:700;color:#f0f2ef}
@@ -162,6 +163,12 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <h2>Best to plant</h2>
       <ul id="plantList"><li><span>Loading…</span></li></ul>
       <p class="note">Most silver per labor among things that sell enough.</p>
+    </div>
+    <div class="card door mob">
+      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M10 14a2 2 0 0 0 2 2"/></svg></span>
+      <h2>Mana wisp salvage</h2>
+      <ul id="wispList"><li><span>Loading…</span></li></ul>
+      <p class="note">Chest pieces taken to Ayanad and salvaged, per Ayanad.</p>
     </div>
   </section>
 
@@ -368,7 +375,28 @@ async function loadPlant(){
   }
 }
 
-loadPlant();
+/* ---------- Mana wisp salvage (Website!S:W, from the Mana Wisps tab) ---------- */
+async function loadWisps(){
+  const list = document.getElementById('wispList');
+  try{
+    const r = await fetch(SHEET + '&sheet=Website&range=S1:W4', {cache:'no-store'});
+    if(!r.ok) throw new Error(r.status);
+    const rows = parseCSV(await r.text()).slice(1).filter(x => x[0]);
+    if(!rows.length) throw new Error('empty');
+    list.innerHTML = rows.map(([kind, sl, profit, wisp, verdict]) => {
+      const s = num(sl), p = num(profit), w = num(wisp);
+      const cls = p == null ? '' : p <= 0 ? 'bad' : s < 30 ? 'meh' : 'good';
+      const main = s == null ? '—' : `${Math.round(s)} silver/labor`;
+      const sub = p == null ? '' : `${p < 0 ? '−' : '+'}${Math.round(Math.abs(p)).toLocaleString('en-US')} g each${w != null ? ' · wisp ' + w.toFixed(1) + ' g' : ''}`;
+      const [name, piece] = kind.replace(')', '').split(' (');
+      return `<li><span>${esc(name)}${piece ? `<small class="sl">${esc(piece)}</small>` : ''}</span><b class="${cls}">${main}<small class="sl">${esc(sub)}</small></b></li>`;
+    }).join('');
+  }catch(e){
+    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
+  }
+}
+
+loadPlant(); loadWisps();
 Promise.all([loadPrices(), loadHistory()]).then(() => { updateTags(); loadMake(); });
 </script>
 </body>
