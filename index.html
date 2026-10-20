@@ -101,6 +101,12 @@ a.door:hover{border-color:var(--accent)}
 .dots span{flex:1;text-align:center;font-size:12px;font-weight:600;color:var(--faint);padding:5px 0;border-radius:8px;background:var(--sunk);border:1px solid var(--line)}
 .dots span.got{color:var(--ink);background:#2a3a2f;border-color:#3f5a46}
 .dots span.now{outline:2px solid #e8c47a;outline-offset:1px}
+.evbar{display:none;align-items:center;gap:12px;margin-bottom:18px;padding:14px 18px;border-radius:14px;border:2px solid #f2c94c;background:#3a3214;color:#ffd84d;font-weight:700;font-size:17px;box-shadow:0 0 0 4px rgba(242,201,76,.12)}
+.evbar.on{display:flex}
+.evbar .dot{width:12px;height:12px;border-radius:50%;background:#ffd84d;flex:none;animation:evp 1.4s ease-in-out infinite}
+.evbar small{display:block;font-size:14px;font-weight:600;color:#f3e2a0}
+@keyframes evp{50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.evbar .dot{animation:none}}
 .chip{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;min-height:40px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink2);cursor:pointer}
 .chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
 select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:100%}
@@ -137,6 +143,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </header>
 
 <main class="wrap">
+  <div class="evbar" id="evbar" role="status"><span class="dot" aria-hidden="true"></span><div><span id="evText"></span><small id="evSub"></small></div></div>
   <section class="lead">
     <div class="hero">
       <img src="images/hero.png" alt="">
@@ -243,6 +250,18 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
   <div class="wrap">Auction house prices, updated daily. Spawn spots from the <a href="https://wiki.aa-classic.com/Taming" target="_blank" rel="noopener">AA Classic wiki</a>.</div>
 </footer>
 
+<script src="event.js"></script>
+<script>
+function showEvent(){
+  const bar = document.getElementById('evbar'), s = eventLive();
+  bar.classList.toggle('on', !!s);
+  if(!s) return;
+  const m = Math.max(1, Math.ceil((s.end - Date.now()) / 6e4));
+  document.getElementById('evText').textContent = '🎃 ' + EVENT.name + ' is happening now!';
+  document.getElementById('evSub').textContent = 'Started at ' + new Date(s.start).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}) + ' · about ' + m + ' min left';
+}
+showEvent(); setInterval(showEvent, 20000);
+</script>
 <script>
 const SHEET = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=1';
 const DATE_URL = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=0&sheet=AH%20Source&range=K1';

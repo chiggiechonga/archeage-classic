@@ -68,6 +68,7 @@ tr:last-child td{border-bottom:0}
 .bosses b{font-weight:600}
 .bosses .sub{display:block;font-size:13px;color:var(--muted)}
 .bosses .badge{margin-left:6px}
+.bosses li.live{background:#3a3214;outline:2px solid #f2c94c} .bosses li.live b,.bosses li.live .cd{color:#ffd84d}
 .cd{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink2)}
 .cd.soon{color:var(--warn)}
 .task .sub.next{color:var(--accent);font-weight:600}
@@ -147,6 +148,14 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
     </div>
   </section>
 
+  <section class="card bosscard" aria-labelledby="evTitle" id="evCard">
+    <div class="bosshead">
+      <h2 id="evTitle">🎃 Halloween event spawns</h2>
+      <span class="note" id="evEnds">…</span>
+    </div>
+    <ul class="bosses" id="evList"></ul>
+  </section>
+
   <section class="card bosscard" aria-labelledby="riftTitle">
     <div class="bosshead">
       <h2 id="riftTitle">Rifts and Jola/Meina/Glenn</h2>
@@ -170,6 +179,7 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
   <div class="wrap">Activity token amounts from the <a href="https://wiki.aa-classic.com/Activity_Tokens" target="_blank" rel="noopener">AA Classic wiki</a>.</div>
 </footer>
 
+<script src="event.js"></script>
 <script>
 const CHARS = 4;
 const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -359,6 +369,17 @@ function renderDS(){
   }
 }
 
+/* ---------- limited-time event (event.js) ---------- */
+function renderEvent(){
+  const now = Date.now(), card = document.getElementById('evCard');
+  if(now >= EVENT.ends){ card.hidden = true; return; }
+  document.getElementById('evEnds').textContent = '11 AM, 3 PM, 7 PM and 11 PM Pacific · event ends ' + left(EVENT.ends - now);
+  document.getElementById('evList').innerHTML = eventSpawns(4).map(s => {
+    const live = s.start <= now;
+    return `<li${live ? ' class="live"' : ''}><div><b>${esc(EVENT.name)}</b><span class="sub">${fmtWhen(s.start)}</span></div><span class="cd${live || s.start - now < 15 * 6e4 ? ' soon' : ''}">${live ? 'Now · ' + Math.ceil((s.end - now) / 6e4) + 'm left' : left(s.start - now)}</span></li>`;
+  }).join('');
+}
+
 /* ---------- clock ---------- */
 let shownDay = dayNum();
 function tick(){
@@ -367,7 +388,7 @@ function tick(){
   document.getElementById('gameDay').textContent = DAYS[weekday(n)];
   document.getElementById('resetIn').textContent = left(atServer(n + 1, 0) - Date.now()).replace('in ', '');
   document.getElementById('gameTime').textContent = gameClock();
-  renderBosses(); renderRifts(); renderDS();
+  renderBosses(); renderRifts(); renderDS(); renderEvent();
 }
 document.getElementById('resetAt').textContent = fmtTime(atServer(dayNum() + 1, 0));
 render(); tick(); setInterval(tick, 10000);
