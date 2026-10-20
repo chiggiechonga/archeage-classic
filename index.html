@@ -256,9 +256,8 @@ function showEvent(){
   const bar = document.getElementById('evbar'), s = eventLive();
   bar.classList.toggle('on', !!s);
   if(!s) return;
-  const m = Math.max(1, Math.ceil((s.end - Date.now()) / 6e4));
   document.getElementById('evText').textContent = '🎃 ' + EVENT.name + ' is happening now!';
-  document.getElementById('evSub').textContent = 'Started at ' + new Date(s.start).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}) + ' · about ' + m + ' min left';
+  document.getElementById('evSub').textContent = 'Spawned at ' + new Date(s.start).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
 }
 showEvent(); setInterval(showEvent, 20000);
 </script>

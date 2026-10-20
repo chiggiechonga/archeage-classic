@@ -2,7 +2,7 @@
 const EVENT = {
   name: 'Halloween event spawn',
   hours: [11, 15, 19, 23],                    // 11 AM, 3 PM, 7 PM, 11 PM Pacific
-  lastsMin: 30,                               // how long a spawn counts as "happening now"
+  lastsMin: 10,                               // how long a spawn counts as "happening now"
   ends: Date.UTC(2026, 10, 4, 17, 24),        // Nov 4, 2026, 9:24 AM Pacific (15d 13h from Oct 19, 8:24 PM)
 };
 function ptOffset(ms){                        // minutes Pacific is behind UTC at that moment

@@ -374,9 +374,11 @@ function renderEvent(){
   const now = Date.now(), card = document.getElementById('evCard');
   if(now >= EVENT.ends){ card.hidden = true; return; }
   document.getElementById('evEnds').textContent = '11 AM, 3 PM, 7 PM and 11 PM Pacific · event ends ' + left(EVENT.ends - now);
-  document.getElementById('evList').innerHTML = eventSpawns(4).map(s => {
+  const label = t => new Date(t).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  document.getElementById('evList').innerHTML = eventSpawns(4).map((s, i) => {
     const live = s.start <= now;
-    return `<li${live ? ' class="live"' : ''}><div><b>${esc(EVENT.name)}</b><span class="sub">${fmtWhen(s.start)}</span></div><span class="cd${live || s.start - now < 15 * 6e4 ? ' soon' : ''}">${live ? 'Now · ' + Math.ceil((s.end - now) / 6e4) + 'm left' : left(s.start - now)}</span></li>`;
+    const title = i === 0 ? (live ? 'Spawning now' : 'Next spawn') : label(s.start) + ' spawn';
+    return `<li${live ? ' class="live"' : ''}><div><b>${title}</b><span class="sub">${fmtWhen(s.start)}</span></div><span class="cd${live || s.start - now < 15 * 6e4 ? ' soon' : ''}">${live ? 'Now' : left(s.start - now)}</span></li>`;
   }).join('');
 }
 
