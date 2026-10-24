@@ -34,7 +34,8 @@ main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
 .intro h1{margin:0;font-size:30px;font-weight:700}
 .intro p{margin:4px 0 0;color:var(--muted);max-width:70ch}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:18px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:18px;align-items:stretch}
+.box > .note:last-child{margin-top:auto}
 .box{padding:22px 24px;display:flex;flex-direction:column;gap:10px}
 .box .hd{display:flex;align-items:center;gap:12px}
 .box .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex:none}
@@ -109,20 +110,17 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <ul id="plantList"><li><span>Loading…</span></li></ul>
       <p class="note">Most silver per labor among things that sell enough.</p>
     </section>
-
-    <section class="card box" aria-labelledby="makeTitle">
-      <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l-3-3"/><path d="M12 12l3-3"/></svg></span><h2 id="makeTitle">Make or buy</h2></div>
-      <ul id="makeList"><li><span>Loading…</span></li></ul>
-      <p class="note">The cheapest crop to process into each, or buy it if the AH is cheaper.</p>
-    </section>
-
     <section class="card box" aria-labelledby="lunaTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/><path d="M17 4l.6 1.4L19 6l-1.4.6L17 8l-.6-1.4L15 6l1.4-.6z"/></svg></span><h2 id="lunaTitle">Lunascales</h2></div>
       <p class="pickline" id="lunaBest">Loading…</p>
       <ul id="lunaList"><li><span>Loading…</span></li></ul>
       <p class="note">100 prestige each. Best = good price and sells often (30 days).</p>
     </section>
-
+    <section class="card box" aria-labelledby="makeTitle">
+      <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l-3-3"/><path d="M12 12l3-3"/></svg></span><h2 id="makeTitle">Make or buy</h2></div>
+      <ul id="makeList"><li><span>Loading…</span></li></ul>
+      <p class="note">The cheapest crop to process into each, or buy it if the AH is cheaper.</p>
+    </section>
     <section class="card box" aria-labelledby="wispTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M10 14a2 2 0 0 0 2 2"/></svg></span><h2 id="wispTitle">Mana wisp salvage</h2></div>
       <ul id="wispList"><li><span>Loading…</span></li></ul>
@@ -187,7 +185,7 @@ async function loadLuna(){
     const short = n => n.replace(/^Vivid\s+/, '').replace(' Lunascale', '');
     const top = items[0];
     best.innerHTML = `Best to sell: <b>${esc(short(top.name))}</b> · ${Math.round(top.now).toLocaleString("en-US")} g`;
-    list.innerHTML = items.slice(0, 5).map((r,i) =>
+    list.innerHTML = items.slice(0, 3).map((r,i) =>
       `<li${i===0?' class="best"':''}><span>${esc(short(r.name))}<small class="sl">${r.sold} sold in 30 days</small></span><b>${Math.round(r.now).toLocaleString('en-US')} g${r.avg && Math.abs(r.now/r.avg-1) >= .08 ? `<small class="sl">usually ${Math.round(r.avg)} g</small>` : ''}</b></li>`).join('');
   }catch(e){ best.textContent = ''; list.innerHTML = fail; }
 }
