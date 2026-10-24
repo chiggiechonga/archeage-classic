@@ -54,6 +54,11 @@ main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
 .pickline{margin:0;font-size:15px;color:var(--muted)}
 .pickline b{color:var(--warn);font-weight:700}
 .go{font-weight:600}
+.shops{grid-column:1/-1}
+.shopcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px 28px}
+.shopcols h3{margin:0 0 2px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.shopcols .per{font-size:13px;color:var(--muted);margin:0 0 4px}
+.box li .slow{color:var(--faint)}
 footer{border-top:1px solid var(--line);background:var(--bar)}
 footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </style>
@@ -85,10 +90,20 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 <main class="wrap">
   <section class="intro">
     <h1>Money makers</h1>
-    <p>What's worth your labor today, from daily auction house prices.</p>
+    <p>What's worth your labor and your shop points today, from daily auction house prices.</p>
   </section>
 
   <div class="grid">
+    <section class="card box shops" aria-labelledby="shopTitle">
+      <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a3 3 0 0 1-5.3 2 3 3 0 0 1-5.4 0A3 3 0 0 1 4 11z"/><path d="M5 13.5V20h14v-6.5"/><path d="M10 20v-4h4v4"/></svg></span><h2 id="shopTitle">Shop points</h2></div>
+      <p class="note">Points you earn just playing, spent in the Loyalty, Gilda Star and Merit shops on things you can sell. Ranked by gold per point after AH tax, among items that sold this week.</p>
+      <div class="shopcols">
+        <div><h3>Loyalty</h3><p class="per" id="perLoyalty">&nbsp;</p><ul id="shopLoyalty"><li><span>Loading…</span></li></ul></div>
+        <div><h3>Gilda Stars</h3><p class="per" id="perGilda">&nbsp;</p><ul id="shopGilda"><li><span>Loading…</span></li></ul></div>
+        <div><h3>Merit</h3><p class="per" id="perMerit">&nbsp;</p><ul id="shopMerit"><li><span>Loading…</span></li></ul></div>
+      </div>
+      <p class="note">Bound items and anything with no sales this week are left out. Each shop item usually only sells a few a week, so spread across a few instead of dumping one.</p>
+    </section>
     <section class="card box" aria-labelledby="plantTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6 7 5.5z"/><path d="M5 21h14"/></svg></span><h2 id="plantTitle">Best to plant</h2></div>
       <ul id="plantList"><li><span>Loading…</span></li></ul>
@@ -196,7 +211,28 @@ async function loadWisps(){
   }catch(e){ list.innerHTML = fail; }
 }
 
-loadPlant(); loadMake(); loadLuna(); loadWisps();
+/* ---------- Shop points (Loyalty/Merit/Gilda tab, flat list in P:S: shop, item, gold per point, sold 7d) ---------- */
+async function loadShops(){
+  const ids = {Loyalty:'shopLoyalty', Gilda:'shopGilda', Merit:'shopMerit'};
+  try{
+    const rows = await getRange('Loyalty/Merit/Gilda', 'P1:S200');
+    const by = {Loyalty:[], Gilda:[], Merit:[]};
+    for(const [shop, item, gpp, sold] of rows){
+      const g = num(gpp), n = num(sold) || 0;
+      if(!by[shop] || !item || g == null || n < 1) continue;
+      by[shop].push({item, g, n});
+    }
+    for(const shop in ids){
+      const list = by[shop].sort((a,b) => b.g - a.g).slice(0, 6);
+      document.getElementById('per' + shop).textContent = list.length ? `Best: ${Math.round(list[0].g * 10) / 10} g per ${shop === 'Gilda' ? 'star' : 'point'}` : '';
+      document.getElementById(ids[shop]).innerHTML = list.length ? list.map((r, i) =>
+        `<li${i===0?' class="best"':''}><span>${esc(r.item)}<small class="sl${r.n < 3 ? ' slow' : ''}">${r.n.toLocaleString('en-US')} sold this week</small></span><b>${r.g.toFixed(2)} g</b></li>`).join('')
+        : '<li><span>Nothing selling right now</span></li>';
+    }
+  }catch(e){ for(const shop in ids) document.getElementById(ids[shop]).innerHTML = fail; }
+}
+
+loadPlant(); loadMake(); loadLuna(); loadWisps(); loadShops();
 </script>
 </body>
 </html>
