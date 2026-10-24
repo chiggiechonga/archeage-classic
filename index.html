@@ -11,7 +11,7 @@
 :root{
   --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
   --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
-  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --hot:#b8b2ec; --hot-bg:#29283d;
+  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --warn:#e8c47a;
   --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
   color-scheme:dark;
 }
@@ -29,16 +29,18 @@ nav{display:flex;flex-wrap:wrap;gap:2px}
 nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
 nav a:hover{background:var(--card2);color:var(--ink)}
 
-main{display:flex;flex-direction:column;gap:32px;padding-block:40px 64px}
+main{display:flex;flex-direction:column;gap:36px;padding-block:36px 64px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.note{font-size:14px;color:var(--muted);margin:0}
+.sec{display:flex;flex-direction:column;gap:14px}
+.sec > h2{margin:0;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
+/* hero + lookup */
 .lead{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:stretch}
-.hero{position:relative;min-height:280px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.hero{position:relative;min-height:240px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
-.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:rgba(34,58,112,.86)}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 22px;background:rgba(34,58,112,.86)}
 .hero h1{margin:0;font-family:"Cinzel",Georgia,serif;font-size:clamp(30px,4vw,40px);line-height:1.1;font-weight:600;letter-spacing:.02em;color:#f3ecdc}
-.hero p{margin:6px 0 0;font-size:17px;color:#dfe6f5}
-
 .lookup{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
 .lookup label{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
 .search{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:0 14px}
@@ -50,88 +52,45 @@ main{display:flex;flex-direction:column;gap:32px;padding-block:40px 64px}
 .res .nm{font-size:16px;font-weight:600}
 .res .sub{font-size:14px;color:var(--muted)}
 .res .px{text-align:right}
-.res .px b{display:block;font-size:22px;font-weight:700}
+.res .px b{display:block;font-size:20px;font-weight:700}
 .chg{font-size:14px;font-weight:600}
 .chg.up{color:var(--up)} .chg.down{color:var(--down)} .chg.flat{color:var(--muted)}
-.note{font-size:14px;color:var(--muted);margin:0}
 
-.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.door{padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink)}
-a.door:hover{border-color:var(--accent)}
-.door .ic{width:46px;height:46px;border-radius:14px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center}
-.door h2{margin:4px 0 0;font-size:20px;font-weight:700}
-.door p{margin:0;font-size:15px;color:var(--muted)}
-.door .go{font-weight:600;color:var(--accent)}
-.door.soon{background:var(--sunk);border-style:dashed;border-color:#353c41}
-.door.soon .ic{background:#262b2f}
-.door.soon h2{color:var(--ink2)} .door.soon .go{color:var(--faint)}
+/* today tiles */
+.today{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{padding:16px 18px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.tile .k{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.tile .nm{font-size:19px;font-weight:700;line-height:1.3}
+.tile .why{font-size:14px;font-weight:600;color:var(--up)}
+.tile .sub{font-size:14px;color:var(--muted)}
+.tile.gem{background:radial-gradient(120% 120% at 100% 0%,#2a2540 0%,var(--card) 60%);border-color:#3d3756}
+.tile.gem .nm{color:#f3ecdc}
+.tile .gold{color:var(--warn)}
+.tile.live{border-color:#f2c94c;background:#3a3214}
+.tile.live .nm{color:#ffd84d}
 
-.mob ul{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column}
-.mob li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
-.mob li:last-child{border-bottom:0}
-.mob li span{color:var(--muted)}
-.mob li b{font-weight:600;color:var(--ink);text-align:right}
-.mob li b.buy{color:var(--accent)}
-.mob li .sl{display:block;font-size:13px;font-weight:500;color:var(--muted)}
-.mob .note{margin-top:auto}
-.mob li a.wl{display:flex;justify-content:space-between;gap:10px;width:100%;text-decoration:none;color:inherit}
-.mob li a.wl:hover span{color:var(--ink)}
-.mob li b.good{color:var(--up)} .mob li b.bad{color:var(--down)} .mob li b.meh{color:#e8c47a}
-.trends{padding:24px;display:flex;flex-direction:column;gap:16px}
-.thead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
-.thead h2{margin:0;font-size:22px;font-weight:700;color:#f0f2ef}
-.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.gem{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 100% 0%,#2a2540 0%,var(--card) 55%);border-color:#3d3756}
-.gem .jw{position:absolute;pointer-events:none}
-.gem .jw.tr{top:10px;right:10px} .gem .jw.bl{bottom:10px;left:-4px;opacity:.75} .gem .jw.br{bottom:12px;right:14px;opacity:.6}
-.gem .tw{animation:tw 3.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
-.gem .tw.d2{animation-delay:1.1s} .gem .tw.d3{animation-delay:2.2s}
-@keyframes tw{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.gem .tw{animation:none;opacity:.8}}
-.gem .ic{background:#3a2f5e}
-.gem h2,.wk h2{font-family:"Cinzel",Georgia,serif;font-weight:600;letter-spacing:.02em;color:#f3ecdc}
-.pick{display:flex;flex-direction:column;gap:2px;margin-top:2px}
-.pick .nm{font-size:21px;font-weight:700;line-height:1.25;color:var(--ink)}
-.pick .pr{font-size:16px;font-weight:600;color:#e8c47a}
-.pick .why{font-size:14px;color:var(--up);font-weight:600}
-.pick .why.flat{color:var(--muted)}
-.pick .sub{font-size:14px;color:var(--muted)}
-.wk .ic{background:#3b3220}
-.wk .today{font-size:15px;color:var(--ink2);margin:0}
-.wk .today b{color:#e8c47a}
-.dots{display:flex;gap:6px;margin-top:2px}
-.dots span{flex:1;text-align:center;font-size:12px;font-weight:600;color:var(--faint);padding:5px 0;border-radius:8px;background:var(--sunk);border:1px solid var(--line)}
-.dots span.got{color:var(--ink);background:#2a3a2f;border-color:#3f5a46}
-.dots span.now{outline:2px solid #e8c47a;outline-offset:1px}
-.evbar{display:none;align-items:center;gap:12px;margin-bottom:18px;padding:14px 18px;border-radius:14px;border:2px solid #f2c94c;background:#3a3214;color:#ffd84d;font-weight:700;font-size:17px;box-shadow:0 0 0 4px rgba(242,201,76,.12)}
+/* tool cards */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.tool{padding:20px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink)}
+a.tool:hover{border-color:var(--accent);color:var(--ink)}
+.tool .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.tool h3{margin:0;font-size:18px;font-weight:700}
+.tool p{margin:0;font-size:14px;color:var(--muted)}
+.tool .hl{margin-top:auto;padding-top:10px;font-size:15px;font-weight:600;color:var(--ink2);border-top:1px solid var(--line)}
+.tool .hl b{color:var(--up);font-weight:700;white-space:nowrap}
+.tool .hl b.gold{color:var(--warn)}
+
+.evbar{display:none;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;border:2px solid #f2c94c;background:#3a3214;color:#ffd84d;font-weight:700;font-size:17px;box-shadow:0 0 0 4px rgba(242,201,76,.12)}
 .evbar.on{display:flex}
 .evbar .dot{width:12px;height:12px;border-radius:50%;background:#ffd84d;flex:none;animation:evp 1.4s ease-in-out infinite}
 .evbar small{display:block;font-size:14px;font-weight:600;color:#f3e2a0}
 @keyframes evp{50%{opacity:.3}}
 @media (prefers-reduced-motion:reduce){.evbar .dot{animation:none}}
-.pickline{margin:0;font-size:15px;color:var(--muted)}
-.pickline b{color:#e8c47a;font-weight:700}
-.mob li.best span{color:var(--ink)}
-.mob li.best b{color:#e8c47a}
-.chip{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;min-height:40px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink2);cursor:pointer}
-.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
-select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:100%}
-.chart{border-radius:14px;background:var(--sunk);border:1px solid var(--line);padding:12px;min-height:240px;display:flex;align-items:center;justify-content:center}
-.chart svg{display:block;width:100%;height:auto}
-.chart svg text{font-family:var(--font);font-size:12px;fill:var(--muted)}
-.chart svg text.pv{font-size:13px;font-weight:600;fill:#c6d3f2;paint-order:stroke;stroke:#191d20;stroke-width:4px;stroke-linejoin:round}
-.tags{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.tag{border-radius:12px;padding:14px 16px}
-.tag .k{font-size:13px;font-weight:700}
-.tag .v{font-size:16px;font-weight:600;margin-top:4px}
-.tag .s{font-size:14px;color:var(--ink2)}
-.tag.up{background:var(--up-bg)} .tag.up .k{color:var(--up)}
-.tag.down{background:var(--down-bg)} .tag.down .k{color:var(--down)}
-.tag.hot{background:var(--hot-bg)} .tag.hot .k{color:var(--hot)}
 
 footer{border-top:1px solid var(--line);background:var(--bar)}
 footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </style>
+<script src="nav.js"></script>
 </head>
 <body>
 <header>
@@ -141,24 +100,29 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       Archeage Classic
     </a>
     <nav aria-label="Main">
-      <a href="taming-map.html">Taming Map</a>
+      <a href="prices.html">Prices</a>
+      <a href="money.html">Money Makers</a>
+      <details class="dd">
+        <summary>Crafting <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="menu">
+          <a href="wisps.html">Mana Wisps<small>Salvage paths, step by step</small></a>
+          <a href="regrade.html">Regrade<small>Max AH price per grade</small></a>
+        </div>
+      </details>
       <a href="dailies.html">Dailies</a>
-      <a href="regrade.html">Regrade</a>
-      <a href="wisps.html">Mana Wisps</a>
+      <a href="taming-map.html">Taming Map</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
   <div class="evbar" id="evbar" role="status"><span class="dot" aria-hidden="true"></span><div><span id="evText"></span><small id="evSub"></small></div></div>
+
   <section class="lead">
     <div class="hero">
       <img src="images/hero.png" alt="">
-      <div class="cap">
-        <h1>AA Classic</h1>
-      </div>
+      <div class="cap"><h1>AA Classic</h1></div>
     </div>
-
     <div class="card lookup">
       <label for="q">Look up an item price</label>
       <div class="search">
@@ -170,93 +134,64 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
     </div>
   </section>
 
-  <section class="doors" aria-label="Sections">
-    <div class="card door mob gem" id="gemCard">
-      <svg class="jw tr" width="100" height="62" viewBox="0 0 74 46" aria-hidden="true">
-        <g transform="translate(36 4)"><path d="M6 0h14l6 8-13 16L0 8z" fill="#9b7be6"/><path d="M0 8h26M6 0l4 8 3 16 3-16 4-8M10 8l3-8 3 8" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".9"/></g>
-        <g transform="translate(18 18)"><path d="M4 0h10l4 6-9 11L0 6z" fill="#5fc7a0"/><path d="M0 6h18M4 0l3 6 2 11 2-11 3-6M7 6l2-6 2 6" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".8"/></g>
-        <g transform="translate(62 24)"><path d="M3 0h6l3 4-6 8-6-8z" fill="#e57a9b"/><path d="M0 4h12M3 0l3 4 3-4" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".7"/></g>
-        <path class="tw" d="M8 8l1.2 3 3 1.2-3 1.2L8 16.4l-1.2-3-3-1.2 3-1.2z" fill="#f3ecdc"/>
-        <path class="tw d2" d="M66 2l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" fill="#f3ecdc"/>
-      </svg>
-      <svg class="jw br" width="52" height="39" viewBox="0 0 40 30" aria-hidden="true">
-        <g transform="translate(20 12)"><path d="M3 0h8l3 5-7 9-7-9z" fill="#6aa2ef"/><path d="M0 5h14M3 0l4 5 4-5" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".7"/></g>
-        <path class="tw d3" d="M8 6l1 2.4 2.4 1-2.4 1L8 12.8l-1-2.4-2.4-1 2.4-1z" fill="#f3ecdc"/>
-      </svg>
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9b6ff" stroke-width="1.7" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6 3-6M12 21l-3-12M12 21l3-12"/></svg></span>
-      <h2>Hidden Gem of the Day</h2>
-      <div class="pick" id="gemPick"><span class="sub">Searching the auction house…</span></div>
-      <p class="note">Priced well above its weekly average and still selling. A good day to list it.</p>
+  <section class="sec" aria-labelledby="todayTitle">
+    <h2 id="todayTitle">Today</h2>
+    <div class="today">
+      <div class="card tile gem">
+        <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9b6ff" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6 3-6"/></svg>Hidden gem</div>
+        <div id="gemPick"><span class="sub">Searching the auction house…</span></div>
+      </div>
+      <div class="card tile">
+        <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8c47a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="dayTitle">Today</span></div>
+        <div id="dayPick"><span class="sub">Checking the week…</span></div>
+      </div>
+      <div class="card tile" id="nextTile">
+        <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><span id="nextTitle">Coming up</span></div>
+        <div id="nextPick"><span class="sub">Checking the clock…</span></div>
+      </div>
     </div>
-    <div class="card door mob wk" id="dayCard">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8c47a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 15l2.5 2.5L16 13"/></svg></span>
-      <h2 id="dayTitle">Today is …</h2>
-      <div class="pick" id="dayPick"><span class="sub">Checking the week…</span></div>
-      <div class="dots" id="dayDots" aria-label="Days of sales collected"></div>
-      <p class="note" id="dayNote">Compares how much each item sells on this weekday with its usual day.</p>
-    </div>
-    <a class="card door" href="dailies.html">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l1.5 1.5L12 7"/><path d="M8 14l1.5 1.5L12 13"/><path d="M14 8.5h3"/><path d="M14 14.5h3"/></svg></span>
-      <h2>Dailies</h2>
-      <p>Guild, castle and activity quest checklist for your main and alts.</p>
-      <span class="go">Open checklist →</span>
-    </a>
-    <div class="card door mob" id="lunaCard">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/><path d="M17 4l.6 1.4L19 6l-1.4.6L17 8l-.6-1.4L15 6l1.4-.6z"/></svg></span>
-      <h2>Lunascales</h2>
-      <p class="pickline" id="lunaBest">Loading…</p>
-      <ul id="lunaList"><li><span>Loading…</span></li></ul>
-      <p class="note">100 prestige each. Best = good price and sells often (30 days).</p>
-    </div>
-    <div class="card door mob">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l-3-3"/><path d="M12 12l3-3"/></svg></span>
-      <h2>Make or buy</h2>
-      <ul id="makeList"><li><span>Loading…</span></li></ul>
-    </div>
-    <div class="card door mob">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6 7 5.5z"/><path d="M5 21h14"/></svg></span>
-      <h2>Best to plant</h2>
-      <ul id="plantList"><li><span>Loading…</span></li></ul>
-      <p class="note">Most silver per labor among things that sell enough.</p>
-    </div>
-    <div class="card door mob">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M10 14a2 2 0 0 0 2 2"/></svg></span>
-      <h2>Mana wisp salvage</h2>
-      <ul id="wispList"><li><span>Loading…</span></li></ul>
-      <p class="note">Chests and weapons taken to Ayanad and salvaged, per Ayanad. Tap one for the full breakdown.</p>
-    </div>
-    <a class="card door" href="regrade.html">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v10l-7 4-7-4V7z"/><path d="M12 16V9"/><path d="M9 11.5L12 9l3 2.5"/></svg></span>
-      <h2>Regrade prices</h2>
-      <p>The most Obsidian gear is worth on the AH at each grade before regrading it yourself wins.</p>
-      <span class="go">Open the table →</span>
-    </a>
-    <a class="card door" href="taming-map.html">
-      <span class="ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg></span>
-      <h2>Taming Map</h2>
-      <p>Where every tameable beast spawns across Nuia, Haranya and Auroria.</p>
-      <span class="go">Open the map →</span>
-    </a>
   </section>
 
-  <section class="card trends" aria-labelledby="trendsTitle">
-    <div class="thead">
-      <h2 id="trendsTitle">Price trends</h2>
-      <span class="note" id="trendsNote">Daily auction house prices</span>
+  <section class="sec" aria-labelledby="toolsTitle">
+    <h2 id="toolsTitle">Tools</h2>
+    <div class="tools">
+      <a class="card tool" href="prices.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-7"/><path d="M15 7h5v5"/></svg></span>
+        <h3>Prices</h3>
+        <p>Price trends for beasts and crafted goods, plus what's going up, down and selling fast.</p>
+        <div class="hl" id="hlPrices">Loading…</div>
+      </a>
+      <a class="card tool" href="money.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
+        <h3>Money Makers</h3>
+        <p>Make or buy, the best things to plant, and which lunascales to sell.</p>
+        <div class="hl" id="hlMoney">Loading…</div>
+      </a>
+      <a class="card tool" href="wisps.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M10 14a2 2 0 0 0 2 2"/></svg></span>
+        <h3>Mana Wisps</h3>
+        <p>Epherium chests and weapons taken to Ayanad and salvaged, step by step.</p>
+        <div class="hl" id="hlWisps">Loading…</div>
+      </a>
+      <a class="card tool" href="regrade.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v10l-7 4-7-4V7z"/><path d="M12 16V9"/><path d="M9 11.5L12 9l3 2.5"/></svg></span>
+        <h3>Regrade</h3>
+        <p>The most Obsidian gear is worth on the AH at each grade before regrading it yourself wins.</p>
+        <div class="hl">1H Celestial worth up to <b class="gold">1,783 g</b></div>
+      </a>
+      <a class="card tool" href="dailies.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l1.5 1.5L12 7"/><path d="M8 14l1.5 1.5L12 13"/><path d="M14 8.5h3"/><path d="M14 14.5h3"/></svg></span>
+        <h3>Dailies</h3>
+        <p>Guild, castle and activity quest checklist for your main and alts.</p>
+        <div class="hl" id="hlDailies">Open checklist</div>
+      </a>
+      <a class="card tool" href="taming-map.html">
+        <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg></span>
+        <h3>Taming Map</h3>
+        <p>Where every tameable beast spawns across Nuia, Haranya and Auroria.</p>
+        <div class="hl">Open the map</div>
+      </a>
     </div>
-    <div class="controls">
-      <button type="button" class="chip" data-kind="beast" aria-pressed="true">Beasts</button>
-      <button type="button" class="chip" data-kind="craft" aria-pressed="false">Crafted goods</button>
-      <label for="pick" class="note" style="margin-left:4px">Item</label>
-      <select id="pick"></select>
-    </div>
-    <div class="chart" id="chart"><span class="note">Loading price history…</span></div>
-    <div class="tags">
-      <div class="tag up"><div class="k">Going up</div><div class="v" id="tagUp">…</div></div>
-      <div class="tag down"><div class="k">Going down</div><div class="v" id="tagDown">…</div></div>
-      <div class="tag hot"><div class="k">Selling fast</div><div class="v" id="tagHot">…</div></div>
-    </div>
-    <p class="note">Up and down compare today&rsquo;s price with the 7-day average. Selling fast is the most sold this week.</p>
   </section>
 </main>
 
@@ -265,7 +200,9 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </footer>
 
 <script src="event.js"></script>
+<script src="data.js"></script>
 <script>
+/* ---------- Event banner ---------- */
 function showEvent(){
   const bar = document.getElementById('evbar'), s = eventLive();
   bar.classList.toggle('on', !!s);
@@ -273,211 +210,53 @@ function showEvent(){
   document.getElementById('evText').textContent = '🎃 ' + EVENT.name + ' is happening now!';
   document.getElementById('evSub').textContent = 'Spawned at ' + new Date(s.start).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
 }
-showEvent(); setInterval(showEvent, 20000);
-</script>
-<script>
-const SHEET = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=1';
-const DATE_URL = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=0&sheet=AH%20Source&range=K1';
-async function priceDate(){
-  try{
-    const r = await fetch(DATE_URL, {cache:'no-store'}); if(!r.ok) return null;
-    const t = (await r.text()).replace(/"/g,'').trim();
-    const d = new Date(t + 'T12:00:00');
-    return isNaN(d) ? null : d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
-  }catch(e){ return null; }
+
+/* ---------- Server clock (Eastern; daily reset at server midnight), same as the Dailies page ---------- */
+const DAY = 864e5;
+const ETF = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric', second:'numeric', hourCycle:'h23'});
+function serverNow(){
+  const now = Date.now(), p = {};
+  for(const {type, value} of ETF.formatToParts(now)) p[type] = +value;
+  const wall = Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute, p.second);
+  return {day: Math.floor(wall / DAY), offset: wall - Math.floor(now / 1000) * 1000};
 }
+const until = ms => { const m = Math.max(0, Math.round(ms / 6e4)), h = Math.floor(m / 60); return h ? `${h}h ${m % 60}m` : `${m}m`; };
+const resetIn = () => { const s = serverNow(); return (s.day + 1) * DAY - s.offset - Date.now(); };
+const fmtTime = ms => new Date(ms).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
 
-const url = (sheet, q) => SHEET + '&sheet=' + encodeURIComponent(sheet) + (q ? '&tq=' + encodeURIComponent(q) : '');
-
-function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
-  if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
-  else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'){r.push(f);rows.push(r);r=[];f=''}else if(c!='\r')f+=c}
-  if(f||r.length){r.push(f);rows.push(r)}return rows}
-const num = v => { const n = parseFloat(String(v ?? '').replace(/,/g,'')); return isFinite(n) ? n : null; };
-async function getCSV(sheet, q){ const r = await fetch(url(sheet,q), {cache:'no-store'}); if(!r.ok) throw new Error(r.status); return parseCSV(await r.text()).slice(1); }
-const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function gold(v){
-  if(v==null || !isFinite(v)) return '—';
-  const neg = v < 0; const total = Math.round(Math.abs(v) * 10000);
-  const g = Math.floor(total / 10000), sv = Math.floor((total % 10000) / 100), c = total % 100;
-  const parts = [];
-  if(g) parts.push(g.toLocaleString('en-US') + ' g');
-  if(g || sv) parts.push(sv + ' s');
-  parts.push(c + ' c');
-  return (neg ? '−' : '') + parts.join(' ');
-}
-function change(now, avg){ if(now==null||avg==null||avg<=0) return null; return (now-avg)/avg*100; }
-function chgHTML(p){ if(p==null) return '<span class="chg flat">No weekly average yet</span>';
-  if(Math.abs(p)<1) return '<span class="chg flat">About the same as last week</span>';
-  return `<span class="chg ${p>0?'up':'down'}">${p>0?'▲':'▼'} ${Math.abs(p).toFixed(0)}% vs last week</span>`; }
-
-/* ---------- Item price lookup (Prices tab) ---------- */
-let PRICES = [];
-const q = document.getElementById('q'), results = document.getElementById('results'), lnote = document.getElementById('lookupNote');
-async function loadPrices(){
-  try{
-    const rows = await getCSV('Prices', 'select B,C,F,D,K');
-    PRICES = rows.map(([name,now,avg7,vol7,vol30]) => ({name, key:name.toLowerCase(), now:num(now), avg7:num(avg7), vol7:num(vol7), vol30:num(vol30)})).filter(r => r.name);
-    if(!PRICES.length) throw new Error('empty');
-    q.disabled = false;
-    const when = await priceDate();
-    lnote.textContent = PRICES.length.toLocaleString() + ' items · ' + (when ? 'auction house prices from ' + when : 'auction house prices, updated daily');
-    q.value = 'Celestial Starfish'; search();
-  }catch(e){
-    lnote.textContent = 'Prices couldn’t be loaded right now. Please try again later.';
+/* ---------- Coming up: next event spawn while an event runs, otherwise the daily reset ---------- */
+function showNext(){
+  const tile = document.getElementById('nextTile'), title = document.getElementById('nextTitle'), box = document.getElementById('nextPick');
+  const ev = typeof eventSpawns === 'function' ? eventSpawns(1)[0] : null;
+  if(ev){
+    const live = ev.start <= Date.now();
+    tile.classList.toggle('live', live);
+    title.textContent = live ? 'Happening now' : 'Next event spawn';
+    box.innerHTML = live
+      ? `<div class="nm">${esc(EVENT.name)}</div><div class="sub">Spawned at ${fmtTime(ev.start)} · daily reset in ${until(resetIn())}</div>`
+      : `<div class="nm">In ${until(ev.start - Date.now())}</div><div class="sub">${esc(EVENT.name)} at ${fmtTime(ev.start)} · daily reset in ${until(resetIn())}</div>`;
+  }else{
+    tile.classList.remove('live');
+    title.textContent = 'Daily reset';
+    box.innerHTML = `<div class="nm">In ${until(resetIn())}</div><div class="sub">Server midnight, ${fmtTime(Date.now() + resetIn())} your time</div>`;
   }
-  return PRICES;
-}
-function search(){
-  const term = q.value.trim().toLowerCase();
-  if(term.length < 2){ results.innerHTML = ''; return; }
-  const words = term.split(/\s+/);
-  const hits = PRICES.filter(r => words.every(w => r.key.includes(w)))
-    .sort((a,b) => (b.vol7||0)-(a.vol7||0)).slice(0,4);
-  results.innerHTML = hits.length ? hits.map(r => {
-    const sub = [r.avg7!=null ? '7-day average '+gold(r.avg7) : null, r.vol7 ? r.vol7.toLocaleString()+' sold this week' : (r.vol30 ? r.vol30.toLocaleString()+' sold this month' : null)].filter(Boolean).join(' · ');
-    return `<div class="res"><div><div class="nm">${esc(r.name)}</div><div class="sub">${esc(sub||'Few recent sales')}</div></div>
-      <div class="px"><b>${gold(r.now)}</b>${chgHTML(change(r.now, r.avg7))}</div></div>`;
-  }).join('') : '<p class="note">No items match that name.</p>';
-}
-q.addEventListener('input', search);
-
-/* ---------- Price trends (History tab) ---------- */
-let HIST = {beast:{}, craft:{}}, kind = 'beast';
-const pick = document.getElementById('pick'), chart = document.getElementById('chart');
-async function loadHistory(){
-  try{
-    const rows = await getCSV('History', 'select A,B,C,D');
-    for(const [d,type,name,price] of rows){
-      const p = num(price); if(!name || p==null) continue;
-      const k = type.startsWith('Beast: Celestial') ? 'beast' : type === 'Craft' ? 'craft' : null; if(!k) continue;
-      const label = k==='beast' ? 'Celestial ' + name : name;
-      (HIST[k][label] ??= []).push([d, p]);
-    }
-    const days = new Set(rows.map(r => r[0]).filter(Boolean));
-    document.getElementById('trendsNote').textContent = days.size + (days.size===1?' day':' days') + ' of daily prices so far';
-    fillPick();
-  }catch(e){
-    chart.innerHTML = '<span class="note">Price history couldn’t be loaded right now.</span>';
-  }
-}
-function fillPick(){
-  const names = Object.keys(HIST[kind]).sort();
-  pick.innerHTML = names.map(n => `<option>${esc(n)}</option>`).join('');
-  if(names.length) drawChart(names[0]); else chart.innerHTML = '<span class="note">No history yet.</span>';
-}
-function drawChart(name){
-  const pts = (HIST[kind][name]||[]).slice().sort((a,b) => a[0]<b[0]?-1:1);
-  if(!pts.length){ chart.innerHTML = '<span class="note">No history for this item yet.</span>'; return; }
-  const W = Math.round(Math.max(320, Math.min(1000, (chart.clientWidth || 1000) - 24)));   // 1 unit ≈ 1 screen pixel
-  const narrow = W < 600, H = narrow ? 240 : 270, L = narrow ? 58 : 80, R = narrow ? 14 : 20, T = 36, B = 40;
-  const vals = pts.map(p => p[1]); let lo = Math.min(...vals), hi = Math.max(...vals);
-  if(lo===hi){ lo = lo*0.9; hi = hi*1.1 || 1; }
-  const x = i => pts.length===1 ? (L+(W-R))/2 : L + i*(W-L-R)/(pts.length-1);
-  const y = v => T + (hi-v)*(H-T-B)/(hi-lo);
-  const short = v => v >= 1 ? Math.round(v).toLocaleString('en-US') + ' g' : v >= 0.01 ? Math.round(v*100) + ' s' : Math.round(v*10000) + ' c';
-  const grid = [0,0.5,1].map(f => { const v = lo + (hi-lo)*f; return `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#2b3135"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${short(v)}</text>`; }).join('');
-  const line = pts.length>1 ? `<polyline fill="none" stroke="#9db3e6" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>` : '';
-  const dots = pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="${pts.length>40?2:4}" fill="#9db3e6"><title>${esc(p[0])}: ${gold(p[1])}</title></circle>`).join('');
-  const lstep = Math.max(1, Math.ceil(pts.length / (narrow ? 4 : 10)));   // label every point, thinning out once there are lots
-  const labels = pts.map((p,i) => (i%lstep===0 || i===pts.length-1)
-    ? `<text class="pv" x="${x(i)}" y="${y(p[1]) - 12}" text-anchor="${pts.length>1 && i===pts.length-1 ? 'end' : pts.length>1 && i===0 ? 'start' : 'middle'}">${gold(p[1])}</text>` : '').join('');
-  const step = Math.max(1, Math.ceil(pts.length/6));
-  const xl = pts.map((p,i) => (i%step===0||i===pts.length-1) ? `<text x="${x(i)}" y="${H-12}" text-anchor="middle">${esc(p[0].slice(5))}</text>` : '').join('');
-  const one = pts.length===1 ? `<text x="${W/2}" y="${T+14}" text-anchor="middle">One day so far: the line grows each morning</text>` : '';
-  chart.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily price of ${esc(name)}">${grid}${line}${dots}${labels}${xl}${one}</svg>`;
-}
-pick.addEventListener('change', () => drawChart(pick.value));
-let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(() => { if(pick.value) drawChart(pick.value); }, 150); });
-document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
-  kind = b.dataset.kind;
-  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c===b));
-  fillPick(); updateTags();
-}));
-
-/* ---------- Going up / down / selling fast ---------- */
-function updateTags(){
-  const up = document.getElementById('tagUp'), down = document.getElementById('tagDown'), hot = document.getElementById('tagHot');
-  if(!PRICES.length){ up.textContent = down.textContent = hot.textContent = '—'; return; }
-  const names = Object.keys(HIST[kind]);
-  const lookupName = n => kind==='beast' ? 'mysterious ' + n.toLowerCase() : n.toLowerCase();
-  const byName = new Map(PRICES.map(r => [r.key, r]));
-  const items = names.map(n => ({n, r: byName.get(lookupName(n))})).filter(o => o.r);
-  const minVol = kind==='beast' ? 3 : 50;
-  const moving = items.map(o => ({...o, c: change(o.r.now, o.r.avg7)})).filter(o => o.c!=null && (o.r.vol7||0) >= minVol);
-  const show = (el, o, txt) => { el.innerHTML = o ? `${esc(o.n)}<div class="s">${txt}</div>` : 'Nothing yet'; };
-  const u = moving.slice().sort((a,b)=>b.c-a.c)[0], d = moving.slice().sort((a,b)=>a.c-b.c)[0];
-  show(up, u && u.c>0 ? u : null, u ? `+${u.c.toFixed(0)}% · ${gold(u.r.now)}` : '');
-  show(down, d && d.c<0 ? d : null, d ? `${d.c.toFixed(0)}% · ${gold(d.r.now)}` : '');
-  const h = items.slice().sort((a,b)=>(b.r.vol7||0)-(a.r.vol7||0))[0];
-  show(hot, h, h ? `${(h.r.vol7||0).toLocaleString()} sold this week` : '');
+  showDailies();
 }
 
-
-/* ---------- Cheapest crop table (Process Calc tab) ---------- */
-const MAKE_ORDER = ['Ground Grain','Chopped Produce','Ground Spices','Trimmed Meat','Orchard Puree','Dried Flowers','Medicinal Powder'];
-async function loadMake(){
-  const list = document.getElementById('makeList');
-  try{
-    const rows = await getCSV('Process Calc', 'select A,B,F,G');
-    const best = {};
-    for(const [prod, crop, cost, ok] of rows){
-      const c = num(cost); if(!prod || c==null || num(ok)!==1) continue;
-      if(!best[prod] || c < best[prod].cost) best[prod] = {crop, cost:c};
-    }
-    const ah = new Map(PRICES.map(r => [r.key, r.now]));
-    list.innerHTML = MAKE_ORDER.map(p => {
-      const b = best[p], buy = ah.get(p.toLowerCase());
-      const make = b && (buy==null || b.cost < buy);
-      return `<li><span>${esc(p)}</span>${make ? `<b>${esc(b.crop)}</b>` : '<b class="buy">Buy on AH</b>'}</li>`;
-    }).join('');
-  }catch(e){
-    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
-  }
+/* ---------- Dailies headline: main character's progress, read from the Dailies page's saved checkmarks ---------- */
+const DAILY_IDS = ['colonize','defend','boss','castle'];
+function showDailies(){
+  const el = document.getElementById('hlDailies');
+  let S = null; try{ S = JSON.parse(localStorage.getItem('aa-dailies-v1') || 'null'); }catch(e){}
+  const period = 'd' + serverNow().day;
+  const done = S && S.checks ? DAILY_IDS.filter(id => S.checks[id + '|0'] === period).length : 0;
+  const who = S && S.names && S.names[0] ? S.names[0] : 'Main';
+  el.innerHTML = done === DAILY_IDS.length
+    ? `${esc(who)}: <b>all ${DAILY_IDS.length} dailies done</b>`
+    : `${esc(who)}: <b class="gold">${done} of ${DAILY_IDS.length}</b> dailies done · reset in ${until(resetIn())}`;
 }
 
-/* ---------- Best to plant (Website!O:Q, picked by the Farming and Husbandry tabs) ---------- */
-async function loadPlant(){
-  const list = document.getElementById('plantList');
-  try{
-    const r = await fetch(SHEET + '&sheet=Website&range=O1:Q4', {cache:'no-store'});
-    if(!r.ok) throw new Error(r.status);
-    const rows = parseCSV(await r.text()).slice(1).filter(x => x[0]);
-    if(!rows.length) throw new Error('empty');
-    list.innerHTML = rows.map(([kind, pick, sl]) => {
-      const s = num(sl), ok = pick && pick !== 'none';
-      return `<li><span>${esc(kind)}</span><b>${ok ? esc(pick) : 'Nothing worth it'}${ok && s != null ? `<small class="sl">${Math.round(s)} silver/labor</small>` : ''}</b></li>`;
-    }).join('');
-  }catch(e){
-    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
-  }
-}
-
-/* ---------- Mana wisp salvage (Website!S:W, from the Mana Wisps tab) ---------- */
-const WISP_IDS = {'Cloth':'shirt','Leather':'jerkin','Plate':'cuirass','One-Hander':'onehand','Two-Hander':'twohand','Wooden':'wooden'};
-async function loadWisps(){
-  const list = document.getElementById('wispList');
-  try{
-    const r = await fetch(SHEET + '&sheet=Website&range=S1:W7', {cache:'no-store'});
-    if(!r.ok) throw new Error(r.status);
-    const rows = parseCSV(await r.text()).slice(1).filter(x => x[0]);
-    if(!rows.length) throw new Error('empty');
-    list.innerHTML = rows.map(([kind, sl, profit, wisp, verdict]) => {
-      const s = num(sl), p = num(profit), w = num(wisp);
-      const cls = p == null ? '' : p <= 0 ? 'bad' : s < 30 ? 'meh' : 'good';
-      const main = s == null ? '—' : `${Math.round(s)} silver/labor`;
-      const sub = p == null ? '' : `${p < 0 ? '−' : '+'}${Math.round(Math.abs(p)).toLocaleString('en-US')} g each${w != null ? ' · wisp ' + w.toFixed(1) + ' g' : ''}`;
-      const [name, piece] = kind.replace(')', '').split(' (');
-      const id = WISP_IDS[name] || '';
-      return `<li><a class="wl" href="wisps.html${id ? '#' + id : ''}"><span>${esc(name)}${piece ? `<small class="sl">${esc(piece)}</small>` : ''}</span><b class="${cls}">${main}<small class="sl">${esc(sub)}</small></b></a></li>`;
-    }).join('');
-  }catch(e){
-    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
-  }
-}
-
-
-/* ---------- Hidden gem of the day (Prices: 24h price well above 7d average, still selling) ---------- */
+/* ---------- Hidden gem (Prices: 24h price well above 7d average, still selling) ---------- */
 async function loadGem(){
   const box = document.getElementById('gemPick');
   try{
@@ -488,18 +267,17 @@ async function loadGem(){
       if(!name || seen.has(name) || now == null || avg == null || !avg) return;
       seen.add(name);
       const r = now / avg;
-      if(r > 2) return;                                   // one odd sale, not a real trend
+      if(r > 2) return;
       cands.push({name, now, avg, wk, day, pct:(r-1)*100, score:(r-1) * Math.log10(day + 1) * Math.log10(wk)});
     });
-    if(!cands.length){ box.innerHTML = '<span class="nm">No standouts today</span><span class="sub">Nothing is selling well above its usual price right now.</span>'; return; }
+    if(!cands.length){ box.innerHTML = '<div class="nm">No standouts today</div><div class="sub">Nothing is selling well above its usual price.</div>'; return; }
     cands.sort((a,b) => b.score - a.score);
     const g = cands[0];
-    box.innerHTML = `<span class="nm">${esc(g.name)}</span>
-      <span class="pr">${gold(g.now)} today</span>
-      <span class="why">▲ ${Math.round(g.pct)}% above its weekly average</span>
-      <span class="sub">Usually ${gold(g.avg)} · ${Math.round(g.day).toLocaleString('en-US')} sold yesterday · ${Math.round(g.wk).toLocaleString('en-US')} this week</span>`;
+    box.innerHTML = `<div class="nm">${esc(g.name)}</div>
+      <div class="why">▲ ${Math.round(g.pct)}% above its weekly average</div>
+      <div class="sub"><span class="gold">${gold(g.now)}</span> today · usually ${gold(g.avg)}</div>`;
   }catch(e){
-    box.innerHTML = '<span class="sub">Couldn’t load right now</span>';
+    box.innerHTML = '<div class="sub">Couldn’t load right now</div>';
   }
 }
 
@@ -508,22 +286,18 @@ async function loadGem(){
 const WEEKDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MIN_DAYS = 7;
 async function loadDay(){
-  const box = document.getElementById('dayPick'), dots = document.getElementById('dayDots'), note = document.getElementById('dayNote');
+  const box = document.getElementById('dayPick');
   const wd = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'})).getDay();
   document.getElementById('dayTitle').textContent = 'Today is ' + WEEKDAYS[wd];
   try{
     const days = (await getCSV('Daily Log', 'select A, count(C) where A is not null group by A')).map(r => r[0]).filter(Boolean);
-    const salesDay = ds => (new Date(ds.slice(0,10) + 'T12:00:00').getDay() + 6) % 7;   // weekday the sales happened
+    const salesDay = ds => (new Date(ds.slice(0,10) + 'T12:00:00').getDay() + 6) % 7;
     const got = new Set(days.map(salesDay));
-    dots.innerHTML = WEEKDAYS.map((n,i) => `<span class="${got.has(i)?'got':''}${i===wd?' now':''}" title="${n}">${n.slice(0,2)}</span>`).join('');
     if(days.length < MIN_DAYS || !got.has(wd)){
-      const left = Math.max(MIN_DAYS - days.length, got.has(wd) ? 0 : 1);
-      box.innerHTML = `<span class="nm">Still learning the week</span>
-        <span class="sub">${days.length} of ${MIN_DAYS} days of sales saved. ${got.has(wd) ? 'Almost there.' : 'Today’s sales get saved tomorrow.'}</span>`;
-      note.textContent = 'Green days have sales saved. Today’s pick shows up once a full week is saved.';
+      box.innerHTML = `<div class="nm">Still learning the week</div><div class="sub">${days.length} of ${MIN_DAYS} days of sales saved. The best seller for each weekday shows up once a full week is in.</div>`;
       return;
     }
-    const logDow = (wd + 1) % 7 + 1;   // gviz dayOfWeek: 1 = Sunday
+    const logDow = (wd + 1) % 7 + 1;
     const [todayRows, allRows] = await Promise.all([
       getCSV('Daily Log', `select C, avg(E), count(E) where dayOfWeek(A)=${logDow} and E>0 group by C`),
       getCSV('Daily Log', 'select C, avg(E), count(E), avg(D) where E>0 group by C')
@@ -535,41 +309,44 @@ async function loadDay(){
       return {name:c, today:t, usual:o.avg, price:o.price, lift:(t / o.avg - 1) * 100};
     }).filter(Boolean).sort((a,b) => b.lift - a.lift)[0];
     if(!best || best.lift < 5){
-      box.innerHTML = `<span class="nm">No clear winner</span><span class="sub">Nothing sells noticeably more on ${WEEKDAYS[wd]}s than other days.</span>`;
+      box.innerHTML = `<div class="nm">No clear winner</div><div class="sub">Nothing sells noticeably more on ${WEEKDAYS[wd]}s.</div>`;
       return;
     }
-    box.innerHTML = `<span class="nm">${esc(best.name)}</span>
-      <span class="why">sells the best today: ▲ ${Math.round(best.lift)}% more than usual</span>
-      <span class="sub">About ${Math.round(best.today).toLocaleString('en-US')} sold on ${WEEKDAYS[wd]}s vs ${Math.round(best.usual).toLocaleString('en-US')} on a usual day${best.price != null ? ' · around ' + gold(best.price) : ''}</span>`;
+    box.innerHTML = `<div class="nm">${esc(best.name)}</div>
+      <div class="why">Sells ▲ ${Math.round(best.lift)}% more than usual today</div>
+      <div class="sub">About ${Math.round(best.today).toLocaleString('en-US')} sold on ${WEEKDAYS[wd]}s${best.price != null ? ' · around ' + gold(best.price) : ''}</div>`;
   }catch(e){
-    box.innerHTML = '<span class="sub">Couldn’t load right now</span>';
+    box.innerHTML = '<div class="sub">Couldn’t load right now</div>';
   }
 }
 
-/* ---------- Lunascales (100 prestige each): best = price weighted by how often it sells ---------- */
-async function loadLuna(){
-  const list = document.getElementById('lunaList'), best = document.getElementById('lunaBest');
+/* ---------- Tool headlines ---------- */
+async function loadMoneyHeadline(){
+  const el = document.getElementById('hlMoney');
   try{
-    const rows = await getCSV('Prices', "select B,C,F,K where B contains 'Lunascale'");
-    const seen = new Set();
-    const items = rows.map(([name,c,f,k]) => ({name, now:num(c), avg:num(f), sold:num(k) || 0}))
-      .filter(r => r.name && !seen.has(r.name) && seen.add(r.name) && r.now && r.sold >= 20)
-      .map(r => ({...r, score: r.now * Math.sqrt(r.sold)}))
-      .sort((a,b) => b.score - a.score);
-    if(!items.length) throw new Error('empty');
-    const short = n => n.replace(/^Vivid\s+/, '').replace(' Lunascale', '');
-    const top = items[0];
-    best.innerHTML = `Best to sell: <b>${esc(short(top.name))}</b> · ${Math.round(top.now).toLocaleString("en-US")} g`;
-    list.innerHTML = items.slice(0, 5).map((r,i) =>
-      `<li${i===0?' class="best"':''}><span>${esc(short(r.name))}<small class="sl">${r.sold} sold in 30 days</small></span><b>${Math.round(r.now).toLocaleString('en-US')} g${r.avg && Math.abs(r.now/r.avg-1) >= .08 ? `<small class="sl">usually ${Math.round(r.avg)} g</small>` : ''}</b></li>`).join('');
-  }catch(e){
-    best.textContent = '';
-    list.innerHTML = '<li><span>Couldn’t load right now</span></li>';
-  }
+    const rows = (await getRange('Website', 'O1:Q4')).filter(x => x[0] && x[1] && x[1] !== 'none' && num(x[2]) != null);
+    const best = rows.sort((a,b) => num(b[2]) - num(a[2]))[0];
+    el.innerHTML = best ? `Best to plant: ${esc(best[1])} · <b>${Math.round(num(best[2]))} silver/labor</b>` : 'Open the money makers';
+  }catch(e){ el.textContent = 'Open the money makers'; }
+}
+async function loadWispHeadline(){
+  const el = document.getElementById('hlWisps');
+  try{
+    const rows = (await getRange('Website', 'S1:W7')).filter(x => x[0] && num(x[1]) != null);
+    const best = rows.sort((a,b) => num(b[1]) - num(a[1]))[0];
+    const p = best ? num(best[2]) : null;
+    el.innerHTML = best ? `Best: ${esc(best[0])} · <b>${p < 0 ? '−' : '+'}${Math.round(Math.abs(p)).toLocaleString('en-US')} g</b> each` : 'See the breakdowns';
+  }catch(e){ el.textContent = 'See the breakdowns'; }
 }
 
-loadPlant(); loadWisps(); loadGem(); loadDay(); loadLuna();
-Promise.all([loadPrices(), loadHistory()]).then(() => { updateTags(); loadMake(); });
+showEvent(); showNext();
+setInterval(() => { showEvent(); showNext(); }, 20000);
+addEventListener('storage', showDailies);
+loadGem(); loadDay(); loadMoneyHeadline(); loadWispHeadline();
+initLookup(3).then(list => {
+  const el = document.getElementById('hlPrices');
+  el.innerHTML = list.length ? `<b>${list.length.toLocaleString('en-US')}</b> items tracked, updated daily` : 'See price trends';
+});
 </script>
 </body>
 </html>

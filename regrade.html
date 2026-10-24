@@ -58,6 +58,7 @@ tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
 footer{border-top:1px solid var(--line);background:var(--bar)}
 footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </style>
+<script src="nav.js"></script>
 </head>
 <body>
 <header>
@@ -67,10 +68,17 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       Archeage Classic
     </a>
     <nav aria-label="Main">
-      <a href="taming-map.html">Taming Map</a>
+      <a href="prices.html">Prices</a>
+      <a href="money.html">Money Makers</a>
+      <details class="dd cur">
+        <summary>Crafting <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="menu">
+          <a href="wisps.html">Mana Wisps<small>Salvage paths, step by step</small></a>
+          <a href="regrade.html" aria-current="page">Regrade<small>Max AH price per grade</small></a>
+        </div>
+      </details>
       <a href="dailies.html">Dailies</a>
-      <a href="regrade.html" aria-current="page">Regrade</a>
-      <a href="wisps.html">Mana Wisps</a>
+      <a href="taming-map.html">Taming Map</a>
     </nav>
   </div>
 </header>
