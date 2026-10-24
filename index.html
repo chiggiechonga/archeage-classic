@@ -38,7 +38,14 @@ main{display:flex;flex-direction:column;gap:36px;padding-block:36px 64px}
 /* hero + lookup */
 .lead{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:stretch}
 .hero{position:relative;min-height:240px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;opacity:0;transition:opacity 1.2s ease}
+.hero img.on{opacity:1}
+.hero .dots{position:absolute;right:16px;bottom:22px;display:flex;gap:2px;z-index:2}
+.hero .dots button{width:24px;height:24px;padding:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.hero .dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(243,236,220,.45);transition:background .2s,transform .2s}
+.hero .dots button[aria-current="true"]::before{background:#f3ecdc;transform:scale(1.25)}
+.hero .dots button:hover::before{background:rgba(243,236,220,.8)}
+@media (prefers-reduced-motion:reduce){.hero img,.hero .dots button::before{transition:none}}
 .hero .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 22px;background:rgba(34,58,112,.86)}
 .hero h1{margin:0;font-family:"Cinzel",Georgia,serif;font-size:clamp(30px,4vw,40px);line-height:1.1;font-weight:600;letter-spacing:.02em;color:#f3ecdc}
 .lookup{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
@@ -120,8 +127,14 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 
   <section class="lead">
     <div class="hero">
-      <img src="images/hero.png" alt="">
+      <img class="on" src="images/hero-village.webp" alt="" fetchpriority="high">
+      <img src="images/hero-siege.webp" alt="" loading="lazy" decoding="async">
+      <img src="images/hero-glider.webp" alt="" loading="lazy" decoding="async">
+      <img src="images/hero-ruins.webp" alt="" loading="lazy" decoding="async">
+      <img src="images/hero-farmhouse.webp" alt="" loading="lazy" decoding="async">
+      <img src="images/hero-library.webp" alt="" loading="lazy" decoding="async">
       <div class="cap"><h1>AA Classic</h1></div>
+      <div class="dots" id="heroDots" role="group" aria-label="Pictures"></div>
     </div>
     <div class="card lookup">
       <label for="q">Look up an item price</label>
@@ -338,6 +351,35 @@ async function loadWispHeadline(){
     el.innerHTML = best ? `Best: ${esc(best[0])} · <b>${p < 0 ? '−' : '+'}${Math.round(Math.abs(p)).toLocaleString('en-US')} g</b> each` : 'See the breakdowns';
   }catch(e){ el.textContent = 'See the breakdowns'; }
 }
+
+/* ---------- Hero slideshow: crossfade every 6s, pauses on hover/focus and when the tab is hidden;
+   with reduced motion it stays put unless you pick a picture ---------- */
+(function(){
+  const hero = document.querySelector('.hero'), imgs = [...hero.querySelectorAll('img')], dots = document.getElementById('heroDots');
+  if(imgs.length < 2) return;
+  let i = 0, timer = null, paused = false;
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  dots.innerHTML = imgs.map((_, n) => `<button type="button" aria-label="Show picture ${n + 1}" aria-current="${n === 0}"></button>`).join('');
+  const btns = [...dots.children];
+  function show(n){
+    imgs[i].classList.remove('on'); btns[i].setAttribute('aria-current', 'false');
+    i = (n + imgs.length) % imgs.length;
+    imgs[i].loading = 'eager';
+    imgs[i].classList.add('on'); btns[i].setAttribute('aria-current', 'true');
+    imgs[(i + 1) % imgs.length].loading = 'eager';          // warm up the next one
+  }
+  function stop(){ clearInterval(timer); timer = null; }
+  function start(){ stop(); if(!still.matches && !paused && !document.hidden) timer = setInterval(() => show(i + 1), 6000); }
+  btns.forEach((b, n) => b.addEventListener('click', () => { show(n); start(); }));
+  hero.addEventListener('mouseenter', () => { paused = true; stop(); });
+  hero.addEventListener('mouseleave', () => { paused = false; start(); });
+  hero.addEventListener('focusin', () => { paused = true; stop(); });
+  hero.addEventListener('focusout', () => { paused = false; start(); });
+  document.addEventListener('visibilitychange', start);
+  if(still.addEventListener) still.addEventListener('change', start);
+  imgs[1].loading = 'eager';
+  start();
+})();
 
 showEvent(); showNext();
 setInterval(() => { showEvent(); showNext(); }, 20000);
