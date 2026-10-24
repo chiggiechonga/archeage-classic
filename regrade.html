@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regrade Prices · Archeage Classic</title>
+<meta name="description" content="Max auction house price worth paying for Obsidian gear at each grade in Archeage Classic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
+  --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
+  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --warn:#e8c47a; --warn-bg:#36301f;
+  --g1:#8cc65a; --g2:#5c8ee6; --g3:#b56fe6; --g4:#e3ad4a; --g5:#e8873a; --g6:#ef5b5b;
+  --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5}
+a{color:var(--accent)} a:hover{color:#c6d3f2}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media (min-width:700px){.wrap{padding-inline:24px}}
+header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
+nav{display:flex;flex-wrap:wrap;gap:2px}
+nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
+nav a:hover{background:var(--card2);color:var(--ink)}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
+main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.note{font-size:14px;color:var(--muted);margin:0}
+.intro h1{margin:0;font-size:30px;font-weight:700}
+.intro p{margin:4px 0 0;color:var(--muted);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;font-size:14px;color:var(--ink2)}
+.pill b{color:var(--ink)} .pill.deal b{color:var(--up)}
+.list{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+thead th{background:var(--card);border-bottom:1px solid var(--line2);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+thead th:first-child{color:var(--muted)}
+th.num,td.num{text-align:right;white-space:nowrap}
+td.num b{display:block;font-size:15px;font-weight:700}
+.sub{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.sub.deal{color:var(--up);font-size:12px}
+th.item{font-weight:400;min-width:240px}
+th.item b{font-weight:600;font-size:15px}
+tr.group th{background:var(--sunk);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);padding-block:8px}
+tr.group th span{color:var(--muted);text-transform:none;letter-spacing:0;font-weight:500;margin-left:8px}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+.c1{color:var(--g1)}.c2{color:var(--g2)}.c3{color:var(--g3)}.c4{color:var(--g4)}.c5{color:var(--g5)}.c6{color:var(--g6)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.notes .card{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.notes h2{margin:0;font-size:17px;font-weight:700}
+footer{border-top:1px solid var(--line);background:var(--bar)}
+footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="./">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+      Archeage Classic
+    </a>
+    <nav aria-label="Main">
+      <a href="taming-map.html">Taming Map</a>
+      <a href="dailies.html">Dailies</a>
+      <a href="regrade.html" aria-current="page">Regrade</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Regrade prices</h1>
+    <p>The most an Obsidian item is worth on the auction house at each grade. Pay more than this and you're better off crafting a Grand and regrading it yourself.</p>
+  </section>
+
+  <div class="legend">
+    <span class="pill">Top number = <b>max buy</b></span>
+    <span class="pill deal">Green = <b>good deal</b>, 10% under</span>
+    <span class="pill">Over max buy = regrade it yourself</span>
+  </div>
+
+  <section class="card list">
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col" class="num c1">Grand</th><th scope="col" class="num c2">Rare</th><th scope="col" class="num c3">Arcane</th><th scope="col" class="num c4">Heroic</th><th scope="col" class="num c5">Unique</th><th scope="col" class="num c6">Celestial</th></tr></thead>
+      <tbody>
+      <tr class="group"><th colspan="7">Weapons<span>Obsidian, level 46</span></th></tr>
+      <tr><th scope="row" class="item"><b>Dagger / Sword / Katana / Axe / Club / Shortspear</b><span class="sub">1H · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>101</b><span class="sub">craft cost</span></td><td class="num"><b>177</b><span class="sub deal">deal ≤ 159</span></td><td class="num"><b>266</b><span class="sub deal">deal ≤ 240</span></td><td class="num"><b>546</b><span class="sub deal">deal ≤ 491</span></td><td class="num"><b>913</b><span class="sub deal">deal ≤ 822</span></td><td class="num"><b>1,783</b><span class="sub deal">deal ≤ 1,605</span></td></tr>
+      <tr><th scope="row" class="item"><b>Scepter</b><span class="sub">1H · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>75</b><span class="sub">craft cost</span></td><td class="num"><b>151</b><span class="sub deal">deal ≤ 136</span></td><td class="num"><b>240</b><span class="sub deal">deal ≤ 216</span></td><td class="num"><b>520</b><span class="sub deal">deal ≤ 468</span></td><td class="num"><b>887</b><span class="sub deal">deal ≤ 798</span></td><td class="num"><b>1,757</b><span class="sub deal">deal ≤ 1,581</span></td></tr>
+      <tr><th scope="row" class="item"><b>Greatsword / Nodachi / Greataxe / Greatclub / Longspear</b><span class="sub">2H · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>110</b><span class="sub">craft cost</span></td><td class="num"><b>188</b><span class="sub deal">deal ≤ 169</span></td><td class="num"><b>280</b><span class="sub deal">deal ≤ 252</span></td><td class="num"><b>567</b><span class="sub deal">deal ≤ 511</span></td><td class="num"><b>945</b><span class="sub deal">deal ≤ 851</span></td><td class="num"><b>1,868</b><span class="sub deal">deal ≤ 1,681</span></td></tr>
+      <tr><th scope="row" class="item"><b>Staff</b><span class="sub">2H · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>77</b><span class="sub">craft cost</span></td><td class="num"><b>155</b><span class="sub deal">deal ≤ 140</span></td><td class="num"><b>247</b><span class="sub deal">deal ≤ 223</span></td><td class="num"><b>535</b><span class="sub deal">deal ≤ 481</span></td><td class="num"><b>913</b><span class="sub deal">deal ≤ 821</span></td><td class="num"><b>1,836</b><span class="sub deal">deal ≤ 1,652</span></td></tr>
+      <tr><th scope="row" class="item"><b>Bow</b><span class="sub">Bow · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>75</b><span class="sub">craft cost</span></td><td class="num"><b>153</b><span class="sub deal">deal ≤ 138</span></td><td class="num"><b>245</b><span class="sub deal">deal ≤ 221</span></td><td class="num"><b>532</b><span class="sub deal">deal ≤ 479</span></td><td class="num"><b>910</b><span class="sub deal">deal ≤ 819</span></td><td class="num"><b>1,833</b><span class="sub deal">deal ≤ 1,650</span></td></tr>
+      <tr><th scope="row" class="item"><b>Lute / Flute</b><span class="sub">Instrument · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>78</b><span class="sub">craft cost</span></td><td class="num"><b>150</b><span class="sub deal">deal ≤ 135</span></td><td class="num"><b>233</b><span class="sub deal">deal ≤ 210</span></td><td class="num"><b>498</b><span class="sub deal">deal ≤ 448</span></td><td class="num"><b>843</b><span class="sub deal">deal ≤ 759</span></td><td class="num"><b>1,607</b><span class="sub deal">deal ≤ 1,447</span></td></tr>
+      <tr><th scope="row" class="item"><b>Shield</b><span class="sub">Shield · charms: Dazzling Arcane, Dazzling Heroic</span></th><td class="num"><b>75</b><span class="sub">craft cost</span></td><td class="num"><b>147</b><span class="sub deal">deal ≤ 133</span></td><td class="num"><b>230</b><span class="sub deal">deal ≤ 207</span></td><td class="num"><b>495</b><span class="sub deal">deal ≤ 445</span></td><td class="num"><b>840</b><span class="sub deal">deal ≤ 756</span></td><td class="num"><b>1,604</b><span class="sub deal">deal ≤ 1,444</span></td></tr>
+      <tr class="group"><th colspan="7">Armor<span>Obsidian, level 46</span></th></tr>
+      <tr><th scope="row" class="item"><b>Shirt (cloth)</b><span class="sub">Chest · charms: Dazzling Arcane</span></th><td class="num"><b>129</b><span class="sub">craft cost</span></td><td class="num"><b>188</b><span class="sub deal">deal ≤ 169</span></td><td class="num"><b>255</b><span class="sub deal">deal ≤ 230</span></td><td class="num"><b>486</b><span class="sub deal">deal ≤ 438</span></td><td class="num"><b>770</b><span class="sub deal">deal ≤ 693</span></td><td class="num"><b>1,384</b><span class="sub deal">deal ≤ 1,246</span></td></tr>
+      <tr><th scope="row" class="item"><b>Jerkin (leather)</b><span class="sub">Chest · charms: Dazzling Arcane</span></th><td class="num"><b>133</b><span class="sub">craft cost</span></td><td class="num"><b>192</b><span class="sub deal">deal ≤ 172</span></td><td class="num"><b>259</b><span class="sub deal">deal ≤ 233</span></td><td class="num"><b>490</b><span class="sub deal">deal ≤ 441</span></td><td class="num"><b>774</b><span class="sub deal">deal ≤ 696</span></td><td class="num"><b>1,388</b><span class="sub deal">deal ≤ 1,249</span></td></tr>
+      <tr><th scope="row" class="item"><b>Cuirass (plate)</b><span class="sub">Chest · charms: Dazzling Arcane</span></th><td class="num"><b>153</b><span class="sub">craft cost</span></td><td class="num"><b>212</b><span class="sub deal">deal ≤ 190</span></td><td class="num"><b>279</b><span class="sub deal">deal ≤ 251</span></td><td class="num"><b>510</b><span class="sub deal">deal ≤ 459</span></td><td class="num"><b>794</b><span class="sub deal">deal ≤ 715</span></td><td class="num"><b>1,408</b><span class="sub deal">deal ≤ 1,267</span></td></tr>
+      <tr><th scope="row" class="item"><b>Pants (cloth)</b><span class="sub">Legs · charms: none</span></th><td class="num"><b>103</b><span class="sub">craft cost</span></td><td class="num"><b>157</b><span class="sub deal">deal ≤ 142</span></td><td class="num"><b>219</b><span class="sub deal">deal ≤ 197</span></td><td class="num"><b>433</b><span class="sub deal">deal ≤ 390</span></td><td class="num"><b>679</b><span class="sub deal">deal ≤ 611</span></td><td class="num"><b>1,187</b><span class="sub deal">deal ≤ 1,068</span></td></tr>
+      <tr><th scope="row" class="item"><b>Breeches (leather)</b><span class="sub">Legs · charms: none</span></th><td class="num"><b>105</b><span class="sub">craft cost</span></td><td class="num"><b>160</b><span class="sub deal">deal ≤ 144</span></td><td class="num"><b>221</b><span class="sub deal">deal ≤ 199</span></td><td class="num"><b>436</b><span class="sub deal">deal ≤ 392</span></td><td class="num"><b>682</b><span class="sub deal">deal ≤ 614</span></td><td class="num"><b>1,190</b><span class="sub deal">deal ≤ 1,071</span></td></tr>
+      <tr><th scope="row" class="item"><b>Greaves (plate)</b><span class="sub">Legs · charms: none</span></th><td class="num"><b>120</b><span class="sub">craft cost</span></td><td class="num"><b>175</b><span class="sub deal">deal ≤ 158</span></td><td class="num"><b>236</b><span class="sub deal">deal ≤ 213</span></td><td class="num"><b>451</b><span class="sub deal">deal ≤ 406</span></td><td class="num"><b>697</b><span class="sub deal">deal ≤ 627</span></td><td class="num"><b>1,205</b><span class="sub deal">deal ≤ 1,084</span></td></tr>
+      <tr><th scope="row" class="item"><b>Hood (cloth)</b><span class="sub">Head · charms: none</span></th><td class="num"><b>76</b><span class="sub">craft cost</span></td><td class="num"><b>128</b><span class="sub deal">deal ≤ 116</span></td><td class="num"><b>187</b><span class="sub deal">deal ≤ 168</span></td><td class="num"><b>388</b><span class="sub deal">deal ≤ 349</span></td><td class="num"><b>615</b><span class="sub deal">deal ≤ 554</span></td><td class="num"><b>1,070</b><span class="sub deal">deal ≤ 963</span></td></tr>
+      <tr><th scope="row" class="item"><b>Cap (leather)</b><span class="sub">Head · charms: none</span></th><td class="num"><b>77</b><span class="sub">craft cost</span></td><td class="num"><b>130</b><span class="sub deal">deal ≤ 117</span></td><td class="num"><b>189</b><span class="sub deal">deal ≤ 170</span></td><td class="num"><b>389</b><span class="sub deal">deal ≤ 350</span></td><td class="num"><b>617</b><span class="sub deal">deal ≤ 555</span></td><td class="num"><b>1,072</b><span class="sub deal">deal ≤ 965</span></td></tr>
+      <tr><th scope="row" class="item"><b>Helm (plate)</b><span class="sub">Head · charms: none</span></th><td class="num"><b>88</b><span class="sub">craft cost</span></td><td class="num"><b>140</b><span class="sub deal">deal ≤ 126</span></td><td class="num"><b>199</b><span class="sub deal">deal ≤ 179</span></td><td class="num"><b>399</b><span class="sub deal">deal ≤ 359</span></td><td class="num"><b>627</b><span class="sub deal">deal ≤ 564</span></td><td class="num"><b>1,082</b><span class="sub deal">deal ≤ 974</span></td></tr>
+      <tr><th scope="row" class="item"><b>Gloves / Shoes (cloth)</b><span class="sub">Hands, Feet · charms: none</span></th><td class="num"><b>76</b><span class="sub">craft cost</span></td><td class="num"><b>127</b><span class="sub deal">deal ≤ 114</span></td><td class="num"><b>182</b><span class="sub deal">deal ≤ 164</span></td><td class="num"><b>369</b><span class="sub deal">deal ≤ 332</span></td><td class="num"><b>578</b><span class="sub deal">deal ≤ 520</span></td><td class="num"><b>980</b><span class="sub deal">deal ≤ 882</span></td></tr>
+      <tr><th scope="row" class="item"><b>Fists / Boots (leather)</b><span class="sub">Hands, Feet · charms: none</span></th><td class="num"><b>77</b><span class="sub">craft cost</span></td><td class="num"><b>128</b><span class="sub deal">deal ≤ 116</span></td><td class="num"><b>184</b><span class="sub deal">deal ≤ 165</span></td><td class="num"><b>371</b><span class="sub deal">deal ≤ 334</span></td><td class="num"><b>580</b><span class="sub deal">deal ≤ 522</span></td><td class="num"><b>982</b><span class="sub deal">deal ≤ 884</span></td></tr>
+      <tr><th scope="row" class="item"><b>Gauntlets / Sabatons (plate)</b><span class="sub">Hands, Feet · charms: none</span></th><td class="num"><b>88</b><span class="sub">craft cost</span></td><td class="num"><b>138</b><span class="sub deal">deal ≤ 125</span></td><td class="num"><b>194</b><span class="sub deal">deal ≤ 174</span></td><td class="num"><b>381</b><span class="sub deal">deal ≤ 343</span></td><td class="num"><b>590</b><span class="sub deal">deal ≤ 531</span></td><td class="num"><b>992</b><span class="sub deal">deal ≤ 893</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="notes">
+    <div class="card"><h2>What's counted</h2><p class="note">Difficult regrade rates, the in-game gold fee per try, scroll prices (weapon 37.41g, armor 27.36g) and charm prices. Each item uses whichever charms come out cheapest, listed under its name.</p></div>
+    <div class="card"><h2>Grand price</h2><p class="note">Grand is the crafting cost from mat prices, assuming a craft comes out as Grand. Buying the Grand off the AH instead? Add the difference to every column.</p></div>
+    <div class="card"><h2>Averages</h2><p class="note">These are average costs. Unique to Celestial is 22.8% per try, so streaks swing a lot. A listing right at max buy is still worth it if you'd rather skip the gamble.</p></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Prices in gold from 7-day AH averages, Oct 24 2026. Rates and fee formula from <a href="https://www.sermeatball.com/tools/regrade-calculator" target="_blank" rel="noopener">Ser Meatball's regrade calculator</a> and the <a href="https://wiki.aa-classic.com/Regrade_Rates" target="_blank" rel="noopener">AA Classic wiki</a>.</div>
+</footer>
+</body>
+</html>
