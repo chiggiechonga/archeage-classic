@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crafting · Archeage Classic</title>
+<meta name="description" content="Every Archeage Classic craft ranked by silver per labor, with a full material breakdown, from daily auction house prices.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#262523">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Archeage Classic">
+<meta property="og:title" content="Crafting · Archeage Classic">
+<meta property="og:description" content="Every Archeage Classic craft ranked by silver per labor, with a full material breakdown, from daily auction house prices.">
+<meta property="og:url" content="https://chiggiechonga.github.io/archeage-classic/crafting.html">
+<meta property="og:image" content="https://chiggiechonga.github.io/archeage-classic/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.chip{font:inherit;font-size:14px;font-weight:600;padding:7px 14px;min-height:38px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink2);cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--faint)}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
+.chip small{font-weight:500;color:var(--muted);margin-left:4px}
+.toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2);cursor:pointer;user-select:none}
+.toggle input{appearance:none;width:38px;height:22px;border-radius:99px;background:var(--line2);position:relative;cursor:pointer;margin:0;transition:background .15s}
+.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--ink);transition:transform .15s}
+.toggle input:checked{background:var(--accent)}
+.toggle input:checked::after{transform:translateX(16px);background:#fff}
+@media (prefers-reduced-motion:reduce){.toggle input,.toggle input::after{transition:none}}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.list{padding:6px 18px}
+.list .rows > li{padding:0;min-height:0;border-bottom:1px solid var(--line)}
+.list .rows > li:last-child{border-bottom:0}
+.list button.row{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding:11px 10px;margin-inline:-10px;width:calc(100% + 20px);border-radius:10px;cursor:pointer}
+.list button.row:hover{background:var(--card2)}
+.list button.row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.list li.on button.row{background:var(--accent-soft)}
+.list .empty{padding:18px 0;color:var(--muted);font-size:15px}
+.count{font-size:13px;color:var(--muted)}
+
+.detail{padding:20px 22px;display:flex;flex-direction:column;gap:14px;position:sticky;top:calc(var(--head-h) + 16px)}
+@media (max-width:860px){.detail{position:static}}
+.dhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.dhead h2{margin:0;font-size:22px;font-weight:700}
+.dhead .prof{display:block;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
+.pill{font-size:13px;font-weight:700;border-radius:999px;padding:3px 12px;white-space:nowrap}
+.pill.good{background:var(--up-bg)} .pill.meh{background:var(--warn-bg)} .pill.bad{background:var(--down-bg)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{background:var(--card2);border-radius:12px;padding:10px 12px;min-width:0}
+.stat .k{font-size:12px;font-weight:600;color:var(--muted)}
+.stat .v{font-size:19px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub2{font-size:14px;color:var(--muted);margin:0}
+.mats{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.mats th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 0 6px;border-bottom:1px solid var(--line2)}
+.mats th:not(:first-child),.mats td:not(:first-child){text-align:right;white-space:nowrap;padding-left:12px}
+.mats td{padding:7px 0;border-bottom:1px solid var(--line)}
+.mats td:nth-child(2){color:var(--muted)}
+.mats tr.sum td{border-bottom:0;font-weight:700;padding-top:10px}
+.callout{border-radius:12px;padding:10px 14px;font-size:14px;background:var(--card2);color:var(--ink2)}
+.callout.warn{background:var(--warn-bg);color:var(--warn)}
+.callout b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="site"></header>
+<script src="site.js"></script>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Crafting</h1>
+    <p>Every craft ranked by silver per labor, from today's auction house prices. Pick one to see every material and what it costs.</p>
+  </section>
+
+  <div class="bar" role="toolbar" aria-label="Filter crafts">
+    <div class="bar" id="profs" role="group" aria-label="Profession"></div>
+    <label class="toggle"><input type="checkbox" id="sells" checked> Only things that sell <span class="count" id="sellsNote">(100+ a week)</span></label>
+  </div>
+
+  <div class="split">
+    <section class="card list" aria-label="Crafts">
+      <ul class="rows" id="list"></ul>
+    </section>
+    <section class="card detail" id="detail" aria-live="polite"></section>
+  </div>
+</main>
+
+<footer class="site">Crafting numbers come from each profession tab in the Google sheet, using AH prices or your override prices. Silver per labor assumes your labor reduction from the sheet.</footer>
+
+<script src="data.js"></script>
+<script>
+const MIN_SOLD = 100;
+let CRAFTS = [], MATS = {}, prof = 'all', current = null, loaded = false;
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const verdict = c => c.profit == null ? ['', 'No price'] : c.profit <= 0 ? ['bad', 'Not worth it'] : c.sl < 30 ? ['meh', 'Small profit'] : ['good', 'Worth it'];
+const sk = n => Array.from({length:n}, () => '<li class="skr" aria-hidden="true" style="min-height:58px"><span class="sk"></span><span class="sk"></span></li>').join('');
+
+function visible(){
+  const sells = document.getElementById('sells').checked;
+  return CRAFTS.filter(c => (prof === 'all' || c.prof === prof) && (!sells || c.sold >= MIN_SOLD))
+    .sort((a,b) => (b.sl ?? -1e9) - (a.sl ?? -1e9));
+}
+
+function renderProfs(){
+  const counts = {}; CRAFTS.forEach(c => counts[c.prof] = (counts[c.prof] || 0) + 1);
+  const list = [['all', 'All professions', CRAFTS.length], ...Object.keys(counts).sort().map(p => [p, p, counts[p]])];
+  document.getElementById('profs').innerHTML = list.map(([id, name, n]) =>
+    `<button type="button" class="chip" data-p="${esc(id)}" aria-pressed="${id === prof}">${esc(name)}<small>${n}</small></button>`).join('');
+  document.querySelectorAll('#profs .chip').forEach(b => b.addEventListener('click', () => { prof = b.dataset.p; current = null; render(); }));
+}
+
+function renderList(){
+  const el = document.getElementById('list'), rows = visible();
+  if(!loaded){ el.innerHTML = sk(6); return; }
+  if(!rows.length){ el.innerHTML = `<li><div class="empty">No crafts here sell ${MIN_SOLD}+ a week right now. Turn off “Only things that sell” to see them all.</div></li>`; return; }
+  if(!current || !rows.includes(current)) current = rows[0];
+  el.innerHTML = rows.map(c => {
+    const [cls] = verdict(c);
+    const lsub = (prof === 'all' ? esc(c.prof) + ' · ' : '') + `${money(c.cost)} per craft · ${c.sold.toLocaleString('en-US')} sold/wk`;
+    return `<li class="${c === current ? 'on' : ''}"><button type="button" class="row" data-id="${c.id}" aria-pressed="${c === current}">
+      <div class="l">${esc(c.name)}<small>${lsub}</small></div>
+      <div class="r ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US') + ' silver/labor'}<small>${c.profit == null ? 'no price' : AA.signed(c.profit) + (c.profit < 0 ? ' loss' : ' profit')}</small></div></button></li>`;
+  }).join('');
+  el.querySelectorAll('button.row').forEach(b => b.addEventListener('click', () => {
+    current = CRAFTS.find(c => c.id === b.dataset.id); render();
+    try{ history.replaceState(null, '', '#' + current.id); }catch(e){}
+    if(matchMedia('(max-width:860px)').matches) document.getElementById('detail').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  }));
+}
+
+function renderDetail(){
+  const el = document.getElementById('detail'), c = current;
+  if(!loaded){ el.innerHTML = '<span class="sk t" style="width:45%"></span><div class="stats">' + '<div class="stat"><span class="sk w60"></span><span class="sk w40" style="height:18px;margin-top:8px"></span></div>'.repeat(6) + '</div><span class="sk" style="height:180px;border-radius:12px"></span>'; return; }
+  if(!c){ el.innerHTML = '<p class="sub2">Pick a craft to see its breakdown.</p>'; return; }
+  const [cls, label] = verdict(c), mats = (MATS[c.prof + '|' + c.name] || []);
+  const revenue = c.price != null ? c.price * c.makes * 0.95 : null;
+  const sum = mats.reduce((s, m) => s + (m.line || 0), 0);
+  const route = c.route && !/: buy$/i.test(c.route);
+  el.innerHTML = `
+    <div class="dhead"><h2><span class="prof">${esc(c.prof)}</span>${esc(c.name)}</h2><span class="pill ${cls}">${label}</span></div>
+    <div class="stats">
+      <div class="stat"><div class="k">Silver/labor</div><div class="v ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US')}</div></div>
+      <div class="stat"><div class="k">Profit per craft</div><div class="v">${c.profit == null ? '—' : AA.signed(c.profit)}</div></div>
+      <div class="stat"><div class="k">Labor</div><div class="v">${c.labor ?? '—'}</div></div>
+      <div class="stat"><div class="k">Materials</div><div class="v">${money(c.cost)}</div></div>
+      <div class="stat"><div class="k">Sells for</div><div class="v">${money(revenue)}</div></div>
+      <div class="stat"><div class="k">Sold this week</div><div class="v">${c.sold.toLocaleString('en-US')}</div></div>
+    </div>
+    <p class="sub2">Makes ${c.makes} per craft at ${money(c.price)} each on the AH. “Sells for” is what you keep after the 5% tax.</p>
+    ${route ? `<div class="callout">Best route: <b>${esc(c.route)}</b>. Cost and labor include crafting the lower tier yourself, so they're lower than buying the material below.</div>` : ''}
+    ${c.missing ? `<div class="callout warn">${c.missing} material${c.missing > 1 ? 's have' : ' has'} no price, so the cost is too low. Add an override price in the sheet.</div>` : ''}
+    <table class="mats"><thead><tr><th scope="col">Material</th><th scope="col">Qty × price</th><th scope="col">Cost</th></tr></thead><tbody>
+      ${mats.map(m => `<tr><td>${esc(m.name)}</td><td>${m.qty.toLocaleString('en-US')} × ${m.unit == null ? 'no price' : money(m.unit)}</td><td>${m.line == null ? '—' : money(m.line)}</td></tr>`).join('')}
+      <tr class="sum"><td>${route ? 'Buying the material instead' : 'Materials total'}</td><td></td><td>${money(sum)}</td></tr>
+    </tbody></table>`;
+}
+
+function render(){ renderProfs(); renderList(); renderDetail(); }
+
+(async function(){
+  render();
+  try{
+    const [crafts, mats] = await Promise.all([getRange('Web Crafts', 'A1:K300'), getRange('Web Mats', 'A1:F2000')]);
+    CRAFTS = crafts.filter(r => r[0] && r[1]).map(([p, name, makes, labor, price, cost, profit, sl, sold, route, missing]) => ({
+      id: slug(name), prof: p, name, makes: num(makes) || 1, labor: num(labor), price: num(price), cost: num(cost),
+      profit: num(profit), sl: num(sl), sold: num(sold) || 0, route: (route || '').trim(), missing: num(missing) || 0 }));
+    mats.forEach(([p, craft, name, qty, unit, line]) => {
+      if(!p || !craft || !name) return;
+      (MATS[p + '|' + craft] ||= []).push({name, qty: num(qty) || 0, unit: num(unit), line: num(line)});
+    });
+    loaded = true;
+    const want = location.hash.slice(1);
+    const hit = CRAFTS.find(c => c.id === want);
+    if(hit){ current = hit; if(hit.sold < MIN_SOLD) document.getElementById('sells').checked = false; }
+  }catch(e){
+    loaded = true;
+    document.getElementById('list').innerHTML = fail;
+    document.getElementById('detail').innerHTML = '<p class="sub2">Crafting prices couldn’t load right now. Try again in a bit.</p>';
+    return;
+  }
+  render();
+})();
+document.getElementById('sells').addEventListener('change', () => { renderList(); renderDetail(); });
+</script>
+</body>
+</html>
