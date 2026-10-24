@@ -91,7 +91,7 @@
   /* ---------- header ---------- */
   const chev = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
   const searchBox = id => `<div class="hsearch" role="search">
-      <div class="box"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8f8c82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <div class="box"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#878680" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input id="${id}" type="search" placeholder="Search item prices" autocomplete="off" aria-label="Search item prices" aria-autocomplete="list" aria-controls="${id}-res" aria-expanded="false">${id === 'hs' ? '<kbd aria-hidden="true">/</kbd>' : ''}</div>
       <div class="hres" id="${id}-res" role="listbox" hidden></div></div>`;
   function renderHeader(){
@@ -99,7 +99,7 @@
     const main = PAGES.filter(p => !p.craft), craft = PAGES.filter(p => p.craft), craftCur = craft.some(p => p.href === here);
     h.innerHTML = `<div class="wrap top">
       <a class="brand" href="./" aria-label="Archeage Classic home">
-        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8fb6f2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5fa7ec" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
         <span><b>Archeage Classic</b><span class="fresh" id="fresh"><i></i><span>Checking prices…</span></span></span>
       </a>
       ${searchBox('hs')}
