@@ -8,6 +8,7 @@
   const PAGES = [
     {href:'prices.html',     name:'Prices',       sub:'Lookup and price trends'},
     {href:'money.html',      name:'Money Makers', sub:'Planting, make or buy, shop points'},
+    {href:'crafting.html',   name:'All crafts',   sub:'Every craft ranked by silver/labor', craft:true, long:'Crafting'},
     {href:'wisps.html',      name:'Mana Wisps',   sub:'Salvage paths, step by step', craft:true},
     {href:'regrade.html',    name:'Regrade',      sub:'Max AH price per grade', craft:true},
     {href:'dailies.html',    name:'Dailies',      sub:'Checklist for main and alts'},
@@ -90,7 +91,7 @@
   /* ---------- header ---------- */
   const chev = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
   const searchBox = id => `<div class="hsearch" role="search">
-      <div class="box"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8b9490" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <div class="box"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8f8c82" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input id="${id}" type="search" placeholder="Search item prices" autocomplete="off" aria-label="Search item prices" aria-autocomplete="list" aria-controls="${id}-res" aria-expanded="false">${id === 'hs' ? '<kbd aria-hidden="true">/</kbd>' : ''}</div>
       <div class="hres" id="${id}-res" role="listbox" hidden></div></div>`;
   function renderHeader(){
@@ -98,7 +99,7 @@
     const main = PAGES.filter(p => !p.craft), craft = PAGES.filter(p => p.craft), craftCur = craft.some(p => p.href === here);
     h.innerHTML = `<div class="wrap top">
       <a class="brand" href="./" aria-label="Archeage Classic home">
-        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8fb6f2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
         <span><b>Archeage Classic</b><span class="fresh" id="fresh"><i></i><span>Checking prices…</span></span></span>
       </a>
       ${searchBox('hs')}
@@ -115,7 +116,7 @@
       ${searchBox('ms')}
       <nav class="mnav" aria-label="Main">
         <a href="./"${cur('index.html')}>Home<small>Today and all tools</small></a>
-        ${PAGES.map(p => `<a href="${p.href}"${cur(p.href)}>${p.name}<small>${p.sub}</small></a>`).join('')}
+        ${PAGES.map(p => `<a href="${p.href}"${cur(p.href)}>${p.long || p.name}<small>${p.sub}</small></a>`).join('')}
       </nav>
     </div>`;
     const btn = h.querySelector('.menubtn'), panel = h.querySelector('#mpanel');
@@ -176,7 +177,7 @@
     f.innerHTML = `<div class="wrap cols">
       <div class="about"><a class="brand" href="./"><b>Archeage Classic</b></a>
         <p>Prices, money makers and guides for AA Classic, from daily auction house data.</p>${note}</div>
-      <div><h3>Tools</h3><ul><li><a href="./">Home</a></li>${PAGES.map(p => `<li><a href="${p.href}">${p.name}</a></li>`).join('')}</ul></div>
+      <div><h3>Tools</h3><ul><li><a href="./">Home</a></li>${PAGES.map(p => `<li><a href="${p.href}">${p.long || p.name}</a></li>`).join('')}</ul></div>
       <div><h3>Data from</h3><ul>
         <li><a href="https://docs.google.com/spreadsheets/d/1VezKZkoRFzTnB0hLpTroTRFG40NH5vEpfMjWtWCCXIc" target="_blank" rel="noopener">Michael’s AH Prices sheet</a></li>
         <li><a href="https://wiki.aa-classic.com/" target="_blank" rel="noopener">AA Classic wiki</a></li>
