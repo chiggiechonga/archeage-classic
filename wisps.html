@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mana Wisps · Archeage Classic</title>
+<meta name="description" content="Step-by-step mana wisp salvage breakdown for Epherium chests and weapons in Archeage Classic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
+  --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
+  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --warn:#e8c47a; --warn-bg:#36301f;
+  --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5}
+a{color:var(--accent)} a:hover{color:#c6d3f2}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media (min-width:700px){.wrap{padding-inline:24px}}
+header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
+nav{display:flex;flex-wrap:wrap;gap:2px}
+nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
+nav a:hover{background:var(--card2);color:var(--ink)}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
+main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.note{font-size:14px;color:var(--muted);margin:0}
+.intro h1{margin:0;font-size:30px;font-weight:700}
+.intro p{margin:4px 0 0;color:var(--muted);max-width:72ch}
+
+/* line picker */
+.picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.pick{font:inherit;text-align:left;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.pick:hover{border-color:var(--line2);background:var(--card2)}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.pick .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pick b{font-size:16px;font-weight:700}
+.pick .v{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.good{color:var(--up)} .bad{color:var(--down)} .meh{color:var(--warn)}
+
+/* detail */
+.detail{padding:22px;display:flex;flex-direction:column;gap:20px}
+.dhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.dhead h2{margin:0;font-size:22px;font-weight:700}
+.verdict{font-size:13px;font-weight:700;border-radius:999px;padding:3px 12px}
+.verdict.good{background:var(--up-bg)} .verdict.bad{background:var(--down-bg)} .verdict.meh{background:var(--warn-bg)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--card2);border-radius:12px;padding:10px 14px}
+.stat .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.step{counter-increment:s;background:var(--sunk);border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 56px;position:relative}
+.step::before{content:counter(s);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--ink);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step h3{margin:0;font-size:16px;font-weight:700;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px}
+.step h3 span{font-variant-numeric:tabular-nums}
+.step p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.mats{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px;font-variant-numeric:tabular-nums}
+.mats td{padding:5px 0;border-bottom:1px solid var(--line)}
+.mats tr:last-child td{border-bottom:0}
+.mats td:nth-child(2),.mats td:nth-child(3){text-align:right;white-space:nowrap;padding-left:12px}
+.mats td:nth-child(2){color:var(--muted)}
+.mats .tag{font-size:12px;font-weight:700;color:var(--accent);margin-left:6px}
+.mats tr.sum td{font-weight:700;color:var(--ink)}
+.mats tr.minus td:nth-child(3){color:var(--up)}
+.result{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:16px;font-weight:700;border-top:1px solid var(--line2);padding-top:14px}
+footer{border-top:1px solid var(--line);background:var(--bar)}
+footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="./">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+      Archeage Classic
+    </a>
+    <nav aria-label="Main">
+      <a href="taming-map.html">Taming Map</a>
+      <a href="dailies.html">Dailies</a>
+      <a href="regrade.html">Regrade</a>
+      <a href="wisps.html" aria-current="page">Mana Wisps</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Mana wisp salvage</h1>
+    <p>Reforge an Epherium piece with wisps, upgrade it at the house, salvage the ones that don't come out upgradeable, take the rest to Ayanad and salvage those for wisps. Pick a line to see every step. Live AH prices, materials bought or crafted, whichever is cheaper.</p>
+  </section>
+
+  <div class="picker" id="picker" role="group" aria-label="Equipment line"></div>
+
+  <section class="card detail" id="detail" aria-live="polite"><p class="note">Loading prices…</p></section>
+</main>
+
+<footer>
+  <div class="wrap">Prices from daily auction house data. Weapon recipe amounts and upgrade chances from <a href="https://sermeatball.com/tools/equipment-crafting" target="_blank" rel="noopener">Ser Meatball's equipment crafting tool</a>. Labor assumes 40% reduction.</div>
+</footer>
+
+<script>
+const SHEET = 'https://docs.google.com/spreadsheets/d/1QNb9ZcPpL7aUDqfHYb3LAqpGgFNS6X3NZxcK0bo3ob8/gviz/tq?tqx=out:csv&headers=1';
+const LINES = [
+  {id:'shirt',   group:'Chest', name:'Cloth Shirt',       kind:'chest'},
+  {id:'jerkin',  group:'Chest', name:'Leather Jerkin',    kind:'chest'},
+  {id:'cuirass', group:'Chest', name:'Plate Cuirass',     kind:'chest'},
+  {id:'onehand', group:'Weapon', name:'One-Hander (Metal)', kind:'weapon'},
+  {id:'twohand', group:'Weapon', name:'Two-Hander (Metal)', kind:'weapon'},
+  {id:'wooden',  group:'Weapon', name:'Wooden (Bow / Staff)', kind:'weapon'}
+];
+function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+  if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+  else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'){r.push(f);rows.push(r);r=[];f=''}else if(c!='\r')f+=c}
+  if(f||r.length){r.push(f);rows.push(r)}return rows}
+const num = v => { const n = parseFloat(String(v ?? '').replace(/[,%]/g,'')); return isFinite(n) ? n : null; };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const g = (v, d=0) => v == null ? '—' : v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const cls = (profit, sl) => profit == null ? '' : profit <= 0 ? 'bad' : sl < 30 ? 'meh' : 'good';
+
+let data = {}, current = null;
+
+function line(id){
+  const L = LINES.find(x => x.id === id), d = data[id] || {};
+  const n = k => num(d[k]), t = k => d[k] || '';
+  return {L, d, n, t};
+}
+
+function renderPicker(){
+  const p = document.getElementById('picker');
+  p.innerHTML = LINES.map(L => {
+    const {n} = line(L.id), pr = n('profit'), sl = n('sl');
+    return `<button type="button" class="pick" data-id="${L.id}" aria-pressed="${L.id===current}">
+      <span class="k">${L.group}</span><b>${esc(L.name)}</b>
+      <span class="v ${cls(pr,sl)}">${sl==null?'—':g(sl,1)+' silver/labor'}</span>
+      <span class="note">${pr==null?'':(pr<0?'−':'+')+g(Math.abs(pr))+' g each'}</span></button>`;
+  }).join('');
+  p.querySelectorAll('.pick').forEach(b => b.addEventListener('click', () => select(b.dataset.id, true)));
+}
+
+function matRow(name, qty, price, tag){
+  if(qty == null || price == null) return '';
+  return `<tr><td>${esc(name)}${tag?`<span class="tag">${esc(tag)}</span>`:''}</td><td>${g(qty, qty%1?2:0)} × ${g(price,2)}</td><td>${g(qty*price)} g</td></tr>`;
+}
+
+function renderDetail(){
+  const box = document.getElementById('detail');
+  const {L, n, t} = line(current);
+  if(!data[current]){ box.innerHTML = '<p class="note">Couldn’t load right now.</p>'; return; }
+  const chest = L.kind === 'chest';
+  const price = n('price'), tax = 0.05, chance = n('chance');
+  const chancePct = chance == null ? null : (chance > 1 ? chance : chance*100);
+  const tries = n('perUpg'), misses = tries == null ? null : tries - 1;
+  const essName = chest ? 'Moonlight Archeum Essence' : 'Sunlight Archeum Essence';
+  const scrollName = chest ? 'Ayanad Armorsmithing Scroll' : 'Ayanad Weaponsmithing Scroll';
+  const mainTag = t('mainBuy') === 'Craft' ? 'craft it' : 'buy it';
+  const pigTag = t('pigBuy') === 'Craft' ? 'craft it' : 'buy it';
+  const pr = n('profit'), sl = n('sl'), c = cls(pr, sl);
+  const delphMats = [
+    `<tr><td>Epherium piece from step 1</td><td></td><td>${g(n('ephValue'))} g</td></tr>`,
+    matRow(t('main'), n('dMain'), n('mainUsed'), mainTag),
+    chest ? matRow(t('pig'), n('dPig'), n('pigUsed'), pigTag) : '',
+    matRow(essName, n('dEss'), n('essPrice')),
+    chest ? '' : matRow('Archeum Ingot', n('dArch'), n('archPrice')),
+    `<tr><td>Gold</td><td></td><td>${g(n('dGold'))} g</td></tr>`,
+    `<tr class="sum"><td>One Delphinad craft</td><td></td><td>${g(n('delphCraft'))} g</td></tr>`
+  ].join('');
+  const salvMisses = misses == null || price == null ? null : misses * n('salvDel') * price * (1-tax);
+  const ayaMats = [
+    `<tr><td>Upgradeable Delphinad from step 3</td><td></td><td>${g(n('costUpg'))} g</td></tr>`,
+    matRow(t('main'), n('aMain'), n('mainUsed'), mainTag),
+    chest ? matRow(t('pig'), n('aPig'), n('pigUsed'), pigTag) : '',
+    matRow(essName, n('aEss'), n('essPrice')),
+    chest ? '' : matRow('Archeum Ingot', n('aArch'), n('archPrice')),
+    chest ? '' : matRow('Gilda Dust', n('aGilda'), n('gildaPrice')),
+    matRow(scrollName, 1, n('scrollPrice')),
+    `<tr><td>Gold</td><td></td><td>${g(n('aGold'))} g</td></tr>`,
+    `<tr class="sum"><td>Total cost per Ayanad</td><td></td><td>${g(n('total'))} g</td></tr>`
+  ].join('');
+  box.innerHTML = `
+    <div class="dhead"><h2>${esc(L.name)}</h2><span class="verdict ${c}">${esc(t('verdict') || '—')}</span></div>
+    <div class="stats">
+      <div class="stat"><div class="k">Profit per Ayanad</div><div class="v ${c}">${pr==null?'—':(pr<0?'−':'+')+g(Math.abs(pr))+' g'}</div></div>
+      <div class="stat"><div class="k">Silver per labor</div><div class="v">${g(sl,1)}</div></div>
+      <div class="stat"><div class="k">Labor</div><div class="v">${g(n('labor'))}</div></div>
+      <div class="stat"><div class="k">Wisp price</div><div class="v">${g(price,2)} g</div></div>
+      <div class="stat"><div class="k">Break-even wisp</div><div class="v">${g(n('breakeven'),2)} g</div></div>
+      <div class="stat"><div class="k">Gold tied up</div><div class="v">${g(n('tied'))} g</div></div>
+    </div>
+    <ol class="steps">
+      <li class="step"><h3>Reforge an Epherium piece<span>${g(n('ephValue'))} g</span></h3>
+        <p>${g(n('reforge'))} × ${esc(t('wisp'))} at ${g(price,2)} g, counted at what you'd get selling them after the 5% AH tax.</p></li>
+      <li class="step"><h3>Upgrade to Delphinad at the house<span>${g(n('delphCraft'))} g per craft</span></h3>
+        <p>Always succeeds. ${chancePct==null?'':g(chancePct,1)+'% come out upgradeable, '}so it takes ${g(tries,2)} crafts on average.</p>
+        <table class="mats">${delphMats}</table></li>
+      <li class="step"><h3>Salvage the misses<span class="good">−${g(salvMisses)} g</span></h3>
+        <p>About ${g(misses,2)} Delphinads per upgradeable one aren't upgradeable. Each salvages into ${g(n('salvDel'))} wisps (${g(n('salvDel')*price*(1-tax))} g after tax).</p>
+        <table class="mats"><tr><td>${g(tries,2)} Delphinad crafts</td><td></td><td>${g(n('delphCraft')*tries)} g</td></tr>
+        <tr class="minus"><td>Wisps back from ${g(misses,2)} misses</td><td></td><td>−${g(salvMisses)} g</td></tr>
+        <tr class="sum"><td>Cost per upgradeable Delphinad</td><td></td><td>${g(n('costUpg'))} g</td></tr></table></li>
+      <li class="step"><h3>Upgrade to Ayanad<span>${g(n('total'))} g total</span></h3>
+        <table class="mats">${ayaMats}</table></li>
+      <li class="step"><h3>Salvage the Ayanad<span class="good">${g(n('output'))} g</span></h3>
+        <p>${g(n('salvAy'))} wisps × ${g(price,2)} g, after the 5% AH tax.</p></li>
+    </ol>
+    <div class="result"><span>Profit per Ayanad</span><span class="${c}">${pr==null?'—':(pr<0?'−':'+')+g(Math.abs(pr))+' g'} · ${g(sl,1)} silver/labor</span></div>
+    <p class="note">Salvaging every Delphinad instead of going to Ayanad: ${(()=>{const v=n('salvAll');return v==null?'—':(v<0?'−':'+')+g(Math.abs(v))+' g per craft';})()}. ${esc(t('sold'))} ${esc(t('wisp'))} sold this week.</p>`;
+}
+
+function select(id, push){
+  if(!LINES.some(L => L.id === id)) id = LINES[0].id;
+  current = id;
+  if(push) try{ history.replaceState(null, '', '#' + id); }catch(e){}
+  renderPicker(); renderDetail();
+}
+
+(async function(){
+  current = (location.hash || '').slice(1) || 'shirt';
+  renderPicker();
+  try{
+    const r = await fetch(SHEET + '&sheet=' + encodeURIComponent('Wisp Detail'), {cache:'no-store'});
+    if(!r.ok) throw new Error(r.status);
+    const rows = parseCSV(await r.text());
+    const head = rows[0].map(s => s.trim());
+    rows.slice(1).forEach(row => {
+      const key = (row[0] || '').trim(); if(!key) return;
+      head.forEach((h, i) => { if(i && h){ (data[h] ||= {})[key] = (row[i] || '').trim(); } });
+    });
+  }catch(e){ data = {}; }
+  select(current, false);
+  addEventListener('hashchange', () => select(location.hash.slice(1), false));
+})();
+</script>
+</body>
+</html>
