@@ -5,34 +5,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Prices · Archeage Classic</title>
 <meta name="description" content="Auction house price lookup and daily price trends for Archeage Classic.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#1b1f22">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Archeage Classic">
+<meta property="og:title" content="Prices · Archeage Classic">
+<meta property="og:description" content="Auction house price lookup and daily price trends for Archeage Classic.">
+<meta property="og:url" content="https://chiggiechonga.github.io/archeage-classic/prices.html">
+<meta property="og:image" content="https://chiggiechonga.github.io/archeage-classic/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
 <style>
-:root{
-  --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
-  --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
-  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --hot:#b8b2ec; --hot-bg:#29283d;
-  --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55}
-a{color:var(--accent)} a:hover{color:#c6d3f2}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
-@media (min-width:700px){.wrap{padding-inline:24px}}
-header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
-.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
-nav{display:flex;flex-wrap:wrap;gap:2px}
-nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
-nav a:hover{background:var(--card2);color:var(--ink)}
-nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
-main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
-.note{font-size:14px;color:var(--muted);margin:0}
-.intro h1{margin:0;font-size:30px;font-weight:700}
-.intro p{margin:4px 0 0;color:var(--muted);max-width:70ch}
 
 .lookup{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
 .lookup label{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
@@ -41,10 +30,11 @@ main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
 .search input{flex:1;min-width:0;height:48px;border:0;outline:none;background:transparent;color:var(--ink);font:inherit;font-size:16px}
 .search input::placeholder{color:#7f8885}
 .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px}
-.res{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card2);border-radius:12px;padding:12px 16px}
+.res{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card2);border-radius:12px;padding:12px 16px}
 .res .nm{font-size:16px;font-weight:600}
 .res .sub{font-size:14px;color:var(--muted)}
-.res .px{text-align:right}
+.res > div:first-child{min-width:0}
+.res .px{text-align:right;flex:none}
 .res .px b{display:block;font-size:20px;font-weight:700}
 .chg{font-size:14px;font-weight:600}
 .chg.up{color:var(--up)} .chg.down{color:var(--down)} .chg.flat{color:var(--muted)}
@@ -68,33 +58,11 @@ select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radiu
 .tag.up{background:var(--up-bg)} .tag.up .k{color:var(--up)}
 .tag.down{background:var(--down-bg)} .tag.down .k{color:var(--down)}
 .tag.hot{background:var(--hot-bg)} .tag.hot .k{color:var(--hot)}
-footer{border-top:1px solid var(--line);background:var(--bar)}
-footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
 </style>
-<script src="nav.js"></script>
 </head>
 <body>
-<header>
-  <div class="wrap top">
-    <a class="brand" href="./">
-      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
-      Archeage Classic
-    </a>
-    <nav aria-label="Main">
-      <a href="prices.html" aria-current="page">Prices</a>
-      <a href="money.html">Money Makers</a>
-      <details class="dd">
-        <summary>Crafting <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="menu">
-          <a href="wisps.html">Mana Wisps<small>Salvage paths, step by step</small></a>
-          <a href="regrade.html">Regrade<small>Max AH price per grade</small></a>
-        </div>
-      </details>
-      <a href="dailies.html">Dailies</a>
-      <a href="taming-map.html">Taming Map</a>
-    </nav>
-  </div>
-</header>
+<header class="site"></header>
+<script src="site.js"></script>
 
 <main class="wrap">
   <section class="intro">
@@ -123,19 +91,17 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <label for="pick" class="note" style="margin-left:4px">Item</label>
       <select id="pick"></select>
     </div>
-    <div class="chart" id="chart"><span class="note">Loading price history…</span></div>
+    <div class="chart" id="chart"><span class="sk" style="width:100%;height:200px;border-radius:10px"></span></div>
     <div class="tags">
-      <div class="tag up"><div class="k">Going up</div><div class="v" id="tagUp">…</div></div>
-      <div class="tag down"><div class="k">Going down</div><div class="v" id="tagDown">…</div></div>
-      <div class="tag hot"><div class="k">Selling fast</div><div class="v" id="tagHot">…</div></div>
+      <div class="tag up"><div class="k">Going up</div><div class="v" id="tagUp"><span class="sk w60" style="margin-top:6px"></span></div></div>
+      <div class="tag down"><div class="k">Going down</div><div class="v" id="tagDown"><span class="sk w60" style="margin-top:6px"></span></div></div>
+      <div class="tag hot"><div class="k">Selling fast</div><div class="v" id="tagHot"><span class="sk w60" style="margin-top:6px"></span></div></div>
     </div>
     <p class="note">Up and down compare today&rsquo;s price with the 7-day average. Selling fast is the most sold this week.</p>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">Auction house prices, updated daily.</div>
-</footer>
+<footer class="site">Auction house prices, updated daily.</footer>
 
 <script src="data.js"></script>
 <script>
@@ -172,7 +138,7 @@ function drawChart(name){
   if(lo===hi){ lo = lo*0.9; hi = hi*1.1 || 1; }
   const x = i => pts.length===1 ? (L+(W-R))/2 : L + i*(W-L-R)/(pts.length-1);
   const y = v => T + (hi-v)*(H-T-B)/(hi-lo);
-  const short = v => v >= 1 ? Math.round(v).toLocaleString('en-US') + ' g' : v >= 0.01 ? Math.round(v*100) + ' s' : Math.round(v*10000) + ' c';
+  const short = v => v >= 1 ? Math.round(v).toLocaleString('en-US') + 'g' : v >= 0.01 ? Math.round(v*100) + 's' : Math.round(v*10000) + 'c';
   const grid = [0,0.5,1].map(f => { const v = lo + (hi-lo)*f; return `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#2b3135"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${short(v)}</text>`; }).join('');
   const line = pts.length>1 ? `<polyline fill="none" stroke="#9db3e6" stroke-width="2.5" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p[1])).join(' ')}"/>` : '';
   const dots = pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="${pts.length>40?2:4}" fill="#9db3e6"><title>${esc(p[0])}: ${gold(p[1])}</title></circle>`).join('');
@@ -204,8 +170,8 @@ function updateTags(){
   const moving = items.map(o => ({...o, c: change(o.r.now, o.r.avg7)})).filter(o => o.c!=null && (o.r.vol7||0) >= minVol);
   const show = (el, o, txt) => { el.innerHTML = o ? `${esc(o.n)}<div class="s">${txt}</div>` : 'Nothing yet'; };
   const u = moving.slice().sort((a,b)=>b.c-a.c)[0], d = moving.slice().sort((a,b)=>a.c-b.c)[0];
-  show(up, u && u.c>0 ? u : null, u ? `+${u.c.toFixed(0)}% · ${gold(u.r.now)}` : '');
-  show(down, d && d.c<0 ? d : null, d ? `${d.c.toFixed(0)}% · ${gold(d.r.now)}` : '');
+  show(up, u && u.c>0 ? u : null, u ? `+${u.c.toFixed(0)}% · ${money(u.r.now)}` : '');
+  show(down, d && d.c<0 ? d : null, d ? `${d.c.toFixed(0)}% · ${money(d.r.now)}` : '');
   const h = items.slice().sort((a,b)=>(b.r.vol7||0)-(a.r.vol7||0))[0];
   show(hot, h, h ? `${(h.r.vol7||0).toLocaleString()} sold this week` : '');
 }
