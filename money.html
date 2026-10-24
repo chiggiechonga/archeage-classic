@@ -5,88 +5,40 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Money Makers · Archeage Classic</title>
 <meta name="description" content="Make or buy, best things to plant, lunascales and mana wisp salvage for Archeage Classic, from daily auction house prices.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#1b1f22">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Archeage Classic">
+<meta property="og:title" content="Money Makers · Archeage Classic">
+<meta property="og:description" content="Make or buy, best things to plant, lunascales and mana wisp salvage for Archeage Classic, from daily auction house prices.">
+<meta property="og:url" content="https://chiggiechonga.github.io/archeage-classic/money.html">
+<meta property="og:image" content="https://chiggiechonga.github.io/archeage-classic/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
 <style>
-:root{
-  --bg:#15181b; --bar:#1b1f22; --card:#1e2226; --card2:#23282c; --sunk:#191d20;
-  --line:#2b3135; --line2:#3a4146; --ink:#e3e6e2; --ink2:#c4cac6; --muted:#a7afab; --faint:#8b9490;
-  --accent:#9db3e6; --accent-soft:#223a70; --brand:#223a70; --up:#8fd3a8; --up-bg:#1c3226; --down:#f0a48f; --down-bg:#382522; --warn:#e8c47a;
-  --font:"Proxima Nova","proxima-nova","Figtree","Segoe UI",system-ui,sans-serif;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55}
-a{color:var(--accent)} a:hover{color:#c6d3f2}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
-@media (min-width:700px){.wrap{padding-inline:24px}}
-header{background:var(--bar);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
-.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-block:12px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:19px;font-weight:700}
-nav{display:flex;flex-wrap:wrap;gap:2px}
-nav a{padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;color:var(--ink2)}
-nav a:hover{background:var(--card2);color:var(--ink)}
-nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
-main{display:flex;flex-direction:column;gap:24px;padding-block:32px 64px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
-.note{font-size:14px;color:var(--muted);margin:0}
-.intro h1{margin:0;font-size:30px;font-weight:700}
-.intro p{margin:4px 0 0;color:var(--muted);max-width:70ch}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:18px;align-items:stretch}
-.box > .note:last-child{margin-top:auto}
 .box{padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.box > .note:last-child{margin-top:auto;padding-top:4px}
 .box .hd{display:flex;align-items:center;gap:12px}
 .box .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex:none}
 .box h2{margin:0;font-size:20px;font-weight:700}
-.box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.box li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
-.box li:last-child{border-bottom:0}
-.box li span{color:var(--muted)}
-.box li b{font-weight:600;color:var(--ink);text-align:right}
-.box li b.buy{color:var(--accent)}
-.box li .sl{display:block;font-size:13px;font-weight:500;color:var(--muted)}
-.box li b.good{color:var(--up)} .box li b.bad{color:var(--down)} .box li b.meh{color:var(--warn)}
-.box li.best span{color:var(--ink)}
-.box li.best b{color:var(--warn)}
-.box li a.wl{display:flex;justify-content:space-between;gap:10px;width:100%;text-decoration:none;color:inherit}
-.box li a.wl:hover span{color:var(--ink)}
 .pickline{margin:0;font-size:15px;color:var(--muted)}
-.pickline b{color:var(--warn);font-weight:700}
-.go{font-weight:600}
+.pickline b{color:var(--coin-g);font-weight:700}
 .shops{grid-column:1/-1}
 .shopcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px 28px}
-.shopcols h3{margin:0 0 2px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
-.shopcols .per{font-size:13px;color:var(--muted);margin:0 0 4px}
-.box li .slow{color:var(--faint)}
-footer{border-top:1px solid var(--line);background:var(--bar)}
-footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
+.shopcols h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.shopcols .per{font-size:13px;color:var(--muted);margin:2px 0 4px}
 </style>
-<script src="nav.js"></script>
 </head>
 <body>
-<header>
-  <div class="wrap top">
-    <a class="brand" href="./">
-      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
-      Archeage Classic
-    </a>
-    <nav aria-label="Main">
-      <a href="prices.html">Prices</a>
-      <a href="money.html" aria-current="page">Money Makers</a>
-      <details class="dd">
-        <summary>Crafting <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="menu">
-          <a href="wisps.html">Mana Wisps<small>Salvage paths, step by step</small></a>
-          <a href="regrade.html">Regrade<small>Max AH price per grade</small></a>
-        </div>
-      </details>
-      <a href="dailies.html">Dailies</a>
-      <a href="taming-map.html">Taming Map</a>
-    </nav>
-  </div>
-</header>
+<header class="site"></header>
+<script src="site.js"></script>
 
 <main class="wrap">
   <section class="intro">
@@ -99,42 +51,45 @@ footer .wrap{padding-block:20px;font-size:14px;color:var(--muted)}
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a3 3 0 0 1-5.3 2 3 3 0 0 1-5.4 0A3 3 0 0 1 4 11z"/><path d="M5 13.5V20h14v-6.5"/><path d="M10 20v-4h4v4"/></svg></span><h2 id="shopTitle">Shop points</h2></div>
       <p class="note">Points you earn just playing, spent in the Loyalty, Gilda Star and Merit shops on things you can sell. Ranked by gold per point after AH tax, among items that sold this week.</p>
       <div class="shopcols">
-        <div><h3>Loyalty</h3><p class="per" id="perLoyalty">&nbsp;</p><ul id="shopLoyalty"><li><span>Loading…</span></li></ul></div>
-        <div><h3>Gilda Stars</h3><p class="per" id="perGilda">&nbsp;</p><ul id="shopGilda"><li><span>Loading…</span></li></ul></div>
-        <div><h3>Merit</h3><p class="per" id="perMerit">&nbsp;</p><ul id="shopMerit"><li><span>Loading…</span></li></ul></div>
+        <div><h3>Loyalty</h3><p class="per" id="perLoyalty">&nbsp;</p><ul class="rows" id="shopLoyalty"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul></div>
+        <div><h3>Gilda Stars</h3><p class="per" id="perGilda">&nbsp;</p><ul class="rows" id="shopGilda"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul></div>
+        <div><h3>Merit</h3><p class="per" id="perMerit">&nbsp;</p><ul class="rows" id="shopMerit"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul></div>
       </div>
       <p class="note">Bound items and anything with no sales this week are left out. Each shop item usually only sells a few a week, so spread across a few instead of dumping one.</p>
     </section>
     <section class="card box" aria-labelledby="plantTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6 7 5.5z"/><path d="M5 21h14"/></svg></span><h2 id="plantTitle">Best to plant</h2></div>
-      <ul id="plantList"><li><span>Loading…</span></li></ul>
+      <ul class="rows" id="plantList"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul>
       <p class="note">Most silver per labor among things that sell enough.</p>
     </section>
     <section class="card box" aria-labelledby="lunaTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/><path d="M17 4l.6 1.4L19 6l-1.4.6L17 8l-.6-1.4L15 6l1.4-.6z"/></svg></span><h2 id="lunaTitle">Lunascales</h2></div>
-      <p class="pickline" id="lunaBest">Loading…</p>
-      <ul id="lunaList"><li><span>Loading…</span></li></ul>
+      <p class="pickline" id="lunaBest"><span class="sk w40"></span></p>
+      <ul class="rows" id="lunaList"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul>
       <p class="note">100 prestige each. Best = good price and sells often (30 days).</p>
     </section>
     <section class="card box" aria-labelledby="makeTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12z"/><path d="M12 22V10"/><path d="M12 14l-3-3"/><path d="M12 12l3-3"/></svg></span><h2 id="makeTitle">Make or buy</h2></div>
-      <ul id="makeList"><li><span>Loading…</span></li></ul>
+      <ul class="rows" id="makeList"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul>
       <p class="note">The cheapest crop to process into each, or buy it if the AH is cheaper.</p>
     </section>
     <section class="card box" aria-labelledby="wispTitle">
       <div class="hd"><span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9db3e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M10 14a2 2 0 0 0 2 2"/></svg></span><h2 id="wispTitle">Mana wisp salvage</h2></div>
-      <ul id="wispList"><li><span>Loading…</span></li></ul>
-      <p class="note">Per Ayanad. Tap one for the full breakdown, or <a class="go" href="wisps.html">open mana wisps</a>.</p>
+      <ul class="rows" id="wispList"><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li><li class="skr" aria-hidden="true"><span class="sk"></span><span class="sk"></span></li></ul>
+      <p class="note">Per Ayanad. Tap one for the full breakdown, or <a href="wisps.html">open mana wisps</a>.</p>
     </section>
   </div>
 </main>
 
-<footer>
-  <div class="wrap">Auction house prices, updated daily.</div>
-</footer>
+<footer class="site">Money makers use daily auction house prices from the Google sheet.</footer>
 
 <script src="data.js"></script>
 <script>
+/* One row: name + detail on the left, value + detail on the right. */
+const row = (l, lsub, r, rsub, cls = '', liCls = '') =>
+  `<li${liCls ? ` class="${liCls}"` : ''}><div class="l">${l}${lsub ? `<small>${lsub}</small>` : ''}</div><div class="r ${cls}">${r}${rsub ? `<small>${rsub}</small>` : ''}</div></li>`;
+const slText = s => s == null ? '—' : `${Math.round(s)} silver/labor`;
+
 /* ---------- Best to plant (Website!O:Q, picked by the Farming and Husbandry tabs) ---------- */
 async function loadPlant(){
   const list = document.getElementById('plantList');
@@ -143,30 +98,8 @@ async function loadPlant(){
     if(!rows.length) throw new Error('empty');
     list.innerHTML = rows.map(([kind, pick, sl]) => {
       const s = num(sl), ok = pick && pick !== 'none';
-      return `<li><span>${esc(kind)}</span><b>${ok ? esc(pick) : 'Nothing worth it'}${ok && s != null ? `<small class="sl">${Math.round(s)} silver/labor</small>` : ''}</b></li>`;
-    }).join('');
-  }catch(e){ list.innerHTML = fail; }
-}
-
-/* ---------- Cheapest crop table (Process Calc tab) ---------- */
-const MAKE_ORDER = ['Ground Grain','Chopped Produce','Ground Spices','Trimmed Meat','Orchard Puree','Dried Flowers','Medicinal Powder'];
-async function loadMake(){
-  const list = document.getElementById('makeList');
-  try{
-    const [rows, prices] = await Promise.all([
-      getCSV('Process Calc', 'select A,B,F,G'),
-      getCSV('Prices', "select B,C where B = '" + MAKE_ORDER.join("' or B = '") + "'")
-    ]);
-    const best = {};
-    for(const [prod, crop, cost, ok] of rows){
-      const c = num(cost); if(!prod || c==null || num(ok)!==1) continue;
-      if(!best[prod] || c < best[prod].cost) best[prod] = {crop, cost:c};
-    }
-    const ah = new Map(prices.map(([n, c]) => [n.toLowerCase(), num(c)]));
-    list.innerHTML = MAKE_ORDER.map(p => {
-      const b = best[p], buy = ah.get(p.toLowerCase());
-      const make = b && (buy==null || b.cost < buy);
-      return `<li><span>${esc(p)}</span>${make ? `<b>${esc(b.crop)}</b>` : '<b class="buy">Buy on AH</b>'}</li>`;
+      return ok ? row(esc(pick), esc(kind), slText(s), '', AA.slClass(s))
+                : row('<span class="dim">Nothing worth it</span>', esc(kind), '—', '', 'dim');
     }).join('');
   }catch(e){ list.innerHTML = fail; }
 }
@@ -184,10 +117,35 @@ async function loadLuna(){
     if(!items.length) throw new Error('empty');
     const short = n => n.replace(/^Vivid\s+/, '').replace(' Lunascale', '');
     const top = items[0];
-    best.innerHTML = `Best to sell: <b>${esc(short(top.name))}</b> · ${Math.round(top.now).toLocaleString("en-US")} g`;
-    list.innerHTML = items.slice(0, 3).map((r,i) =>
-      `<li${i===0?' class="best"':''}><span>${esc(short(r.name))}<small class="sl">${r.sold} sold in 30 days</small></span><b>${Math.round(r.now).toLocaleString('en-US')} g${r.avg && Math.abs(r.now/r.avg-1) >= .08 ? `<small class="sl">usually ${Math.round(r.avg)} g</small>` : ''}</b></li>`).join('');
+    best.innerHTML = `Best to sell: <b>${esc(short(top.name))}</b> · ${money(top.now, true)}`;
+    list.innerHTML = items.slice(0, 3).map((r, i) => row(esc(short(r.name)), `${r.sold.toLocaleString('en-US')} sold in 30 days`,
+      money(r.now, true), r.avg && Math.abs(r.now / r.avg - 1) >= .08 ? `usually ${money(r.avg, true)}` : 'about its usual price',
+      i === 0 ? 'gold' : '', i === 0 ? 'best' : '')).join('');
   }catch(e){ best.textContent = ''; list.innerHTML = fail; }
+}
+
+/* ---------- Make or buy (Process Calc tab vs AH price) ---------- */
+const MAKE_ORDER = ['Ground Grain','Chopped Produce','Ground Spices','Trimmed Meat','Orchard Puree','Dried Flowers','Medicinal Powder'];
+async function loadMake(){
+  const list = document.getElementById('makeList');
+  try{
+    const [rows, prices] = await Promise.all([
+      getCSV('Process Calc', 'select A,B,F,G'),
+      getCSV('Prices', "select B,C where B = '" + MAKE_ORDER.join("' or B = '") + "'")
+    ]);
+    const best = {};
+    for(const [prod, crop, cost, ok] of rows){
+      const c = num(cost); if(!prod || c==null || num(ok)!==1) continue;
+      if(!best[prod] || c < best[prod].cost) best[prod] = {crop, cost:c};
+    }
+    const ah = new Map(prices.map(([n, c]) => [n.toLowerCase(), num(c)]));
+    list.innerHTML = MAKE_ORDER.map(p => {
+      const b = best[p], buy = ah.get(p.toLowerCase());
+      const make = b && (buy==null || b.cost < buy);
+      return make ? row(esc(p), buy != null ? `AH price ${money(buy)}` : 'No AH price', esc(b.crop), `about ${money(b.cost)} each`)
+                  : row(esc(p), b ? `Cheapest crop ${esc(b.crop)}, ${money(b.cost)}` : 'No crop recipe priced', 'Buy on AH', buy != null ? money(buy) + ' each' : '', 'link');
+    }).join('');
+  }catch(e){ list.innerHTML = fail; }
 }
 
 /* ---------- Mana wisp salvage (Website!S:W, from the Mana Wisps and Weapon Wisps tabs) ---------- */
@@ -199,12 +157,10 @@ async function loadWisps(){
     if(!rows.length) throw new Error('empty');
     list.innerHTML = rows.map(([kind, sl, profit, wisp]) => {
       const s = num(sl), p = num(profit), w = num(wisp);
-      const cls = p == null ? '' : p <= 0 ? 'bad' : s < 30 ? 'meh' : 'good';
-      const main = s == null ? '—' : `${Math.round(s)} silver/labor`;
-      const sub = p == null ? '' : `${p < 0 ? '−' : '+'}${Math.round(Math.abs(p)).toLocaleString('en-US')} g each${w != null ? ' · wisp ' + w.toFixed(1) + ' g' : ''}`;
       const [name, piece] = kind.replace(')', '').split(' (');
       const id = WISP_IDS[name] || '';
-      return `<li><a class="wl" href="wisps.html${id ? '#' + id : ''}"><span>${esc(name)}${piece ? `<small class="sl">${esc(piece)}</small>` : ''}</span><b class="${cls}">${main}<small class="sl">${esc(sub)}</small></b></a></li>`;
+      return `<li><a class="row" href="wisps.html${id ? '#' + id : ''}"><div class="l">${esc(name)}${piece ? `<small>${esc(piece)}</small>` : ''}</div>
+        <div class="r ${AA.slClass(s, p)}">${slText(s)}<small>${p == null ? '' : AA.signed(p, true) + ' each'}${w != null ? ' · wisp ' + money(w) : ''}</small></div></a></li>`;
     }).join('');
   }catch(e){ list.innerHTML = fail; }
 }
@@ -221,16 +177,17 @@ async function loadShops(){
       by[shop].push({item, g, n});
     }
     for(const shop in ids){
+      const unit = shop === 'Gilda' ? 'star' : 'point';
       const list = by[shop].sort((a,b) => b.g - a.g).slice(0, 6);
-      document.getElementById('per' + shop).textContent = list.length ? `Best: ${Math.round(list[0].g * 10) / 10} g per ${shop === 'Gilda' ? 'star' : 'point'}` : '';
+      document.getElementById('per' + shop).innerHTML = list.length ? `Best: ${money(list[0].g)} per ${unit}` : '';
       document.getElementById(ids[shop]).innerHTML = list.length ? list.map((r, i) =>
-        `<li${i===0?' class="best"':''}><span>${esc(r.item)}<small class="sl${r.n < 3 ? ' slow' : ''}">${r.n.toLocaleString('en-US')} sold this week</small></span><b>${r.g.toFixed(2)} g</b></li>`).join('')
-        : '<li><span>Nothing selling right now</span></li>';
+        row(esc(r.item), `${r.n.toLocaleString('en-US')} sold this week`, money(r.g), 'per ' + unit, i === 0 ? 'gold' : '', i === 0 ? 'best' : '')).join('')
+        : '<li><div class="l dim">Nothing selling right now</div></li>';
     }
   }catch(e){ for(const shop in ids) document.getElementById(ids[shop]).innerHTML = fail; }
 }
 
-loadPlant(); loadMake(); loadLuna(); loadWisps(); loadShops();
+loadShops(); loadPlant(); loadLuna(); loadMake(); loadWisps();
 </script>
 </body>
 </html>
