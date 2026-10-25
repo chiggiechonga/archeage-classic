@@ -59,6 +59,10 @@
 .tile .nm{font-size:19px;font-weight:700;line-height:1.3}
 .tile .why{font-size:14px;font-weight:600;color:var(--up)}
 .tile .sub{font-size:14px;color:var(--muted)}
+.tmrw{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;display:flex;flex-direction:column;gap:2px}
+.tmrw .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.tmrw .up{color:var(--up);font-weight:600}
+.tmrw .stock{font-size:13px;color:var(--ink2)}
 .tile.gem{background:radial-gradient(120% 120% at 100% 0%,#2a2540 0%,var(--card) 60%);border-color:#3d3756}
 .tile.gem .nm{color:#f3ecdc}
 .tile .gold{color:var(--warn)}
@@ -274,13 +278,31 @@ async function loadGem(){
   }
 }
 
-/* ---------- Best seller for today's weekday (Daily Log) ----------
-   A log dated D holds the day before's sales, so today's weekday sales sit in logs dated the next weekday. */
+/* ---------- Best seller for today's weekday + a peek at tomorrow (Daily Log) ----------
+   "Today" is the server day (resets at server midnight = 9 PM Pacific).
+   A log dated D holds the day before's sales, so a weekday's sales sit in logs dated the next weekday. */
 const WEEKDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MIN_DAYS = 7;
+let cropsP = null;   // crop names from the Farming tab (the cell above each "Crop price (g)" row)
+const crops = () => cropsP ??= AA.csv('Farming', {headers:0}).then(g => {
+  const set = new Set();
+  g.forEach((row, r) => row.forEach((v, c) => { if((g[r + 1] || [])[c]?.trim() === 'Crop price (g)' && v.trim()) set.add(v.trim().toLowerCase()); }));
+  return set;
+}).catch(() => new Set());
+
+async function liftsFor(wd, all){
+  const logDow = (wd + 1) % 7 + 1;
+  const rows = await getCSV('Daily Log', `select C, avg(E), count(E) where dayOfWeek(A)=${logDow} and E>0 group by C`);
+  return rows.map(([c,a]) => {
+    const o = all.get(c), t = num(a);
+    if(!o || o.n < 5 || o.avg < 100 || t == null) return null;
+    return {name:c, today:t, usual:o.avg, price:o.price, lift:(t / o.avg - 1) * 100};
+  }).filter(x => x && x.lift >= 5).sort((a,b) => b.lift - a.lift);
+}
+
 async function loadDay(){
   const box = document.getElementById('dayPick');
-  const wd = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'})).getDay();
+  const wd = new Date(serverNow().day * DAY).getUTCDay(), tw = (wd + 1) % 7;
   document.getElementById('dayTitle').textContent = 'Today is ' + WEEKDAYS[wd];
   try{
     const days = (await getCSV('Daily Log', 'select A, count(C) where A is not null group by A')).map(r => r[0]).filter(Boolean);
@@ -290,24 +312,25 @@ async function loadDay(){
       box.innerHTML = `<div class="nm">Still learning the week</div><div class="sub">${days.length} of ${MIN_DAYS} days of sales saved. The best seller for each weekday shows up once a full week is in.</div>`;
       return;
     }
-    const logDow = (wd + 1) % 7 + 1;
-    const [todayRows, allRows] = await Promise.all([
-      getCSV('Daily Log', `select C, avg(E), count(E) where dayOfWeek(A)=${logDow} and E>0 group by C`),
-      getCSV('Daily Log', 'select C, avg(E), count(E), avg(D) where E>0 group by C')
-    ]);
+    const allRows = await getCSV('Daily Log', 'select C, avg(E), count(E), avg(D) where E>0 group by C');
     const all = new Map(allRows.map(([c,a,n,p]) => [c, {avg:num(a), n:num(n), price:num(p)}]));
-    const best = todayRows.map(([c,a]) => {
-      const o = all.get(c); const t = num(a);
-      if(!o || o.n < 5 || o.avg < 100 || t == null) return null;
-      return {name:c, today:t, usual:o.avg, price:o.price, lift:(t / o.avg - 1) * 100};
-    }).filter(Boolean).sort((a,b) => b.lift - a.lift)[0];
-    if(!best || best.lift < 5){
-      box.innerHTML = `<div class="nm">No clear winner</div><div class="sub">Nothing sells noticeably more on ${WEEKDAYS[wd]}s.</div>`;
-      return;
+    const [today, tmrw, cropSet] = await Promise.all([liftsFor(wd, all), got.has(tw) ? liftsFor(tw, all) : [], crops()]);
+    const best = today[0];
+    let html = best
+      ? `<div class="nm">${esc(best.name)}</div>
+        <div class="why">Sells ▲ ${Math.round(best.lift)}% more than usual today</div>
+        <div class="sub">About ${Math.round(best.today).toLocaleString('en-US')} sold on ${WEEKDAYS[wd]}s${best.price != null ? ' · around ' + money(best.price) : ''}</div>`
+      : `<div class="nm">No clear winner</div><div class="sub">Nothing sells noticeably more on ${WEEKDAYS[wd]}s.</div>`;
+    if(got.has(tw)){
+      const isCrop = x => cropSet.has(x.name.toLowerCase());
+      const top = tmrw[0], crop = tmrw.find(isCrop);
+      const line = x => `<b>${esc(x.name)}</b> <span class="up">▲ ${Math.round(x.lift)}%</span>`;
+      let t = `<div>${top ? line(top) : 'Nothing stands out'}</div>`;
+      if(top && isCrop(top)) t += '<div class="stock">🌱 It’s a crop, stock up or plant before reset</div>';
+      else if(crop) t += `<div class="stock">🌱 Best crop: ${line(crop)}, stock up before reset</div>`;
+      html += `<div class="tmrw"><span class="lbl">Tomorrow · ${WEEKDAYS[tw]}</span>${t}<div class="sub" style="font-size:13px">Starts at reset, in ${until(resetIn())}</div></div>`;
     }
-    box.innerHTML = `<div class="nm">${esc(best.name)}</div>
-      <div class="why">Sells ▲ ${Math.round(best.lift)}% more than usual today</div>
-      <div class="sub">About ${Math.round(best.today).toLocaleString('en-US')} sold on ${WEEKDAYS[wd]}s${best.price != null ? ' · around ' + money(best.price) : ''}</div>`;
+    box.innerHTML = html;
   }catch(e){
     box.innerHTML = '<div class="sub">Couldn’t load right now</div>';
   }
