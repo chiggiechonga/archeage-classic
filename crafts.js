@@ -11,7 +11,11 @@
   const GATHER = new Set(['lavender','narcissus','azalea','clover','rose','iris','thistle','mushroom','cotton','rosemary',
     'cornflower','lily','sunflower','lotus','mint','aloe','cactus','poppy','turmeric','saffron','cultivated ginseng','pearl']);
   const isGather = n => GATHER.has(n.toLowerCase()) || /coral/i.test(n);
-  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Carpentry', 'Leatherwork', 'Tailoring', 'Printing', 'Husbandry', 'Farming', 'Gathering', 'Exploration', 'Lunagem', 'Larceny'];
+  // site names for tabs whose sheet name differs
+  const RENAME = {Lunagem: 'Handicraft', Metalworking: 'Metalwork'};
+  // chip order on the site (professions with no crafts are hidden)
+  const PROFESSIONS = ['Farming', 'Gathering', 'Husbandry', 'Alchemy', 'Cooking', 'Handicraft', 'Metalwork', 'Printing', 'Masonry',
+    'Tailoring', 'Leatherwork', 'Carpentry', 'Taming', 'Exploration', 'Larceny'];
   const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
@@ -163,7 +167,7 @@
         crafts.push(...parseTab(TABS[i], grid, prices));
         if(TABS[i] === 'Farming') crafts.push(...parseCrops(grid));
       });
-      crafts.forEach(c => { c.prof = MOVE[c.name.toLowerCase()] || c.prof; });
+      crafts.forEach(c => { c.prof = MOVE[c.name.toLowerCase()] || RENAME[c.prof] || c.prof; });
       // a craft moved to another tab may still sit on the old one too: keep one per profession
       const seen = new Set();
       for(let i = crafts.length - 1; i >= 0; i--){ const k = crafts[i].prof + '|' + crafts[i].name.toLowerCase(); if(seen.has(k)) crafts.splice(i, 1); else seen.add(k); }
