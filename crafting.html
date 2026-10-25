@@ -101,6 +101,17 @@
 <script>
 const MIN_SOLD = 100, PAGE = 25;
 let CRAFTS = [], prof = 'all', current = null, loaded = false, failed = false, shown = PAGE;
+// Husbandry "sell or process" lines → a clear Sell / Process call
+function noteHTML(n){
+  let m = n.match(/^(.+?)\s*→\s*(.+?):\s*([\d.,]+)g raw vs ([\d.,]+)g made(?:\s*\((.+?)\))?/);
+  if(m){
+    const raw = AA.num(m[3]), made = AA.num(m[4]), sell = raw >= made;
+    return `<div class="callout"><b class="${sell ? 'good' : 'link'}">${sell ? 'Sell raw' : 'Process it'}:</b> ${esc(m[1])} sells for ${m[3]}g raw vs ${m[4]}g as ${esc(m[2])}${m[5] ? ' (' + esc(m[5]) + ')' : ''}</div>`;
+  }
+  m = n.match(/^(.+?):\s*no processing recipe/i);
+  if(m) return `<div class="callout"><b class="good">Sell raw:</b> ${esc(m[1])} (nothing to process it into)</div>`;
+  return `<div class="callout${/^no (sales|ah price)|missing/i.test(n) ? ' warn' : ''}">${esc(n)}</div>`;
+}
 const verdict = c => c.profit == null || c.sl == null ? ['', 'No price'] : c.profit <= 0 ? ['bad', 'Not worth it'] : c.sl < 30 ? ['meh', 'Small profit'] : ['good', 'Worth it'];
 const g = v => v == null ? '—' : v >= 10 ? money(Math.round(v)) : money(v);          // 54g, 4g 50s, 75s
 const sg = v => v == null ? '—' : (v < 0 ? '−' : '+') + g(Math.abs(v));
@@ -178,7 +189,7 @@ function renderDetail(){
     <p class="sub2">${sells}${sells ? ' · ' : ''}${c.sold.toLocaleString('en-US')} sold this week${prof === 'all' ? ' · ' + esc(c.prof) : ''}</p>
     ${c.route ? `<div class="callout">Best route: <b>${esc(c.route)}</b>${routeCheaper ? '. Crafting those yourself is cheaper, so the total is lower than the prices below add up to.' : ''}</div>` : ''}
     ${c.badges ? `<div class="callout">Also costs ${c.badges.toLocaleString('en-US')} vocation badges for the animal.</div>` : ''}
-    ${c.notes.map(n => `<div class="callout${/^no (sales|ah price)|missing/i.test(n) ? ' warn' : ''}">${esc(n)}</div>`).join('')}
+    ${c.notes.map(noteHTML).join('')}
     ${c.slBest != null && Math.abs(c.slBest - (c.sl ?? 0)) > 0.5 ? `<div class="callout">Processing the drops instead: <b>${Math.round(c.slBest)} silver/labor</b>.</div>` : ''}
     ${noPrice ? `<div class="callout warn">${noPrice} material${noPrice > 1 ? 's have' : ' has'} no AH price, so ${noPrice > 1 ? 'they show' : 'it shows'} as “no price”.</div>` : ''}
     <ul class="mats">
