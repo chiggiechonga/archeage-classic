@@ -4,14 +4,14 @@
    whose numbers win when present. New boxes on these tabs show up on the site automatically.
    Needs site.js (window.AA). */
 (function(){
-  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Farming', 'Lunagem'];   // sheet tabs we read
+  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Printing', 'Tailoring', 'Husbandry', 'Farming', 'Lunagem'];   // sheet tabs we read
   // crafts that sit on one tab but belong to another profession on the site
   const MOVE = {'mysterious glittery charcoal milk': 'Larceny', 'eco-friendly fuel': 'Farming'};
   // crop boxes on the Farming tab: these are Gathering, everything else is Farming
   const GATHER = new Set(['lavender','narcissus','azalea','clover','rose','iris','thistle','mushroom','cotton','rosemary',
     'cornflower','lily','sunflower','lotus','mint','aloe','cactus','poppy','turmeric','saffron','cultivated ginseng','pearl']);
   const isGather = n => GATHER.has(n.toLowerCase()) || /coral/i.test(n);
-  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Farming', 'Gathering', 'Lunagem', 'Larceny'];
+  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Printing', 'Tailoring', 'Husbandry', 'Farming', 'Gathering', 'Lunagem', 'Larceny'];
   const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
@@ -54,8 +54,18 @@
   function parseTab(prof, grid, prices){
     // overrides: an item name in column A with a price in column B (vendor or your own prices)
     const over = new Map();
-    grid.forEach(row => { const a = (row[0] || '').trim(), raw = (row[1] || '').trim(), b = num(raw); if(a && b != null && !/%$/.test(raw)) over.set(a.toLowerCase(), b); });
-    const unit = name => { const k = name.toLowerCase(); if(over.has(k)) return {v: over.get(k), src: 'yours'}; const p = prices.get(k); return p && p.now != null ? {v: p.now, src: 'ah'} : {v: null, src: 'none'}; };
+    grid.forEach(row => {
+      const a = (row[0] || '').trim(), raw = (row[1] || '').trim(), b = num(raw);
+      if(!a || b == null || /%$/.test(raw)) return;
+      over.set(a.toLowerCase(), b);
+      const m = a.match(/^(.+?) price\b/i); if(m) over.set(m[1].trim().toLowerCase(), b);   // "Memory Ink price (g each, not on the AH)"
+    });
+    const unit = name => {
+      const k = name.toLowerCase();
+      if(k === 'coin') return {v: 0.0001, src: 'coin'};          // the recipe's copper cost, qty = copper
+      if(/\(free\)/.test(k)) return {v: 0, src: 'free'};
+      if(over.has(k)) return {v: over.get(k), src: 'yours'}; const p = prices.get(k); return p && p.now != null ? {v: p.now, src: 'ah'} : {v: null, src: 'none'};
+    };
 
     const out = [], width = Math.max(0, ...grid.map(r => r.length));
     for(let c = 1; c < width; c++){

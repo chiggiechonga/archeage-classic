@@ -104,7 +104,7 @@
   </div>
 </main>
 
-<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Husbandry, Farming, Lunagem; Gathering crops and Larceny crafts live on the Farming and Husbandry tabs), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week. Pick a craft to see its materials, labor and weekly sales.</footer>
+<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Printing, Tailoring, Husbandry, Farming, Lunagem; Gathering crops and Larceny crafts live on the Farming and Husbandry tabs), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week. Pick a craft to see its materials, labor and weekly sales.</footer>
 
 <script src="data.js"></script>
 <script src="crafts.js"></script>
@@ -213,7 +213,8 @@ function renderDetail(){
     <ul class="mats">
       ${c.inputs.map(m => {
         const how = tags.get(m.name), tag = m.src === 'animal' ? '' : how ? `<span class="t">${how} it</span>` : m.src === 'yours' ? '<span class="t y">your price</span>' : m.src === 'ah' ? '<span class="t">buy it</span>' : '';
-        return `<li><span class="n">${esc(m.name)}${tag}</span><span class="q">${m.src === 'animal' ? g(m.unit) : `${m.qty.toLocaleString('en-US')} × ${m.unit == null ? 'no price' : money(m.unit)}`}</span></li>`;
+        if(m.src === 'coin') return `<li><span class="n">Coin</span><span class="q">${money(m.line)}</span></li>`;
+        return `<li><span class="n">${esc(m.name)}${tag}</span><span class="q">${m.src === 'animal' || m.src === 'free' ? (m.src === 'free' ? 'free' : g(m.unit)) : `${m.qty.toLocaleString('en-US')} × ${m.unit == null ? 'no price' : money(m.unit)}`}</span></li>`;
       }).join('')}
       <li class="sum"><span>Materials total</span><span class="q">${money(c.cost)}</span></li>
     </ul>`;
