@@ -4,7 +4,10 @@
    whose numbers win when present. New boxes on these tabs show up on the site automatically.
    Needs site.js (window.AA). */
 (function(){
-  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Lunagem'];
+  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Lunagem'];   // sheet tabs we read
+  // crafts that sit on one tab but belong to another profession on the site
+  const MOVE = {'mysterious glittery charcoal milk': 'Larceny'};
+  const PROFESSIONS = [...TABS, ...new Set(Object.values(MOVE))];
   const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
@@ -114,11 +117,12 @@
   let loading = null;
   function load(){
     return loading ??= (async () => {
-      const [list, ...tabs] = await Promise.all([AA.priceList(), ...PROFESSIONS.map(p => AA.csv(p, {headers: 0}).catch(() => null))]);
+      const [list, ...tabs] = await Promise.all([AA.priceList(), ...TABS.map(p => AA.csv(p, {headers: 0}).catch(() => null))]);
       const prices = new Map(list.map(r => [r.key, r]));
       const crafts = [];
-      tabs.forEach((grid, i) => { if(grid) crafts.push(...parseTab(PROFESSIONS[i], grid, prices)); });
+      tabs.forEach((grid, i) => { if(grid) crafts.push(...parseTab(TABS[i], grid, prices)); });
       const ids = new Set();
+      crafts.forEach(c => { c.prof = MOVE[c.name.toLowerCase()] || c.prof; });
       crafts.forEach(c => { if(ids.has(c.id)) c.id = slug(c.prof + '-' + c.name); ids.add(c.id); });
       if(!crafts.length) throw new Error('no crafts');
       return crafts;
