@@ -17,10 +17,10 @@
   const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const cell = (g, r, c) => ((g[r] || [])[c] || '').trim();
 
-  // A box title: text with an empty cell above, something right below, and "Gold per craft" within 18 rows below.
   // Find each box by its first "Gold per craft" row, then walk up past the stats and
   // ingredients to the title. Doesn't depend on blank rows (the CSV export drops them).
   const isNote = t => /→|^no (sales|ah price|processing|craftable)|^missing|^fill in/i.test(t);
+  const isNum = t => /^[-\d.,\s%]+$/.test(t);
   const isHeader = t => /[A-Z]/.test(t) && !/[a-z]/.test(t);   // "FIRE GEMS"
   function findTitles(g, c){
     const titles = [];
@@ -34,11 +34,13 @@
         if(!t || METRIC.has(t) || cell(g, r - 1, c) === 'Animal price (vocation badges)'){ r--; continue; }
         break;
       }
-      // ingredient zone, ending at the title
+      // ingredient zone: rows with a quantity next to them. The title is the first row above
+      // them with no quantity (so a table sitting right above the box doesn't get pulled in).
       while(r >= 0){
         const t = cell(g, r, c);
-        if(!t || METRIC.has(t) || isNote(t) || isHeader(t) || ROUTE.has(cell(g, r - 1, c))) break;
+        if(!t || METRIC.has(t) || isNote(t) || isHeader(t) || isNum(t) || ROUTE.has(cell(g, r - 1, c))) break;
         top = r; r--;
+        if(num(cell(g, r + 1, c + 1)) == null) break;   // no quantity → this is the title
       }
       if(top >= 0 && top < k - 1 && !titles.includes(top)) titles.push(top);
     }
