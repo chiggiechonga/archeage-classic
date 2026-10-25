@@ -36,16 +36,25 @@
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
 @media (max-width:860px){.split{grid-template-columns:1fr}}
 .list{padding:0;overflow:hidden;border-radius:14px}
-.list .rows > li{padding:0;min-height:0;border-bottom:1px solid var(--line)}
-.list button.row{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding:12px 16px;cursor:pointer}
+.list .rows > li{padding:0;min-height:0;border-bottom:1px solid var(--line);font-size:14px}
+.list .rows > li:last-child{border-bottom:0}
+.cols,.list button.row{display:grid;grid-template-columns:minmax(0,1fr) 64px 84px;gap:12px;align-items:center}
+.cols{padding:8px 16px;font-size:12px;font-weight:600;color:var(--faint);background:var(--sunk);border-bottom:1px solid var(--line)}
+.cols span + span{text-align:right}
+.list button.row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 64px 84px;gap:12px;align-items:center;width:100%;min-height:40px;padding:6px 16px;cursor:pointer}
+.list .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list .nm i{font-style:normal;font-weight:500;color:var(--faint);margin-left:6px}
+.list .sl,.list .pr{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.list .sl{font-weight:700}
+.list .pr{color:var(--muted);font-size:13px}
+.scroll{max-height:max(380px,calc(100vh - var(--head-h) - 250px));overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+@media (max-width:860px){.scroll{max-height:none;overflow:visible}}
+@media (max-width:560px){.cols,.list button.row{grid-template-columns:minmax(0,1fr) 40px 70px;gap:10px}.list .nm{white-space:normal}.cols .full{display:none}}
+@media (min-width:561px){.cols .short{display:none}}
 .list button.row:hover{background:var(--card2)}
 .list button.row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .list li.on button.row{background:var(--accent-soft)}
-.list .rows .l{font-weight:600}
-.list .rows small{font-size:13px;color:var(--muted)}
 .list .empty{padding:18px 16px;color:var(--muted);font-size:15px}
-.more{all:unset;box-sizing:border-box;display:block;width:100%;padding:12px 16px;text-align:center;font-size:14px;font-weight:600;color:var(--accent);cursor:pointer}
-.more:hover{background:var(--card2)}
 
 .detail{padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(var(--head-h) + 16px);border-radius:14px}
 @media (max-width:860px){.detail{position:static}}
@@ -53,7 +62,8 @@
 .dhead h2{margin:0;font-size:19px;font-weight:700;line-height:1.25}
 .pill{font-size:13px;font-weight:600;border-radius:8px;padding:3px 10px;white-space:nowrap}
 .pill.good{background:var(--up-bg)} .pill.meh{background:var(--warn-bg)} .pill.bad{background:var(--down-bg)}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:480px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .stat{background:var(--sunk);border-radius:10px;padding:9px 12px;min-width:0}
 .stat .k{font-size:13px;color:var(--muted)}
 .stat .v{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -89,18 +99,18 @@
   </div>
 
   <div class="split">
-    <section class="card list" aria-label="Crafts"><ul class="rows" id="list"></ul><div id="moreBox"></div></section>
+    <section class="card list" aria-label="Crafts"><div class="cols" aria-hidden="true"><span id="count">Craft</span><span><b class="full" style="font-weight:inherit">Silver/labor</b><b class="short" style="font-weight:inherit">S/L</b></span><span>Profit</span></div><div class="scroll" id="scroll"><ul class="rows" id="list"></ul></div></section>
     <section class="card detail" id="detail" aria-live="polite"></section>
   </div>
 </main>
 
-<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Husbandry, Lunagem; Larceny crafts live on the Husbandry tab), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week.</footer>
+<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Husbandry, Lunagem; Larceny crafts live on the Husbandry tab), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week. Pick a craft to see its materials, labor and weekly sales.</footer>
 
 <script src="data.js"></script>
 <script src="crafts.js"></script>
 <script>
-const MIN_SOLD = 100, PAGE = 25;
-let CRAFTS = [], prof = 'all', current = null, loaded = false, failed = false, shown = PAGE;
+const MIN_SOLD = 100;
+let CRAFTS = [], prof = 'all', current = null, loaded = false, failed = false;
 // Husbandry "sell or process" lines → a clear Sell / Process call
 function noteHTML(n){
   let m = n.match(/^(.+?)\s*→\s*(.+?):\s*([\d.,]+)g raw vs ([\d.,]+)g made(?:\s*\((.+?)\))?/);
@@ -115,8 +125,7 @@ function noteHTML(n){
 const verdict = c => c.profit == null || c.sl == null ? ['', 'No price'] : c.profit <= 0 ? ['bad', 'Not worth it'] : c.sl < 30 ? ['meh', 'Small profit'] : ['good', 'Worth it'];
 const g = v => v == null ? '—' : v >= 10 ? money(Math.round(v)) : money(v);          // 54g, 4g 50s, 75s
 const sg = v => v == null ? '—' : (v < 0 ? '−' : '+') + g(Math.abs(v));
-const sk = n => Array.from({length:n}, () => '<li class="skr" aria-hidden="true" style="padding:14px 16px"><span class="sk"></span><span class="sk"></span></li>').join('');
-const slTxt = v => v == null ? '—' : Math.round(v).toLocaleString('en-US') + ' silver/labor';
+const sk = n => Array.from({length:n}, () => '<li class="skr" aria-hidden="true" style="padding:14px 16px;min-height:40px"><span class="sk"></span><span class="sk"></span></li>').join('');
 
 function visible(){
   const sells = document.getElementById('sells').checked;
@@ -128,32 +137,39 @@ function renderProfs(){
   const list = ['all', ...Crafts.PROFESSIONS.filter(p => !loaded || CRAFTS.some(c => c.prof === p))];
   document.getElementById('profs').innerHTML = list.map(p =>
     `<button type="button" class="chip" data-p="${esc(p)}" aria-pressed="${p === prof}">${p === 'all' ? 'All professions' : esc(p)}</button>`).join('');
-  document.querySelectorAll('#profs .chip').forEach(b => b.addEventListener('click', () => { prof = b.dataset.p; current = null; shown = PAGE; render(); }));
+  document.querySelectorAll('#profs .chip').forEach(b => b.addEventListener('click', () => { prof = b.dataset.p; current = null; render(); document.getElementById('scroll').scrollTop = 0; }));
 }
 
 function renderList(){
-  const el = document.getElementById('list'), more = document.getElementById('moreBox');
-  more.innerHTML = '';
-  if(!loaded){ el.innerHTML = sk(6); return; }
+  const el = document.getElementById('list'), count = document.getElementById('count');
+  count.textContent = 'Craft';
+  if(!loaded){ el.innerHTML = sk(10); return; }
   if(failed){ el.innerHTML = '<li><div class="empty">Crafting prices couldn’t load right now. Try again in a bit.</div></li>'; return; }
   const rows = visible();
   if(!rows.length){ el.innerHTML = `<li><div class="empty">Nothing here sold ${MIN_SOLD}+ this week. Turn off “Only things that sell” to see everything.</div></li>`; current = null; return; }
+  count.textContent = `Craft · ${rows.length} shown`;
   if(!current || !rows.includes(current)) current = rows[0];
-  const idx = rows.indexOf(current); if(idx >= shown) shown = idx + 1;
-  el.innerHTML = rows.slice(0, shown).map(c => {
+  el.innerHTML = rows.map(c => {
     const [cls] = verdict(c);
-    const lsub = (prof === 'all' ? esc(c.prof) + ' · ' : '') + `${g(c.cost)} per craft · ${c.sold.toLocaleString('en-US')} sold/wk`;
-    const rsub = c.profit == null ? 'no price' : sg(c.profit) + (c.profit < 0 ? ' loss' : ' profit');
     return `<li class="${c === current ? 'on' : ''}"><button type="button" class="row" data-id="${c.id}" aria-pressed="${c === current}">
-      <div class="l">${esc(c.name)}<small>${lsub}</small></div><div class="r ${cls}">${slTxt(c.sl)}<small>${rsub}</small></div></button></li>`;
+      <span class="nm">${esc(c.name)}${prof === 'all' ? `<i>${esc(c.prof)}</i>` : ''}</span>
+      <span class="sl ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US')}</span>
+      <span class="pr">${c.profit == null ? 'no price' : sg(c.profit)}</span></button></li>`;
   }).join('');
-  if(rows.length > shown) more.innerHTML = `<button type="button" class="more" id="more">Show ${Math.min(PAGE, rows.length - shown)} more of ${rows.length - shown}</button>`;
   el.querySelectorAll('button.row').forEach(b => b.addEventListener('click', () => {
-    current = CRAFTS.find(c => c.id === b.dataset.id); renderList(); renderDetail();
+    current = CRAFTS.find(c => c.id === b.dataset.id);
+    el.querySelectorAll('li').forEach(li => { const on = li.firstElementChild?.dataset.id === current.id; li.classList.toggle('on', on); li.firstElementChild?.setAttribute('aria-pressed', on); });
+    renderDetail();
     try{ history.replaceState(null, '', '#' + current.id); }catch(e){}
     if(matchMedia('(max-width:860px)').matches) document.getElementById('detail').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
   }));
-  const m = document.getElementById('more'); if(m) m.addEventListener('click', () => { shown += PAGE; renderList(); });
+}
+
+// keep the picked row in view inside the scrolling list (e.g. opened from a #link)
+function revealCurrent(){
+  const box = document.getElementById('scroll'), on = box.querySelector('li.on');
+  if(!on || matchMedia('(max-width:860px)').matches) return;
+  if(on.offsetTop < box.scrollTop || on.offsetTop + on.offsetHeight > box.scrollTop + box.clientHeight) box.scrollTop = on.offsetTop - box.clientHeight / 3;
 }
 
 /* "Ribs: Buy | Juice: Craft" or "Fortuna: buy · Sturdy: buy" or "Fine Lunarite: craft it" → which inputs get crafted */
@@ -185,8 +201,9 @@ function renderDetail(){
       <div class="stat"><div class="k">Silver/labor</div><div class="v ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US')}</div></div>
       <div class="stat"><div class="k">Profit</div><div class="v">${sg(c.profit)}</div></div>
       <div class="stat"><div class="k">Labor</div><div class="v">${c.labor == null ? '—' : Math.round(c.labor).toLocaleString('en-US')}</div></div>
+      <div class="stat"><div class="k">Sold/wk</div><div class="v">${c.sold.toLocaleString('en-US')}</div></div>
     </div>
-    <p class="sub2">${sells}${sells ? ' · ' : ''}${c.sold.toLocaleString('en-US')} sold this week${prof === 'all' ? ' · ' + esc(c.prof) : ''}</p>
+    ${sells || prof === 'all' ? `<p class="sub2">${[sells, prof === 'all' ? esc(c.prof) : ''].filter(Boolean).join(' · ')}</p>` : ''}
     ${c.route ? `<div class="callout">Best route: <b>${esc(c.route)}</b>${routeCheaper ? '. Crafting those yourself is cheaper, so the total is lower than the prices below add up to.' : ''}</div>` : ''}
     ${c.badges ? `<div class="callout">Also costs ${c.badges.toLocaleString('en-US')} vocation badges for the animal.</div>` : ''}
     ${c.notes.map(noteHTML).join('')}
@@ -208,9 +225,9 @@ Crafts.load().then(list => {
   CRAFTS = list; loaded = true;
   const hit = CRAFTS.find(c => c.id === location.hash.slice(1));
   if(hit){ current = hit; prof = 'all'; if(hit.sold < MIN_SOLD) document.getElementById('sells').checked = false; }
-  render();
+  render(); revealCurrent();
 }).catch(() => { loaded = true; failed = true; render(); });
-document.getElementById('sells').addEventListener('change', () => { shown = PAGE; renderList(); renderDetail(); });
+document.getElementById('sells').addEventListener('change', () => { renderList(); renderDetail(); });
 </script>
 </body>
 </html>
