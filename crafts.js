@@ -5,7 +5,7 @@
    Needs site.js (window.AA). */
 (function(){
   const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Lunagem'];
-  const METRIC = new Set(['Makes (avg)', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
+  const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
     'Sell or process? (per animal, after AH tax)']);
@@ -17,7 +17,7 @@
   // A box title: text with an empty cell above, something right below, and "Gold per craft" within 18 rows below.
   // Find each box by its first "Gold per craft" row, then walk up past the stats and
   // ingredients to the title. Doesn't depend on blank rows (the CSV export drops them).
-  const isNote = t => /→|^no (sales|ah price|processing|craftable)|^missing/i.test(t);
+  const isNote = t => /→|^no (sales|ah price|processing|craftable)|^missing|^fill in/i.test(t);
   const isHeader = t => /[A-Z]/.test(t) && !/[a-z]/.test(t);   // "FIRE GEMS"
   function findTitles(g, c){
     const titles = [];
@@ -90,7 +90,7 @@
         const p = prices.get(title.toLowerCase());
         out.push({
           id: slug(title), prof, name: title, husbandry,
-          makes: m['Makes (avg)'] || 1,
+          makes: m['Makes (avg)'] || m['Makes'] || 1,
           labor: route['Labor (incl. route)'] ?? m['Labor'] ?? null,
           cost: route['Gold per craft'] ?? m['Gold per craft'] ?? null,
           profit: route['Profit'] ?? m['Profit'] ?? null,
