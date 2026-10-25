@@ -53,16 +53,16 @@
 .chg.up{color:var(--up)} .chg.down{color:var(--down)} .chg.flat{color:var(--muted)}
 
 /* today tiles */
-.today{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.today{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:999px){.today{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.today{grid-template-columns:1fr}}
 .tile{padding:16px 18px;display:flex;flex-direction:column;gap:3px;min-width:0}
 .tile .k{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:2px}
 .tile .nm{font-size:19px;font-weight:700;line-height:1.3}
 .tile .why{font-size:14px;font-weight:600;color:var(--up)}
 .tile .sub{font-size:14px;color:var(--muted)}
-.tmrw{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;display:flex;flex-direction:column;gap:2px}
-.tmrw .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
-.tmrw .up{color:var(--up);font-weight:600}
-.tmrw .stock{font-size:13px;color:var(--ink2)}
+.tile .stock b{color:var(--ink)} .tile .stock .up{color:var(--up);font-weight:600}
+.tile .stock{font-size:13px;color:var(--ink2);margin-top:4px}
 .tile.gem{background:radial-gradient(120% 120% at 100% 0%,#2a2540 0%,var(--card) 60%);border-color:#3d3756}
 .tile.gem .nm{color:#f3ecdc}
 .tile .gold{color:var(--warn)}
@@ -136,6 +136,10 @@ a.tool:hover{border-color:var(--accent);color:var(--ink)}
       <div class="card tile">
         <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e8c47a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="dayTitle">Today</span></div>
         <div id="dayPick"><span class="sk t"></span><span class="sk w80" style="margin-top:10px"></span><span class="sk w60" style="margin-top:8px"></span></div>
+      </div>
+      <div class="card tile">
+        <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2fb344" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6 7 5.5z"/></svg><span id="tmrwTitle">Tomorrow</span></div>
+        <div id="tmrwPick"><span class="sk t"></span><span class="sk w80" style="margin-top:10px"></span><span class="sk w60" style="margin-top:8px"></span></div>
       </div>
       <div class="card tile" id="nextTile">
         <div class="k"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5fa7ec" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><span id="nextTitle">Coming up</span></div>
@@ -304,12 +308,15 @@ async function loadDay(){
   const box = document.getElementById('dayPick');
   const wd = new Date(serverNow().day * DAY).getUTCDay(), tw = (wd + 1) % 7;
   document.getElementById('dayTitle').textContent = 'Today is ' + WEEKDAYS[wd];
+  document.getElementById('tmrwTitle').textContent = 'Tomorrow is ' + WEEKDAYS[tw];
+  const tbox = document.getElementById('tmrwPick');
   try{
     const days = (await getCSV('Daily Log', 'select A, count(C) where A is not null group by A')).map(r => r[0]).filter(Boolean);
     const salesDay = ds => (new Date(ds.slice(0,10) + 'T12:00:00').getDay() + 6) % 7;
     const got = new Set(days.map(salesDay));
     if(days.length < MIN_DAYS || !got.has(wd)){
       box.innerHTML = `<div class="nm">Still learning the week</div><div class="sub">${days.length} of ${MIN_DAYS} days of sales saved. The best seller for each weekday shows up once a full week is in.</div>`;
+      tbox.innerHTML = '<div class="nm">Still learning</div><div class="sub">Shows up once a full week of sales is in</div>';
       return;
     }
     const allRows = await getCSV('Daily Log', 'select C, avg(E), count(E), avg(D) where E>0 group by C');
@@ -321,18 +328,21 @@ async function loadDay(){
         <div class="why">Sells ▲ ${Math.round(best.lift)}% more than usual today</div>
         <div class="sub">About ${Math.round(best.today).toLocaleString('en-US')} sold on ${WEEKDAYS[wd]}s${best.price != null ? ' · around ' + money(best.price) : ''}</div>`
       : `<div class="nm">No clear winner</div><div class="sub">Nothing sells noticeably more on ${WEEKDAYS[wd]}s.</div>`;
-    if(got.has(tw)){
-      const isCrop = x => cropSet.has(x.name.toLowerCase());
-      const top = tmrw[0], crop = tmrw.find(isCrop);
-      const line = x => `<b>${esc(x.name)}</b> <span class="up">▲ ${Math.round(x.lift)}%</span>`;
-      let t = `<div>${top ? line(top) : 'Nothing stands out'}</div>`;
-      if(top && isCrop(top)) t += '<div class="stock">🌱 It’s a crop, stock up or plant before reset</div>';
-      else if(crop) t += `<div class="stock">🌱 Best crop: ${line(crop)}, stock up before reset</div>`;
-      html += `<div class="tmrw"><span class="lbl">Tomorrow · ${WEEKDAYS[tw]}</span>${t}<div class="sub" style="font-size:13px">Starts at reset, in ${until(resetIn())}</div></div>`;
-    }
+    const isCrop = x => cropSet.has(x.name.toLowerCase());
+    const top = tmrw[0], crop = tmrw.find(isCrop);
+    const reset = `Starts at reset, in ${until(resetIn())}`;
+    tbox.innerHTML = !got.has(tw)
+      ? `<div class="nm">Still learning</div><div class="sub">No ${WEEKDAYS[tw]} sales saved yet</div>`
+      : !top
+        ? `<div class="nm">No clear winner</div><div class="sub">Nothing sells noticeably more on ${WEEKDAYS[tw]}s · ${reset}</div>`
+        : `<div class="nm">${esc(top.name)}</div>
+          <div class="why">Sells ▲ ${Math.round(top.lift)}% more than usual</div>
+          <div class="sub">${reset}</div>
+          ${isCrop(top) ? '<div class="stock">🌱 It’s a crop, stock up or plant before reset</div>'
+            : crop ? `<div class="stock">🌱 Best crop: <b>${esc(crop.name)}</b> <span class="up">▲ ${Math.round(crop.lift)}%</span>, stock up before reset</div>` : ''}`;
     box.innerHTML = html;
   }catch(e){
-    box.innerHTML = '<div class="sub">Couldn’t load right now</div>';
+    box.innerHTML = tbox.innerHTML = '<div class="sub">Couldn’t load right now</div>';
   }
 }
 
