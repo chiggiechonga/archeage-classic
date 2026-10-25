@@ -15,11 +15,31 @@
   const cell = (g, r, c) => ((g[r] || [])[c] || '').trim();
 
   // A box title: text with an empty cell above, something right below, and "Gold per craft" within 18 rows below.
-  function isTitle(g, r, c){
-    const t = cell(g, r, c);
-    if(!t || METRIC.has(t) || (r > 0 && cell(g, r - 1, c)) || !cell(g, r + 1, c)) return false;
-    for(let k = r + 1; k < Math.min(g.length, r + 19); k++) if(cell(g, k, c) === 'Gold per craft') return true;
-    return false;
+  // Find each box by its first "Gold per craft" row, then walk up past the stats and
+  // ingredients to the title. Doesn't depend on blank rows (the CSV export drops them).
+  const isNote = t => /→|^no (sales|ah price|processing|craftable)|^missing/i.test(t);
+  const isHeader = t => /[A-Z]/.test(t) && !/[a-z]/.test(t);   // "FIRE GEMS"
+  function findTitles(g, c){
+    const titles = [];
+    for(let k = 0; k < g.length; k++){
+      if(cell(g, k, c) !== 'Gold per craft') continue;
+      if(ROUTE.has(cell(g, k - 1, c)) || ROUTE.has(cell(g, k - 2, c))) continue;   // the route's own numbers
+      let r = k - 1, top = -1;
+      // stats zone: labelled rows, blanks, and the feed row under the badges row
+      while(r >= 0){
+        const t = cell(g, r, c);
+        if(!t || METRIC.has(t) || cell(g, r - 1, c) === 'Animal price (vocation badges)'){ r--; continue; }
+        break;
+      }
+      // ingredient zone, ending at the title
+      while(r >= 0){
+        const t = cell(g, r, c);
+        if(!t || METRIC.has(t) || isNote(t) || isHeader(t) || ROUTE.has(cell(g, r - 1, c))) break;
+        top = r; r--;
+      }
+      if(top >= 0 && top < k - 1 && !titles.includes(top)) titles.push(top);
+    }
+    return titles.sort((a, b) => a - b);
   }
 
   function parseTab(prof, grid, prices){
@@ -30,11 +50,10 @@
 
     const out = [], width = Math.max(0, ...grid.map(r => r.length));
     for(let c = 1; c < width; c++){
-      for(let r = 0; r < grid.length; r++){
-        if(!isTitle(grid, r, c)) continue;
+      const titles = findTitles(grid, c);
+      titles.forEach((r, i) => {
         const title = cell(grid, r, c);
-        let end = Math.min(grid.length, r + 45);
-        for(let k = r + 2; k < end; k++) if(isTitle(grid, k, c)){ end = k; break; }
+        const end = Math.min(grid.length, titles[i + 1] ?? Infinity, r + 45);
 
         const m = {}, route = {}, items = [], notes = [];
         let phase = 'items', inRoute = false, routeText = '', feed = null, feedNext = false;
@@ -58,7 +77,7 @@
           if(/→|no processing recipe/i.test(label)) notes.push(label.replace(/\s+/g, ' '));
           else if(/^(no sales|no ah price|missing)/i.test(label)) notes.push(label);
         }
-        if(m['Gold per craft'] == null && route['Gold per craft'] == null && m['Profit'] == null) continue;
+        if(m['Gold per craft'] == null && route['Gold per craft'] == null && m['Profit'] == null) return;
 
         // Husbandry boxes list what the animal drops; the ingredients are the animal and its feed.
         const husbandry = m['Animal price (g)'] !== undefined;
@@ -87,7 +106,7 @@
           }),
           outputs: outputs.filter(x => x.name).map(x => ({name: x.name, qty: x.qty, unit: unit(x.name).v}))
         });
-      }
+      });
     }
     return out;
   }
