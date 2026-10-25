@@ -4,14 +4,14 @@
    whose numbers win when present. New boxes on these tabs show up on the site automatically.
    Needs site.js (window.AA). */
 (function(){
-  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Printing', 'Tailoring', 'Husbandry', 'Farming', 'Lunagem'];   // sheet tabs we read
+  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Carpentry', 'Leatherwork', 'Tailoring', 'Printing', 'Husbandry', 'Farming', 'Exploration', 'Lunagem'];   // sheet tabs we read
   // crafts that sit on one tab but belong to another profession on the site
   const MOVE = {'mysterious glittery charcoal milk': 'Larceny', 'eco-friendly fuel': 'Farming'};
   // crop boxes on the Farming tab: these are Gathering, everything else is Farming
   const GATHER = new Set(['lavender','narcissus','azalea','clover','rose','iris','thistle','mushroom','cotton','rosemary',
     'cornflower','lily','sunflower','lotus','mint','aloe','cactus','poppy','turmeric','saffron','cultivated ginseng','pearl']);
   const isGather = n => GATHER.has(n.toLowerCase()) || /coral/i.test(n);
-  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Printing', 'Tailoring', 'Husbandry', 'Farming', 'Gathering', 'Lunagem', 'Larceny'];
+  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Carpentry', 'Leatherwork', 'Tailoring', 'Printing', 'Husbandry', 'Farming', 'Gathering', 'Exploration', 'Lunagem', 'Larceny'];
   const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
