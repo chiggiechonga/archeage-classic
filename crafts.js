@@ -4,10 +4,14 @@
    whose numbers win when present. New boxes on these tabs show up on the site automatically.
    Needs site.js (window.AA). */
 (function(){
-  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Lunagem'];   // sheet tabs we read
+  const TABS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Farming', 'Lunagem'];   // sheet tabs we read
   // crafts that sit on one tab but belong to another profession on the site
-  const MOVE = {'mysterious glittery charcoal milk': 'Larceny'};
-  const PROFESSIONS = [...TABS, ...new Set(Object.values(MOVE))];
+  const MOVE = {'mysterious glittery charcoal milk': 'Larceny', 'eco-friendly fuel': 'Farming'};
+  // crop boxes on the Farming tab: these are Gathering, everything else is Farming
+  const GATHER = new Set(['lavender','narcissus','azalea','clover','rose','iris','thistle','mushroom','cotton','rosemary',
+    'cornflower','lily','sunflower','lotus','mint','aloe','cactus','poppy','turmeric','saffron','cultivated ginseng','pearl']);
+  const isGather = n => GATHER.has(n.toLowerCase()) || /coral/i.test(n);
+  const PROFESSIONS = ['Alchemy', 'Cooking', 'Metalworking', 'Masonry', 'Husbandry', 'Farming', 'Gathering', 'Lunagem', 'Larceny'];
   const METRIC = new Set(['Makes (avg)','Makes', 'Recipe lists', 'Labor (listed)', 'Labor', 'Price each (AH)', 'Gold per craft',
     'Profit', 'S/L to AH', 'Sold per week (7d)', 'Main item sold per week (7d)', 'Labor (incl. route)', 'S/L, best route',
     'Animal price (g)', 'Animal price (vocation badges)', 'Best route', 'Best Lunarite route',
@@ -116,15 +120,44 @@
     return out;
   }
 
+  // Crop boxes: name, then "Crop price (g)", "Cost to plant (g)", "S/L to AH", "Worth planting?", "Sold last 7d"
+  function parseCrops(grid){
+    const out = [];
+    grid.forEach((row, r) => row.forEach((v, c) => {
+      const name = (v || '').trim();
+      if(!name || cell(grid, r + 1, c) !== 'Crop price (g)') return;
+      const m = {};
+      for(let k = r + 1; k < Math.min(grid.length, r + 8); k++){
+        const label = cell(grid, k, c);
+        if(!label || k > r + 1 && cell(grid, k + 1, c) === 'Crop price (g)') break;
+        m[label] = cell(grid, k, c + 1);
+      }
+      out.push({
+        id: slug(name), prof: isGather(name) ? 'Gathering' : 'Farming', name, crop: true, husbandry: false,
+        makes: 1, labor: null, cost: num(m['Cost to plant (g)']), profit: null, sl: num(m['S/L to AH']), slBest: null,
+        price: num(m['Crop price (g)']), sold: num(m['Sold last 7d']) || 0, worth: m['Worth planting?'] || '',
+        badges: 0, route: '', notes: [], inputs: [], outputs: []
+      });
+    }));
+    return out;
+  }
+
   let loading = null;
   function load(){
     return loading ??= (async () => {
       const [list, ...tabs] = await Promise.all([AA.priceList(), ...TABS.map(p => AA.csv(p, {headers: 0}).catch(() => null))]);
       const prices = new Map(list.map(r => [r.key, r]));
       const crafts = [];
-      tabs.forEach((grid, i) => { if(grid) crafts.push(...parseTab(TABS[i], grid, prices)); });
-      const ids = new Set();
+      tabs.forEach((grid, i) => {
+        if(!grid) return;
+        crafts.push(...parseTab(TABS[i], grid, prices));
+        if(TABS[i] === 'Farming') crafts.push(...parseCrops(grid));
+      });
       crafts.forEach(c => { c.prof = MOVE[c.name.toLowerCase()] || c.prof; });
+      // a craft moved to another tab may still sit on the old one too: keep one per profession
+      const seen = new Set();
+      for(let i = crafts.length - 1; i >= 0; i--){ const k = crafts[i].prof + '|' + crafts[i].name.toLowerCase(); if(seen.has(k)) crafts.splice(i, 1); else seen.add(k); }
+      const ids = new Set();
       crafts.forEach(c => { if(ids.has(c.id)) c.id = slug(c.prof + '-' + c.name); ids.add(c.id); });
       if(!crafts.length) throw new Error('no crafts');
       return crafts;

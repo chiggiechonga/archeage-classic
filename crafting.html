@@ -104,7 +104,7 @@
   </div>
 </main>
 
-<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Husbandry, Lunagem; Larceny crafts live on the Husbandry tab), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week. Pick a craft to see its materials, labor and weekly sales.</footer>
+<footer class="site">Crafting numbers come straight from each profession tab in the Google sheet (Alchemy, Cooking, Metalworking, Masonry, Husbandry, Farming, Lunagem; Gathering crops and Larceny crafts live on the Farming and Husbandry tabs), so new craft boxes show up here on their own. “Only things that sell” hides crafts that sold under 100 this week. Pick a craft to see its materials, labor and weekly sales.</footer>
 
 <script src="data.js"></script>
 <script src="crafts.js"></script>
@@ -122,7 +122,7 @@ function noteHTML(n){
   if(m) return `<div class="callout"><b class="good">Sell raw:</b> ${esc(m[1])} (nothing to process it into)</div>`;
   return `<div class="callout${/^no (sales|ah price)|missing/i.test(n) ? ' warn' : ''}">${esc(n)}</div>`;
 }
-const verdict = c => c.profit == null || c.sl == null ? ['', 'No price'] : c.profit <= 0 ? ['bad', 'Not worth it'] : c.sl < 30 ? ['meh', 'Small profit'] : ['good', 'Worth it'];
+const verdict = c => c.crop ? (/^yes/i.test(c.worth) ? ['good', 'Worth planting'] : /low/i.test(c.worth) ? ['meh', 'Low volume'] : c.sl == null ? ['', 'No price'] : ['bad', 'Not worth it']) : c.profit == null || c.sl == null ? ['', 'No price'] : c.profit <= 0 ? ['bad', 'Not worth it'] : c.sl < 30 ? ['meh', 'Small profit'] : ['good', 'Worth it'];
 const g = v => v == null ? '—' : v >= 10 ? money(Math.round(v)) : money(v);          // 54g, 4g 50s, 75s
 const sg = v => v == null ? '—' : (v < 0 ? '−' : '+') + g(Math.abs(v));
 const sk = n => Array.from({length:n}, () => '<li class="skr" aria-hidden="true" style="padding:14px 16px;min-height:40px"><span class="sk"></span><span class="sk"></span></li>').join('');
@@ -154,7 +154,7 @@ function renderList(){
     return `<li class="${c === current ? 'on' : ''}"><button type="button" class="row" data-id="${c.id}" aria-pressed="${c === current}">
       <span class="nm">${esc(c.name)}${prof === 'all' ? `<i>${esc(c.prof)}</i>` : ''}</span>
       <span class="sl ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US')}</span>
-      <span class="pr">${c.profit == null ? 'no price' : sg(c.profit)}</span></button></li>`;
+      <span class="pr">${c.crop ? (c.price == null ? 'no price' : g(c.price) + ' ea') : c.profit == null ? 'no price' : sg(c.profit)}</span></button></li>`;
   }).join('');
   el.querySelectorAll('button.row').forEach(b => b.addEventListener('click', () => {
     current = CRAFTS.find(c => c.id === b.dataset.id);
@@ -188,6 +188,7 @@ function renderDetail(){
   const el = document.getElementById('detail'), c = current;
   if(!loaded){ el.innerHTML = '<span class="sk t" style="width:50%"></span><div class="stats">' + '<div class="stat"><span class="sk w60"></span><span class="sk w40" style="height:18px;margin-top:8px"></span></div>'.repeat(3) + '</div><span class="sk" style="height:160px;border-radius:10px"></span>'; return; }
   if(failed || !c){ el.innerHTML = '<p class="sub2">Pick a craft to see what goes into it.</p>'; return; }
+  if(c.crop){ renderCrop(el, c); return; }
   const [cls, label] = verdict(c), tags = routeTags(c);
   const sum = c.inputs.reduce((s, m) => s + (m.line || 0), 0);
   const routeCheaper = c.cost != null && sum > 0 && c.cost < sum * 0.98;
@@ -216,6 +217,20 @@ function renderDetail(){
       }).join('')}
       <li class="sum"><span>Materials total</span><span class="q">${money(c.cost)}</span></li>
     </ul>`;
+}
+
+function renderCrop(el, c){
+  const [cls, label] = verdict(c);
+  el.innerHTML = `
+    <div class="dhead"><h2>${esc(c.name)}</h2>${label ? `<span class="pill ${cls}">${label}</span>` : ''}</div>
+    <div class="stats">
+      <div class="stat"><div class="k">Silver/labor</div><div class="v ${cls}">${c.sl == null ? '—' : Math.round(c.sl).toLocaleString('en-US')}</div></div>
+      <div class="stat"><div class="k">Sells for</div><div class="v">${c.price == null ? '—' : money(c.price)}</div></div>
+      <div class="stat"><div class="k">Cost to plant</div><div class="v">${c.cost == null ? '—' : money(c.cost)}</div></div>
+      <div class="stat"><div class="k">Sold/wk</div><div class="v">${c.sold.toLocaleString('en-US')}</div></div>
+    </div>
+    ${prof === 'all' ? `<p class="sub2">${esc(c.prof)}</p>` : ''}
+    ${/low/i.test(c.worth) ? '<div class="callout warn">Good silver per labor, but not many sell each week. Plant a little, not a whole farm.</div>' : ''}`;
 }
 
 function render(){ renderProfs(); renderList(); renderDetail(); }
