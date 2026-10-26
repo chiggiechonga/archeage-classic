@@ -58,6 +58,17 @@ select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radiu
 .tag.up{background:var(--up-bg)} .tag.up .k{color:var(--up)}
 .tag.down{background:var(--down-bg)} .tag.down .k{color:var(--down)}
 .tag.hot{background:var(--hot-bg)} .tag.hot .k{color:var(--hot)}
+.surge{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:16px}
+.surge h3{margin:0;font-size:18px;font-weight:700;color:#f0efec}
+.surge ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:10px}
+.surge li{background:var(--card2);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.surge .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.surge .top a{font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
+.surge .top a:hover{text-decoration:underline}
+.surge .x{flex:none;font-weight:700;color:var(--hot);background:var(--hot-bg);border-radius:999px;padding:2px 10px;font-size:14px}
+.surge .sub{font-size:14px;color:var(--muted)}
+.surge .use{font-size:14px;color:var(--ink2)}
+.surge .use b{font-weight:600;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -98,6 +109,11 @@ select{font:inherit;font-size:14px;min-height:40px;padding:6px 12px;border-radiu
       <div class="tag hot"><div class="k">Selling fast</div><div class="v" id="tagHot"><span class="sk w60" style="margin-top:6px"></span></div></div>
     </div>
     <p class="note">Up and down compare today&rsquo;s price with the 7-day average. Selling fast is the most sold this week.</p>
+    <div class="surge" aria-labelledby="surgeTitle">
+      <div class="thead"><h3 id="surgeTitle">Selling more than usual</h3><span class="note" id="surgeNote"></span></div>
+      <ul id="surgeList"><li><span class="sk w60"></span></li><li><span class="sk w60"></span></li><li><span class="sk w60"></span></li></ul>
+      <p class="note">Sales on the latest day compared with a normal day before it, for items that sell 100+ a day. &ldquo;Used in&rdquo; shows the recipes that need it, which is often why demand jumped.</p>
+    </div>
   </section>
 </main>
 
@@ -176,6 +192,24 @@ function updateTags(){
   show(hot, h, h ? `${(h.r.vol7||0).toLocaleString()} sold this week` : '');
 }
 
+/* ---------- Selling more than usual (Website!Y:AD, built from the Daily Log) ---------- */
+async function loadSurge(){
+  const list = document.getElementById('surgeList');
+  try{
+    const rows = (await getRange('Website', 'Y1:AD9')).filter(r => r[0]);
+    if(!rows.length){ list.innerHTML = '<li><span class="sub">Nothing is selling unusually fast right now.</span></li>'; return; }
+    const day = rows[0][5];
+    document.getElementById('surgeNote').textContent = day ? 'Sales on ' + day : '';
+    list.innerHTML = rows.map(([name, x, now, usual, uses]) => `<li>
+      <div class="top"><a href="prices.html?q=${encodeURIComponent(name)}">${esc(name)}</a><span class="x">${num(x)?.toFixed(1) ?? x}× usual</span></div>
+      <div class="sub">${Math.round(num(now)).toLocaleString('en-US')} sold vs ${Math.round(num(usual)).toLocaleString('en-US')} on a normal day</div>
+      ${uses ? `<div class="use"><b>Used in:</b> ${esc(uses)}</div>` : ''}
+    </li>`).join('');
+  }catch(e){
+    list.innerHTML = '<li><span class="sub">Couldn’t load right now</span></li>';
+  }
+}
+loadSurge();
 Promise.all([initLookup(6), loadHistory()]).then(updateTags);
 </script>
 </body>
