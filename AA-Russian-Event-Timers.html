@@ -717,7 +717,7 @@
 
         // --- Time Configuration and Logic (unchanged) ---
 
-        const SERVER_TIME_OFFSET_HOURS = 4;          // was 3; events moved 1 hour earlier after daylight saving ended (Nov 1, 2026)
+        const SERVER_TIME_OFFSET_HOURS = 3;          // fixed offset: in Pacific time events land 1 hour earlier in winter (PST) than in summer (PDT)
 
         // Real-Time Sync Point (2:00 PM PDT)
         const syncHoursPDT = 14;                     // 2:00 PM PDT = 21:00 UTC; pinned to UTC so daylight saving can't shift it
