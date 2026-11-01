@@ -181,14 +181,12 @@ let S = {names:['Main','Alt 1','Alt 2','Alt 3'], checks:{}, resetUTC:0};
 try{ const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if(s) S = Object.assign(S, s); }catch(e){}
 const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} };
 
-/* ---------- server clock (Eastern time; reset at server midnight) ---------- */
+/* ---------- server clock (UTC-4 all year; reset at server midnight) ---------- */
 const DAY = 864e5;
-const ETF = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric', second:'numeric', hourCycle:'h23'});
-function serverNow(){                       // server date as a day counter, plus how far ET is from UTC
-  const now = Date.now(), p = {};
-  for(const {type, value} of ETF.formatToParts(now)) p[type] = +value;
-  const wall = Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute, p.second);
-  return {day: Math.floor(wall / DAY), offset: wall - Math.floor(now / 1000) * 1000};
+const SERVER_OFFSET = -4 * 36e5;             // server clock = UTC-4, no daylight saving
+function serverNow(){                       // the game server keeps UTC-4 all year (it doesn't switch for daylight saving)
+  const now = Math.floor(Date.now() / 1000) * 1000, offset = SERVER_OFFSET;
+  return {day: Math.floor((now + offset) / DAY), offset};
 }
 const dayNum = () => serverNow().day;       // server day counter
 const atServer = (day, mins) => day * DAY + mins * 6e4 - serverNow().offset;   // server day + time → real moment
@@ -345,7 +343,7 @@ function renderDS(){
 function renderEvent(){
   const now = Date.now(), card = document.getElementById('evCard');
   if(now >= EVENT.ends){ card.hidden = true; return; }
-  document.getElementById('evEnds').textContent = '11 AM, 3 PM, 7 PM and 11 PM Pacific · event ends ' + left(EVENT.ends - now);
+  document.getElementById('evEnds').textContent = eventTimesLabel() + ' · event ends ' + left(EVENT.ends - now);
   const label = t => new Date(t).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
   document.getElementById('evList').innerHTML = eventSpawns(4).map((s, i) => {
     const live = s.start <= now;

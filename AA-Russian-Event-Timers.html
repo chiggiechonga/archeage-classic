@@ -717,10 +717,11 @@
 
         // --- Time Configuration and Logic (unchanged) ---
 
-        const SERVER_TIME_OFFSET_HOURS = 3; 
+        const SERVER_TIME_OFFSET_HOURS = 4;          // was 3; events moved 1 hour earlier after daylight saving ended (Nov 1, 2026)
 
         // Real-Time Sync Point (2:00 PM PDT)
-        const syncHoursPDT = 14; 
+        const syncHoursPDT = 14;                     // 2:00 PM PDT = 21:00 UTC; pinned to UTC so daylight saving can't shift it
+        const syncHoursUTC = 21;
         const syncMinutesPDT = 0;
 
         // Game Time Start at Sync Point
@@ -748,7 +749,7 @@
             // 2. Calculate In-Game Time
             const nowMs = now.getTime();
             let referenceDate = new Date(now);
-            referenceDate.setHours(syncHoursPDT, syncMinutesPDT, 0, 0);
+            referenceDate.setUTCHours(syncHoursUTC, syncMinutesPDT, 0, 0);
 
             let elapsedSinceReferenceMs = nowMs - referenceDate.getTime();
             
@@ -807,7 +808,7 @@
             
             const mskDate = new Date();
             // MSK is UTC+3. Adjust for UTC time.
-            mskDate.setUTCHours(hours - 3, minutes, 0, 0);
+            mskDate.setUTCHours(hours - SERVER_TIME_OFFSET_HOURS, minutes, 0, 0);
             
             return { 
                 time: `${mskDate.getHours().toString().padStart(2, '0')}:${mskDate.getMinutes().toString().padStart(2, '0')}`, 
@@ -956,7 +957,7 @@
                 const realIntervalMs = 4 * 60 * 60 * 1000; // 4 real hours = 1 GT day
 
                 let referenceDate = new Date(now);
-                referenceDate.setHours(syncHoursPDT, syncMinutesPDT, 0, 0);
+                referenceDate.setUTCHours(syncHoursUTC, syncMinutesPDT, 0, 0);
 
                 // Find the next start time
                 let nextEventStartRealTime = new Date(referenceDate.getTime() + realOffsetToStartMs);

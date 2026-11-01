@@ -218,14 +218,12 @@ function showEvent(){
   document.getElementById('evSub').textContent = 'Spawned at ' + new Date(s.start).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
 }
 
-/* ---------- Server clock (Eastern; daily reset at server midnight), same as the Dailies page ---------- */
+/* ---------- Server clock (UTC-4 all year; daily reset at server midnight), same as the Dailies page ---------- */
 const DAY = 864e5;
-const ETF = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York', year:'numeric', month:'numeric', day:'numeric', hour:'numeric', minute:'numeric', second:'numeric', hourCycle:'h23'});
-function serverNow(){
-  const now = Date.now(), p = {};
-  for(const {type, value} of ETF.formatToParts(now)) p[type] = +value;
-  const wall = Date.UTC(p.year, p.month - 1, p.day, p.hour % 24, p.minute, p.second);
-  return {day: Math.floor(wall / DAY), offset: wall - Math.floor(now / 1000) * 1000};
+const SERVER_OFFSET = -4 * 36e5;             // server clock = UTC-4, no daylight saving
+function serverNow(){                       // the game server keeps UTC-4 all year (it doesn't switch for daylight saving)
+  const now = Math.floor(Date.now() / 1000) * 1000, offset = SERVER_OFFSET;
+  return {day: Math.floor((now + offset) / DAY), offset};
 }
 const until = ms => { const m = Math.max(0, Math.round(ms / 6e4)), h = Math.floor(m / 60); return h ? `${h}h ${m % 60}m` : `${m}m`; };
 const resetIn = () => { const s = serverNow(); return (s.day + 1) * DAY - s.offset - Date.now(); };
