@@ -2,19 +2,19 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gnome Frost Mage 21-60 · Leveling Helper</title>
 <style>
-:root{--bg:#120d09;--panel:#1c150f;--panel2:#231a12;--line:#4a3a26;--line2:#33261a;--gold:#f2c14e;--gold2:#c99a3a;--ink:#e9dcc3;--soft:#a8987c;--red:#e0544b;--blue:#4aa3ff;--green:#3fd06a;--purple:#b98cff;--teal:#5fd4e0;--pink:#ff9fd0;--orange:#ffa95a;--hi:#3a2b18}
+:root{--bg:#0a0a0b;--panel:#141416;--panel2:#1b1b1e;--line:#2c2c31;--line2:#232327;--gold:#e89ab8;--gold2:#e89ab8;--ink:#f4f1f3;--soft:#a7a0a5;--red:#e0544b;--blue:#4aa3ff;--green:#3fd06a;--purple:#b98cff;--teal:#5fd4e0;--pink:#ff9fd0;--orange:#ffa95a;--hi:#2a1d23}
 :root[data-theme="light"],:root:not([data-theme="dark"]){color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Trebuchet MS",system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,system-ui,sans-serif}
 .app{max-width:1180px;margin:12px auto;border:2px solid var(--gold2);border-radius:10px;background:var(--panel);overflow:hidden}
 @media (max-width:1210px){.app{margin:8px}}
-.top{display:flex;align-items:center;gap:12px;padding:10px 16px;background:linear-gradient(#2b2015,#1c150f);border-bottom:1px solid var(--line)}
-.logo{width:42px;height:42px;flex:none;border-radius:50%;background:radial-gradient(#3c6f8a,#16303d);border:2px solid var(--gold2);display:grid;place-items:center;font-size:20px}
+.top{display:flex;align-items:center;gap:12px;padding:10px 16px;background:linear-gradient(#241a1f,#141416);border-bottom:1px solid var(--line)}
+.logo{width:42px;height:42px;flex:none;border-radius:50%;background:radial-gradient(#3a2530,#1a1116);border:2px solid var(--gold2);display:grid;place-items:center;font-size:20px}
 .top h1{margin:0;color:var(--gold);font-size:22px}
 .top p{margin:0;color:var(--soft);font-size:12.5px}
 .mtabs{display:flex;flex-wrap:wrap;gap:4px;padding:8px 12px 0;border-bottom:1px solid var(--line);background:var(--panel)}
 .mtab{border:1px solid var(--line);border-bottom:0;border-radius:7px 7px 0 0;padding:6px 12px;color:var(--soft);font:inherit;font-size:13px;background:var(--panel2);cursor:pointer}
-.mtab[aria-selected="true"]{color:var(--gold);border-color:var(--gold2);background:#2b2015}
+.mtab[aria-selected="true"]{color:var(--gold);border-color:var(--gold2);background:#241a1f}
 [hidden]{display:none!important}
 .subtabs{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
 .stab{border:1px solid var(--line);background:var(--panel);color:var(--soft);border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
@@ -25,16 +25,16 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Trebuchet MS
 .rot{margin:0;padding-left:20px;font-size:13.5px}
 .rot li{margin:4px 0}
 .rot .lv{font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:3px;padding:0 4px;margin-left:2px}
-.rtip{margin:6px 0 0;font-size:12.5px;color:#cdbb95}
+.rtip{margin:6px 0 0;font-size:12.5px;color:#f6c9da}
 .cols{display:grid;grid-template-columns:310px minmax(0,1fr)}
 @media (max-width:860px){.cols{grid-template-columns:1fr}.side{border-right:0!important;border-bottom:1px solid var(--line)}}
 .side{border-right:1px solid var(--line);padding:10px;background:var(--panel)}
 .grp{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.5px;margin:10px 0 4px}
 .grp:first-child{margin-top:2px}
 .srow{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;padding:6px 8px;border-radius:4px;color:var(--ink);background:none;border:0;font:inherit;text-align:left;cursor:pointer}
-.srow:hover{background:#2a1f14}
+.srow:hover{background:#221c20}
 .srow.on{background:var(--hi);outline:1px solid var(--gold2)}
-.srow.done{color:#7d6f5a}
+.srow.done{color:#6f686d}
 .srow .nm{display:flex;gap:8px;align-items:center}
 .srow .lv{color:var(--soft);font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .sub2{color:var(--soft);font-size:11px;letter-spacing:.6px;margin:8px 8px 2px;text-transform:uppercase}
@@ -51,16 +51,16 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Trebuchet MS
 .sec{display:flex;justify-content:space-between;gap:8px;color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.4px;margin:18px 0 4px;border-bottom:1px solid var(--line);padding-bottom:4px}
 .sec small{color:var(--soft);font-weight:400;letter-spacing:0}
 .q{display:grid;grid-template-columns:22px 14px minmax(0,1fr) auto;gap:8px;align-items:start;padding:9px 6px;border-bottom:1px solid var(--line2);cursor:pointer}
-.q:hover{background:#2a1f14}
+.q:hover{background:#221c20}
 .q.chk{opacity:.45}
 .q.chk .n{text-decoration:line-through}
 .box{width:16px;height:16px;border:1.5px solid var(--gold2);border-radius:3px;margin-top:3px;display:grid;place-items:center;font-size:12px;color:var(--gold)}
 .bang{font-weight:900;text-align:center;margin-top:1px}
 .q .n{font-size:15px}
 .q .s{color:var(--soft);font-size:12.5px}
-.q .tip{color:#cdbb95;font-size:12.5px;margin-top:2px}
+.q .tip{color:#f6c9da;font-size:12.5px;margin-top:2px}
 .tag{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid;white-space:nowrap;margin-top:2px}
-.t-do{color:var(--gold)}.t-hold{color:var(--blue)}.t-turn{color:var(--teal)}.t-dng{color:var(--purple)}.t-bag{color:var(--pink)}.t-train{color:var(--green)}.t-hearth{color:var(--orange)}.t-skip{color:#7d6f5a}.t-book{color:#8fe3b0}
+.t-do{color:var(--gold)}.t-hold{color:var(--blue)}.t-turn{color:var(--teal)}.t-dng{color:var(--purple)}.t-bag{color:var(--pink)}.t-train{color:var(--green)}.t-hearth{color:var(--orange)}.t-skip{color:#6f686d}.t-book{color:#8fe3b0}
 .q.bag{background:rgba(255,159,208,.06)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 @media (max-width:700px){.cards{grid-template-columns:1fr}}
@@ -69,7 +69,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Trebuchet MS
 .card h3 .lvq{margin-left:auto;color:var(--soft);font-size:12px;font-weight:400}
 .num{border:1px solid var(--soft);font-size:12px;padding:0 6px;border-radius:3px}
 .it{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:8px;align-items:center;padding:4px 0}
-.icon{width:32px;height:32px;border-radius:4px;border:1px solid var(--line);display:grid;place-items:center;font-size:17px;background:#2a2015}
+.icon{width:32px;height:32px;border-radius:4px;border:1px solid var(--line);display:grid;place-items:center;font-size:17px;background:#1f1a1d}
 .it .nm{font-size:14px}.it .ty{font-size:12px;color:var(--soft)}
 .green{color:var(--green)}.blue{color:var(--blue)}.white{color:var(--ink)}
 .pick{font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap}
@@ -85,7 +85,7 @@ table{width:100%;border-collapse:collapse;font-size:13.5px}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
 th{color:var(--gold);font-size:12px;letter-spacing:.4px}
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
-.kbd{display:inline-block;border:1px solid var(--gold2);border-bottom-width:2px;border-radius:4px;padding:0 6px;font-size:12px;color:var(--gold);background:#2a2015;white-space:nowrap}
+.kbd{display:inline-block;border:1px solid var(--gold2);border-bottom-width:2px;border-radius:4px;padding:0 6px;font-size:12px;color:var(--gold);background:#1f1a1d;white-space:nowrap}
 .steps{display:grid;gap:8px}
 .step{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);padding:10px}
 @media (max-width:560px){.step{grid-template-columns:1fr}}
@@ -94,8 +94,8 @@ th{color:var(--gold);font-size:12px;letter-spacing:.4px}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;padding:6px 14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--soft)}
 .reset{background:none;border:1px solid var(--line);color:var(--soft);border-radius:4px;font:inherit;font-size:11.5px;padding:1px 8px;cursor:pointer}
 @media print{.mtabs,.side,.reset{display:none!important}.cols{grid-template-columns:1fr}[data-panel]{display:block!important}}
-.q.diff{background:rgba(127,216,255,.07);box-shadow:inset 3px 0 0 var(--frost)}
-.mg{display:inline-block;white-space:nowrap;font-size:10px;font-weight:700;color:#0e2430;background:var(--frost);border-radius:3px;padding:0 5px;margin-left:6px;vertical-align:2px}
+.q.diff{background:rgba(232,154,184,.07);box-shadow:inset 3px 0 0 var(--frost)}
+.mg{display:inline-block;white-space:nowrap;font-size:10px;font-weight:700;color:#2a0f1b;background:var(--frost);border-radius:3px;padding:0 5px;margin-left:6px;vertical-align:2px}
 </style><link rel="stylesheet" href="helper.css">
 </head><body>
 <div class="app">
