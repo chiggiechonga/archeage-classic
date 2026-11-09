@@ -196,6 +196,10 @@ local function lookup(id)
   if A and A.GetAuctionPriceByItemID then
     local p = safe(A.GetAuctionPriceByItemID, "ForeverGuide", id)
     if good(p) then return p, "Auctionator" end
+    if A.GetAuctionPriceByItemLink then
+      p = safe(A.GetAuctionPriceByItemLink, "ForeverGuide", linkFor(id))
+      if good(p) then return p, "Auctionator" end
+    end
   end
   -- TSM
   if TSM_API and TSM_API.GetCustomPriceValue then
