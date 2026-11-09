@@ -382,7 +382,7 @@ th{color:var(--gold);font-size:12px;letter-spacing:.4px}
 
   <section data-panel="sync" hidden class="page">
     <h2>🔌 Addon + sync</h2>
-    <p class="sub">The ForeverGuide addon reads your level, XP, zone, quest log, turned-in quests, gear, hearth, talent points and bag space, then gives you a code to paste here.</p>
+    <p class="sub">The ForeverGuide addon reads your level, XP, zone, quest log, turned-in quests, gear, hearth, bag space and AH prices (from Auctionator or TSM), then gives you a code to paste here.</p>
     <div class="sec">PASTE YOUR CODE <small>in game: type /fg, then Ctrl+C</small></div>
     <textarea id="codeIn" placeholder="FG1:eyJ..."></textarea>
     <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button class="btn" id="codeGo">Sync</button><button class="btn ghost" id="codeClear">Forget my synced data</button></div>
@@ -402,8 +402,9 @@ th{color:var(--gold);font-size:12px;letter-spacing:.4px}
 
   <section data-panel="pots" hidden class="page">
     <h2>🧪 PvP potions + alchemy gold</h2>
-    <p class="sub">Your alchemy: <b id="alchSkill">150</b> (updates when you sync). Prices swing a lot between realms, so type in what your AH shows and it does the math. Profit already takes off the 5% AH cut.</p>
+    <p class="sub">Your alchemy: <b id="alchSkill">150</b> (updates when you sync). Prices come from your AH addon when you sync, and you can type over any of them. Profit already takes off the 5% AH cut.</p>
     <div class="box2 frost" style="margin-top:0"><b>Free Action Potion is the money maker.</b> Every PvP player wants one, and on PvP realms they sell fast (hundreds a day on the big US PvP realms). Buy the recipe from <b>Soolie Berryfizz in Ironforge</b>. She has limited stock, so if she's sold out, check back later or look on the AH. The hard part is Blackmouth Oil: fish Oily Blackmouth off the Menethil coast while you're in the Wetlands.</div>
+    <div class="box2" id="ahNote" style="margin-top:0"></div>
     <div id="potCalc"></div>
     <div class="sec">YOUR AH PRICES <small>type like 45s, 1g 20s, or just 45 for silver · saved on this device</small></div>
     <div class="prices" id="matPrices"></div>

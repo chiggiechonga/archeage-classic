@@ -161,7 +161,9 @@ const VENDOR={'Empty Vial':4,'Leaded Vial':40,'Crystal Vial':400}; // copper, ve
 function parseMoney(v){v=String(v||'').trim().toLowerCase();if(!v)return null;
  if(/[gsc]/.test(v)){let t=0;const g=v.match(/(\d+(\.\d+)?)\s*g/),s=v.match(/(\d+(\.\d+)?)\s*s/),c=v.match(/(\d+)\s*c/);if(g)t+=+g[1]*1e4;if(s)t+=+s[1]*100;if(c)t+=+c[1];return Math.round(t)}
  const n=parseFloat(v);return isNaN(n)?null:Math.round(n*100)} // bare number = silver
-function priceOf(item){if(item in prices)return parseMoney(prices[item]);return VENDOR[item]??null}
+const ahMap=()=>{const m={};((C&&C.pr)||[]).forEach(([n,v])=>{if(+v>0)m[n]=+v});return m};
+// your typed price wins, then the AH price from your last sync, then the vendor price
+function priceOf(item){if(item in prices)return parseMoney(prices[item]);const ah=ahMap();if(item in ah)return ah[item];return VENDOR[item]??null}
 function potions(){
  const el=$('potCalc');if(!el)return;
  const skill=(()=>{const a=C&&(C.prof||[]).find(p=>/alchemy/i.test(p.n));return a?a.r:CFG.alchemy||150})();
@@ -171,21 +173,24 @@ function potions(){
   h+=`<div class="sec">${title}</div><div class="potgrid">`;
   list.forEach(p=>{
    let cost=0,known=p.mats.length>0;p.mats.forEach(([q,m])=>{const v=priceOf(m);if(v==null)known=false;else cost+=q*v});
-   const sell=parseMoney(prices['▸'+p.n]);
+   const AH=ahMap();const sell='▸'+p.n in prices?parseMoney(prices['▸'+p.n]):(AH[p.n]??null);
    const profit=known&&sell!=null?Math.round(sell*0.95-cost):null;
    h+=`<div class="pot ${p.pvp?'pvp':''}"><h3>🧪 ${esc(p.n)} <span class="lock ${p.sk<=skill?'ok':'no'}">${p.sk<=skill?'YOU CAN MAKE IT':'NEEDS '+p.sk}</span><span class="sk">Alchemy ${p.sk}</span></h3>
     <div class="ef">${esc(p.ef)}</div>
     <div class="mats">${p.mats.length?p.mats.map(([q,m])=>`<span class="mat">${q}× ${esc(m)}</span>`).join(''):'<span class="mat">see recipe tooltip</span>'}</div>
     <div class="src">📜 ${esc(p.src)}</div>
-    <div class="math"><label>Sells for <input class="pin" data-p="▸${esc(p.n)}" value="${esc(prices['▸'+p.n]||'')}" placeholder="e.g. 45s"></label>
+    <div class="math"><label>Sells for <input class="pin" data-p="▸${esc(p.n)}" value="${esc(prices['▸'+p.n]||'')}" placeholder="${AH[p.n]?'AH '+money(AH[p.n]):'e.g. 45s'}"></label>
      <span>Mats: <b>${known?money(cost):'—'}</b></span>
      <span>Profit each: <b class="prof ${profit==null?'':profit>0?'up':'down'}">${profit==null?'add prices':money(profit)}</b></span></div></div>`});
   h+='</div>'});
  el.innerHTML=h;
+ const AH0=ahMap();
  const mats=[...new Set(POTS.flatMap(p=>p.mats.map(m=>m[1])))].sort();
- $('matPrices').innerHTML=mats.map(m=>`<label>${esc(m)} <input class="pin" data-p="${esc(m)}" value="${esc(prices[m]??'')}" placeholder="${VENDOR[m]!=null?money(VENDOR[m])+' vendor':'price'}"></label>`).join('');
+ $('matPrices').innerHTML=mats.map(m=>`<label>${esc(m)} <input class="pin" data-p="${esc(m)}" value="${esc(prices[m]??'')}" placeholder="${AH0[m]?'AH '+money(AH0[m]):VENDOR[m]!=null?money(VENDOR[m])+' vendor':'price'}"></label>`).join('');
  document.querySelectorAll('.pin').forEach(inp=>inp.onchange=()=>{const k=inp.dataset.p;if(inp.value.trim())prices[k]=inp.value.trim();else delete prices[k];store(PKEY,prices);potions()});
  $('alchSkill').textContent=skill;
+ const n=Object.keys(AH0).length,el2=$('ahNote');
+ if(el2)el2.innerHTML=n?`<b>AH prices:</b> ${n} items from ${esc(C.prs||'your AH addon')}, synced ${ago(C.t)}. Grey numbers in the boxes are those prices. Type in a box to override one.`:`<b>AH prices:</b> none synced yet. Open the auction house so Auctionator (or TSM) scans, then do <span class="kbd">/fg</span> and sync. Or type prices in yourself.`;
 }
 
 /* ---------- professions (synced) ---------- */

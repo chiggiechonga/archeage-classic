@@ -133,7 +133,8 @@ local function professions()
       end
     end
   elseif GetProfessions and GetProfessionInfo then
-    for _, idx in ipairs({ safe(GetProfessions) }) do
+    local a, b, c, d, e = safe(GetProfessions)
+    for _, idx in pairs({ a, b, c, d, e }) do
       if idx then
         local name, _, rank, maxRank = safe(GetProfessionInfo, idx)
         if name then list[#list + 1] = { n = name, r = rank or 0, m = maxRank or 0 } end
@@ -155,12 +156,64 @@ local function position()
   return map, 0, 0
 end
 
+
+---------------------------------------------------------------------------
+-- AH prices for the potions tab (read from Auctionator or TSM if installed)
+---------------------------------------------------------------------------
+local PRICE_IDS = {
+  [5634] = "Free Action Potion", [2459] = "Swiftness Potion", [3823] = "Lesser Invisibility Potion",
+  [9172] = "Invisibility Potion", [3387] = "Limited Invulnerability Potion",
+  [6370] = "Blackmouth Oil", [6358] = "Oily Blackmouth", [3820] = "Stranglekelp",
+  [3371] = "Empty Vial", [3372] = "Leaded Vial", [8925] = "Crystal Vial",
+  [2452] = "Swiftthistle", [2450] = "Briarthorn", [2453] = "Bruiseweed", [3818] = "Fadeleaf",
+  [3355] = "Wild Steelbloom", [3369] = "Grave Moss", [3356] = "Kingsblood", [3357] = "Liferoot",
+  [4625] = "Firebloom", [8845] = "Ghost Mushroom", [8838] = "Sungrass", [8839] = "Blindweed",
+}
+-- new Forever potions: item IDs unknown, so look them up by name
+local PRICE_NAMES = { "Spellblasting Potion", "Frenzy Potion", "Disorienting Smog Potion",
+  "Greater Spellblasting Potion", "Greater Frenzy Potion", "Caustic Smog Potion" }
+
+local function lookup(id)
+  local A = Auctionator and Auctionator.API and Auctionator.API.v1
+  if A and A.GetAuctionPriceByItemID then
+    local p = safe(A.GetAuctionPriceByItemID, "ForeverGuide", id)
+    if type(p) == "number" and p > 0 then return p, "Auctionator" end
+  end
+  if TSM_API and TSM_API.GetCustomPriceValue then
+    for _, src in ipairs({ "DBMinBuyout", "DBMarket" }) do
+      local p = safe(TSM_API.GetCustomPriceValue, src, "i:" .. id)
+      if type(p) == "number" and p > 0 then return p, "TSM" end
+    end
+  end
+end
+
+local function idForName(name)
+  local getInfo = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+  local _, link = safe(getInfo, name)
+  return link and tonumber(link:match("item:(%d+)"))
+end
+
+local function ahPrices()
+  local list, from = {}, nil
+  for id, name in pairs(PRICE_IDS) do
+    local p, src = lookup(id)
+    if p then list[#list + 1] = { name, p }; from = from or src end
+  end
+  for _, name in ipairs(PRICE_NAMES) do
+    local id = idForName(name)
+    local p, src = id and lookup(id)
+    if p then list[#list + 1] = { name, p }; from = from or src end
+  end
+  return list, from or ""
+end
+
 local function collect()
   refreshSnapshot()
   local name, realm = UnitFullName("player")
   local _, raceFile = UnitRace("player")
   local _, classFile = UnitClass("player")
   local map, x, y = position()
+  local pr, prSrc = ahPrices()
   local done = {}
   for id, t in pairs(db().done) do done[#done + 1] = { id, t } end
   return {
@@ -186,6 +239,8 @@ local function collect()
     done = done,
     gear = gear(),
     prof = professions(),
+    pr = pr,
+    prs = prSrc,
   }
 end
 
@@ -210,9 +265,12 @@ local function json(v)
     for k, val in pairs(v) do out[#out + 1] = jstr(k) .. ":" .. json(val) end
     return "{" .. table.concat(out, ",") .. "}"
   elseif tv == "number" then
-    if v ~= v or v == math.huge or v == -math.huge then return "0" end
-    if math.floor(v) == v then return string.format("%d", v) end
-    return string.format("%.2f", v)
+    local ok, out = pcall(function()
+      if v ~= v or v == math.huge or v == -math.huge then return "0" end
+      if math.floor(v) == v then return string.format("%d", v) end
+      return string.format("%.2f", v)
+    end)
+    return ok and out or "0"
   elseif tv == "boolean" then return v and "true" or "false"
   elseif tv == "string" then return jstr(v) end
   return "null"
@@ -265,7 +323,8 @@ local function buildFrame()
   hint:SetPoint("BOTTOM", 0, 20)
   hint:SetText("Ctrl+C to copy, then paste it on the web helper")
 
-  local sf = CreateFrame("ScrollFrame", nil, f, "UIPanelScrollFrameTemplate")
+  local ok, sf = pcall(CreateFrame, "ScrollFrame", nil, f, "UIPanelScrollFrameTemplate")
+  if not ok or not sf then sf = CreateFrame("ScrollFrame", nil, f, "ScrollFrameTemplate") end
   sf:SetPoint("TOPLEFT", 22, -44)
   sf:SetPoint("BOTTOMRIGHT", -38, 40)
 
