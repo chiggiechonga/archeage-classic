@@ -1,0 +1,8 @@
+## Interface: 120001, 110207, 50503, 11508
+## Title: ForeverGuide
+## Notes: Makes a sync code (level, zone, quests, gear, hearth) for your leveling web helper. Type /fg
+## Author: chiggiechonga
+## Version: 1.0.0
+## SavedVariablesPerCharacter: ForeverGuideDB
+
+ForeverGuide.lua
