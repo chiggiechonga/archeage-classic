@@ -3,11 +3,12 @@
    Each page defines T, STOPS and CFG before loading this file. */
 
 /* ---------- storage ---------- */
-const SKEY='fg-sync-v1', TKEY=CFG.ovKey+'-trained', PKEY='fg-prices-v1';
+const SKEY='fg-sync-'+String(CFG.cls||'any').toLowerCase(), TKEY=CFG.ovKey+'-trained', PKEY='fg-prices-v1';
 const load=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}};
 const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 let ov=load(CFG.ovKey,{});   // your own taps: key -> true/false
-let C=load(SKEY,null);       // last synced character (shared across guide pages)
+let C=load(SKEY,null);       // last synced character for THIS guide's class
+if(!C){const old=load('fg-sync-v1',null);if(old&&(!CFG.cls||old.cls===CFG.cls)){C=old;store(SKEY,C)}} // carry over the old shared sync
 let trainedLv=load(TKEY,0);  // highest level you've trained at
 let prices=load(PKEY,{});    // your AH prices for the potions tab
 
@@ -221,7 +222,15 @@ $('codeGo').onclick=()=>{
  const m=$('codeMsg');
  try{const d=decode($('codeIn').value);
   // keep turned-in quests from older syncs too, in case the addon got reset
-  const old=new Map((((C&&C.n===d.n)?C.done:null)||[]).map(x=>[x[0],x]));(d.done||[]).forEach(x=>old.set(x[0],x));d.done=[...old.values()];
+  if(!(CFG.cls&&d.cls&&d.cls!==CFG.cls)){const old=new Map((((C&&C.n===d.n)?C.done:null)||[]).map(x=>[x[0],x]));(d.done||[]).forEach(x=>old.set(x[0],x));d.done=[...old.values()]}
+  if(CFG.cls&&d.cls&&d.cls!==CFG.cls){
+   // wrong guide: save it for that class's guide and leave this one alone
+   const k='fg-sync-'+String(d.cls).toLowerCase();const prev=load(k,null);
+   const keep=new Map((((prev&&prev.n===d.n)?prev.done:null)||[]).map(x=>[x[0],x]));(d.done||[]).forEach(x=>keep.set(x[0],x));d.done=[...keep.values()];
+   store(k,d);$('codeIn').value='';m.className='msg err';
+   m.innerHTML=`That code is from <b>${esc(d.n)}</b>, your ${esc(cap(d.cls))}. This is the ${esc(cap(CFG.cls))} guide, so it wasn't synced here. It's saved for your ${esc(cap(d.cls))} guide${CFG.otherPage?` · <a href="${CFG.otherPage}">open it</a>`:''}.`;
+   return;
+  }
   C=d;store(SKEY,C);cur=null;$('codeIn').value='';
   m.className='msg ok';m.textContent=`Synced ${d.n}, Lv ${d.lv}, in ${d.zone}. Taking you to your next steps…`;
   render();setTimeout(()=>{showTab('walk');m.textContent=''},900);
