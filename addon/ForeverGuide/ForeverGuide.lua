@@ -173,17 +173,57 @@ local PRICE_IDS = {
 local PRICE_NAMES = { "Spellblasting Potion", "Frenzy Potion", "Disorienting Smog Potion",
   "Greater Spellblasting Potion", "Greater Frenzy Potion", "Caustic Smog Potion" }
 
+local function linkFor(id)
+  local getInfo = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+  local _, link = safe(getInfo, id)
+  return link or ("item:" .. id)
+end
+
+local function good(p) return type(p) == "number" and p > 0 end
+
 local function lookup(id)
+  -- Auctioneer (Auc-Advanced)
+  local AA = AucAdvanced and AucAdvanced.API
+  if AA then
+    local link = linkFor(id)
+    local p = AA.GetMarketValue and safe(AA.GetMarketValue, link)
+    if good(p) then return p, "Auctioneer" end
+    p = AA.GetAlgorithmValue and safe(AA.GetAlgorithmValue, "Appraiser", link)
+    if good(p) then return p, "Auctioneer" end
+  end
+  -- Auctionator
   local A = Auctionator and Auctionator.API and Auctionator.API.v1
   if A and A.GetAuctionPriceByItemID then
     local p = safe(A.GetAuctionPriceByItemID, "ForeverGuide", id)
-    if type(p) == "number" and p > 0 then return p, "Auctionator" end
+    if good(p) then return p, "Auctionator" end
   end
+  -- TSM
   if TSM_API and TSM_API.GetCustomPriceValue then
     for _, src in ipairs({ "DBMinBuyout", "DBMarket" }) do
       local p = safe(TSM_API.GetCustomPriceValue, src, "i:" .. id)
-      if type(p) == "number" and p > 0 then return p, "TSM" end
+      if good(p) then return p, "TSM" end
     end
+  end
+  -- shared function several AH addons define
+  if GetAuctionBuyout then
+    local p = safe(GetAuctionBuyout, linkFor(id))
+    if good(p) then return p, "AH addon" end
+  end
+end
+
+-- which AH addons are loaded (for the chat message)
+local function ahAddons()
+  local found = {}
+  if AucAdvanced then found[#found + 1] = "Auctioneer" end
+  if Auctionator then found[#found + 1] = "Auctionator" end
+  if TSM_API then found[#found + 1] = "TSM" end
+  return found
+end
+
+-- ask the game to cache item info so links and names resolve on the first /fg
+local function warmItems()
+  if C_Item and C_Item.RequestLoadItemDataByID then
+    for id in pairs(PRICE_IDS) do pcall(C_Item.RequestLoadItemDataByID, id) end
   end
 end
 
@@ -348,7 +388,16 @@ local function buildFrame()
 end
 
 local function showExport()
-  local code = "FG1:" .. b64(json(collect()))
+  local data = collect()
+  local code = "FG1:" .. b64(json(data))
+  local n, addons = #data.pr, ahAddons()
+  if n > 0 then
+    print(("|cff7fd8ffForeverGuide|r grabbed %d AH prices from %s."):format(n, data.prs))
+  elseif #addons > 0 then
+    print(("|cff7fd8ffForeverGuide|r found %s but no prices yet. Open the AH and let it scan, then /fg again."):format(table.concat(addons, ", ")))
+  else
+    print("|cff7fd8ffForeverGuide|r no AH addon found (Auctioneer, Auctionator or TSM), so no prices this time.")
+  end
   exportFrame = exportFrame or buildFrame()
   exportFrame.code = code
   exportFrame.eb:SetText(code)
@@ -370,6 +419,7 @@ FG:SetScript("OnEvent", function(_, event, arg1)
     db()
   elseif event == "PLAYER_LOGIN" then
     refreshSnapshot()
+    warmItems()
     print("|cff7fd8ffForeverGuide|r loaded. Type |cfff2c14e/fg|r to get your sync code.")
   elseif event == "QUEST_TURNED_IN" then
     markDone(arg1)

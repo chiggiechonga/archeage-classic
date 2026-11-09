@@ -190,7 +190,7 @@ function potions(){
  document.querySelectorAll('.pin').forEach(inp=>inp.onchange=()=>{const k=inp.dataset.p;if(inp.value.trim())prices[k]=inp.value.trim();else delete prices[k];store(PKEY,prices);potions()});
  $('alchSkill').textContent=skill;
  const n=Object.keys(AH0).length,el2=$('ahNote');
- if(el2)el2.innerHTML=n?`<b>AH prices:</b> ${n} items from ${esc(C.prs||'your AH addon')}, synced ${ago(C.t)}. Grey numbers in the boxes are those prices. Type in a box to override one.`:`<b>AH prices:</b> none synced yet. Open the auction house so Auctionator (or TSM) scans, then do <span class="kbd">/fg</span> and sync. Or type prices in yourself.`;
+ if(el2)el2.innerHTML=n?`<b>AH prices:</b> ${n} items from ${esc(C.prs||'your AH addon')}, synced ${ago(C.t)}. Grey numbers in the boxes are those prices. Type in a box to override one.`:`<b>AH prices:</b> none synced yet. Open the auction house so Auctioneer (or Auctionator/TSM) scans, then do <span class="kbd">/fg</span> and sync. Or type prices in yourself.`;
 }
 
 /* ---------- professions (synced) ---------- */
