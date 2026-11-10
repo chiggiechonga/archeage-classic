@@ -134,3 +134,9 @@ textarea{width:100%;min-height:110px;background:#070708;color:var(--ink);border:
 .npcl b,.npc b{color:var(--ink);font-weight:600}
 .xy{color:var(--acc);font-variant-numeric:tabular-nums;white-space:nowrap}
 .npc{margin-left:6px;font-size:12.5px;color:var(--soft)}
+
+/* keep the left sidebar in view while scrolling (desktop) */
+.app{overflow:clip}
+@media (min-width:861px){
+ .side{position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;scrollbar-width:thin}
+}
