@@ -146,8 +146,41 @@ function searchView(){
 function rowHtml(s,i){const x=s.q[i];const[t,nm,wh,tip,df]=x;const tg=T[t]||T.do;const k=qid(s,i);const a=auto(s,i);const c=isDoneRow(s,i);let h='';
   const badge=c?(a.done&&!(k in ov)?'<span class="st st-sync">✓ SYNCED</span>':''):a.badge==='ready'?'<span class="st st-ready">READY TO TURN IN</span>':a.badge==='log'?'<span class="st st-log">IN LOG</span>':a.badge==='lv'?'<span class="st st-lv">LEVEL READY</span>':'';
   const part=!c&&a.partial?`<span class="st st-part">${a.partial}</span>`:'';
-  h+=`<div class="q ${t==='bag'?'bag':''} ${df?'diff':''} ${c?'chk':''}" data-q="${k}" data-s="${s.id}" data-i="${i}"><span class="box">${c?'✓':''}</span><span class="bang ${tg[2]}">${tg[0]}</span><div><div class="n">${esc(nm)}${df?'<span class="mg">❄ MAGE</span>':''}${badge}${part}</div><div class="s">${esc(wh)}</div>${tip?`<div class="tip">💡 ${esc(tip)}</div>`:''}</div><span class="tag ${tg[2]}">${tg[1]}</span></div>`;
+  h+=`<div class="q ${t==='bag'?'bag':''} ${df?'diff':''} ${c?'chk':''}" data-q="${k}" data-s="${s.id}" data-i="${i}"><span class="box">${c?'✓':''}</span><span class="bang ${tg[2]}">${tg[0]}</span><div><div class="n">${esc(nm)}${df?'<span class="mg">❄ MAGE</span>':''}${badge}${part}</div><div class="s">${esc(wh)}</div>${npcLine(s,i)}${tip?`<div class="tip">💡 ${esc(tip)}</div>`:''}</div><span class="tag ${tg[2]}">${tg[1]}</span></div>`;
  return h}
+
+
+/* ---------- quest givers + coordinates (questnpc.js, from QuestieDB) ---------- */
+const QDB=(typeof QNPC!=='undefined')?QNPC:{};
+const midLv=s=>{const n=nums(s.lv);return n.length?(Math.min(...n)+Math.max(...n))/2:0};
+function qrec(name,lv){const k=norm(String(name).replace(/,? part \d+/i,''));const r=QDB[k];if(!r)return null;
+ return r.slice().sort((a,b)=>Math.abs((a[2]||0)-lv)-Math.abs((b[2]||0)-lv))[0]}
+const zshort=z=>String(z||'').replace(/ (Forest|Mountains|Highlands|Vale|City|Marsh|Crater|Mountain)$/,'');
+function npcTxt(n,withZone=true){if(!n)return '';const c=n[2]!=null?` <span class="xy">${withZone&&n[1]?esc(zshort(n[1]))+' ':''}${(+n[2]).toFixed(1)}, ${(+n[3]).toFixed(1)}</span>`:'';return `<b>${esc(n[0])}</b>${c}`}
+const sameNpc=(a,b)=>a&&b&&a[0]===b[0];
+// one line under a quest row: who starts it, who you turn it in to
+function npcLine(s,i){
+ const [t,nm]=s.q[i];if(['hearth','train','book','bag','skip'].includes(t))return '';
+ const lv=midLv(s);const chain=nm.includes(' → ');const parts=nm.split(/ → | · /).map(x=>x.trim()).filter(Boolean);
+ const recs=parts.map(p=>[p,qrec(p,lv)]).filter(x=>x[1]);if(!recs.length)return '';
+ let h='';
+ if(chain||recs.length===1){const st=recs[0][1][0],en=recs[recs.length-1][1][1];
+  if(t==='turn'){h=en?`↩ Turn in: ${npcTxt(en)}`:''}
+  else if(sameNpc(st,en))h=`📍 From + turn in: ${npcTxt(st)}`;
+  else h=[st?`📍 From: ${npcTxt(st)}`:'',en?`↩ Turn in: ${npcTxt(en)}`:''].filter(Boolean).join(' · ');
+ }else{
+  h=recs.map(([p,r])=>{const n=t==='turn'?r[1]:r[0];return n?`${esc(p)}: ${npcTxt(n)}`:''}).filter(Boolean).join(' · ');
+  h=(t==='turn'?'↩ ':'📍 ')+h;
+ }
+ return h?`<div class="npcl">${h}</div>`:'';
+}
+// a grab / turn-in line: swap in the real NPC; keep lowercase notes like "(skip if…)"
+function lineNpc(s,kind,text){
+ const m=String(text).match(/^(.*?)(?: \((.*)\))?$/);const name=m[1],paren=m[2]||'';const note=paren&&/^[a-z]/.test(paren)?paren:'';
+ const r=(kind==='grab'||kind==='turn')?qrec(name,midLv(s)):null;const n=r?(kind==='turn'?r[1]:r[0]):null;
+ const who=n?npcTxt(n):(paren&&!note?esc(paren):'');
+ return {name,html:(who?`<span class="npc">${kind==='turn'?'↩ ':'📍 '}${who}</span>`:'')+(note?`<span class="npc">· ${esc(note)}</span>`:'')};
+}
 
 // grouped view (plan.js): town → grab → do → turn in → hold
 const PICON={town:'🏠',grab:'📥',do:'⚔️',turn:'↩',hold:'🎒',dng:'◆',skip:'×'};
@@ -170,8 +203,8 @@ function questsHtml(s){
   p.items.forEach((it,n)=>{
    if(it.row!==undefined){h+=rowHtml(s,it.row);return}
    const c=lineDone(s,p.si,it.ii,p.k,it.text);const k=lineKey(s,p.si,it.ii);const syn=c&&!(k in ov);
-   const m=String(it.text).match(/^(.*?)( \(.*\))?$/);
-   h+=`<div class="q pl ${c?'chk':''}" data-l="${k}" data-kind="${p.k}" data-t="${esc(it.text)}"><span class="box">${c?'✓':''}</span><span class="pnum">${n+1}.</span><div><div class="n">${esc(m[1])}${m[2]?`<span class="npc">${esc(m[2])}</span>`:''}${syn?'<span class="st st-sync">✓ SYNCED</span>':''}</div></div><span></span></div>`});
+   const ln=lineNpc(s,p.k,it.text);
+   h+=`<div class="q pl ${c?'chk':''}" data-l="${k}" data-kind="${p.k}" data-t="${esc(it.text)}"><span class="box">${c?'✓':''}</span><span class="pnum">${n+1}.</span><div><div class="n">${esc(ln.name)}${ln.html}${syn?'<span class="st st-sync">✓ SYNCED</span>':''}</div></div><span></span></div>`});
   h+='</div>'});
  return h;
 }
