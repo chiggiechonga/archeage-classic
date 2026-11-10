@@ -94,3 +94,18 @@ textarea{width:100%;min-height:110px;background:#070708;color:var(--ink);border:
 .top{background:#141416!important}
 .app{border-color:var(--acc)!important}
 .zone{color:#a7a0a5!important}
+
+/* quest search */
+.top{flex-wrap:wrap}
+.qs{margin-left:auto;display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#070708;color:var(--soft);min-width:260px}
+.qs:focus-within{border-color:var(--acc);color:var(--acc)}
+.qs input{flex:1;background:none;border:0;outline:0;color:var(--ink);font:inherit;font-size:13.5px;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sres{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:10px 8px;border-bottom:1px solid var(--line2);cursor:pointer;align-items:start}
+.sres:hover{background:var(--t3)}
+.sres .n{font-size:15px}.sres .s{color:var(--soft);font-size:12.5px}.sres .tip{color:var(--frost);font-size:12.5px;margin-top:2px}
+.verdict{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.v-take{color:var(--acc)}.v-hold{color:#8ec5ff}.v-skip{color:#8a8388}.v-done{color:#3fd06a}
+.nores{border:1px dashed var(--line);border-radius:8px;padding:14px;margin-top:10px;font-size:14px}
+.nores b{color:var(--acc)}
+@media (max-width:700px){.qs{order:5;width:100%;margin-left:0}}

@@ -54,7 +54,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const money=m=>{m=Math.round(+m||0);const neg=m<0;m=Math.abs(m);const g=Math.floor(m/1e4),s=Math.floor(m/100)%100,c=m%100;return (neg?'-':'')+((g?g+'g ':'')+(g||s?s+'s ':'')+(c||(!g&&!s)?c+'c':'')).trim()};
 const cap=s=>String(s||'').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
-function ago(t){if(!t)return'';const m=Math.max(0,Math.round((Date.now()/1000-t)/60));return m<1?'just now':m<60?m+' min ago':m<1440?Math.round(m/60)+' hr ago':Math.round(m/1440)+' days ago'}
+function ago(t){if(!t)return'';const m=Math.max(0,Math.round((Date.now()/1000-t)/60));return m<1?'just now':m<60?m+' min ago':m<1440?Math.round(m/60)+' hr ago':(n=>n+(n===1?' day ago':' days ago'))(Math.round(m/1440))}
 const wearing=n=>C&&(C.gear||[]).some(g=>norm(g.n)===norm(n));
 const STOPWORDS=new Set(['part','return','east','west','north','south','coast','between','dungeon','inside','road','city','your','first','mount','dual','spec','sleeping','training','heal','with']);
 
@@ -118,7 +118,25 @@ function sidebar(){
  $('sidebar').innerHTML=out;
  document.querySelectorAll('.srow[data-s]').forEach(b=>b.onclick=()=>{cur=b.dataset.s;render();if(innerWidth<860)$('detail').scrollIntoView({behavior:'smooth'})});
 }
+let Q='';
+const VERDICT={do:['TAKE IT','v-take'],dng:['TAKE IT · DUNGEON','v-take'],turn:['TURN IN','v-take'],hold:['GRAB + HOLD','v-hold'],train:['DO IT','v-take'],hearth:['DO IT','v-take'],book:['GRAB IT','v-take'],bag:['DO IT','v-take'],skip:['SKIP','v-skip']};
+function searchView(){
+ const q=norm(Q);const hits=[];
+ STOPS.forEach((s,si)=>{s.q.forEach((x,i)=>{if(norm(x[1]).includes(q)||norm(x[2]).includes(q))hits.push({s,si,i,x})});
+  s.gear.forEach(g=>g[2].forEach(it=>{if(norm(it[1]).includes(q))hits.push({s,si,gear:g,it})}))});
+ const inLog=C&&(C.log||[]).filter(l=>norm(l.t).includes(q));
+ let h=`<div class="sec">SEARCH: “${esc(Q)}” <small>${hits.length} on your route · tap one to open its stop</small></div>`;
+ hits.forEach(r=>{
+  if(r.gear){h+=`<div class="sres" data-s="${r.s.id}"><div><div class="n">${esc(r.it[1])}</div><div class="s">Reward from ${esc(r.gear[0])} · stop ${r.si+1}: ${esc(r.s.nm)} (Lv ${esc(r.s.lv)})</div><div class="tip">${r.it[4]?'★ The guide says take this one.':'Not the pick: the guide takes another reward from this quest.'} ${esc(r.it[3])}</div></div><span class="verdict ${r.it[4]?'v-take':'v-skip'}">${r.it[4]?'★ PICK':'NOT THE PICK'}</span></div>`;return}
+  const [t,nm,wh,tip]=r.x;const done=isDoneRow(r.s,r.i);const a=auto(r.s,r.i);
+  const v=done?['ALREADY DONE','v-done']:(VERDICT[t]||VERDICT.do);
+  const extra=!done&&a.badge==='ready'?' <span class="st st-ready">READY TO TURN IN</span>':!done&&a.badge==='log'?' <span class="st st-log">IN YOUR LOG</span>':'';
+  h+=`<div class="sres" data-s="${r.s.id}"><div><div class="n">${esc(nm)}${extra}</div><div class="s">${esc(wh)} · stop ${r.si+1}: ${esc(r.s.nm)} (Lv ${esc(r.s.lv)})</div>${tip?`<div class="tip">💡 ${esc(tip)}</div>`:''}</div><span class="verdict ${v[1]}">${v[0]}</span></div>`});
+ if(!hits.length)h+=`<div class="nores"><b>Not on your route.</b> You don't need it. Skip it, unless it's right on your way and quick.${inLog&&inLog.length?`<br><br>It's in your quest log though (${inLog.map(l=>esc(l.t)).join(', ')}). Finish it if it's easy, or abandon it to free up space.`:''}</div>`;
+ return h;
+}
 function detail(){
+ if(Q.trim()){const d=$('detail');d.innerHTML=searchView();d.querySelectorAll('.sres').forEach(r=>r.onclick=()=>{cur=r.dataset.s;Q='';$('qsearch').value='';render()});return}
  const s=STOPS.find(x=>x.id===cur);const n=STOPS.indexOf(s)+1;
  const bk=s.q.filter(x=>x[0]==='book'&&!x[1].includes('Turn in')).length,bag=s.q.filter(x=>x[0]==='bag').length,dng=s.q.filter(x=>x[0]==='dng').length,gearN=s.gear.length;
  let h=`<div class="head"><div><h2>${n}. ${esc(s.nm)}</h2><div class="zone">${esc(s.zone)} · <b>Level ${s.lv}</b></div></div>
@@ -238,5 +256,6 @@ $('codeGo').onclick=()=>{
 };
 $('codeClear').onclick=()=>{C=null;try{localStorage.removeItem(SKEY)}catch(e){};cur=null;render();const m=$('codeMsg');m.className='msg ok';m.textContent='Synced data cleared.'};
 if($('onlyDiff'))$('onlyDiff').onchange=render;
+if($('qsearch')){$('qsearch').oninput=e=>{Q=e.target.value;showTab('walk');detail()};$('qsearch').onkeydown=e=>{if(e.key==='Escape'){Q='';e.target.value='';detail()}}}
 $('reset').onclick=()=>{ov={};store(CFG.ovKey,ov);trainedLv=0;store(TKEY,0);cur=null;render()};
 render();
