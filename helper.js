@@ -143,6 +143,38 @@ function searchView(){
  if(!hits.length)h+=`<div class="nores"><b>Not on your route.</b> You don't need it. Skip it, unless it's right on your way and quick.${inLog&&inLog.length?`<br><br>It's in your quest log though (${inLog.map(l=>esc(l.t)).join(', ')}). Finish it if it's easy, or abandon it to free up space.`:''}</div>`;
  return h;
 }
+function rowHtml(s,i){const x=s.q[i];const[t,nm,wh,tip,df]=x;const tg=T[t]||T.do;const k=qid(s,i);const a=auto(s,i);const c=isDoneRow(s,i);let h='';
+  const badge=c?(a.done&&!(k in ov)?'<span class="st st-sync">✓ SYNCED</span>':''):a.badge==='ready'?'<span class="st st-ready">READY TO TURN IN</span>':a.badge==='log'?'<span class="st st-log">IN LOG</span>':a.badge==='lv'?'<span class="st st-lv">LEVEL READY</span>':'';
+  const part=!c&&a.partial?`<span class="st st-part">${a.partial}</span>`:'';
+  h+=`<div class="q ${t==='bag'?'bag':''} ${df?'diff':''} ${c?'chk':''}" data-q="${k}" data-s="${s.id}" data-i="${i}"><span class="box">${c?'✓':''}</span><span class="bang ${tg[2]}">${tg[0]}</span><div><div class="n">${esc(nm)}${df?'<span class="mg">❄ MAGE</span>':''}${badge}${part}</div><div class="s">${esc(wh)}</div>${tip?`<div class="tip">💡 ${esc(tip)}</div>`:''}</div><span class="tag ${tg[2]}">${tg[1]}</span></div>`;
+ return h}
+
+// grouped view (plan.js): town → grab → do → turn in → hold
+const PICON={town:'🏠',grab:'📥',do:'⚔️',turn:'↩',hold:'🎒',dng:'◆',skip:'×'};
+const lineKey=(s,si,i)=>`${s.id}-L${si}-${i}`;
+function lineAuto(kind,text){if(!C)return false;const n=norm(String(text).split(' (')[0]);if(!n)return false;
+ if(kind==='grab')return IX.log.has(n)||IX.done.has(n);if(kind==='turn')return IX.done.has(n);return false}
+const lineDone=(s,si,i,kind,text)=>{const k=lineKey(s,si,i);return k in ov?ov[k]:lineAuto(kind,text)};
+function questsHtml(s){
+ const plan=(typeof PLAN!=='undefined')&&PLAN[s.id];
+ if(!plan){let h=`<div class="sec">QUESTS <small>in order · tap to check off</small></div>`;s.q.forEach((x,i)=>h+=rowHtml(s,i));return h}
+ const used=new Set();
+ const find=ref=>{for(const alt of ref.slice(1).split('|')){const i=s.q.findIndex((x,ix)=>!used.has(ix)&&x[1].startsWith(alt.trim()));if(i>=0){used.add(i);return i}}return -1};
+ const secs=plan.map((p,si)=>{const items=p.i.map((it,ii)=>it.startsWith('@')?{row:find(it)}:{text:it,ii}).filter(x=>x.row===undefined||x.row>=0);return {...p,si,items}});
+ const left=s.q.map((x,i)=>i).filter(i=>!used.has(i));
+ if(left.length)secs.push({k:'do',h:'Also on this stop',si:99,items:left.map(i=>({row:i}))});
+ let h=`<div class="sec">THE PLAN <small>top to bottom · tap to check off</small></div>`;
+ secs.forEach(p=>{if(!p.items.length)return;
+  const done=p.items.filter(it=>it.row!==undefined?isDoneRow(s,it.row):lineDone(s,p.si,it.ii,p.k,it.text)).length;
+  h+=`<div class="psec psec-${p.k}"><div class="psec-h"><span>${PICON[p.k]||'•'} ${esc(p.h)}</span><small>${done}/${p.items.length}</small></div>`;
+  p.items.forEach((it,n)=>{
+   if(it.row!==undefined){h+=rowHtml(s,it.row);return}
+   const c=lineDone(s,p.si,it.ii,p.k,it.text);const k=lineKey(s,p.si,it.ii);const syn=c&&!(k in ov);
+   const m=String(it.text).match(/^(.*?)( \(.*\))?$/);
+   h+=`<div class="q pl ${c?'chk':''}" data-l="${k}" data-kind="${p.k}" data-t="${esc(it.text)}"><span class="box">${c?'✓':''}</span><span class="pnum">${n+1}.</span><div><div class="n">${esc(m[1])}${m[2]?`<span class="npc">${esc(m[2])}</span>`:''}${syn?'<span class="st st-sync">✓ SYNCED</span>':''}</div></div><span></span></div>`});
+  h+='</div>'});
+ return h;
+}
 function detail(){
  if(Q.trim()){const d=$('detail');d.innerHTML=searchView();d.querySelectorAll('.sres').forEach(r=>r.onclick=()=>{cur=r.dataset.s;Q='';$('qsearch').value='';render()});return}
  const s=STOPS.find(x=>x.id===cur);const n=STOPS.indexOf(s)+1;
@@ -152,18 +184,16 @@ function detail(){
   <div class="hearth"><span class="chip">⌂ Hearth: <b>${esc(s.hearth)}</b></span><span class="chip ${s.rdiff?'diff':''}">💤 ${esc(s.rest)}</span>${s.hdiff?`<span class="chip diff">❄ ${esc(s.hdiff)}</span>`:''}</div>`;
  h+=goBox(s);
  if(n-1===hereIdx())h+=rightNow(s);
- h+=`<div class="sec">QUESTS <small>in order · tap to check off</small></div>`;
- s.q.forEach((x,i)=>{const[t,nm,wh,tip,df]=x;const tg=T[t]||T.do;const k=qid(s,i);const a=auto(s,i);const c=isDoneRow(s,i);
-  const badge=c?(a.done&&!(k in ov)?'<span class="st st-sync">✓ SYNCED</span>':''):a.badge==='ready'?'<span class="st st-ready">READY TO TURN IN</span>':a.badge==='log'?'<span class="st st-log">IN LOG</span>':a.badge==='lv'?'<span class="st st-lv">LEVEL READY</span>':'';
-  const part=!c&&a.partial?`<span class="st st-part">${a.partial}</span>`:'';
-  h+=`<div class="q ${t==='bag'?'bag':''} ${df?'diff':''} ${c?'chk':''}" data-q="${k}" data-s="${s.id}" data-i="${i}"><span class="box">${c?'✓':''}</span><span class="bang ${tg[2]}">${tg[0]}</span><div><div class="n">${esc(nm)}${df?'<span class="mg">❄ MAGE</span>':''}${badge}${part}</div><div class="s">${esc(wh)}</div>${tip?`<div class="tip">💡 ${esc(tip)}</div>`:''}</div><span class="tag ${tg[2]}">${tg[1]}</span></div>`});
+ h+=questsHtml(s);
  if(s.gear.length){h+=`<div class="sec">GEAR FROM THIS STOP <small>★ = take this one</small></div><div class="cards">`;
   s.gear.forEach((g,i)=>{h+=`<div class="card ${g[3]?'diff':''}"><h3><span class="num">${i+1}</span>${esc(g[0])}${g[3]?'<span class="mg">❄ MAGE</span>':''}<span class="lvq">Lv ${g[1]}</span></h3>`;
    g[2].forEach(it=>{const w=wearing(it[1]);h+=`<div class="it"><div class="icon">${it[0]}</div><div><div class="nm ${it[2]}">${esc(it[1])}</div><div class="ty">${esc(it[3])}</div></div><span class="pick ${w?'wear':''}">${w?'✓ WEARING':it[4]?'★ PICK':''}</span></div>`});
    h+='</div>'});h+='</div><div class="cnote">Item stats in Forever can differ from classic, so hover the reward before picking.</div>'}
  if(s.note)h+=`<div class="box2"><b>Heads up:</b> ${esc(s.note)}</div>`;
  const d=$('detail');d.innerHTML=h;
- d.querySelectorAll('.q').forEach(r=>r.onclick=()=>{const S=STOPS.find(x=>x.id===r.dataset.s),i=+r.dataset.i,k=r.dataset.q;
+ d.querySelectorAll('.q.pl').forEach(r=>r.onclick=()=>{const k=r.dataset.l;const cur2=k in ov?ov[k]:lineAuto(r.dataset.kind,r.dataset.t);const now=!cur2;
+  if(now===lineAuto(r.dataset.kind,r.dataset.t))delete ov[k];else ov[k]=now;store(CFG.ovKey,ov);render()});
+ d.querySelectorAll('.q[data-q]').forEach(r=>r.onclick=()=>{const S=STOPS.find(x=>x.id===r.dataset.s),i=+r.dataset.i,k=r.dataset.q;
   const now=!isDoneRow(S,i);
   if(now===auto(S,i).done)delete ov[k];else ov[k]=now;
   if(now&&S.q[i][0]==='train'){const n=nums(S.q[i][1]);const lv=C?C.lv:(n.length?Math.max(...n):0);if(lv>trainedLv){trainedLv=lv;store(TKEY,trainedLv)}}

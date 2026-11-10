@@ -118,3 +118,14 @@ textarea{width:100%;min-height:110px;background:#070708;color:var(--ink);border:
 .go li::before{content:counter(g)".";color:var(--soft);font-size:12.5px;padding-top:1px}
 .go .gi{text-align:center}
 .go-c{margin-top:6px}.go-c li{font-size:13px;color:var(--ink)}
+
+/* grouped plan */
+.psec{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-top:10px;padding:4px 10px 2px}
+.psec-h{display:flex;justify-content:space-between;align-items:center;color:var(--acc);font-weight:700;font-size:13px;letter-spacing:.05em;padding:6px 0;border-bottom:1px solid var(--line2);text-transform:uppercase}
+.psec-h small{color:var(--soft);font-weight:400;letter-spacing:0}
+.psec .q:last-child{border-bottom:0}
+.psec-turn .psec-h{color:#7fe3d6}.psec-hold .psec-h{color:#8ec5ff}.psec-dng .psec-h{color:#c9a7ff}.psec-skip .psec-h{color:#8a8388}
+.q.pl{padding:7px 6px}
+.q.pl .n{font-size:14.5px}
+.pnum{color:var(--soft);font-size:12.5px;text-align:right;margin-top:2px}
+.npc{color:var(--soft);font-size:12.5px;margin-left:4px}
