@@ -109,3 +109,12 @@ textarea{width:100%;min-height:110px;background:#070708;color:var(--ink);border:
 .nores{border:1px dashed var(--line);border-radius:8px;padding:14px;margin-top:10px;font-size:14px}
 .nores b{color:var(--acc)}
 @media (max-width:700px){.qs{order:5;width:100%;margin-left:0}}
+
+/* getting here */
+.gobox{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:9px 12px;margin-top:10px}
+.go-h{color:var(--acc);font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:4px}
+.go{margin:0;padding:0;list-style:none;counter-reset:g;display:grid;gap:4px}
+.go li{display:grid;grid-template-columns:22px 22px minmax(0,1fr);gap:4px;align-items:start;font-size:13.5px;counter-increment:g}
+.go li::before{content:counter(g)".";color:var(--soft);font-size:12.5px;padding-top:1px}
+.go .gi{text-align:center}
+.go-c{margin-top:6px}.go-c li{font-size:13px;color:var(--ink)}

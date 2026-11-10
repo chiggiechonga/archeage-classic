@@ -88,7 +88,7 @@ function rightNow(s){
  if(hub&&!String(C.hs).toLowerCase().includes(hub.toLowerCase()))first.push(['⌂',`Your hearth is set to <b>${esc(C.hs||'?')}</b>. This stop wants it at <b>${esc(hub)}</b>.`]);
  const words=(s.zone+' '+s.nm).toLowerCase().replace(/[^a-z' ]+/g,' ').split(' ').filter(w=>w.length>=5&&!STOPWORDS.has(w));
  const zNow=(C.zone+' '+C.sub).toLowerCase();
- if(C.zone&&words.length&&!words.some(z=>zNow.includes(z)))first.push(['🧭',`You're in <b>${esc(C.zone)}</b>. This stop is in <b>${esc(s.zone)}</b>.`]);
+ if(C.zone&&words.length&&!words.some(z=>zNow.includes(z)))first.push(['🧭',`You're in <b>${esc(C.zone)}</b>. This stop is in <b>${esc(s.zone)}</b>. How to get there:${goBox(s,true)}`]);
  if(C.lv<lo-1)first.push(['⚠️',`You're Lv ${C.lv}, and this stop is ${esc(s.lv)}. Mobs will hit hard, so grind a bit or do the easy quests first.`]);
  if(C.lv>Math.ceil(hi)+1)first.push(['⏩',`You're Lv ${C.lv}, ahead of this stop (${esc(s.lv)}). Grab the gear/dungeon quests and skip the rest.`]);
  if(C.bag>=0&&C.bag<=2)first.push(['🎒',`Only <b>${C.bag}</b> bag slots left. Vendor your grays next time you're in town.`]);
@@ -104,6 +104,14 @@ function rightNow(s){
   ${next.length?`<div class="nsub">NEXT UP</div>${li(next)}`:'<div class="ni"><span>🎉</span><span>Route done!</span></div>'}
   ${off.length?`<div class="nsub">IN YOUR LOG BUT NOT ON THIS ROUTE</div><div class="ni"><span>×</span><span>${off.map(q=>esc(q.t)+(q.c?' <span class="st st-ready">READY</span>':'')).join(' · ')} <span class="w">· finish them if they're on the way, or abandon them to free up log space.</span></span></div>`:''}
  </div>`;
+}
+
+/* ---------- getting there ---------- */
+const GOICON={tp:'🌀',hs:'⌂',fly:'🪶',boat:'⛵',ride:'🐎',walk:'🚶',fp:'📍'};
+function goBox(s,compact){
+ if(!s.go||!s.go.length)return '';
+ const li=s.go.map(([k,t])=>`<li><span class="gi">${GOICON[k]||'→'}</span><span>${esc(t)}</span></li>`).join('');
+ return compact?`<ol class="go go-c">${li}</ol>`:`<div class="gobox"><div class="go-h">🧭 GETTING HERE</div><ol class="go">${li}</ol></div>`;
 }
 
 /* ---------- sidebar + detail ---------- */
@@ -142,6 +150,7 @@ function detail(){
  let h=`<div class="head"><div><h2>${n}. ${esc(s.nm)}</h2><div class="zone">${esc(s.zone)} · <b>Level ${s.lv}</b></div></div>
   <div class="stats"><span>❗ <b>${doneCount(s)}/${s.q.length}</b> Quests</span>${gearN?`<span>🎁 <b>${gearN}</b> Gear</span>`:''}${dng?`<span>◆ <b>${dng}</b> Dungeon</span>`:''}${bag?`<span>🛏 <b>${bag}</b> Bag</span>`:''}${bk?`<span>📚 <b>${bk}</b> Book</span>`:''}</div></div>
   <div class="hearth"><span class="chip">⌂ Hearth: <b>${esc(s.hearth)}</b></span><span class="chip ${s.rdiff?'diff':''}">💤 ${esc(s.rest)}</span>${s.hdiff?`<span class="chip diff">❄ ${esc(s.hdiff)}</span>`:''}</div>`;
+ h+=goBox(s);
  if(n-1===hereIdx())h+=rightNow(s);
  h+=`<div class="sec">QUESTS <small>in order · tap to check off</small></div>`;
  s.q.forEach((x,i)=>{const[t,nm,wh,tip,df]=x;const tg=T[t]||T.do;const k=qid(s,i);const a=auto(s,i);const c=isDoneRow(s,i);
