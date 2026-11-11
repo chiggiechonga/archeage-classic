@@ -1,9 +1,0 @@
-## Interface: 16001
-## Title: ForeverGuide
-## Notes: Makes a sync code (level, zone, quests, gear, hearth, AH prices) for your leveling web helper. Type /fg
-## Author: chiggiechonga
-## Version: 1.2.1
-## SavedVariablesPerCharacter: ForeverGuideDB
-## OptionalDeps: Auc-Advanced, Auctioneer, Auctionator, TradeSkillMaster
-
-ForeverGuide.lua
